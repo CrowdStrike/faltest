@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "full-suite",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "faltest tests/**/*-test.js"
+  },
+  "engines": {
+    "node": ">=8.10"
+  },
+  "devDependencies": {
+    "@faltest/chai": "^1.0.0",
+    "@faltest/cli": "^1.0.0",
+    "@faltest/lifecycle": "^1.0.0",
+    "@faltest/mocha": "^1.0.0",
+    "chai": "^4.2.0",
+    "config": "^3.2.2"
+  }
+}

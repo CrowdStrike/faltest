@@ -1,0 +1,10 @@
+{
+  "roles": {
+    "user": {
+      "email": "dev-user@example.com"
+    },
+    "admin": {
+      "email": "dev-admin@example.com"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@faltest/mocha",
+  "version": "1.0.0",
+  "description": "A test runner for the @faltest/lifecycle project",
+  "main": "src",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "mocha \"test/!(fixtures)/**/*-test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CrowdStrike/faltest.git",
+    "directory": "packages/mocha"
+  },
+  "keywords": [
+    "webdriver"
+  ],
+  "author": "Kelly Selden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrowdStrike/faltest/issues"
+  },
+  "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/mocha#readme",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "dependencies": {
+    "choma": "^1.2.1",
+    "glob": "^7.1.4",
+    "mocha-helpers": "^4.2.0"
+  },
+  "peerDependencies": {
+    "mocha": "6"
+  },
+  "devDependencies": {
+    "clear-module": "^4.0.0",
+    "mocha": "^6.2.0"
+  }
+}

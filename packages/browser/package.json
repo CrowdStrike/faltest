@@ -1,0 +1,37 @@
+{
+  "name": "@faltest/browser",
+  "version": "1.0.0",
+  "description": "A new browser object for WebdriverIO",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CrowdStrike/faltest.git",
+    "directory": "packages/browser"
+  },
+  "keywords": [
+    "webdriver"
+  ],
+  "author": "Kelly Selden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrowdStrike/faltest/issues"
+  },
+  "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/browser#readme",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "dependencies": {
+    "verror-extra": "^1.0.0"
+  },
+  "devDependencies": {
+    "@faltest/remote": "^1.0.0",
+    "@faltest/lifecycle": "^1.0.0",
+    "mocha": "^6.2.0"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@faltest/cli",
+  "version": "1.0.0",
+  "description": "The CLI for the FalTest system",
+  "bin": {
+    "faltest": "bin/index.js"
+  },
+  "main": "src",
+  "files": [
+    "bin",
+    "src"
+  ],
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CrowdStrike/faltest.git",
+    "directory": "packages/cli"
+  },
+  "keywords": [
+    "webdriver"
+  ],
+  "author": "Kelly Selden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrowdStrike/faltest/issues"
+  },
+  "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/cli#readme",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "dependencies": {
+    "@faltest/mocha": "^1.0.0",
+    "@faltest/remote": "^1.0.0",
+    "debug": "^4.1.1",
+    "yargs": "^13.3.0",
+    "yn": "^3.1.1"
+  }
+}

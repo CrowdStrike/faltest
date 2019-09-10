@@ -1,0 +1,41 @@
+{
+  "name": "@faltest/lifecycle",
+  "version": "1.0.0",
+  "description": "A Mocha environment for the @faltest/remote project",
+  "main": "src",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CrowdStrike/faltest.git",
+    "directory": "packages/lifecycle"
+  },
+  "keywords": [
+    "webdriver"
+  ],
+  "author": "Kelly Selden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrowdStrike/faltest/issues"
+  },
+  "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/lifecycle#readme",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "dependencies": {
+    "@faltest/remote": "^1.0.0",
+    "callsites": "^3.1.0",
+    "debug": "^4.1.1"
+  },
+  "optionalDependencies": {
+    "@faltest/browser": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "sinon": "^7.3.2"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@faltest/chai",
+  "version": "1.0.0",
+  "description": "A Chai plugin for @faltest/page-objects",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CrowdStrike/faltest.git",
+    "directory": "packages/chai"
+  },
+  "keywords": [
+    "chai-plugin",
+    "webdriver"
+  ],
+  "author": "Kelly Selden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrowdStrike/faltest/issues"
+  },
+  "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/chai#readme",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "devDependencies": {
+    "@faltest/browser": "^1.0.0",
+    "@faltest/page-objects": "^1.0.0",
+    "mocha": "^6.2.0",
+    "sinon": "^7.3.2"
+  },
+  "peerDependencies": {
+    "@faltest/browser": "",
+    "@faltest/page-objects": ""
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "@faltest/remote",
+  "version": "1.0.0",
+  "description": "A wrapper for the WebdriverIO remote call",
+  "main": "src",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CrowdStrike/faltest.git",
+    "directory": "packages/remote"
+  },
+  "keywords": [
+    "webdriver"
+  ],
+  "author": "Kelly Selden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrowdStrike/faltest/issues"
+  },
+  "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/remote#readme",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "dependencies": {
+    "callsites": "^3.1.0",
+    "chromedriver": "75.1.0",
+    "chromedriver_v65": "CrowdStrike/node-chromedriver#2.38.3",
+    "clear-module": "^4.0.0",
+    "debug": "^4.1.1",
+    "fkill": "^6.2.0",
+    "geckodriver": "1.16.2",
+    "get-port": "^5.0.0",
+    "pkg-conf": "^3.1.0",
+    "ps-list": "^6.3.0",
+    "webdriverio": "5.11.6"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "sinon": "^7.3.2"
+  }
+}
