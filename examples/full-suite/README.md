@@ -25,3 +25,11 @@ faltest --env dev
 ```sh
 faltest --tag user
 ```
+
+```sh
+faltest --tag smoke
+```
+
+```sh
+faltest --filter unfinished
+```
