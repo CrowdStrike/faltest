@@ -9,6 +9,7 @@ addons:
 env:
   - DEBUG=remote* WEBDRIVER_HEADLESS=TRUE
 before_script:
+- yarn lint:git
 - yarn lint:md
 - yarn lint:js
 after_script:
