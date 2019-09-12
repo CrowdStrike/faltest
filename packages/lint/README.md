@@ -1,5 +1,7 @@
 # eslint-plugin-faltest
 
+[![npm version](https://badge.fury.io/js/eslint-plugin-faltest.svg)](https://badge.fury.io/js/eslint-plugin-faltest)
+
 [ESLint](https://eslint.org) rules for [FalTest](https://github.com/CrowdStrike/faltest)
 
 ## Installation
