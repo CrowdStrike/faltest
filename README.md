@@ -1,5 +1,7 @@
 # FalTest
 
+[![Build Status](https://travis-ci.org/CrowdStrike/faltest.svg?branch=master)](https://travis-ci.org/CrowdStrike/faltest)
+
 A different take on [WebDriver](https://www.w3.org/TR/webdriver1) browser testing
 
 ## Requirements
