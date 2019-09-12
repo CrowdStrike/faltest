@@ -6,7 +6,11 @@ module.exports = {
       default: 'default',
       list: ['default', 'fixtures'],
     },
-    tags: ['user', 'admin'],
+    tags: [
+      'user',
+      'admin',
+      'smoke',
+    ],
     envs: {
       default: 'prod',
       list: ['dev', 'prod'],
