@@ -4,6 +4,8 @@ node_js:
 branches:
   only:
   - master
+  # npm version tags
+  - /^(?:[a-z-]+|@[a-z-]+\/[a-z-]+)@\d+\.\d+\.\d+$/
 addons:
   chrome: stable
 env:
