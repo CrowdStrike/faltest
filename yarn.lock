@@ -4342,6 +4342,11 @@ remark@^11.0.0:
     remark-stringify "^7.0.0"
     unified "^8.2.0"
 
+renovate-config-standard@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/renovate-config-standard/-/renovate-config-standard-2.0.0.tgz#4474b69ced02f7e14866dd19421a6e8a008427d7"
+  integrity sha512-QhKlkh8BCTFIFdSgWDbyAAO2dWkmy4ex7Ax62Slo5OE3Vc710a1k1dD+5JNpdBuSRPt6+uW47AD79Y+CP0+rhg==
+
 repeat-string@^1.5.0, repeat-string@^1.5.4:
   version "1.6.1"
   resolved "https://registry.npmjs.org/repeat-string/-/repeat-string-1.6.1.tgz#8dcae470e1c88abc2d600fff4a776286da75e637"
