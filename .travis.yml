@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '8'
 env:
-  - DEBUG=remote*
+  - DEBUG=remote* WEBDRIVER_HEADLESS=TRUE
 before_script:
 - yarn lint:md
 - yarn lint:js
