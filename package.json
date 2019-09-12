@@ -10,7 +10,7 @@
     "lint:md": "remark -f doc CONTRIBUTING.md README.md packages/*/README.md examples/*/README.md packages/lint/doc",
     "release": "next release --no-bump-in-range-dependencies",
     "start": "./packages/cli/bin/index.js",
-    "test": "mocha \"packages/!(mocha)/test/!(fixtures)/**/*-test.js\" \"packages/mocha/test/!(fixtures)/**/*-test.js\"",
+    "test": "mocha \"packages/!(mocha)/test/!(fixtures)/**/*-test.js\" \"packages/mocha/test/!(fixtures)/**/*-test.js\" --exit",
     "test:examples": "./packages/cli/bin/index.js examples/*/tests/**/*-test.js"
   },
   "repository": {

@@ -9,7 +9,7 @@ branches:
 addons:
   chrome: stable
 env:
-  - DEBUG=remote* WEBDRIVER_HEADLESS=true
+  - DEBUG=remote* WEBDRIVER_HEADLESS=true FIREFOX_INSTALLED=true
 before_script:
 - yarn lint:git
 - yarn lint:md

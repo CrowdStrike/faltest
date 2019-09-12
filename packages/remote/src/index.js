@@ -235,7 +235,7 @@ function getCapabilities({
 function startBrowser(overrides = {}) {
   return log(async () => {
     let browser;
-    let connectionRetryCount = 50;
+    let connectionRetryCount = 150;
 
     try {
       // We should refrain from using the `baseUrl` option here
