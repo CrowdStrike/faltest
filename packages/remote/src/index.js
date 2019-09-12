@@ -15,6 +15,7 @@ const {
   getMajorVersion: getMajorChromeVersion,
 } = require('./chrome');
 const EventEmitter = require('events');
+const yn = require('yn');
 // const config = require('config');
 
 // We aren't using `@wdio/cli` (wdio testrunner)
@@ -24,7 +25,7 @@ process.env.SUPPRESS_NO_CONFIG_WARNING = 'true';
 // const headless = config.get('headless') === 'true';
 
 const browser = process.env.WEBDRIVER_BROWSER;
-const headless = process.env.WEBDRIVER_HEADLESS === 'true';
+const headless = yn(process.env.WEBDRIVER_HEADLESS);
 
 let port;
 
