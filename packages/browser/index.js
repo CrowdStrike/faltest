@@ -13,6 +13,8 @@ const browserFunctionsToPassThrough = [
   'getWindowSize',
   'setWindowSize',
   'waitUntil',
+  'execute',
+  'executeAsync',
 ];
 
 const elementFunctionsToPassThrough = [

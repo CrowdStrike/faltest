@@ -321,7 +321,7 @@ describe(function() {
 
       resetHistory();
 
-      await this.browser._browser.execute(() => {
+      await this.browser.execute(() => {
         // eslint-disable-next-line no-undef
         document.querySelector('body').innerHTML += '<div id="late-addition"></div>';
       });
@@ -343,7 +343,7 @@ describe(function() {
 
       resetHistory();
 
-      await this.browser._browser.execute(() => {
+      await this.browser.execute(() => {
         // eslint-disable-next-line no-undef
         document.querySelector('#late-addition').innerHTML = '<div></div>';
       });
@@ -372,7 +372,7 @@ describe(function() {
 
       resetHistory();
 
-      await this.browser._browser.execute(() => {
+      await this.browser.execute(() => {
         // eslint-disable-next-line no-undef
         document.querySelector('#late-addition > div').innerHTML = '<div></div>';
       });
@@ -401,7 +401,7 @@ describe(function() {
 
       resetHistory();
 
-      await this.browser._browser.execute(() => {
+      await this.browser.execute(() => {
         // eslint-disable-next-line no-undef
         document.querySelector('#late-addition > div > div').innerHTML = '<div></div>';
       });
@@ -423,7 +423,7 @@ describe(function() {
 
       resetHistory();
 
-      await this.browser._browser.execute(() => {
+      await this.browser.execute(() => {
         // eslint-disable-next-line no-undef
         document.querySelector('#late-addition > div > div > div').innerHTML = 'SBrth9AyO7';
       });
@@ -550,13 +550,9 @@ describe(function() {
     });
 
     describe('stale', function() {
-      let browser;
-
       before(function() {
-        browser = this.browser._browser;
-
         this.remove = async function remove() {
-          await browser.execute(() => {
+          await this.browser.execute(() => {
             // eslint-disable-next-line no-undef
             let node = document.getElementById('ULYQ9KJAER');
             if (node) {
@@ -568,7 +564,7 @@ describe(function() {
       });
 
       beforeEach(async function() {
-        await browser.execute(() => {
+        await this.browser.execute(() => {
           // eslint-disable-next-line no-undef
           document.querySelector('body').innerHTML += '<div id="ULYQ9KJAER"><div>ULYQ9KJAER</div></div>';
         });
