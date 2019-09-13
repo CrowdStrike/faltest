@@ -28,9 +28,9 @@ describe('sample', function() {
 
         await this.browser.click('#log-in');
 
-        let _featureFlags = await this.browser._browser.executeAsync(done => {
+        let _featureFlags = await this.browser._browser.execute(() => {
           // eslint-disable-next-line no-undef
-          done(window.featureFlags);
+          return window.featureFlags;
         });
 
         featureFlags.splice(0, featureFlags.length, ..._featureFlags);
