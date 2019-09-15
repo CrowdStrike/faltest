@@ -21,7 +21,7 @@
     "node": ">=8.10"
   },
   "devDependencies": {
-    "@crowdstrike/commitlint": "^1.0.3",
+    "@crowdstrike/commitlint": "^1.0.4",
     "@faltest/chai": "^1.0.0",
     "@faltest/remote": "^1.0.0",
     "chai": "^4.2.0",

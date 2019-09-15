@@ -131,10 +131,10 @@
   dependencies:
     find-up "^4.0.0"
 
-"@crowdstrike/commitlint@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/@crowdstrike/commitlint/-/commitlint-1.0.3.tgz#ec921d21b2ffa3dc86bdfd9c1a80fcbfe95ba48f"
-  integrity sha512-HqIUKCMbIsortbIh85SweGBVYGljhFg4qWdYFI3tPPm3ndoK6q7N2IIhb836y/oRD+F8pHRHFW5jMsQ0HblQqw==
+"@crowdstrike/commitlint@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/@crowdstrike/commitlint/-/commitlint-1.0.4.tgz#bb16840e2ff907a52aba4dc9f8efa0280f2d7e29"
+  integrity sha512-TnhCmI+dj4gMVenMe8yK0Zp7d/IVLRS/1rLHRtdROy/Eco/XiLiZufi41Mw/MNUrN4tGOFyGmznFPZHVJgM2jw==
   dependencies:
     "@commitlint/config-conventional" "^8.1.0"
     "@commitlint/format" "^8.1.0"
