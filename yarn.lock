@@ -3187,10 +3187,10 @@ modify-values@^1.0.0:
   resolved "https://registry.npmjs.org/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-monorepo-next@0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/monorepo-next/-/monorepo-next-0.2.1.tgz#f5bac1b3f70f692c6d5980619817f64356ee4dc7"
-  integrity sha512-n3Wh1Wu1YG1Skoe0FpyWq1cYt/K4vCW7FpjpGl9NnHub2cJtauxKu5jDPBlBpcA0aC2WPhkIWEFAffB+f6Y2gQ==
+monorepo-next@0.2.2:
+  version "0.2.2"
+  resolved "https://registry.npmjs.org/monorepo-next/-/monorepo-next-0.2.2.tgz#220eee3f296f5044d5c72c16f550b05225797c22"
+  integrity sha512-Hq70/UwoVBPo3J+Wklu6KZCJTvqPCxVoLnEpwL7Qo1HCXEEijgX7g+D9vBiCOpG3aVYddmxVRG/9FGeZroVMXQ==
   dependencies:
     conventional-recommended-bump "6.0.0"
     execa "^2.0.4"
