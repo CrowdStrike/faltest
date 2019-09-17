@@ -8,7 +8,7 @@
     "lint:git": "commitlint",
     "lint:js": "eslint . --ext js,json",
     "lint:md": "remark -f doc CONTRIBUTING.md README.md packages/*/README.md examples/*/README.md packages/lint/doc",
-    "release": "next release",
+    "release": "next release --no-bump-in-range-dependencies",
     "start": "./packages/cli/bin/index.js",
     "test": "mocha \"packages/!(mocha)/test/!(fixtures)/**/*-test.js\" \"packages/mocha/test/!(fixtures)/**/*-test.js\"",
     "test:examples": "./packages/cli/bin/index.js examples/*/tests/**/*-test.js"
