@@ -1,11 +1,6 @@
 language: node_js
 node_js:
 - '8'
-branches:
-  only:
-  - master
-  # npm version tags
-  - /^(?:[a-z-]+|@[a-z-]+\/[a-z-]+)@\d+\.\d+\.\d+$/
 addons:
   chrome: stable
 env:

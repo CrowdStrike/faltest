@@ -771,6 +771,17 @@ chromedriver@76.0.1:
     request "^2.88.0"
     tcp-port-used "^1.0.1"
 
+chromedriver@^75.0.0:
+  version "75.1.0"
+  resolved "https://registry.npmjs.org/chromedriver/-/chromedriver-75.1.0.tgz#edfef5d7a9b16b6f8a12ddb58cbac76ae52732fd"
+  integrity sha512-N2P0fg6FS4c+tTG0R7cCOD5qiVo+E6uAz6xVjmbZesYv1xs1iGdcCUo0IqOY+ppD/4OOObG+XWV1CFWXT6UIgA==
+  dependencies:
+    del "^4.1.1"
+    extract-zip "^1.6.7"
+    mkdirp "^0.5.1"
+    request "^2.88.0"
+    tcp-port-used "^1.0.1"
+
 chromedriver_v65@CrowdStrike/node-chromedriver#2.38.3:
   version "2.38.3"
   resolved "https://codeload.github.com/CrowdStrike/node-chromedriver/tar.gz/1bcb7515517d5797153bd4afb6159cd232e8d4f8"

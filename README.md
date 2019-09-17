@@ -79,6 +79,14 @@ Logging can be accomplished via the `DEBUG` environment variable (<https://githu
 
 An example use would be `DEBUG=faltest* faltest --tag smoke`.
 
+## Browser Versions
+
+To override the [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) version to match your [Chrome](https://www.google.com/chrome) version, follow the guide [here](https://github.com/giggio/node-chromedriver#versioning). For example:
+
+```
+CHROMEDRIVER_VERSION=75.0.3770.140 npm install
+```
+
 ## Contributing
 
 If you need to change FalTest, see [Contributing Guide](./CONTRIBUTING.md).
