@@ -37,7 +37,7 @@
     "get-port": "^5.0.0",
     "pkg-conf": "^3.1.0",
     "ps-list": "^6.3.0",
-    "webdriverio": "5.13.0",
+    "webdriverio": "5.13.1",
     "yn": "^3.1.1"
   },
   "devDependencies": {
