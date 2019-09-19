@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.0.5...1.0.6) (2019-09-19)
+
+
+### Bug Fixes
+
+* remove old `chromedriver_v65` workaround ([de8a3a3](https://github.com/CrowdStrike/faltest/commit/de8a3a3))
+
 ### [1.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.0.4...1.0.5) (2019-09-19)
 
 
