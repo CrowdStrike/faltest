@@ -1,6 +1,6 @@
 'use strict';
 
-const { spawn } = require('child_process');
+const execa = require('execa');
 const {
   exec,
   findBin,
@@ -110,11 +110,15 @@ async function spawnWebDriver(execPath, args) {
   let versionCommand = `${execPath} --version`;
   await exec(versionCommand);
 
-  let webDriver = spawn(execPath, args, {
+  let webDriver = execa(execPath, args, {
     stdio: ['ignore', 'pipe', 'ignore'],
   });
 
   // webDriver.stdout.pipe(process.stdout);
+
+  // https://github.com/sindresorhus/execa/issues/173
+  delete webDriver.then;
+  delete webDriver.catch;
 
   return webDriver;
 }
