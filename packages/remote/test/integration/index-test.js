@@ -14,7 +14,7 @@ const Server = require('../../../../helpers/server');
 const shouldTestFirefox = process.env.WEBDRIVER_BROWSER === 'firefox' || process.env.FIREFOX_INSTALLED;
 
 describe(function() {
-  this.timeout(5 * 1000);
+  this.timeout(10 * 1000);
 
   async function startWebDriver(browser) {
     return await _startWebDriver({ browser, port: '0' });
