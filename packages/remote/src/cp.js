@@ -14,6 +14,9 @@ async function exec(command, ...args) {
   return result;
 }
 
+// The `bin` option is currently unused.
+// https://github.com/CrowdStrike/faltest/pull/41
+// Once all browser support is added, consider removing.
 async function findBin(name, bin) {
   if (!bin) {
     bin = name;
