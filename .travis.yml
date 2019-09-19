@@ -8,6 +8,7 @@ branches:
   - /^(?:[a-z-]+|@[a-z-]+\/[a-z-]+)@\d+\.\d+\.\d+$/
 addons:
   chrome: stable
+  firefox: latest
 jobs:
   include:
   - name: Lint
@@ -20,6 +21,14 @@ jobs:
     env:
     - DEBUG=remote* WEBDRIVER_HEADLESS=true FIREFOX_INSTALLED=true
   - name: Examples
+    services:
+    - xvfb
+    env:
+    - DEBUG=remote* WEBDRIVER_HEADLESS=false
+    script:
+    - yarn test:examples
+  - name: Examples
+    os: osx
     services:
     - xvfb
     env:
