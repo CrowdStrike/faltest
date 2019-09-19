@@ -14,5 +14,6 @@ before_script:
 - yarn lint:git
 - yarn lint:md
 - yarn lint:js
-after_script:
+script:
+- yarn test
 - yarn test:examples
