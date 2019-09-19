@@ -32,6 +32,12 @@ jobs:
     - DEBUG=@faltest*,faltest-helpers
     script:
     - yarn test:acceptance
+  - name: Acceptance
+    os: windows
+    env:
+    - DEBUG=@faltest*,faltest-helpers
+    script:
+    - yarn test:acceptance
   - name: Global Install Test
     env:
     - DEBUG=@faltest*
