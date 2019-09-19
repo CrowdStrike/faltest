@@ -3,7 +3,7 @@
   "name": "runner-only",
   "version": "0.0.3",
   "scripts": {
-    "start": "faltest tests/**/*-test.js"
+    "test": "faltest tests/**/*-test.js"
   },
   "engines": {
     "node": ">=8.10"
