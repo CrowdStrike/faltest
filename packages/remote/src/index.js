@@ -11,9 +11,6 @@ const fkill = require('fkill');
 const getPort = require('get-port');
 const debug = require('./debug');
 const log = require('./log');
-const {
-  getMajorVersion: getMajorChromeVersion,
-} = require('./chrome');
 const EventEmitter = require('events');
 const yn = require('yn');
 // const config = require('config');
@@ -133,14 +130,7 @@ function startWebDriver(overrides = {}) {
     let webDriver;
     switch (_browser) {
       case 'chrome': {
-        let pkgName;
-        if (await getMajorChromeVersion() === '65') {
-          pkgName = 'chromedriver_v65';
-        } else {
-          pkgName = 'chromedriver';
-        }
-        debug(pkgName);
-        webDriver = await spawnWebDriver(await findBin(pkgName, 'chromedriver'), [`--port=${port}`]);
+        webDriver = await spawnWebDriver(await findBin('chromedriver'), [`--port=${port}`]);
         break;
       }
       case 'firefox':

@@ -29,7 +29,6 @@
   "dependencies": {
     "callsites": "^3.1.0",
     "chromedriver": "76.0.1",
-    "chromedriver_v65": "CrowdStrike/node-chromedriver#2.38.3",
     "debug": "^4.1.1",
     "fkill": "^6.2.0",
     "geckodriver": "1.16.2",
@@ -40,7 +39,6 @@
     "yn": "^3.1.1"
   },
   "devDependencies": {
-    "clear-module": "^4.0.0",
     "mocha": "^6.2.0",
     "sinon": "^7.3.2"
   }
