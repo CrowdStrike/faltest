@@ -1,15 +1,13 @@
 'use strict';
 
 const debug = require('./debug');
-const cp = require('child_process');
-const { promisify } = require('util');
-const _exec = promisify(cp.exec);
+const execa = require('execa');
 const path = require('path');
 const pkgConf = require('pkg-conf');
 
 async function exec(command, ...args) {
   debug(command);
-  let result = (await _exec(command, ...args)).stdout.trim();
+  let result = (await execa.command(command, ...args)).stdout;
   debug(result);
   return result;
 }
