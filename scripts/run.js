@@ -21,6 +21,8 @@ const [packagePrefix, scriptName] = process.argv.slice(2);
 
     let cwd = path.resolve(__dirname, '..', location);
 
+    console.log(location);
+
     await execa('yarn', [scriptName], {
       cwd,
       stdio: 'inherit',
