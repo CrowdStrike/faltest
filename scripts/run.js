@@ -14,6 +14,8 @@ const [packagePrefix, scriptName] = process.argv.slice(2);
 
   let json = JSON.parse(cp.stdout);
 
+  let firstError;
+
   for (let { location } of Object.values(json)) {
     if (!location.startsWith(packagePrefix)) {
       continue;
@@ -23,10 +25,24 @@ const [packagePrefix, scriptName] = process.argv.slice(2);
 
     console.log(location);
 
-    await execa('yarn', [scriptName], {
-      cwd,
-      stdio: 'inherit',
-    });
+    try {
+      await execa('yarn', [scriptName], {
+        cwd,
+        stdio: 'inherit',
+      });
+    } catch (err) {
+      // Continue running all the test suites,
+      // but keep the first error for reporting later.
+      // There may something in https://github.com/sindresorhus/promise-fun
+      // to clean this up.
+      if (!firstError) {
+        firstError = err;
+      }
+    }
+  }
+
+  if (firstError) {
+    throw firstError;
   }
 })();
 
