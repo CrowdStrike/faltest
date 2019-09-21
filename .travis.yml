@@ -29,8 +29,6 @@ jobs:
     - yarn test:examples
   - name: Examples
     os: osx
-    services:
-    - xvfb
     env:
     - DEBUG=remote*
     script:
