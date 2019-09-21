@@ -68,7 +68,9 @@ async function killOrphans() {
     debug('killing orphan');
     debug(`${orphan.cmd} ${orphan.pid}`);
     try {
-      await module.exports.fkill(orphan.pid);
+      await module.exports.fkill(orphan.pid, {
+        force: process.platform === 'win32',
+      });
     } catch (err) {
       if (/(Process doesn't exist|No such process)/.test(err.message)) {
         debug(err.message);
