@@ -10,13 +10,13 @@ addons:
   chrome: stable
 jobs:
   include:
-  - stage: lint
+  - name: Lint
     if: type = pull_request
     script:
     - yarn lint:git
     - yarn lint:md
     - yarn lint:js
-  - stage: test
+  - name: Test
     env:
     - DEBUG=remote* WEBDRIVER_HEADLESS=true FIREFOX_INSTALLED=true
   - name: Examples
