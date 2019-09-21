@@ -11,8 +11,6 @@ const {
 } = require('../../src');
 const Server = require('../../../../helpers/server');
 
-const shouldTestFirefox = process.env.WEBDRIVER_BROWSER === 'firefox' || process.env.FIREFOX_INSTALLED;
-
 describe(function() {
   this.timeout(10 * 1000);
 
@@ -70,7 +68,7 @@ describe(function() {
       await test('chrome');
     });
 
-    (shouldTestFirefox ? it : it.skip)('firefox', async function() {
+    it('firefox', async function() {
       await test('firefox');
     });
   });
@@ -117,7 +115,7 @@ describe(function() {
         await test('chrome');
       });
 
-      (shouldTestFirefox ? it : it.skip)('firefox', async function() {
+      it('firefox', async function() {
         await test('firefox');
       });
     });
