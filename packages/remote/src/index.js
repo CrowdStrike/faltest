@@ -30,7 +30,8 @@ const webDriverRegex = /^(chromedriver|geckodriver)$/;
 const browserNameRegex = (() => {
   let linux = 'chrome';
   let mac = 'Google Chrome|firefox-bin';
-  return new RegExp(`^(${linux}|${mac})$`);
+  let win = 'chrome\\.exe';
+  return new RegExp(`^(${linux}|${mac}|${win})$`);
 })();
 const browserCmdRegex = (() => {
   let chrome = '--enable-automation';
