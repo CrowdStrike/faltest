@@ -29,3 +29,5 @@ const [packagePrefix, scriptName] = process.argv.slice(2);
     });
   }
 })();
+
+require('../packages/cli/src/utils/throw-up');
