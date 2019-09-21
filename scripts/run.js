@@ -1,3 +1,7 @@
+/**
+ * This replicates `yarn workspaces run ...`,
+ * but allows running subsets of workspaces.
+ */
 'use strict';
 
 const execa = require('execa');
