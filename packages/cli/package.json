@@ -11,7 +11,7 @@
     "src"
   ],
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha \"test/!(fixtures)/**/*-test.js\""
   },
   "repository": {
     "type": "git",
