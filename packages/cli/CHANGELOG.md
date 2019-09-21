@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@1.0.1...1.0.2) (2019-09-21)
+
+
+### Bug Fixes
+
+* dev dep on mocha ([7088562](https://github.com/CrowdStrike/faltest/commit/7088562))
+* fix mocha recursive call ([1db761b](https://github.com/CrowdStrike/faltest/commit/1db761b))
+
 ### [1.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@1.0.0...1.0.1) (2019-09-12)
 
 
