@@ -39,7 +39,7 @@
     "execa": "^2.0.4",
     "mocha": "^6.2.0",
     "mocha-helpers": "^4.0.0",
-    "monorepo-next": "0.2.3",
+    "monorepo-next": "0.2.4",
     "remark-cli": "^7.0.0",
     "remark-preset-lint-crowdstrike": "^1.0.2",
     "renovate-config-standard": "^2.0.0",
