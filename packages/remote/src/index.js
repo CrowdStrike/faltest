@@ -26,7 +26,7 @@ const headless = yn(process.env.WEBDRIVER_HEADLESS);
 
 let port;
 
-const webDriverRegex = /^(chromedriver|geckodriver)$/;
+const webDriverRegex = /^(chromedriver(?:\.exe)?|geckodriver)$/;
 const browserNameRegex = (() => {
   let linux = 'chrome';
   let mac = 'Google Chrome|firefox-bin';
