@@ -1,0 +1,33 @@
+environment:
+  matrix:
+  - nodejs_version: "8"
+  DEBUG: remote*
+  CHROMEDRIVER_VERSION: 75.0.3770.140
+
+branches:
+  only:
+  - master
+
+# Fix line endings in Windows. (runs before repo cloning)
+init:
+- git config --global core.autocrlf true
+
+# Install scripts. (runs after repo cloning)
+install:
+- ps: Install-Product node $env:nodejs_version
+- yarn install --frozen-lockfile
+
+# Post-install test scripts.
+test_script:
+# https://stackoverflow.com/a/51773107/1703845
+- wmic datafile where name="C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" get Version /value
+- yarn test:examples
+
+cache:
+# http://help.appveyor.com/discussions/questions/1310-delete-cache
+- node_modules -> package.json
+# https://yarnpkg.com/lang/en/docs/install-ci/
+- "%LOCALAPPDATA%\\Yarn"
+
+# Don't actually build.
+build: off
