@@ -1,9 +1,8 @@
 'use strict';
 
-const execa = require('execa');
 const {
   exec,
-  findBin,
+  spawn,
 } = require('./cp');
 const { remote } = require('webdriverio');
 const psList = require('ps-list');
@@ -109,11 +108,11 @@ async function _getNewPort(_port) {
   return port = await getNewPort(_port);
 }
 
-async function spawnWebDriver(execPath, args) {
-  let versionCommand = `${execPath} --version`;
+async function spawnWebDriver(name, args) {
+  let versionCommand = `${name} --version`;
   await exec(versionCommand);
 
-  let webDriver = execa(execPath, args, {
+  let webDriver = spawn(name, args, {
     stdio: ['ignore', 'pipe', 'ignore'],
   });
 
@@ -136,12 +135,11 @@ function startWebDriver(overrides = {}) {
 
     let webDriver;
     switch (_browser) {
-      case 'chrome': {
-        webDriver = await spawnWebDriver(await findBin('chromedriver'), [`--port=${port}`]);
+      case 'chrome':
+        webDriver = await spawnWebDriver('chromedriver', [`--port=${port}`]);
         break;
-      }
       case 'firefox':
-        webDriver = await spawnWebDriver(await findBin('geckodriver'), ['--port', port]);
+        webDriver = await spawnWebDriver('geckodriver', ['--port', port]);
         break;
     }
 
@@ -173,6 +171,22 @@ function startWebDriver(overrides = {}) {
         }
       }
     });
+
+    // There's a flaw with the logic in https://github.com/IndigoUnited/node-cross-spawn/issues/16.
+    // If you mark `shell: true`, then it skips validating that the file exists.
+    // Then when we force kill the process, it's error handling logic kicks in
+    // and says, "Oh the file doesn't exist? Then throw a ENOENT error."
+    if (process.platform === 'win32') {
+      let { emit } = webDriver;
+
+      webDriver.emit = function(eventName, exitCode) {
+        if (eventName === 'exit' && exitCode === 1) {
+          return true;
+        }
+
+        return emit.apply(webDriver, arguments);
+      };
+    }
 
     webDriver.once('exit', killOrphans);
 
