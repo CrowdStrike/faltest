@@ -10,14 +10,16 @@ addons:
   chrome: stable
 jobs:
   include:
-  - name: test
-    env:
-    - DEBUG=remote* WEBDRIVER_HEADLESS=true FIREFOX_INSTALLED=true
-    before_script:
+  - stage: lint
+    if: type = pull_request
+    script:
     - yarn lint:git
     - yarn lint:md
     - yarn lint:js
-  - name: test:examples
+  - stage: test
+    env:
+    - DEBUG=remote* WEBDRIVER_HEADLESS=true FIREFOX_INSTALLED=true
+  - name: Examples
     services:
     - xvfb
     env:
