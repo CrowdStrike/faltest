@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.0.7...1.1.0) (2019-09-21)
+
+
+### Bug Fixes
+
+* detect windows chrome process ([5177598](https://github.com/CrowdStrike/faltest/commit/5177598))
+* detect windows chromedriver process ([456a169](https://github.com/CrowdStrike/faltest/commit/456a169))
+* force kill in windows ([e599faf](https://github.com/CrowdStrike/faltest/commit/e599faf))
+
+
+### Features
+
+* use execa for windows support ([6429533](https://github.com/CrowdStrike/faltest/commit/6429533))
+
 ### [1.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.0.6...1.0.7) (2019-09-21)
 
 
