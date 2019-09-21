@@ -1,6 +1,7 @@
 # FalTest
 
 [![Build Status](https://travis-ci.org/CrowdStrike/faltest.svg?branch=master)](https://travis-ci.org/CrowdStrike/faltest)
+[![Build status](https://ci.appveyor.com/api/projects/status/95y3nyh8ckwmsb04/branch/master?svg=true)](https://ci.appveyor.com/project/kellyselden/faltest/branch/master)
 
 A different take on [WebDriver](https://www.w3.org/TR/webdriver1) browser testing
 
