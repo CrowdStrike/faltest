@@ -8,12 +8,19 @@ branches:
   - /^(?:[a-z-]+|@[a-z-]+\/[a-z-]+)@\d+\.\d+\.\d+$/
 addons:
   chrome: stable
-env:
-  - DEBUG=remote* WEBDRIVER_HEADLESS=true FIREFOX_INSTALLED=true
-before_script:
-- yarn lint:git
-- yarn lint:md
-- yarn lint:js
-script:
-- yarn test
-- yarn test:examples
+jobs:
+  include:
+  - name: test
+    env:
+    - DEBUG=remote* WEBDRIVER_HEADLESS=true FIREFOX_INSTALLED=true
+    before_script:
+    - yarn lint:git
+    - yarn lint:md
+    - yarn lint:js
+  - name: test:examples
+    services:
+    - xvfb
+    env:
+    - DEBUG=remote* WEBDRIVER_HEADLESS=false
+    script:
+    - yarn test:examples

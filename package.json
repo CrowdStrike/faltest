@@ -11,7 +11,7 @@
     "release": "next release --no-bump-in-range-dependencies",
     "start": "./packages/cli/bin/index.js",
     "test": "mocha \"packages/!(mocha)/test/!(fixtures)/**/*-test.js\" \"packages/mocha/test/!(fixtures)/**/*-test.js\" --exit",
-    "test:examples": "./packages/cli/bin/index.js examples/*/tests/**/*-test.js"
+    "test:examples": "node scripts/run.js examples start"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "eslint-plugin-json-files": "0.7.0",
     "eslint-plugin-mocha": "^6.0.0",
     "eslint-plugin-node": "^10.0.0",
+    "execa": "^2.0.4",
     "mocha": "^6.2.0",
     "mocha-helpers": "^4.0.0",
     "monorepo-next": "0.2.2",
