@@ -12,7 +12,6 @@ addons:
 jobs:
   include:
   - name: Lint
-    if: type = pull_request
     script:
     - yarn lint:git
     - yarn lint:md
