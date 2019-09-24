@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.1.1...1.2.0) (2019-09-24)
+
+
+### Features
+
+* add page object date helpers ([aab4d15](https://github.com/CrowdStrike/faltest/commit/aab4d15))
+
 ### [1.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.1.0...1.1.1) (2019-09-24)
 
 
