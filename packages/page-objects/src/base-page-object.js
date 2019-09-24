@@ -2,6 +2,14 @@
 
 const scopeSymbol = Symbol();
 
+function selectorFallback(PageObjectClass, selector) {
+  // empty string is valid
+  if (selector !== null && selector !== undefined) {
+    return selector;
+  }
+  return PageObjectClass.selector;
+}
+
 class BasePageObject {
   constructor(browser) {
     this._browser = browser;
@@ -74,13 +82,13 @@ class BasePageObject {
   }
 
   _extend(PageObjectClass, selector, ...args) {
-    selector = this.scope(selector || PageObjectClass.selector);
+    selector = this.scope(selectorFallback(PageObjectClass, selector));
 
     return this.extend(PageObjectClass, selector, ...args);
   }
 
   _extendMany(PageObjectClass, selector, ...args) {
-    selector = this.scopeMany(selector || PageObjectClass.selector);
+    selector = this.scopeMany(selectorFallback(PageObjectClass, selector));
 
     return this.extend(PageObjectClass, selector, ...args);
   }
