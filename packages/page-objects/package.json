@@ -28,13 +28,13 @@
   },
   "dependencies": {
     "@faltest/browser": "^1.1.1",
+    "@faltest/remote": "^1.2.0",
     "verror-extra": "^1.0.0"
   },
   "devDependencies": {
     "@faltest/chai": "^1.0.2",
     "@faltest/lifecycle": "^1.0.0",
     "@faltest/page-objects": "link:",
-    "@faltest/remote": "^1.0.0",
     "mocha": "^6.2.0",
     "sinon": "^7.3.2",
     "tmp": "0.1.0"
