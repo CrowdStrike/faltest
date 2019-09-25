@@ -18,6 +18,7 @@ const browserFunctionsToPassThrough = [
 ];
 
 const elementFunctionsToPassThrough = [
+  'getValue',
   'setValue',
   'click',
   'moveTo',
