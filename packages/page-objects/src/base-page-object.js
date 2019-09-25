@@ -13,14 +13,16 @@ function selectorFallback(PageObjectClass, selector) {
 class BasePageObject {
   constructor(browser) {
     this._browser = browser;
+
+    this.BaseElement = require('./base-element');
+    this.Element = require('./element');
+    this.Elements = require('./elements');
   }
 
   _scope(func, childSelector) {
-    const BaseElement = require('./base-element');
-
     let isPage = !this._selector;
     let isBrowserElement = !!childSelector.$;
-    let isPageObject = childSelector instanceof BaseElement;
+    let isPageObject = childSelector instanceof this.BaseElement;
     if (isPage || isBrowserElement || isPageObject) {
       return childSelector;
     }
@@ -70,15 +72,11 @@ class BasePageObject {
   }
 
   _create(selector, ...args) {
-    const Element = require('./element');
-
-    return this._extend(Element, selector, ...args);
+    return this._extend(this.Element, selector, ...args);
   }
 
   _createMany(selector, ...args) {
-    const Elements = require('./elements');
-
-    return this._extendMany(Elements, selector, ...args);
+    return this._extendMany(this.Elements, selector, ...args);
   }
 
   _extend(PageObjectClass, selector, ...args) {
@@ -94,25 +92,19 @@ class BasePageObject {
   }
 
   _createUnscoped(selector, ...args) {
-    const Element = require('./element');
-
-    return this._extendUnscoped(Element, selector, ...args);
+    return this._extendUnscoped(this.Element, selector, ...args);
   }
 
   _createManyUnscoped(selector, ...args) {
-    const Elements = require('./elements');
-
-    return this._extendManyUnscoped(Elements, selector, ...args);
+    return this._extendManyUnscoped(this.Elements, selector, ...args);
   }
 }
 
 function extend(PageObjectClass, selector, extraProperties = () => {}) {
-  const BaseElement = require('./base-element');
-
   let assigned;
   let unassigned;
 
-  if (selector instanceof BaseElement) {
+  if (selector instanceof this.BaseElement) {
     assigned = selector;
   } else {
     assigned = new PageObjectClass(selector, this._browser);
@@ -121,18 +113,17 @@ function extend(PageObjectClass, selector, extraProperties = () => {}) {
 
   // support proper chaining of `_super`
   if (assigned.extraProperties) {
-    unassigned = applyProperties(assigned.extraProperties, assigned.unassigned, unassigned);
+    unassigned = applyProperties.call(this, assigned.extraProperties, assigned.unassigned, unassigned);
   }
 
   assigned.extraProperties = extraProperties;
   assigned.unassigned = unassigned;
 
-  return applyProperties(extraProperties, unassigned, assigned);
+  return applyProperties.call(this, extraProperties, unassigned, assigned);
 }
 
 function applyProperties(extraProperties, unassigned, assigned) {
-  const BaseElement = require('./base-element');
-  const Elements = require('./elements');
+  let { Elements } = this;
 
   let scope = assigned.scope.bind(assigned);
   let scopeMany = assigned.scopeMany.bind(assigned);
@@ -161,7 +152,7 @@ function applyProperties(extraProperties, unassigned, assigned) {
     extendMany,
   });
 
-  if (props instanceof BaseElement) {
+  if (props instanceof this.BaseElement) {
     return props;
   }
 
