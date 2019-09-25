@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.4.0...1.4.1) (2019-09-25)
+
+
+### Bug Fixes
+
+* allow overriding base page objects ([0a47b07](https://github.com/CrowdStrike/faltest/commit/0a47b07))
+
 ## [1.4.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.3.1...1.4.0) (2019-09-25)
 
 
