@@ -1,6 +1,6 @@
 'use strict';
 
-const originalStrings = new Map();
+const thirtyMins = 30 * 60 * 1000;
 
 function encodeString(original, outOfRange, interval = thirtyMins) {
   let now = new Date().getTime();
@@ -9,44 +9,53 @@ function encodeString(original, outOfRange, interval = thirtyMins) {
   if (outOfRange) {
     // You can create out of date rows if you want
     // for testing purposes.
-    timeout = new Date(now - interval).getTime();
+    timeout = now - interval;
   } else {
     timeout = now;
   }
 
   let encoded = `${original}_${timeout}`;
-  originalStrings.set(encoded, original);
   return encoded;
 }
 
-function getOriginalString(encoded) {
-  if (!originalStrings.has(encoded)) {
-    throw new Error(`"${encoded}" is not a key in the map.`);
+function getEncodedData(encoded) {
+  let matches = encoded.match(/^(.+)_(\d+)$/);
+  let name;
+  let time;
+  if (matches) {
+    name = matches[1];
+    time = matches[2];
   }
-
-  return originalStrings.get(encoded);
+  return {
+    name,
+    time,
+  };
 }
 
-const thirtyMins = 30 * 60 * 1000;
-
-function isInRange(encoded, interval = thirtyMins) {
-  let [then] = encoded.match(/\d*$/);
+function isInRange(then, interval = thirtyMins) {
   let timeout = new Date(parseInt(then) + interval);
   let now = new Date();
   return now < timeout;
 }
 
-function shouldPurge(maybeEncoded, encodedStrings, interval) {
-  if (encodedStrings.map(getOriginalString).every(original => !maybeEncoded.includes(original))) {
+function shouldPurge(maybeEncoded, baseStrings, interval) {
+  let {
+    name,
+    time,
+  } = getEncodedData(maybeEncoded);
+
+  if (!name) {
     return false;
   }
 
-  let encoded = maybeEncoded;
+  if (baseStrings.every(original => original !== name)) {
+    return false;
+  }
 
-  return !isInRange(encoded, interval);
+  return !isInRange(time, interval);
 }
 
-module.exports.encodeString = encodeString;
-module.exports.getOriginalString = getOriginalString;
-module.exports.isInRange = isInRange;
-module.exports.shouldPurge = shouldPurge;
+module.exports = {
+  encodeString,
+  shouldPurge,
+};

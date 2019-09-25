@@ -51,6 +51,20 @@ class Elements extends BaseElement {
       });
     }, this.eachProperties);
   }
+
+  get first() {
+    return this._create(async () => {
+      let elements = await this.getElements();
+      return elements[0];
+    }, this.eachProperties);
+  }
+
+  get last() {
+    return this._create(async () => {
+      let elements = await this.getElements();
+      return elements[elements.length - 1];
+    }, this.eachProperties);
+  }
 }
 
 module.exports = Elements;
