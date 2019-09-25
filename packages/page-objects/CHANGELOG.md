@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.2.0...1.3.0) (2019-09-25)
+
+
+### Features
+
+* add `purgeOld` method ([a64df6d](https://github.com/CrowdStrike/faltest/commit/a64df6d))
+
 ## [1.2.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.1.1...1.2.0) (2019-09-24)
 
 
