@@ -6,12 +6,16 @@ const serveStatic = require('serve-static');
 const { getNewPort } = require('@faltest/remote');
 
 class Server {
+  constructor(fixtures) {
+    this.fixtures = fixtures || path.resolve(__dirname, '../fixtures');
+  }
+
   async start(port) {
     if (!port) {
       port = await getNewPort();
     }
 
-    let server = connect().use(serveStatic(path.resolve(__dirname, '../fixtures')));
+    let server = connect().use(serveStatic(this.fixtures));
 
     await new Promise(resolve => {
       this.server = server.listen(port, resolve);

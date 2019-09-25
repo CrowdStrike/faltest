@@ -32,10 +32,11 @@
   },
   "devDependencies": {
     "@faltest/chai": "^1.0.0",
+    "@faltest/lifecycle": "^1.0.0",
     "@faltest/page-objects": "link:",
     "@faltest/remote": "^1.0.0",
-    "@faltest/lifecycle": "^1.0.0",
     "mocha": "^6.2.0",
-    "sinon": "^7.3.2"
+    "sinon": "^7.3.2",
+    "tmp": "0.1.0"
   }
 }
