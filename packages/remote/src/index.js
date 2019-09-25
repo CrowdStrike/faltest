@@ -4,6 +4,7 @@ const {
   exec,
   spawn,
 } = require('./cp');
+require('./utils/require-before-webdriverio');
 const { remote } = require('webdriverio');
 const psList = require('ps-list');
 const fkill = require('fkill');
@@ -313,3 +314,4 @@ module.exports.startBrowser = startBrowser;
 module.exports.stopBrowser = stopBrowser;
 module.exports.resizeBrowser = resizeBrowser;
 module.exports.events = events;
+module.exports.setPassword = require('./password').setPassword;
