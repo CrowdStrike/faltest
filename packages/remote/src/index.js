@@ -1,8 +1,8 @@
 'use strict';
 
 const {
-  exec,
   spawn,
+  spawnAwait,
 } = require('./cp');
 require('./utils/require-before-webdriverio');
 const { remote } = require('webdriverio');
@@ -110,8 +110,7 @@ async function _getNewPort(_port) {
 }
 
 async function spawnWebDriver(name, args) {
-  let versionCommand = `${name} --version`;
-  await exec(versionCommand);
+  await spawnAwait(name, ['--version']);
 
   let webDriver = spawn(name, args, {
     stdio: ['ignore', 'pipe', 'ignore'],

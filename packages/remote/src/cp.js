@@ -2,31 +2,31 @@
 
 const debug = require('./debug');
 const execa = require('execa');
+const path = require('path');
 
-function defaults(options) {
+function defaults(file, options) {
   return {
     preferLocal: true,
+    localDir: path.dirname(require.resolve(file)),
     ...options,
   };
 }
 
-async function exec(command, options) {
-  debug(command);
+function spawn(file, args, options) {
+  debug(file, args);
 
-  let result = (await execa.command(command, defaults(options))).stdout;
+  return execa(file, args, defaults(file, options));
+}
+
+async function spawnAwait(file, args, options) {
+  let result = (await spawn(file, args, options)).stdout;
 
   debug(result);
 
   return result;
 }
 
-function spawn(file, args, options) {
-  debug(file, args);
-
-  return execa(file, args, defaults(options));
-}
-
 module.exports = {
-  exec,
   spawn,
+  spawnAwait,
 };
