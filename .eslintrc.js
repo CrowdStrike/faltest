@@ -17,6 +17,7 @@ module.exports = {
         'packages/*/test/**/*-test.js',
         'packages/mocha/src/role.js',
         'examples/*/tests/**/*-test.js',
+        'fixtures/global-install/tests/**/*-test.js',
       ],
       env: {
         mocha: true,

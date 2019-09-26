@@ -32,3 +32,15 @@ jobs:
     - DEBUG=remote*
     script:
     - yarn test:examples
+  - name: Global Install Test
+    env:
+    - DEBUG=remote* WEBDRIVER_HEADLESS=true
+    cache:
+      npm: false
+    install:
+    - pushd fixtures/global-install
+    - yarn
+    - yarn link
+    - popd
+    script:
+    - my-cli
