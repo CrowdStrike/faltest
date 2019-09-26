@@ -145,7 +145,7 @@
     debug "^4.1.1"
 
 "@faltest/page-objects@link:packages/page-objects":
-  version "1.4.0"
+  version "1.4.1"
   dependencies:
     "@faltest/browser" "^1.1.1"
     "@faltest/remote" "^1.2.0"
