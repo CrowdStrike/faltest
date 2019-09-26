@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "global-install",
+  "bin": {
+    "my-cli": "bin/index.js"
+  },
+  "engines": {
+    "node": ">=8.10"
+  },
+  "dependencies": {
+    "@faltest/cli": "file:../../packages/cli",
+    "@faltest/lifecycle": "file:../../packages/lifecycle"
+  },
+  "resolutions": {
+    "@faltest/remote": "file:../../packages/remote"
+  }
+}
