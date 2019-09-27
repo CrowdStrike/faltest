@@ -3,11 +3,12 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const path = require('path');
-const { exec } = require('../../../remote/src/cp');
+const { promisify } = require('util');
+const exec = promisify(require('child_process').exec);
 
 describe(function() {
   it('works with glob', async function() {
-    let stdout = await exec(`node bin --reporter json test/fixtures/**/*-test.js`, {
+    let { stdout } = await exec(`node bin --reporter json test/fixtures/**/*-test.js`, {
       cwd: path.resolve(__dirname, '../..'),
       env: {
         FALTEST_PRINT_VERSION: false,
@@ -23,7 +24,7 @@ describe(function() {
   });
 
   it('works with config', async function() {
-    let stdout = await exec(`node bin --reporter json`, {
+    let { stdout } = await exec(`node bin --reporter json`, {
       cwd: path.resolve(__dirname, '../..'),
       env: {
         FALTEST_PRINT_VERSION: false,
@@ -40,7 +41,7 @@ describe(function() {
   });
 
   it('prints version', async function() {
-    let stdout = await exec(`node bin --help`, {
+    let { stdout } = await exec(`node bin --help`, {
       cwd: path.resolve(__dirname, '../..'),
     });
 
@@ -50,7 +51,7 @@ describe(function() {
   });
 
   it('allows custom bin', async function() {
-    let stdout = await exec(`node test/fixtures/bin --reporter json`, {
+    let { stdout } = await exec(`node test/fixtures/bin --reporter json`, {
       cwd: path.resolve(__dirname, '../..'),
       env: {
         FALTEST_PRINT_VERSION: false,
