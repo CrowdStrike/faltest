@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * This replicates `yarn workspaces run ...`,
  * but allows running subsets of workspaces.

@@ -10,8 +10,8 @@
     "lint:md": "remark -f doc CONTRIBUTING.md README.md packages/*/README.md examples/*/README.md packages/lint/doc",
     "release": "next release --no-bump-in-range-dependencies",
     "start": "./packages/cli/bin/index.js",
-    "test": "node scripts/run.js packages test",
-    "test:examples": "node scripts/run.js examples start"
+    "test": "./scripts/run.js packages test",
+    "test:examples": "./scripts/run.js examples start"
   },
   "repository": {
     "type": "git",
