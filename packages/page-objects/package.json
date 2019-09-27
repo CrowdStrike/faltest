@@ -34,7 +34,6 @@
   "devDependencies": {
     "@faltest/chai": "^1.0.3",
     "@faltest/lifecycle": "^1.0.2",
-    "@faltest/page-objects": "link:",
     "mocha": "^6.2.0",
     "sinon": "^7.3.2",
     "tmp": "0.1.0"

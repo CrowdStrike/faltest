@@ -144,13 +144,6 @@
     commitlint-format-junit "^1.1.4"
     debug "^4.1.1"
 
-"@faltest/page-objects@link:packages/page-objects":
-  version "1.4.2"
-  dependencies:
-    "@faltest/browser" "^1.1.2"
-    "@faltest/remote" "^1.2.2"
-    verror-extra "^1.0.0"
-
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
   resolved "https://registry.npmjs.org/@marionebl/sander/-/sander-0.6.1.tgz#1958965874f24bc51be48875feb50d642fc41f7b"
