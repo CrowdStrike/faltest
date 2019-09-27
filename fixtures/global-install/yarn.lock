@@ -10,19 +10,19 @@
     verror-extra "^1.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "1.0.2"
+  version "1.0.3"
   dependencies:
     "@faltest/mocha" "^1.0.0"
-    "@faltest/remote" "^1.0.0"
+    "@faltest/remote" "^1.2.2"
     debug "^4.1.1"
     mocha "^6.2.0"
     yargs "^14.0.0"
     yn "^3.1.1"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "1.0.1"
+  version "1.0.2"
   dependencies:
-    "@faltest/remote" "^1.0.0"
+    "@faltest/remote" "^1.2.2"
     callsites "^3.1.0"
     debug "^4.1.1"
   optionalDependencies:
@@ -37,15 +37,15 @@
     glob "^7.1.4"
     mocha-helpers "^4.2.0"
 
-"@faltest/remote@^1.0.0", "@faltest/remote@file:../../packages/remote":
-  version "1.2.1"
+"@faltest/remote@^1.2.2", "@faltest/remote@file:../../packages/remote":
+  version "1.2.3"
   dependencies:
     callsites "^3.1.0"
     chromedriver "76.0.1"
     debug "^4.1.1"
     execa "^2.0.4"
     fkill "^6.2.0"
-    geckodriver "1.16.2"
+    geckodriver "1.18.0"
     get-port "^5.0.0"
     ps-list "^6.3.0"
     webdriverio "5.13.2"
@@ -845,10 +845,10 @@ function-bind@^1.1.1:
   resolved "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
-geckodriver@1.16.2:
-  version "1.16.2"
-  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-1.16.2.tgz#4766e6eb6835e9ec8797f1dce1966df2b3fb5985"
-  integrity sha512-kXZP4QferAv57Ru4Fx2WYuu//ErKJP4hPEkJm4mSETo42jsdYFwdNxwQ4vCGhf14gsCdxU9YrwNupJ8gr1GxPg==
+geckodriver@1.18.0:
+  version "1.18.0"
+  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-1.18.0.tgz#a4d9b0504be26ed933d7be208b06b15833e32415"
+  integrity sha512-PFBq5UsngfLrxmNqnynix4rQgOkOWCKl3I3PlXCROiTQKSE2znIK9MnEUNQznzxNOPMRt1RGGy2cinIARSRvKQ==
   dependencies:
     adm-zip "0.4.11"
     bluebird "3.4.6"
