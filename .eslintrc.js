@@ -57,5 +57,13 @@ module.exports = {
         'node/no-unpublished-require': 'off',
       },
     },
+    {
+      files: [
+        'scripts/**/*.js',
+      ],
+      rules: {
+        'node/shebang': 'off',
+      },
+    },
   ],
 };
