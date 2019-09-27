@@ -145,10 +145,10 @@
     debug "^4.1.1"
 
 "@faltest/page-objects@link:packages/page-objects":
-  version "1.4.1"
+  version "1.4.2"
   dependencies:
-    "@faltest/browser" "^1.1.1"
-    "@faltest/remote" "^1.2.0"
+    "@faltest/browser" "^1.1.2"
+    "@faltest/remote" "^1.2.2"
     verror-extra "^1.0.0"
 
 "@marionebl/sander@^0.6.0":
@@ -1876,10 +1876,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.npmjs.org/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-geckodriver@1.16.2:
-  version "1.16.2"
-  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-1.16.2.tgz#4766e6eb6835e9ec8797f1dce1966df2b3fb5985"
-  integrity sha512-kXZP4QferAv57Ru4Fx2WYuu//ErKJP4hPEkJm4mSETo42jsdYFwdNxwQ4vCGhf14gsCdxU9YrwNupJ8gr1GxPg==
+geckodriver@1.18.0:
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/geckodriver/-/geckodriver-1.18.0.tgz#a4d9b0504be26ed933d7be208b06b15833e32415"
+  integrity sha512-PFBq5UsngfLrxmNqnynix4rQgOkOWCKl3I3PlXCROiTQKSE2znIK9MnEUNQznzxNOPMRt1RGGy2cinIARSRvKQ==
   dependencies:
     adm-zip "0.4.11"
     bluebird "3.4.6"
