@@ -1,6 +1,6 @@
 {
   "name": "@faltest/chai",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Chai plugin for @faltest/page-objects",
   "main": "index.js",
   "files": [
@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@faltest/browser": "^1.1.2",
-    "@faltest/page-objects": "^1.4.2",
+    "@faltest/page-objects": "^1.4.3",
     "mocha": "^6.2.0",
     "sinon": "^7.3.2"
   },
