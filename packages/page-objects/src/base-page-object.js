@@ -14,15 +14,16 @@ class BasePageObject {
   constructor(browser) {
     this._browser = browser;
 
-    this.BaseElement = require('./base-element');
     this.Element = require('./element');
     this.Elements = require('./elements');
   }
 
   _scope(func, childSelector) {
+    const BaseElement = require('./base-element');
+
     let isPage = !this._selector;
     let isBrowserElement = !!childSelector.$;
-    let isPageObject = childSelector instanceof this.BaseElement;
+    let isPageObject = childSelector instanceof BaseElement;
     if (isPage || isBrowserElement || isPageObject) {
       return childSelector;
     }
@@ -101,10 +102,12 @@ class BasePageObject {
 }
 
 function extend(PageObjectClass, selector, extraProperties = () => {}) {
+  const BaseElement = require('./base-element');
+
   let assigned;
   let unassigned;
 
-  if (selector instanceof this.BaseElement) {
+  if (selector instanceof BaseElement) {
     assigned = selector;
   } else {
     assigned = new PageObjectClass(selector, this._browser);
@@ -113,17 +116,18 @@ function extend(PageObjectClass, selector, extraProperties = () => {}) {
 
   // support proper chaining of `_super`
   if (assigned.extraProperties) {
-    unassigned = applyProperties.call(this, assigned.extraProperties, assigned.unassigned, unassigned);
+    unassigned = applyProperties(assigned.extraProperties, assigned.unassigned, unassigned);
   }
 
   assigned.extraProperties = extraProperties;
   assigned.unassigned = unassigned;
 
-  return applyProperties.call(this, extraProperties, unassigned, assigned);
+  return applyProperties(extraProperties, unassigned, assigned);
 }
 
 function applyProperties(extraProperties, unassigned, assigned) {
-  let { Elements } = this;
+  const BaseElement = require('./base-element');
+  const Elements = require('./elements');
 
   let scope = assigned.scope.bind(assigned);
   let scopeMany = assigned.scopeMany.bind(assigned);
@@ -152,7 +156,7 @@ function applyProperties(extraProperties, unassigned, assigned) {
     extendMany,
   });
 
-  if (props instanceof this.BaseElement) {
+  if (props instanceof BaseElement) {
     return props;
   }
 
