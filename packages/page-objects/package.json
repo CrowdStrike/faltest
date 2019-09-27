@@ -1,6 +1,6 @@
 {
   "name": "@faltest/page-objects",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A page object system using @faltest/browser",
   "main": "src",
   "files": [
@@ -27,13 +27,13 @@
     "node": ">=8.10"
   },
   "dependencies": {
-    "@faltest/browser": "^1.1.1",
-    "@faltest/remote": "^1.2.0",
+    "@faltest/browser": "^1.1.2",
+    "@faltest/remote": "^1.2.2",
     "verror-extra": "^1.0.0"
   },
   "devDependencies": {
-    "@faltest/chai": "^1.0.2",
-    "@faltest/lifecycle": "^1.0.0",
+    "@faltest/chai": "^1.0.3",
+    "@faltest/lifecycle": "^1.0.2",
     "@faltest/page-objects": "link:",
     "mocha": "^6.2.0",
     "sinon": "^7.3.2",
