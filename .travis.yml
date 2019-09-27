@@ -39,7 +39,7 @@ jobs:
       npm: false
     install:
     - pushd fixtures/global-install
-    - yarn
+    - yarn install --production
     - yarn link
     - popd
     script:
