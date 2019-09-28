@@ -34,7 +34,7 @@ jobs:
     - yarn test:examples
   - name: Global Install Test
     env:
-    - DEBUG=remote* WEBDRIVER_HEADLESS=true
+    - DEBUG=remote*
     cache:
       npm: false
     install:
@@ -43,4 +43,4 @@ jobs:
     - yarn link
     - popd
     script:
-    - my-cli
+    - my-cli --headless
