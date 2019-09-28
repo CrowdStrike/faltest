@@ -27,7 +27,7 @@
     "node": ">=8.10"
   },
   "dependencies": {
-    "@faltest/browser": "^1.1.3",
+    "@faltest/browser": "^1.2.0",
     "@faltest/remote": "^1.3.0",
     "verror-extra": "^1.0.0"
   },

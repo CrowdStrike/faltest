@@ -55,6 +55,10 @@ class Element extends BaseElement {
   async moveTo() {
     await this._browser.moveTo(this._selector, ...arguments);
   }
+
+  async getAttribute() {
+    await this._browser.getAttribute(this._selector, ...arguments);
+  }
 }
 
 module.exports = Element;
