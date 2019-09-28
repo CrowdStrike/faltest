@@ -3,7 +3,7 @@
 const path = require('path');
 const connect = require('connect');
 const serveStatic = require('serve-static');
-const { getNewPort } = require('@faltest/remote');
+const { getNewPort } = require('../packages/remote');
 
 class Server {
   constructor(fixtures) {
