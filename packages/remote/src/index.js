@@ -18,14 +18,6 @@ const yn = require('yn');
 // We aren't using `@wdio/cli` (wdio testrunner)
 process.env.SUPPRESS_NO_CONFIG_WARNING = 'true';
 
-const defaultBrowser = 'chrome';
-
-// const browser = config.get('browser') || defaultBrowser;
-// const headless = yn(config.get('headless'));
-
-const browser = process.env.WEBDRIVER_BROWSER || defaultBrowser;
-const headless = yn(process.env.WEBDRIVER_HEADLESS);
-
 let port;
 
 const webDriverRegex = /^(chromedriver(?:\.exe)?|geckodriver)$/;
@@ -41,7 +33,23 @@ const browserCmdRegex = (() => {
   return new RegExp(`(${chrome}|${firefox})`);
 })();
 
-const logLevel = debug.verbose.enabled ? 'trace' : debug.enabled ? 'warn' : 'silent';
+const defaultBrowser = 'chrome';
+
+function getDefaults() {
+  // let browser = config.get('browser') || defaultBrowser;
+  // let headless = yn(config.get('headless'));
+
+  let browser = process.env.WEBDRIVER_BROWSER || defaultBrowser;
+  let headless = yn(process.env.WEBDRIVER_HEADLESS);
+
+  let logLevel = debug.verbose.enabled ? 'trace' : debug.enabled ? 'warn' : 'silent';
+
+  return {
+    browser,
+    headless,
+    logLevel,
+  };
+}
 
 let events = new EventEmitter();
 
@@ -131,7 +139,7 @@ function startWebDriver(overrides = {}) {
   return log(async () => {
     await killOrphans();
 
-    let _browser = overrides.browser || browser;
+    let _browser = overrides.browser || getDefaults().browser;
 
     await _getNewPort(overrides.port);
 
@@ -213,11 +221,13 @@ function stopWebDriver(webDriver) {
 }
 
 function getCapabilities({
-  browser: _browser = browser,
+  browser: _browser = getDefaults().browser,
 }) {
   let capabilities = {
     browserName: _browser,
   };
+
+  let headless = getDefaults().headless;
 
   switch (_browser) {
     case 'chrome': {
@@ -254,7 +264,7 @@ function startBrowser(overrides = {}) {
       // We should refrain from using the `baseUrl` option here
       // because subdomain can change as you navigate your app
       browser = await remote({
-        logLevel: overrides.logLevel || logLevel,
+        logLevel: overrides.logLevel || getDefaults().logLevel,
         path: '/',
         port: parseInt(port),
         capabilities: getCapabilities(overrides),
