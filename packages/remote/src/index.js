@@ -18,10 +18,12 @@ const yn = require('yn');
 // We aren't using `@wdio/cli` (wdio testrunner)
 process.env.SUPPRESS_NO_CONFIG_WARNING = 'true';
 
-// const browser = config.get('browser');
-// const headless = config.get('headless') === 'true';
+const defaultBrowser = 'chrome';
 
-const browser = process.env.WEBDRIVER_BROWSER;
+// const browser = config.get('browser') || defaultBrowser;
+// const headless = yn(config.get('headless'));
+
+const browser = process.env.WEBDRIVER_BROWSER || defaultBrowser;
 const headless = yn(process.env.WEBDRIVER_HEADLESS);
 
 let port;
@@ -314,3 +316,4 @@ module.exports.stopBrowser = stopBrowser;
 module.exports.resizeBrowser = resizeBrowser;
 module.exports.events = events;
 module.exports.setPassword = require('./password').setPassword;
+module.exports.defaultBrowser = defaultBrowser;
