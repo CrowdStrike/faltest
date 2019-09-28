@@ -10,7 +10,6 @@
   },
   "devDependencies": {
     "@faltest/cli": "^1.0.3",
-    "@faltest/lifecycle": "^1.0.2",
-    "chai": "^4.2.0"
+    "@faltest/lifecycle": "^1.0.2"
   }
 }

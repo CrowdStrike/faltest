@@ -1,7 +1,7 @@
 'use strict';
 
 const { setUpWebDriver } = require('@faltest/lifecycle');
-const { expect } = require('chai');
+const assert = require('assert');
 
 describe('sample', function() {
   setUpWebDriver.call(this);
@@ -11,6 +11,6 @@ describe('sample', function() {
 
     let title = await this.browser.getTitle();
 
-    expect(title).to.equal('WebdriverIO · Next-gen WebDriver test framework for Node.js');
+    assert.strictEqual(title, 'WebdriverIO · Next-gen WebDriver test framework for Node.js');
   });
 });
