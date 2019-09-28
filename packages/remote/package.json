@@ -39,7 +39,6 @@
     "yn": "^3.1.1"
   },
   "devDependencies": {
-    "@faltest/lifecycle": "^1.0.1",
     "mocha": "^6.2.0",
     "sinon": "^7.3.2"
   }
