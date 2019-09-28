@@ -32,7 +32,6 @@
     "verror-extra": "^1.0.0"
   },
   "devDependencies": {
-    "@faltest/chai": "^1.0.5",
     "@faltest/lifecycle": "^1.0.3",
     "mocha": "^6.2.0",
     "sinon": "^7.3.2",
