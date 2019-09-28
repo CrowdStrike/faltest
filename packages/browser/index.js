@@ -25,6 +25,7 @@ const elementFunctionsToPassThrough = [
   'isEnabled',
   'waitForEnabled',
   'scrollIntoView',
+  'getAttribute',
 ];
 
 /**
