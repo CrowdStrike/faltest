@@ -2,12 +2,12 @@
 
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
-const Browser = require('@faltest/browser');
+const Browser = require('../../../browser');
 const {
   BaseElement,
   Element,
   Elements,
-} = require('@faltest/page-objects');
+} = require('../../../page-objects');
 const sinon = require('sinon');
 
 describe(function() {

@@ -2,7 +2,7 @@
 
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
-const { setUpWebDriver } = require('@faltest/lifecycle');
+const { setUpWebDriver } = require('../../../lifecycle');
 const { setPassword } = require('../../src');
 const debug = require('../../src/debug');
 const sinon = require('sinon');
