@@ -8,7 +8,7 @@
     "lint:git": "commitlint",
     "lint:js": "eslint . --ext js,json",
     "lint:md": "remark -f doc CONTRIBUTING.md README.md packages/*/README.md examples/*/README.md packages/lint/doc",
-    "release": "next release --no-bump-in-range-dependencies --scripts.postbump \"$PWD/scripts/postbump.js\"",
+    "release": "next release --scripts.postbump \"$PWD/scripts/postbump.js\" --no-bump-in-range-dependencies",
     "start": "./packages/cli/bin/index.js",
     "test": "./scripts/run.js packages test",
     "test:examples": "./scripts/run.js examples start"
