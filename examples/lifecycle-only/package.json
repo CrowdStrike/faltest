@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "lifecycle-only",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "mocha tests/**/*-test.js --exit"
+  },
+  "engines": {
+    "node": ">=8.10"
+  },
+  "devDependencies": {
+    "@faltest/lifecycle": "^1.0.2",
+    "mocha": "^6.2.0"
+  }
+}
