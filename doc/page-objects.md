@@ -24,7 +24,7 @@ Page object properties are added using [getters](https://developer.mozilla.org/d
 class MyPage extends BasePageObject {
   get buttons() {
     return this._create('.buttons');
-  },
+  }
 }
 ```
 
@@ -45,7 +45,7 @@ class MyPage extends BasePageObject {
     return this._create('.buttons', ({ create }) => ({
       apply: create('.apply'),
     }));
-  },
+  }
 }
 ```
 
@@ -57,7 +57,7 @@ class MyPage extends BasePageObject {
     return this._create('.buttons', () => ({
       apply: this._create('.buttons .apply'),
     }));
-  },
+  }
 }
 ```
 
@@ -76,7 +76,7 @@ If you want to create an iterable page object (think table rows)
 class MyPage extends BasePageObject {
   get rows() {
     return this._createMany('.row');
-  },
+  }
 }
 ```
 
@@ -105,7 +105,7 @@ class MyPage extends BasePageObject {
         cells: createMany('.cell'),
       }));
     });
-  },
+  }
 }
 ```
 
@@ -125,7 +125,7 @@ class MyPage extends BasePageObject {
         empty: create('.empty'),
       };
     });
-  },
+  }
 }
 ```
 
@@ -164,7 +164,7 @@ const Modal = require('../shared/modal');
 class MyPage extends BasePageObject {
   get modal() {
     return this._extend(Modal);
-  },
+  }
 }
 ```
 
@@ -174,7 +174,7 @@ class MyPage extends BasePageObject {
 class MyPage extends BasePageObject {
   get buttons() {
     return this._create('.buttons');
-  },
+  }
 }
 ```
 
@@ -186,7 +186,7 @@ const Element = require('../element');
 class MyPage extends BasePageObject {
   get buttons() {
     return this._extend(Element, '.buttons');
-  },
+  }
 }
 ```
 
@@ -200,7 +200,7 @@ class MyPage extends BasePageObject {
     return this._extend(Modal, null, ({ create }) => ({
       custom: create('.custom'),
     }));
-  },
+  }
 }
 ```
 
@@ -218,7 +218,7 @@ class MyPage extends BasePageObject {
         // ?
       },
     }));
-  },
+  }
 }
 ```
 
@@ -245,7 +245,7 @@ class MyPage extends BasePageObject {
         },
       };
     });
-  },
+  }
 }
 ```
 
@@ -270,7 +270,7 @@ class MyPage extends BasePageObject {
     });
 
     return pageObject;
-  },
+  }
 }
 ```
 
@@ -289,7 +289,7 @@ class MyPage extends BasePageObject {
         // ...
       },
     }));
-  },
+  }
 }
 ```
 
@@ -313,7 +313,7 @@ class MyPage extends BasePageObject {
 
       return element;
     });
-  },
+  }
 }
 ```
 
@@ -332,7 +332,7 @@ class MyPage extends BasePageObject {
         return await cell.getText() === 'foo';
       },
     }));
-  },
+  }
 }
 ```
 
@@ -354,6 +354,32 @@ class MyPage extends BasePageObject {
         return await cell.getText() === 'foo';
       },
     }));
-  },
+  }
+}
+```
+
+## Chaining
+
+You can use a chaining style instead of a callback style to build page objects if you prefer.
+
+```js
+class MyPage extends BasePageObject {
+  get rows() {
+    return this._createMany('.row')._chain(({ create }) => ({
+      empty: create('.empty'),
+    }));
+  }
+}
+```
+
+is equivalent to
+
+```js
+class MyPage extends BasePageObject {
+  get rows() {
+    return this._createMany('.row', ({ create }) => ({
+      empty: create('.empty'),
+    }));
+  }
 }
 ```
