@@ -2,8 +2,11 @@
 
 const { setUpWebDriver, roles, featureFlags, it } = require('../helpers/mocha');
 const chai = require('chai');
+const Login = require('../page-objects/login');
+const MemberSection = require('../page-objects/member-section');
 
 chai.use(require('@faltest/chai'));
+chai.use(require('chai-as-promised'));
 
 const { expect } = chai;
 
@@ -14,19 +17,13 @@ describe('sample', function() {
         target,
         env,
       }) {
-        let envs = {
-          dev: 'YzKwVQq',
-          prod: 'wvwMbee',
-        };
+        this.login = new Login(this.browser);
 
-        await this.browser.url(`https://codepen.io/crowdstrike/full/${envs[env]}?target=${target}`);
+        await this.login.open(env, target);
 
-        // only needed for codepen, selects the first iframe
-        await this.browser._browser.switchToFrame(0);
+        await this.login.logIn(this.role.get('email'));
 
-        await this.browser.setValue('#email', this.role.get('email'));
-
-        await this.browser.click('#log-in');
+        this.memberSection = new MemberSection(this.browser);
 
         let _featureFlags = await this.browser._browser.execute(() => {
           // eslint-disable-next-line no-undef
@@ -38,7 +35,7 @@ describe('sample', function() {
     });
 
     it('works #smoke', async function() {
-      let memberSection = await this.browser.$('#member-section');
+      let memberSection = await this.memberSection.getElement();
 
       expect(await memberSection.isDisplayed()).to.be.ok;
     });
@@ -47,27 +44,21 @@ describe('sample', function() {
       name: 'shows existing feature',
       flags: ['finished-feature'],
     }, async function() {
-      let feature = await this.browser.$('#finished-feature');
-
-      expect(await feature.isExisting()).to.be.ok;
+      await expect(this.memberSection.finishedFeature).exist.to.eventually.be.ok;
     });
 
     it({
       name: 'shows new feature',
       flags: ['in-progress-feature'],
     }, async function() {
-      let feature = await this.browser.$('#in-progress-feature');
-
-      expect(await feature.isExisting()).to.be.ok;
+      await expect(this.memberSection.inProgressFeature).exist.to.eventually.be.ok;
     });
 
     it({
       name: 'hides unfinished feature',
       flags: ['!in-progress-feature'],
     }, async function() {
-      let feature = await this.browser.$('#in-progress-feature');
-
-      expect(await feature.isExisting()).to.not.be.ok;
+      await expect(this.memberSection.inProgressFeature).exist.to.eventually.not.be.ok;
     });
   });
 });

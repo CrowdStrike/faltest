@@ -3,7 +3,7 @@
   "name": "full-suite",
   "version": "0.0.7",
   "scripts": {
-    "start": "faltest tests/**/*-test.js"
+    "start": "faltest"
   },
   "engines": {
     "node": ">=8.10"
@@ -13,7 +13,9 @@
     "@faltest/cli": "^1.1.1",
     "@faltest/lifecycle": "^1.0.4",
     "@faltest/mocha": "^1.0.0",
+    "@faltest/page-objects": "^1.0.0",
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "config": "^3.2.2"
   }
 }
