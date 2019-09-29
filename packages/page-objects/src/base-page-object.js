@@ -99,6 +99,10 @@ class BasePageObject {
   _createManyUnscoped(selector, ...args) {
     return this._extendManyUnscoped(this.Elements, selector, ...args);
   }
+
+  _chain(extraProperties) {
+    return applyProperties(extraProperties, this, this);
+  }
 }
 
 function extend(PageObjectClass, selector, extraProperties = () => {}) {
