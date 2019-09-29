@@ -1,0 +1,30 @@
+{
+  "name": "@faltest/utils",
+  "version": "0.0.0",
+  "description": "Shared utils for FalTest packages",
+  "main": "src",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CrowdStrike/faltest.git",
+    "directory": "packages/utils"
+  },
+  "author": "Kelly Selden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrowdStrike/faltest/issues"
+  },
+  "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/utils#readme",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "dependencies": {
+    "callsites": "^3.1.0",
+    "debug": "^4.1.1"
+  }
+}
