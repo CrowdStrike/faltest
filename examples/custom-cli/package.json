@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "custom-cli",
+  "version": "0.0.0",
+  "bin": {
+    "my-cli": "bin/index.js"
+  },
+  "scripts": {
+    "start": "./bin/index.js"
+  },
+  "engines": {
+    "node": ">=8.10"
+  },
+  "devDependencies": {
+    "@faltest/cli": "^1.1.1",
+    "@faltest/lifecycle": "^1.0.4"
+  }
+}
