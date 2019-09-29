@@ -88,6 +88,11 @@ To override the [ChromeDriver](https://sites.google.com/a/chromium.org/chromedri
 CHROMEDRIVER_VERSION=75.0.3770.140 npm install
 ```
 
+## Real-world Examples
+
+*   [emberclear](https://github.com/NullVoxPopuli/emberclear/blob/master/packages/smoke-tests/faltest/smoke-test.js)
+*   [ember-aframe-shim](https://github.com/ember-vr/ember-aframe-shim/blob/master/faltest/smoke-test.js)
+
 ## Contributing
 
 If you need to change FalTest, see [Contributing Guide](./CONTRIBUTING.md).
