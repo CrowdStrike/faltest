@@ -13,6 +13,7 @@ const debug = require('./debug');
 const log = require('./log');
 const EventEmitter = require('events');
 const yn = require('yn');
+const { defaults } = require('@faltest/utils');
 // const config = require('config');
 
 // We aren't using `@wdio/cli` (wdio testrunner)
@@ -33,13 +34,11 @@ const browserCmdRegex = (() => {
   return new RegExp(`(${chrome}|${firefox})`);
 })();
 
-const defaultBrowser = 'chrome';
-
 function getDefaults() {
-  // let browser = config.get('browser') || defaultBrowser;
+  // let browser = config.get('browser') || defaults.browser;
   // let headless = yn(config.get('headless'));
 
-  let browser = process.env.WEBDRIVER_BROWSER || defaultBrowser;
+  let browser = process.env.WEBDRIVER_BROWSER || defaults.browser;
   let headless = yn(process.env.WEBDRIVER_HEADLESS);
 
   let logLevel = debug.verbose.enabled ? 'trace' : debug.enabled ? 'warn' : 'silent';
@@ -326,4 +325,3 @@ module.exports.stopBrowser = stopBrowser;
 module.exports.resizeBrowser = resizeBrowser;
 module.exports.events = events;
 module.exports.setPassword = require('./password').setPassword;
-module.exports.defaultBrowser = defaultBrowser;

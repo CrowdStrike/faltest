@@ -1,9 +1,7 @@
 'use strict';
 
 const debug = require('./debug');
-const {
-  defaultBrowser,
-} = require('@faltest/remote');
+const { defaults } = require('@faltest/utils');
 
 const defaultTarget = 'default';
 const defaultEnv = 'default';
@@ -28,7 +26,7 @@ function initCli({
     .options({
       'browser': {
         type: 'string',
-        default: defaultBrowser,
+        default: defaults.browser,
         description: 'Type of browser to run',
         choices: ['chrome', 'firefox'],
       },
