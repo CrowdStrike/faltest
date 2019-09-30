@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@faltest/remote": "^1.3.2",
-    "@faltest/utils": "0.0.0"
+    "@faltest/utils": "^1.0.0"
   },
   "optionalDependencies": {
     "@faltest/browser": "^1.0.0"

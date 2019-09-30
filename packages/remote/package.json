@@ -27,7 +27,7 @@
     "node": ">=8.10"
   },
   "dependencies": {
-    "@faltest/utils": "0.0.0",
+    "@faltest/utils": "^1.0.0",
     "chromedriver": "76.0.1",
     "execa": "^2.0.4",
     "fkill": "^6.2.0",
