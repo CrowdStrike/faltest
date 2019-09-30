@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.3.2...1.4.0) (2019-09-30)
+
+
+### Features
+
+* extract utils ([744588c](https://github.com/CrowdStrike/faltest/commit/744588c))
+
 ### [1.3.2](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.3.1...1.3.2) (2019-09-28)
 
 
