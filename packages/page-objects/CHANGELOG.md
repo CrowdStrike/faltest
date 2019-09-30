@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.5.1...1.6.0) (2019-09-30)
+
+
+### Features
+
+* add page object chaining option ([e43bc81](https://github.com/CrowdStrike/faltest/commit/e43bc81))
+
 ### [1.5.1](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.5.0...1.5.1) (2019-09-28)
 
 ## [1.5.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.4.6...1.5.0) (2019-09-28)
