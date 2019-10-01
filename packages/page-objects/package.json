@@ -1,6 +1,6 @@
 {
   "name": "@faltest/page-objects",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "A page object system using @faltest/browser",
   "main": "src",
   "files": [
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@faltest/browser": "^1.2.0",
-    "@faltest/remote": "^1.4.0",
+    "@faltest/remote": "^1.5.0",
     "verror-extra": "^1.0.0"
   },
   "devDependencies": {

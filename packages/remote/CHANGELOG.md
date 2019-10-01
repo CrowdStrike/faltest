@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.4.0...1.5.0) (2019-10-01)
+
+
+### Features
+
+* move default browser to utils ([3fe87ec](https://github.com/CrowdStrike/faltest/commit/3fe87ec))
+
 ## [1.4.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.3.2...1.4.0) (2019-09-30)
 
 
