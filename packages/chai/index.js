@@ -38,6 +38,12 @@ const properties = {
     pageObjectMethod: 'isEnabled',
     pageObjectString: 'element',
   },
+  displayed: {
+    type: 'addProperty',
+    PageObject: Element,
+    pageObjectMethod: 'isDisplayed',
+    pageObjectString: 'element',
+  },
   exist: {
     type: 'overwriteProperty',
     PageObject: BaseElement,

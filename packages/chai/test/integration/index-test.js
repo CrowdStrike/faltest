@@ -186,6 +186,16 @@ describe(function() {
       fail: 'expected false to be truthy',
       failNegated: 'expected true to be falsy',
     },
+    displayed: {
+      PageObject: Element,
+      pageObjectMethod: 'isDisplayed',
+      actualPass: true,
+      actualFail: false,
+      append: expectTo => expectTo.be.ok,
+      pageObjectString: 'element',
+      fail: 'expected false to be truthy',
+      failNegated: 'expected true to be falsy',
+    },
     exist: {
       builtIn: Promise.resolve(true),
       PageObject: BaseElement,

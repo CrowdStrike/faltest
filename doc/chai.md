@@ -9,6 +9,7 @@ We added a few helpers to add additional context and reduce boilerplate. They tu
 *   [`.text`](#text)
 *   [`.value`](#value)
 *   [`.enabled`](#enabled)
+*   [`.displayed`](#displayed)
 *   [`.exist`](#exist)
 *   [`.elements`](#elements)
 
@@ -70,6 +71,18 @@ expect(await pageObject.isEnabled()).to.be.ok;
 ```js
 // after
 await expect(pageObject).enabled.to.eventually.be.ok;
+```
+
+### `.displayed`
+
+```js
+// before
+expect(await pageObject.isDisplayed()).to.be.ok;
+```
+
+```js
+// after
+await expect(pageObject).displayed.to.eventually.be.ok;
 ```
 
 ### `.exist`
