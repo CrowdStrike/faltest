@@ -50,9 +50,20 @@ describe(function() {
     await killOrphans();
   });
 
+  it('isEnabled', async function() {
+    await this.writeFixture('index.html', `
+      <input class="foo" disabled>
+    `);
+
+    await this.open('index.html');
+
+    expect(await this.browser.isEnabled('.foo'))
+      .to.be.false;
+  });
+
   it('waitForEnabled', async function() {
     await this.writeFixture('index.html', `
-    <input class="foo">
+      <input class="foo">
     `);
 
     await this.open('index.html');
