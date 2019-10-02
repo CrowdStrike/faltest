@@ -20,6 +20,18 @@ class Element extends BaseElement {
     await this._browser.waitForDisabled(this._selector, ...arguments);
   }
 
+  async isDisplayed() {
+    return await this._browser.isDisplayed(this._selector, ...arguments);
+  }
+
+  async waitForVisible() {
+    await this._browser.waitForVisible(this._selector, ...arguments);
+  }
+
+  async waitForHidden() {
+    await this._browser.waitForHidden(this._selector, ...arguments);
+  }
+
   async waitForText() {
     await this._browser.waitForText(this._selector, ...arguments);
   }
