@@ -35,9 +35,7 @@ describe('sample', function() {
     });
 
     it('works #smoke', async function() {
-      let memberSection = await this.memberSection.getElement();
-
-      expect(await memberSection.isDisplayed()).to.be.ok;
+      await expect(this.memberSection).displayed.to.eventually.be.ok;
     });
 
     it({
