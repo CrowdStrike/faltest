@@ -82,4 +82,37 @@ describe(function() {
     await expect(this.browser.waitForDisabled('.foo'))
       .to.eventually.be.fulfilled;
   });
+
+  it('isDisplayed', async function() {
+    await this.writeFixture('index.html', `
+      <input class="foo" style="display:none">
+    `);
+
+    await this.open('index.html');
+
+    expect(await this.browser.isDisplayed('.foo'))
+      .to.be.false;
+  });
+
+  it('waitForVisible', async function() {
+    await this.writeFixture('index.html', `
+      <input class="foo">
+    `);
+
+    await this.open('index.html');
+
+    await expect(this.browser.waitForVisible('.foo'))
+      .to.eventually.be.fulfilled;
+  });
+
+  it('waitForHidden', async function() {
+    await this.writeFixture('index.html', `
+      <input class="foo" style="display:none">
+    `);
+
+    await this.open('index.html');
+
+    await expect(this.browser.waitForHidden('.foo'))
+      .to.eventually.be.fulfilled;
+  });
 });

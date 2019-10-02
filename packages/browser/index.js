@@ -26,6 +26,7 @@ const elementFunctionsToPassThrough = [
   'waitForEnabled',
   'scrollIntoView',
   'getAttribute',
+  'isDisplayed',
 ];
 
 /**
@@ -365,6 +366,14 @@ Browser.prototype.elementSendKeys = resolveElement(async function elementSendKey
 
 Browser.prototype.waitForDisabled = resolveElement(async function waitForDisabled(element) {
   await element.waitForEnabled(undefined, true);
+});
+
+Browser.prototype.waitForVisible = resolveElement(async function waitForVisible(element) {
+  await element.waitForDisplayed();
+});
+
+Browser.prototype.waitForHidden = resolveElement(async function waitForHidden(element) {
+  await element.waitForDisplayed(undefined, true);
 });
 
 Browser.prototype.findChild = findChild('findChild', '_findElement', '$');
