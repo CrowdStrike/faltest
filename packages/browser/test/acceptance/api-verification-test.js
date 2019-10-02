@@ -5,7 +5,6 @@ const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
 const { killOrphans } = require('../../../remote');
 const Server = require('../../../../helpers/server');
-const Browser = require('../..');
 const { promisify } = require('util');
 const tmpDir = promisify(require('tmp').dir);
 const writeFile = promisify(require('fs').writeFile);
@@ -51,15 +50,25 @@ describe(function() {
     await killOrphans();
   });
 
-  it(Browser.prototype.waitForEnabled, async function() {
+  it('waitForEnabled', async function() {
     await this.writeFixture('index.html', `
-      <div class="foo">
-      </div>
+    <input class="foo">
     `);
 
     await this.open('index.html');
 
     await expect(this.browser.waitForEnabled('.foo'))
+      .to.eventually.be.fulfilled;
+  });
+
+  it('waitForDisabled', async function() {
+    await this.writeFixture('index.html', `
+      <input class="foo" disabled>
+    `);
+
+    await this.open('index.html');
+
+    await expect(this.browser.waitForDisabled('.foo'))
       .to.eventually.be.fulfilled;
   });
 });
