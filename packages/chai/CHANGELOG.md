@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@1.0.6...1.1.0) (2019-10-02)
+
+
+### Features
+
+* add `displayed` to chai ([d301ec8](https://github.com/CrowdStrike/faltest/commit/d301ec8))
+
 ### [1.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@1.0.5...1.0.6) (2019-09-28)
 
 ### [1.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@1.0.4...1.0.5) (2019-09-28)

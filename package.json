@@ -29,7 +29,7 @@
     "eslint": "^6.1.0",
     "eslint-config-crowdstrike": "^1.0.0",
     "eslint-config-crowdstrike-node": "^2.0.0",
-    "eslint-plugin-faltest": "^1.0.5",
+    "eslint-plugin-faltest": "^1.0.6",
     "eslint-plugin-json-files": "0.8.0",
     "eslint-plugin-mocha": "^6.0.0",
     "eslint-plugin-node": "^10.0.0",
