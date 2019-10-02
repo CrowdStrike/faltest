@@ -115,4 +115,35 @@ describe(function() {
     await expect(this.browser.waitForHidden('.foo'))
       .to.eventually.be.fulfilled;
   });
+
+  it('isExisting', async function() {
+    await this.writeFixture('index.html', `
+    `);
+
+    await this.open('index.html');
+
+    expect(await this.browser.isExisting('.foo'))
+      .to.be.false;
+  });
+
+  it('waitForInsert', async function() {
+    await this.writeFixture('index.html', `
+      <input class="foo">
+    `);
+
+    await this.open('index.html');
+
+    await expect(this.browser.waitForInsert('.foo'))
+      .to.eventually.be.fulfilled;
+  });
+
+  it('waitForDestroy', async function() {
+    await this.writeFixture('index.html', `
+    `);
+
+    await this.open('index.html');
+
+    await expect(this.browser.waitForDestroy('.foo'))
+      .to.eventually.be.fulfilled;
+  });
 });
