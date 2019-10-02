@@ -363,10 +363,6 @@ Browser.prototype.elementSendKeys = resolveElement(async function elementSendKey
   await this._browser.elementSendKeys(element.elementId, value);
 });
 
-Browser.prototype.waitForEnabled = resolveElement(async function waitForEnabled(element) {
-  await element.waitForEnabled();
-});
-
 Browser.prototype.waitForDisabled = resolveElement(async function waitForDisabled(element) {
   await element.waitForEnabled(undefined, true);
 });
