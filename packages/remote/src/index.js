@@ -310,7 +310,13 @@ function stopBrowser(browser) {
       return;
     }
 
-    await browser.close();
+    if (browser.close) {
+      // We should probably remove the browser wrapper expectance
+      // as it violates separation of concerns.
+      await browser.close();
+    } else {
+      await browser.closeWindow();
+    }
   });
 }
 
