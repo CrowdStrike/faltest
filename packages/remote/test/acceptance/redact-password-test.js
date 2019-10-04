@@ -8,7 +8,7 @@ const debug = require('../../src/debug');
 const sinon = require('sinon');
 const Server = require('../../../../helpers/server');
 
-describe.only(function() {
+describe(function() {
   test('same log level', 'info');
   test('more permissive log level', 'trace');
 });

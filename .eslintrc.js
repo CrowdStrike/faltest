@@ -33,6 +33,7 @@ module.exports = {
         'mocha/no-identical-title': 'off',
         'mocha/no-nested-tests': 'off',
         'mocha/no-pending-tests': 'off',
+        'mocha/no-exclusive-tests': 'error',
 
         'faltest/chai-webdriver-eventually': 'error',
         'faltest/mocha-roles-only': 'error',
