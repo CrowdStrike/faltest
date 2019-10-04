@@ -14,7 +14,7 @@ const tmpDir = promisify(require('tmp').dir);
 const writeFile = promisify(require('fs').writeFile);
 const path = require('path');
 
-describe.only(function() {
+describe(function() {
   setUpWebDriver.call(this, {
     shareWebdriver: true,
     keepBrowserOpen: true,
