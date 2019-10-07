@@ -37,7 +37,7 @@
     mocha-helpers "^4.2.0"
 
 "@faltest/remote@^1.5.4", "@faltest/remote@file:../../packages/remote":
-  version "1.5.4"
+  version "1.5.5"
   dependencies:
     "@faltest/utils" "^1.2.0"
     chromedriver "76.0.1"
@@ -46,7 +46,7 @@
     geckodriver "1.18.0"
     get-port "^5.0.0"
     ps-list "^6.3.0"
-    webdriverio "5.14.3"
+    webdriverio "5.14.4"
     yn "^3.1.1"
 
 "@faltest/utils@^1.2.0", "@faltest/utils@file:../../packages/utils":
@@ -103,17 +103,17 @@
   resolved "https://registry.yarnpkg.com/@wdio/protocols/-/protocols-5.14.0.tgz#9007b67d14f4bcebd2b9097f611d4a558024c308"
   integrity sha512-7jRxGkreibkqHKQV5jlQmAyqzIIU43lg9KSNGy0ThrUz8kLsOzClaTdL2qDlFUkLcplqMvRFcnmwFPjvCptmVg==
 
-"@wdio/repl@5.14.3":
-  version "5.14.3"
-  resolved "https://registry.npmjs.org/@wdio/repl/-/repl-5.14.3.tgz#19d3f6186daa6533be50228e13e780953fc4de21"
-  integrity sha512-ZMRgEWtOSEFYynU8UTMeGer7VhtIg5oPh27X0gQRT6OW88HJI3XkwmYAc6bUTu92AOs2q5jjyBtKUAbXtzYQoQ==
+"@wdio/repl@5.14.4":
+  version "5.14.4"
+  resolved "https://registry.npmjs.org/@wdio/repl/-/repl-5.14.4.tgz#0d17f1f768f7a51c3e650453b4342f05e82ef993"
+  integrity sha512-AF24ExIyd1lvqo/K1wHxzTzJi4005kLDJePMDYoQi0lyprA6SbmzKiWJ2W6sf0CO9QNzRKdsBxBgkuGC2wiCwQ==
   dependencies:
-    "@wdio/utils" "5.14.3"
+    "@wdio/utils" "5.14.4"
 
-"@wdio/utils@5.14.3":
-  version "5.14.3"
-  resolved "https://registry.npmjs.org/@wdio/utils/-/utils-5.14.3.tgz#b75aedb7fbef36f15a099ca9f959ee389ab2bf09"
-  integrity sha512-rxvAndBUd5wHxYaPocra8k+t8YkSpeitotUVYoHRGZXrm8wQuSbTGfDVXxpbm48iRdhrSRKAhP6EIHWT3ggWSg==
+"@wdio/utils@5.14.4":
+  version "5.14.4"
+  resolved "https://registry.npmjs.org/@wdio/utils/-/utils-5.14.4.tgz#3ee571fefcba547d132b2b120403a7fd793b84b9"
+  integrity sha512-sRBCR20VpDxcB0bvU6Sg4dco7PehPVul7JOK+abn5Tk/Azau0C/JypAh7abRnTil5udiz+NTWQyE9A/vrcXs0Q==
   dependencies:
     "@wdio/logger" "5.13.2"
     deepmerge "^4.0.0"
@@ -2116,27 +2116,27 @@ verror@1.10.0, verror@^1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-webdriver@5.14.3:
-  version "5.14.3"
-  resolved "https://registry.npmjs.org/webdriver/-/webdriver-5.14.3.tgz#135eb88b32be9bcdb801e19f15e7b99061826e3a"
-  integrity sha512-JLPg4jvWZuiIpJzF2jTNHQDbY3u7r8+pF/K5FIpWQkfUvfFd9Iyjd3qrxqGxoD7VjZt4qbVmfvSxLsXUt97uYQ==
+webdriver@5.14.4:
+  version "5.14.4"
+  resolved "https://registry.npmjs.org/webdriver/-/webdriver-5.14.4.tgz#02a8f7f35df5568f0987999b87c4ea89aff0a77b"
+  integrity sha512-4O3QrInHcfvYWF+MG6cCYnxcWxE5tS70DPbNRNhhw9SJvh0sj2vpwSIYMwSEsGXuB799s3c8Rhq9Ow3QzVyiJw==
   dependencies:
     "@wdio/config" "5.14.0"
     "@wdio/logger" "5.13.2"
     "@wdio/protocols" "5.14.0"
-    "@wdio/utils" "5.14.3"
+    "@wdio/utils" "5.14.4"
     lodash.merge "^4.6.1"
     request "^2.83.0"
 
-webdriverio@5.14.3:
-  version "5.14.3"
-  resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-5.14.3.tgz#09bce98d844fc935da056f40bf1ef2b3b6c4ef01"
-  integrity sha512-af4nCUu+Aw5q0+sH8Omm6NE7T2NlqJMIllCwMuW2TRIRHRyCMmc9RSCP3vUhg1roVql34uiogB/GppHvMDjH1Q==
+webdriverio@5.14.4:
+  version "5.14.4"
+  resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-5.14.4.tgz#7d478a737e61e2d8d8581431c3c5582927a940c6"
+  integrity sha512-MaAz7alQWhGcz0zxwJua28n+nX31rByCTzyeLK7r8V7fnjUqzkLoY3zC7qW3dUA6JVQiykL6eIq+/HwoiscVdQ==
   dependencies:
     "@wdio/config" "5.14.0"
     "@wdio/logger" "5.13.2"
-    "@wdio/repl" "5.14.3"
-    "@wdio/utils" "5.14.3"
+    "@wdio/repl" "5.14.4"
+    "@wdio/utils" "5.14.4"
     archiver "^3.0.0"
     css-value "^0.0.1"
     grapheme-splitter "^1.0.2"
@@ -2147,7 +2147,7 @@ webdriverio@5.14.3:
     resq "^1.6.0"
     rgb2hex "^0.1.0"
     serialize-error "^5.0.0"
-    webdriver "5.14.3"
+    webdriver "5.14.4"
 
 which-module@^2.0.0:
   version "2.0.0"
