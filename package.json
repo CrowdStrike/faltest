@@ -11,7 +11,7 @@
     "release": "next release --scripts.postbump \"$PWD/scripts/postbump.js\" --no-bump-in-range-dependencies",
     "start": "./packages/cli/bin/index.js",
     "test": "./scripts/run.js packages test",
-    "test:examples": "./scripts/examples.js"
+    "test:examples": "mocha --recursive"
   },
   "repository": {
     "type": "git",
