@@ -58,7 +58,9 @@ async function startBrowsers(options) {
     promises.push(webDriver.startBrowser(options.overrides));
   }
 
-  let browsers = (await Promise.all(promises)).map(options.browserOverride);
+  let browsers = await Promise.all(promises);
+
+  browsers = browsers.map(options.browserOverride);
 
   if (browsers.length > 1) {
     events.emit('start-browsers', browsers);
