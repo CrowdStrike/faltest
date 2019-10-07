@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.3](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.5.2...1.5.3) (2019-10-07)
+
+
+### Bug Fixes
+
+* add test for multi browser and fix assumption ([cee538f](https://github.com/CrowdStrike/faltest/commit/cee538f))
+
 ### [1.5.2](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.5.1...1.5.2) (2019-10-02)
 
 
