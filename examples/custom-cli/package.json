@@ -6,7 +6,7 @@
     "my-cli": "bin/index.js"
   },
   "scripts": {
-    "start": "./bin/index.js"
+    "start": "yarn my-cli"
   },
   "engines": {
     "node": ">=8.10"
