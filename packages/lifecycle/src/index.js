@@ -52,13 +52,9 @@ async function stopWebDriver(instance) {
 async function startBrowsers(options) {
   let { browsers: count = browserCount } = options.overrides;
 
-  let promises = [];
-
-  for (let i = 0; i < count; i++) {
-    promises.push(webDriver.startBrowser(options.overrides));
-  }
-
-  let browsers = await Promise.all(promises);
+  let browsers = await Promise.all(Array(count).fill().map(() => {
+    return webDriver.startBrowser(options.overrides);
+  }));
 
   browsers = browsers.map(options.browserOverride);
 
