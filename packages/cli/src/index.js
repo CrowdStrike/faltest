@@ -30,6 +30,11 @@ function initCli({
         description: 'Type of browser to run',
         choices: ['chrome', 'firefox'],
       },
+      'browsers': {
+        type: 'integer',
+        default: defaults.browsers,
+        description: 'Number of browsers to run',
+      },
       'port': {
         type: 'string',
         default: '0',
@@ -168,6 +173,7 @@ function initCli({
 
   for (let [envVar, option] of [
     ['WEBDRIVER_BROWSER', 'browser'],
+    ['WEBDRIVER_BROWSERS', 'browsers'],
     ['WEBDRIVER_PORT', 'port'],
     ['WEBDRIVER_HEADLESS', 'headless'],
     ['WEBDRIVER_TARGET', 'target'],

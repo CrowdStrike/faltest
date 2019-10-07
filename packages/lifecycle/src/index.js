@@ -4,6 +4,7 @@ const webDriver = require('@faltest/remote');
 const Browser = require('@faltest/browser');
 const log = require('./log');
 const EventEmitter = require('events');
+const { defaults } = require('@faltest/utils');
 
 const shareWebdriver = process.env.WEBDRIVER_SHARE_WEBDRIVER === 'true';
 const keepBrowserOpen = process.env.WEBDRIVER_KEEP_BROWSER_OPEN === 'true';
@@ -11,6 +12,7 @@ const shareSession = process.env.WEBDRIVER_SHARE_SESSION === 'true';
 const target = process.env.WEBDRIVER_TARGET;
 const env = process.env.NODE_CONFIG_ENV;
 const throttleNetwork = process.env.WEBDRIVER_THROTTLE_NETWORK === 'true';
+const browserCount = process.env.WEBDRIVER_BROWSERS || defaults.browsers;
 
 if (!shareWebdriver && keepBrowserOpen) {
   throw new Error('!shareWebdriver && keepBrowserOpen is undefined');
@@ -48,7 +50,7 @@ async function stopWebDriver(instance) {
 }
 
 async function startBrowsers(options) {
-  let { browsers: count = 1 } = options.overrides;
+  let { browsers: count = browserCount } = options.overrides;
 
   let promises = [];
 
