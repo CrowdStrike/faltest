@@ -20,9 +20,9 @@
     yn "^3.1.1"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "1.1.1"
+  version "1.2.0"
   dependencies:
-    "@faltest/remote" "^1.5.0"
+    "@faltest/remote" "^1.5.3"
     "@faltest/utils" "^1.1.0"
   optionalDependencies:
     "@faltest/browser" "^1.0.0"
@@ -36,7 +36,7 @@
     glob "^7.1.4"
     mocha-helpers "^4.2.0"
 
-"@faltest/remote@^1.5.0", "@faltest/remote@file:../../packages/remote":
+"@faltest/remote@^1.5.0", "@faltest/remote@^1.5.3", "@faltest/remote@file:../../packages/remote":
   version "1.5.3"
   dependencies:
     "@faltest/utils" "^1.1.0"
