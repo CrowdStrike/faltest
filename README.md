@@ -33,6 +33,7 @@ Here are a couple examples of using the FalTest CLI.
   --version            Show version number                             [boolean]
   --browser            Type of browser to run
                      [string] [choices: "chrome", "firefox"] [default: "chrome"]
+  --browsers           Number of browsers to run                    [default: 1]
   --port               Port for WebDriver                [string] [default: "0"]
   --headless           Run browser in headless mode   [boolean] [default: false]
   --retries            When all else fails, try again!              [default: 0]

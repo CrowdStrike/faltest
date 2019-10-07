@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@faltest/mocha": "^1.0.0",
-    "@faltest/remote": "^1.5.0",
+    "@faltest/remote": "^1.5.3",
     "@faltest/utils": "^1.1.0",
     "mocha": "^6.2.0",
     "yargs": "^14.0.0",
