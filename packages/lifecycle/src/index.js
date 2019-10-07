@@ -33,27 +33,73 @@ async function event(name, context, options) {
   await Promise.all(promises);
 }
 
+async function startWebDriver(options) {
+  let instance = await webDriver.startWebDriver(options.overrides);
+
+  events.emit('start-web-driver', instance);
+
+  return instance;
+}
+
+async function stopWebDriver(instance) {
+  await webDriver.stopWebDriver(instance);
+
+  events.emit('stop-web-driver');
+}
+
+async function startBrowsers(options) {
+  let { browsers: count = 1 } = options.overrides;
+
+  let promises = [];
+
+  for (let i = 0; i < count; i++) {
+    promises.push(webDriver.startBrowser(options.overrides));
+  }
+
+  let browsers = (await Promise.all(promises)).map(options.browserOverride);
+
+  if (browsers.length > 1) {
+    events.emit('start-browsers', browsers);
+  } else {
+    // This can be removed in a major version.
+    events.emit('start-browser', browsers[0]);
+  }
+
+  return browsers;
+}
+
 let webDriverInstance;
-let sharedBrowser;
+let sharedBrowsers;
 let loggedInRole;
+
+async function stopBrowsers(browsers) {
+  for (let browser of browsers) {
+    await webDriver.stopBrowser(browser);
+  }
+
+  if (browsers.length > 1) {
+    events.emit('stop-browsers');
+  } else {
+    // This can be removed in a major version.
+    events.emit('stop-browser');
+  }
+}
 
 async function setUpWebDriverBefore(options) {
   await event('before-begin', this, options);
 
   if (options.shareWebdriver) {
     if (!webDriverInstance) {
-      webDriverInstance = await webDriver.startWebDriver(options.overrides);
-      events.emit('start-web-driver', webDriverInstance);
+      webDriverInstance = await startWebDriver(options);
     }
 
     if (options.keepBrowserOpen) {
-      if (!sharedBrowser) {
-        sharedBrowser = await webDriver.startBrowser(options.overrides);
-        sharedBrowser = options.browserOverride(sharedBrowser);
-        events.emit('start-browser', sharedBrowser);
+      if (!sharedBrowsers) {
+        sharedBrowsers = await startBrowsers(options);
       }
 
-      this.browser = sharedBrowser;
+      this.browser = sharedBrowsers[0];
+      this.browsers = sharedBrowsers;
       await event('init-context', this, options);
 
       if (options.shareSession) {
@@ -78,29 +124,25 @@ async function setUpWebDriverBefore(options) {
 async function setUpWebDriverBeforeEach(options) {
   await event('before-each-begin', this, options);
 
-  if (!options.keepBrowserOpen && sharedBrowser) {
-    await webDriver.stopBrowser(sharedBrowser);
+  if (!options.keepBrowserOpen && sharedBrowsers) {
+    await stopBrowsers(sharedBrowsers);
     loggedInRole = null;
-    events.emit('stop-browser');
   }
 
   if (!options.shareWebdriver) {
     if (webDriverInstance) {
-      await webDriver.stopWebDriver(webDriverInstance);
-      events.emit('stop-web-driver');
+      await stopWebDriver(webDriverInstance);
     }
 
-    webDriverInstance = await webDriver.startWebDriver(options.overrides);
-    events.emit('start-web-driver', webDriverInstance);
+    webDriverInstance = await startWebDriver(options);
   }
 
   if (!options.keepBrowserOpen) {
-    sharedBrowser = await webDriver.startBrowser(options.overrides);
-    sharedBrowser = options.browserOverride(sharedBrowser);
-    events.emit('start-browser', sharedBrowser);
+    sharedBrowsers = await startBrowsers(options);
   }
 
-  this.browser = sharedBrowser;
+  this.browser = sharedBrowsers[0];
+  this.browsers = sharedBrowsers;
   await event('init-context', this, options);
 
   if (!options.shareSession) {
@@ -199,7 +241,7 @@ function setUpWebDriver(options) {
 
 function resetInternalState() {
   webDriverInstance = null;
-  sharedBrowser = null;
+  sharedBrowsers = null;
   loggedInRole = null;
 }
 

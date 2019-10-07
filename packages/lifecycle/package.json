@@ -27,7 +27,7 @@
     "node": ">=8.10"
   },
   "dependencies": {
-    "@faltest/remote": "^1.5.0",
+    "@faltest/remote": "^1.5.3",
     "@faltest/utils": "^1.1.0"
   },
   "optionalDependencies": {
@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "mocha": "^6.2.0",
-    "sinon": "^7.3.2"
+    "sinon": "^7.3.2",
+    "tmp": "0.1.0"
   }
 }
