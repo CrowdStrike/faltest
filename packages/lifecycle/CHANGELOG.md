@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@1.3.1...1.3.2) (2019-10-08)
+
+
+### Bug Fixes
+
+* `WEBDRIVER_BROWSERS` could be a string ([03a5f78](https://github.com/CrowdStrike/faltest/commit/03a5f78))
+* use `Array.fill` for browser looping ([c32589b](https://github.com/CrowdStrike/faltest/commit/c32589b))
+
 ### [1.3.1](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@1.3.0...1.3.1) (2019-10-07)
 
 
