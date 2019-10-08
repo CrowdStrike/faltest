@@ -12,7 +12,7 @@ const shareSession = process.env.WEBDRIVER_SHARE_SESSION === 'true';
 const target = process.env.WEBDRIVER_TARGET;
 const env = process.env.NODE_CONFIG_ENV;
 const throttleNetwork = process.env.WEBDRIVER_THROTTLE_NETWORK === 'true';
-const browserCount = process.env.WEBDRIVER_BROWSERS || defaults.browsers;
+const browserCount = parseInt(process.env.WEBDRIVER_BROWSERS) || defaults.browsers;
 
 if (!shareWebdriver && keepBrowserOpen) {
   throw new Error('!shareWebdriver && keepBrowserOpen is undefined');
