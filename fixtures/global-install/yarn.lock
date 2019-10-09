@@ -37,7 +37,7 @@
     mocha-helpers "^4.2.0"
 
 "@faltest/remote@^1.5.4", "@faltest/remote@file:../../packages/remote":
-  version "1.5.5"
+  version "1.5.6"
   dependencies:
     "@faltest/utils" "^1.2.0"
     chromedriver "76.0.1"
@@ -46,7 +46,7 @@
     geckodriver "1.18.0"
     get-port "^5.0.0"
     ps-list "^6.3.0"
-    webdriverio "5.14.4"
+    webdriverio "5.14.5"
     yn "^3.1.1"
 
 "@faltest/utils@^1.2.0", "@faltest/utils@file:../../packages/utils":
@@ -2128,10 +2128,10 @@ webdriver@5.14.4:
     lodash.merge "^4.6.1"
     request "^2.83.0"
 
-webdriverio@5.14.4:
-  version "5.14.4"
-  resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-5.14.4.tgz#7d478a737e61e2d8d8581431c3c5582927a940c6"
-  integrity sha512-MaAz7alQWhGcz0zxwJua28n+nX31rByCTzyeLK7r8V7fnjUqzkLoY3zC7qW3dUA6JVQiykL6eIq+/HwoiscVdQ==
+webdriverio@5.14.5:
+  version "5.14.5"
+  resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-5.14.5.tgz#3bb5a6106dc53d0e774023fc3f8d331c4e65af06"
+  integrity sha512-cU8HtVuVFCUA7/0ugo2X8hcObeAi5oQhNjtgDJTQ2ZOkBCciaD3SRU/hARJyzGsYS6nSvEfPKIyVEteuMHNOyw==
   dependencies:
     "@wdio/config" "5.14.0"
     "@wdio/logger" "5.13.2"
