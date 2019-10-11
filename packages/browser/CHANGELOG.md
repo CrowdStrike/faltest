@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@1.3.0...1.3.1) (2019-10-11)
+
+
+### Bug Fixes
+
+* pass everything to `elementSendKeys` ([c93bc29](https://github.com/CrowdStrike/faltest/commit/c93bc29))
+
 ## [1.3.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@1.2.1...1.3.0) (2019-10-02)
 
 
