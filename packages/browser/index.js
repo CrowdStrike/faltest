@@ -360,8 +360,8 @@ Browser.prototype.waitForText = resolveElement(async function waitForText(elemen
   });
 });
 
-Browser.prototype.elementSendKeys = resolveElement(async function elementSendKeys(element, value) {
-  await this._browser.elementSendKeys(element.elementId, value);
+Browser.prototype.elementSendKeys = resolveElement(async function elementSendKeys(element, ...args) {
+  await this._browser.elementSendKeys(element.elementId, ...args);
 });
 
 Browser.prototype.waitForDisabled = resolveElement(async function waitForDisabled(element) {
