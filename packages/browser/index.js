@@ -15,6 +15,7 @@ const browserFunctionsToPassThrough = [
   'waitUntil',
   'execute',
   'executeAsync',
+  'keys',
 ];
 
 const elementFunctionsToPassThrough = [
