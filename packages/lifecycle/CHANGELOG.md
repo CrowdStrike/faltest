@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.5](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@1.3.4...1.3.5) (2019-10-21)
+
+
+### Bug Fixes
+
+* throttle all browsers ([c43b5af](https://github.com/CrowdStrike/faltest/commit/c43b5af))
+
 ### [1.3.4](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@1.3.3...1.3.4) (2019-10-21)
 
 
