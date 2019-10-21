@@ -160,8 +160,10 @@ async function setUpWebDriverBeforeEach(options) {
   }
 
   if (options.throttleNetwork) {
-    // eslint-disable-next-line faltest/no-browser-throttle
-    await this.browser.throttleOn();
+    for (let browser of sharedBrowsers) {
+      // eslint-disable-next-line faltest/no-browser-throttle
+      await browser.throttleOn();
+    }
   }
 
   await event('before-each-end', this, options);
@@ -171,8 +173,10 @@ async function setUpWebDriverAfterEach(options) {
   await event('after-each-begin', this, options);
 
   if (options.throttleNetwork) {
-    // eslint-disable-next-line faltest/no-browser-throttle
-    await this.browser.throttleOff();
+    for (let browser of sharedBrowsers) {
+      // eslint-disable-next-line faltest/no-browser-throttle
+      await browser.throttleOff();
+    }
   }
 
   await event('after-each-end', this, options);
