@@ -58,12 +58,12 @@ async function startBrowsers(options) {
 
   browsers = browsers.map(options.browserOverride);
 
-  if (browsers.length > 1) {
-    events.emit('start-browsers', browsers);
-  } else {
+  if (browsers.length === 1) {
     // This can be removed in a major version.
     events.emit('start-browser', browsers[0]);
   }
+
+  events.emit('start-browsers', browsers);
 
   return browsers;
 }
@@ -77,12 +77,12 @@ async function stopBrowsers(browsers) {
     await webDriver.stopBrowser(browser);
   }
 
-  if (browsers.length > 1) {
-    events.emit('stop-browsers');
-  } else {
+  if (browsers.length === 1) {
     // This can be removed in a major version.
     events.emit('stop-browser');
   }
+
+  events.emit('stop-browsers');
 }
 
 async function setUpWebDriverBefore(options) {
