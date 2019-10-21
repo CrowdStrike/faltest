@@ -83,6 +83,8 @@ async function stopBrowsers(browsers) {
   }
 
   events.emit('stop-browsers');
+
+  loggedInRole = null;
 }
 
 async function logIn(options) {
@@ -90,6 +92,8 @@ async function logIn(options) {
     this.browser = browser;
     await options.logIn.call(this, options);
   }
+
+  loggedInRole = this.role;
 }
 
 async function logOut(options) {
@@ -97,6 +101,8 @@ async function logOut(options) {
     this.browser = browser;
     await options.logOut.call(this, options);
   }
+
+  loggedInRole = null;
 }
 
 async function setUpWebDriverBefore(options) {
@@ -119,12 +125,10 @@ async function setUpWebDriverBefore(options) {
       if (options.shareSession) {
         if (loggedInRole && (!options.shouldLogIn || !this.role || !options.areRolesEqual(this.role, loggedInRole))) {
           await logOut.call(this, options);
-          loggedInRole = null;
         }
 
         if (options.shouldLogIn && !loggedInRole) {
           await logIn.call(this, options);
-          loggedInRole = this.role;
         }
 
         await event('init-session', this, options);
@@ -140,7 +144,6 @@ async function setUpWebDriverBeforeEach(options) {
 
   if (!options.keepBrowserOpen && sharedBrowsers) {
     await stopBrowsers(sharedBrowsers);
-    loggedInRole = null;
   }
 
   if (!options.shareWebdriver) {
@@ -162,12 +165,10 @@ async function setUpWebDriverBeforeEach(options) {
   if (!options.shareSession) {
     if (loggedInRole) {
       await logOut.call(this, options);
-      loggedInRole = null;
     }
 
     if (options.shouldLogIn && !loggedInRole) {
       await logIn.call(this, options);
-      loggedInRole = this.role;
     }
 
     await event('init-session', this, options);
