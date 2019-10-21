@@ -29,10 +29,8 @@ class Server {
       return;
     }
 
-    this.server.close();
-
     await new Promise(resolve => {
-      this.server.once('close', resolve);
+      this.server.close(resolve);
     });
 
     this.server = null;
