@@ -2782,7 +2782,171 @@ describe(setUpWebDriver, function() {
       overrides.browsers = count;
     });
 
-    it('log in');
+    it('log in', async function() {
+      setOptions({
+        shouldLogIn: true,
+      });
+
+      await beforeTest();
+
+      expect(startWebDriver).to.have.callCount(1);
+      expect(startBrowser).to.have.callCount(count);
+      expect(browserOverrideSpy).to.have.callCount(count);
+      expect(logIn).to.have.callCount(1);
+      expect(logOut).to.have.callCount(0);
+      expect(stopBrowser).to.have.callCount(0);
+      expect(stopWebDriver).to.have.callCount(0);
+
+      expect(startBrowser).to.have.been.calledAfter(startWebDriver);
+      expect(browserOverrideSpy).to.have.been.calledAfter(startBrowser);
+      expect(logIn).to.have.been.calledAfter(browserOverrideSpy);
+
+      expect(onStartWebDriver).to.have.callCount(1);
+      expect(onStartBrowsers).to.have.callCount(1);
+      expect(onInitContext).to.have.callCount(2);
+      expect(onInitSession).to.have.callCount(1);
+      expect(onStopBrowsers).to.have.callCount(0);
+      expect(onStopWebDriver).to.have.callCount(0);
+
+      expect(onStartBrowsers).to.have.been.calledAfter(onStartWebDriver);
+      expect(onInitContext).to.have.been.calledAfter(onStartBrowsers);
+      expect(onInitSession).to.have.been.calledAfter(onInitContext);
+
+      assertLifecycleBefore();
+
+      assertContext();
+
+      reset();
+
+      await eachTest();
+
+      expect(startWebDriver).to.have.callCount(0);
+      expect(startBrowser).to.have.callCount(0);
+      expect(browserOverrideSpy).to.have.callCount(0);
+      expect(logIn).to.have.callCount(0);
+      expect(logOut).to.have.callCount(0);
+      expect(stopBrowser).to.have.callCount(0);
+      expect(stopWebDriver).to.have.callCount(0);
+
+      expect(onStartWebDriver).to.have.callCount(0);
+      expect(onStartBrowser).to.have.callCount(0);
+      expect(onInitContext).to.have.callCount(1);
+      expect(onInitSession).to.have.callCount(0);
+      expect(onStopBrowser).to.have.callCount(0);
+      expect(onStopWebDriver).to.have.callCount(0);
+
+      assertLifecycleEach();
+
+      assertContext();
+
+      reset();
+
+      await afterTest();
+
+      expect(startWebDriver).to.have.callCount(0);
+      expect(startBrowser).to.have.callCount(0);
+      expect(browserOverrideSpy).to.have.callCount(0);
+      expect(logIn).to.have.callCount(0);
+      expect(logOut).to.have.callCount(0);
+      expect(stopBrowser).to.have.callCount(0);
+      expect(stopWebDriver).to.have.callCount(0);
+
+      expect(onStartWebDriver).to.have.callCount(0);
+      expect(onStartBrowser).to.have.callCount(0);
+      expect(onInitContext).to.have.callCount(1);
+      expect(onInitSession).to.have.callCount(0);
+      expect(onStopBrowser).to.have.callCount(0);
+      expect(onStopWebDriver).to.have.callCount(0);
+
+      assertLifecycleAfter();
+
+      assertContext();
+
+      reset();
+
+      let loggedInRole = role;
+      role = {};
+
+      let areRolesEqual = sinon.stub().withArgs(role, loggedInRole).returns(true);
+
+      setOptions({
+        areRolesEqual,
+      });
+
+      await beforeTest();
+
+      expect(startWebDriver).to.have.callCount(0);
+      expect(startBrowser).to.have.callCount(0);
+      expect(browserOverrideSpy).to.have.callCount(0);
+      expect(areRolesEqual).to.have.callCount(1);
+      expect(logIn).to.have.callCount(0);
+      expect(logOut).to.have.callCount(0);
+      expect(stopBrowser).to.have.callCount(0);
+      expect(stopWebDriver).to.have.callCount(0);
+
+      expect(onStartWebDriver).to.have.callCount(0);
+      expect(onStartBrowser).to.have.callCount(0);
+      expect(onInitContext).to.have.callCount(2);
+      expect(onInitSession).to.have.callCount(1);
+      expect(onStopBrowser).to.have.callCount(0);
+      expect(onStopWebDriver).to.have.callCount(0);
+
+      expect(onInitSession).to.have.been.calledAfter(onInitContext);
+
+      assertLifecycleBefore();
+
+      assertContext();
+
+      reset();
+
+      setOptions({
+        areRolesEqual: null,
+      });
+
+      await eachTest();
+
+      expect(startWebDriver).to.have.callCount(0);
+      expect(startBrowser).to.have.callCount(0);
+      expect(browserOverrideSpy).to.have.callCount(0);
+      expect(logIn).to.have.callCount(0);
+      expect(logOut).to.have.callCount(0);
+      expect(stopBrowser).to.have.callCount(0);
+      expect(stopWebDriver).to.have.callCount(0);
+
+      expect(onStartWebDriver).to.have.callCount(0);
+      expect(onStartBrowser).to.have.callCount(0);
+      expect(onInitContext).to.have.callCount(1);
+      expect(onInitSession).to.have.callCount(0);
+      expect(onStopBrowser).to.have.callCount(0);
+      expect(onStopWebDriver).to.have.callCount(0);
+
+      assertLifecycleEach();
+
+      assertContext();
+
+      reset();
+
+      await afterTest();
+
+      expect(startWebDriver).to.have.callCount(0);
+      expect(startBrowser).to.have.callCount(0);
+      expect(browserOverrideSpy).to.have.callCount(0);
+      expect(logIn).to.have.callCount(0);
+      expect(logOut).to.have.callCount(0);
+      expect(stopBrowser).to.have.callCount(0);
+      expect(stopWebDriver).to.have.callCount(0);
+
+      expect(onStartWebDriver).to.have.callCount(0);
+      expect(onStartBrowser).to.have.callCount(0);
+      expect(onInitContext).to.have.callCount(1);
+      expect(onInitSession).to.have.callCount(0);
+      expect(onStopBrowser).to.have.callCount(0);
+      expect(onStopWebDriver).to.have.callCount(0);
+
+      assertLifecycleAfter();
+
+      assertContext();
+    });
 
     it('don\'t log in', async function() {
       setOptions({
