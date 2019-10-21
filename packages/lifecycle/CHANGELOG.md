@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.7](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@1.3.6...1.3.7) (2019-10-21)
+
+
+### Bug Fixes
+
+* extract `loggedInRole` modifications ([b4a38c6](https://github.com/CrowdStrike/faltest/commit/b4a38c6))
+
 ### [1.3.6](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@1.3.5...1.3.6) (2019-10-21)
 
 
