@@ -85,6 +85,20 @@ async function stopBrowsers(browsers) {
   events.emit('stop-browsers');
 }
 
+async function logIn(options) {
+  for (let browser of sharedBrowsers) {
+    this.browser = browser;
+    await options.logIn.call(this, options);
+  }
+}
+
+async function logOut(options) {
+  for (let browser of sharedBrowsers) {
+    this.browser = browser;
+    await options.logOut.call(this, options);
+  }
+}
+
 async function setUpWebDriverBefore(options) {
   await event('before-begin', this, options);
 
@@ -104,18 +118,12 @@ async function setUpWebDriverBefore(options) {
 
       if (options.shareSession) {
         if (loggedInRole && (!options.shouldLogIn || !this.role || !options.areRolesEqual(this.role, loggedInRole))) {
-          for (let browser of sharedBrowsers) {
-            this.browser = browser;
-            await options.logOut.call(this, options);
-          }
+          await logOut.call(this, options);
           loggedInRole = null;
         }
 
         if (options.shouldLogIn && !loggedInRole) {
-          for (let browser of sharedBrowsers) {
-            this.browser = browser;
-            await options.logIn.call(this, options);
-          }
+          await logIn.call(this, options);
           loggedInRole = this.role;
         }
 
@@ -153,18 +161,12 @@ async function setUpWebDriverBeforeEach(options) {
 
   if (!options.shareSession) {
     if (loggedInRole) {
-      for (let browser of sharedBrowsers) {
-        this.browser = browser;
-        await options.logOut.call(this, options);
-      }
+      await logOut.call(this, options);
       loggedInRole = null;
     }
 
     if (options.shouldLogIn && !loggedInRole) {
-      for (let browser of sharedBrowsers) {
-        this.browser = browser;
-        await options.logIn.call(this, options);
-      }
+      await logIn.call(this, options);
       loggedInRole = this.role;
     }
 
