@@ -37,13 +37,13 @@
     mocha-helpers "^4.2.0"
 
 "@faltest/remote@^1.5.4", "@faltest/remote@file:../../packages/remote":
-  version "1.5.8"
+  version "1.5.9"
   dependencies:
     "@faltest/utils" "^1.2.0"
     chromedriver "76.0.1"
     execa "^2.0.4"
     fkill "^6.2.0"
-    geckodriver "1.18.0"
+    geckodriver "1.19.0"
     get-port "^5.0.0"
     ps-list "^6.3.0"
     webdriverio "5.15.1"
@@ -830,10 +830,10 @@ function-bind@^1.1.1:
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
-geckodriver@1.18.0:
-  version "1.18.0"
-  resolved "https://registry.yarnpkg.com/geckodriver/-/geckodriver-1.18.0.tgz#a4d9b0504be26ed933d7be208b06b15833e32415"
-  integrity sha512-PFBq5UsngfLrxmNqnynix4rQgOkOWCKl3I3PlXCROiTQKSE2znIK9MnEUNQznzxNOPMRt1RGGy2cinIARSRvKQ==
+geckodriver@1.19.0:
+  version "1.19.0"
+  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-1.19.0.tgz#b2b07e343c2e409ce645e65fe88132bd34fa400a"
+  integrity sha512-Zq98rXKjvB+NCfzKlJGkQkFAO8zvmUSNqYEIxUwlF1qxmv4taRwwBbEfDa6Dj7Auf7C0p+ZZZmIA8KmlL1cfsw==
   dependencies:
     adm-zip "0.4.11"
     bluebird "3.4.6"
