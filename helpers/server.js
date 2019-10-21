@@ -15,10 +15,10 @@ class Server {
       port = await getNewPort();
     }
 
-    let server = connect().use(serveStatic(this.fixtures));
+    let app = connect().use(serveStatic(this.fixtures));
 
     await new Promise(resolve => {
-      this.server = server.listen(port, resolve);
+      this.server = app.listen(port, resolve);
     });
 
     return port;
