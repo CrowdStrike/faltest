@@ -280,6 +280,10 @@ describe(setUpWebDriver, function() {
 
   function assertContext() {
     expect(context.browser).to.be.an.instanceof(Browser);
+    expect(context.browsers).to.be.an('array');
+    for (let browser of context.browsers) {
+      expect(browser).to.be.an.instanceof(Browser);
+    }
   }
 
   function reset() {
