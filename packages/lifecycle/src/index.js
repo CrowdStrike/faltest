@@ -104,12 +104,18 @@ async function setUpWebDriverBefore(options) {
 
       if (options.shareSession) {
         if (loggedInRole && (!options.shouldLogIn || !this.role || !options.areRolesEqual(this.role, loggedInRole))) {
-          await options.logOut.call(this, options);
+          for (let browser of sharedBrowsers) {
+            this.browser = browser;
+            await options.logOut.call(this, options);
+          }
           loggedInRole = null;
         }
 
         if (options.shouldLogIn && !loggedInRole) {
-          await options.logIn.call(this, options);
+          for (let browser of sharedBrowsers) {
+            this.browser = browser;
+            await options.logIn.call(this, options);
+          }
           loggedInRole = this.role;
         }
 
@@ -147,12 +153,18 @@ async function setUpWebDriverBeforeEach(options) {
 
   if (!options.shareSession) {
     if (loggedInRole) {
-      await options.logOut.call(this, options);
+      for (let browser of sharedBrowsers) {
+        this.browser = browser;
+        await options.logOut.call(this, options);
+      }
       loggedInRole = null;
     }
 
     if (options.shouldLogIn && !loggedInRole) {
-      await options.logIn.call(this, options);
+      for (let browser of sharedBrowsers) {
+        this.browser = browser;
+        await options.logIn.call(this, options);
+      }
       loggedInRole = this.role;
     }
 
