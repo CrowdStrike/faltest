@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.6](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@1.3.5...1.3.6) (2019-10-21)
+
+
+### Bug Fixes
+
+* call log in and out once for every browser ([6928171](https://github.com/CrowdStrike/faltest/commit/6928171))
+* extract `logIn` and `logOut` ([09222d7](https://github.com/CrowdStrike/faltest/commit/09222d7))
+
 ### [1.3.5](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@1.3.4...1.3.5) (2019-10-21)
 
 
