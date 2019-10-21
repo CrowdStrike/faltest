@@ -58,8 +58,8 @@ async function startBrowsers(options) {
 
   browsers = browsers.map(options.browserOverride);
 
+  // This can be removed in a major version.
   if (browsers.length === 1) {
-    // This can be removed in a major version.
     events.emit('start-browser', browsers[0]);
   }
 
@@ -77,8 +77,8 @@ async function stopBrowsers(browsers) {
     await webDriver.stopBrowser(browser);
   }
 
+  // This can be removed in a major version.
   if (browsers.length === 1) {
-    // This can be removed in a major version.
     events.emit('stop-browser');
   }
 
