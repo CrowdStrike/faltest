@@ -91,11 +91,13 @@ describe(setUpWebDriver, function() {
     logIn = sinon.stub().withArgs(options).callsFake(async function() {
       // because there is no `withArgs` equivalent for `this`
       expect(this).to.equal(context);
+      expect(this.browser).to.equal(this.browsers[logIn.callCount - 1]);
     });
     // eslint-disable-next-line require-await
     logOut = sinon.stub().withArgs(options).callsFake(async function() {
       // because there is no `withArgs` equivalent for `this`
       expect(this).to.equal(context);
+      expect(this.browser).to.equal(this.browsers[logOut.callCount - 1]);
     });
 
     browserOverrideSpy = sinon.spy(browserOverride);
@@ -2792,7 +2794,7 @@ describe(setUpWebDriver, function() {
       expect(startWebDriver).to.have.callCount(1);
       expect(startBrowser).to.have.callCount(count);
       expect(browserOverrideSpy).to.have.callCount(count);
-      expect(logIn).to.have.callCount(1);
+      expect(logIn).to.have.callCount(count);
       expect(logOut).to.have.callCount(0);
       expect(stopBrowser).to.have.callCount(0);
       expect(stopWebDriver).to.have.callCount(0);
