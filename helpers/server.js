@@ -21,6 +21,11 @@ class Server {
       this.server = app.listen(port, resolve);
     });
 
+    // `close` takes 5 secs otherwise
+    // `0` makes it hang forever
+    // https://nodejs.org/api/http.html#http_server_keepalivetimeout
+    this.server.keepAliveTimeout = 1;
+
     return port;
   }
 
