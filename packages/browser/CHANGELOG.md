@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@1.3.1...1.4.0) (2019-10-22)
+
+
+### Features
+
+* pass through browser `keys` ([98c7d2a](https://github.com/CrowdStrike/faltest/commit/98c7d2a))
+
 ### [1.3.1](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@1.3.0...1.3.1) (2019-10-11)
 
 
