@@ -1,10 +1,17 @@
 'use strict';
 
 const BaseElement = require('./base-element');
+const Element = require('./element');
 
 const { PageObjectRetryError } = BaseElement;
 
 class Elements extends BaseElement {
+  constructor() {
+    super(...arguments);
+
+    this.ChildType = Element;
+  }
+
   async getElements() {
     let elements = await this._browser._findElements(this._selector);
     return elements;
@@ -14,26 +21,26 @@ class Elements extends BaseElement {
   // async *[Symbol.asyncIterator]() {
   //   let elements = await this.getElements();
   //   for (let element of elements) {
-  //     let pageObject = this._create(element, this.eachProperties);
+  //     let pageObject = this._extend(this.ChildType, element, this.eachProperties);
   //     yield pageObject;
   //   }
   // }
   async getPageObjects() {
     let elements = await this.getElements();
     return elements.map(element => {
-      let pageObject = this._create(element, this.eachProperties);
+      let pageObject = this._extend(this.ChildType, element, this.eachProperties);
       return pageObject;
     });
   }
 
   scopeByText() {
-    return this._create(async () => {
+    return this._extend(this.ChildType, async () => {
       return await this._browser.findByText(this._selector, ...arguments);
     }, this.eachProperties);
   }
 
   scopeBy(callback) {
-    return this._create(async () => {
+    return this._extend(this.ChildType, async () => {
       let pageObjects = await this.getPageObjects();
 
       for (let pageObject of pageObjects) {
@@ -53,14 +60,14 @@ class Elements extends BaseElement {
   }
 
   get first() {
-    return this._create(async () => {
+    return this._extend(this.ChildType, async () => {
       let elements = await this.getElements();
       return elements[0];
     }, this.eachProperties);
   }
 
   get last() {
-    return this._create(async () => {
+    return this._extend(this.ChildType, async () => {
       let elements = await this.getElements();
       return elements[elements.length - 1];
     }, this.eachProperties);
