@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.7.2...1.8.0) (2019-10-23)
+
+
+### Features
+
+* add `Elements.ChildType` override capability ([578fa0b](https://github.com/CrowdStrike/faltest/commit/578fa0b))
+
 ### [1.7.2](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.7.1...1.7.2) (2019-10-07)
 
 ### [1.7.1](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@1.7.0...1.7.1) (2019-10-07)
