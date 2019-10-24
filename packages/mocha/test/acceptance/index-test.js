@@ -103,5 +103,20 @@ describe(function() {
         expect(stats.passes).to.equal(1);
       });
     });
+
+    describe('retries', function() {
+      before(function() {
+        globs = [path.resolve(__dirname, '../fixtures/retries-test.js')];
+      });
+
+      it('works', async function() {
+        let stats = await runTests({
+          globs,
+          retries: 2,
+        });
+
+        expect(stats.passes).to.equal(1);
+      });
+    });
   });
 });
