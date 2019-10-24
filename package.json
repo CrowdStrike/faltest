@@ -11,7 +11,7 @@
     "release": "next release --scripts.postbump \"$PWD/scripts/postbump.js\" --no-bump-in-range-dependencies",
     "start": "./packages/cli/bin/index.js",
     "test": "./scripts/run.js packages test",
-    "test:examples": "mocha --recursive"
+    "test:acceptance": "mocha --recursive"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "remark-preset-lint-crowdstrike": "^1.0.2",
     "renovate-config-standard": "^2.0.0",
     "serve-static": "^1.14.1",
-    "sinon-chai": "^3.3.0"
+    "sinon-chai": "^3.3.0",
+    "tmp": "0.1.0"
   }
 }

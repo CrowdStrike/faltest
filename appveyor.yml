@@ -21,7 +21,7 @@ install:
 test_script:
 # https://stackoverflow.com/a/51773107/1703845
 - wmic datafile where name="C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe" get Version /value
-- yarn test:examples
+- yarn test:acceptance
 
 cache:
 # http://help.appveyor.com/discussions/questions/1310-delete-cache
