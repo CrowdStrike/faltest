@@ -25,13 +25,13 @@ jobs:
     env:
     - DEBUG=remote*
     script:
-    - yarn test:examples
+    - yarn test:acceptance
   - name: Examples
     os: osx
     env:
     - DEBUG=remote*
     script:
-    - yarn test:examples
+    - yarn test:acceptance
   - name: Global Install Test
     env:
     - DEBUG=remote*
