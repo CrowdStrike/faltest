@@ -3,7 +3,7 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle/src');
-const { killOrphans } = require('@faltest/remote/src');
+const { killOrphans } = require('../../../remote/src');
 const {
   BasePageObject,
   Elements,
