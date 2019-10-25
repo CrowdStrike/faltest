@@ -19,14 +19,14 @@ jobs:
   - name: Test
     env:
     - DEBUG=remote* WEBDRIVER_HEADLESS=true
-  - name: Examples
+  - name: Acceptance
     services:
     - xvfb
     env:
     - DEBUG=remote*
     script:
     - yarn test:acceptance
-  - name: Examples
+  - name: Acceptance
     os: osx
     env:
     - DEBUG=remote*
