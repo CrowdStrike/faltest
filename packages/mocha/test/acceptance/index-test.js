@@ -112,7 +112,7 @@ describe(function() {
       it('works', async function() {
         let stats = await runTests({
           globs,
-          retries: 2,
+          retries: 1,
         });
 
         expect(stats.passes).to.equal(1);

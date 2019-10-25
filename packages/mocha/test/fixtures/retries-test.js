@@ -8,6 +8,6 @@ describe('retries', function() {
   });
 
   it('works', function() {
-    assert.strictEqual(++this.attempt, 2);
+    assert.strictEqual(++this.attempt, 1);
   });
 });
