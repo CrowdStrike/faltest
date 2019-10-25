@@ -18,23 +18,23 @@ jobs:
     - yarn lint:js
   - name: Test
     env:
-    - DEBUG=remote* WEBDRIVER_HEADLESS=true
+    - DEBUG=@faltest* WEBDRIVER_HEADLESS=true
   - name: Acceptance
     services:
     - xvfb
     env:
-    - DEBUG=remote*
+    - DEBUG=@faltest*
     script:
     - yarn test:acceptance
   - name: Acceptance
     os: osx
     env:
-    - DEBUG=remote*
+    - DEBUG=@faltest*
     script:
     - yarn test:acceptance
   - name: Global Install Test
     env:
-    - DEBUG=remote*
+    - DEBUG=@faltest*
     cache:
       npm: false
     install:
