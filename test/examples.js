@@ -2,7 +2,7 @@
 
 const { describe, it } = require('../helpers/mocha');
 const { expect } = require('../helpers/chai');
-const execa = require('execa');
+const _run = require('../helpers/run');
 const path = require('path');
 
 function getCwd(example) {
@@ -12,15 +12,9 @@ function getCwd(example) {
 describe(function() {
   before(function() {
     this.run = async function run() {
-      try {
-        let { stdout } = await execa.command(this.test.title, {
-          cwd: this.test.parent.title,
-        });
-
-        return stdout;
-      } catch (err) {
-        return err.stdout;
-      }
+      return await _run(this.test.title, {
+        cwd: this.test.parent.title,
+      });
     };
   });
 
