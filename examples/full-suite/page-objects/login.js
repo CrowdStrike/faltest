@@ -19,12 +19,19 @@ class Page extends BasePageObject {
     return this._create('#email');
   }
 
+  get password() {
+    return this._create('#password');
+  }
+
   get logInButton() {
     return this._create('#log-in');
   }
 
-  async logIn(email) {
+  async logIn(email, password) {
     await this.email.setValue(email);
+
+    // prevent accidental debug logging
+    await this.password.setPassword(password);
 
     await this.logInButton.click();
   }
