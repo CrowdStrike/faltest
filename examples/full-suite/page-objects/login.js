@@ -27,11 +27,14 @@ class Page extends BasePageObject {
     return this._create('#log-in');
   }
 
-  async logIn(email, password) {
+  async logIn(email, encryptedPassword) {
     await this.email.setValue(email);
 
+    // Your encryption will obviously be more elaborate.
+    let decryptedPassword = Buffer.from(encryptedPassword, 'base64').toString();
+
     // prevent accidental debug logging
-    await this.password.setPassword(password);
+    await this.password.setPassword(decryptedPassword);
 
     await this.logInButton.click();
   }
