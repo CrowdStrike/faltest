@@ -1,10 +1,12 @@
 {
   "roles": {
     "user": {
-      "email": "prod-user@example.com"
+      "email": "prod-user@example.com",
+      "password": "4gFisySy"
     },
     "admin": {
-      "email": "prod-admin@example.com"
+      "email": "prod-admin@example.com",
+      "password": "6FSLLk0Q"
     }
   }
 }

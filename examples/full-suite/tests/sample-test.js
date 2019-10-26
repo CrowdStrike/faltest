@@ -21,7 +21,7 @@ describe('sample', function() {
 
         await this.login.open(env, target);
 
-        await this.login.logIn(this.role.get('email'));
+        await this.login.logIn(this.role.get('email'), this.role.get('password'));
 
         this.memberSection = new MemberSection(this.browser);
 
