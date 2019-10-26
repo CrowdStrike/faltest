@@ -2,11 +2,11 @@
   "roles": {
     "user": {
       "email": "dev-user@example.com",
-      "password": "LIcKK4cv"
+      "password": "TEljS0s0Y3Y="
     },
     "admin": {
       "email": "dev-admin@example.com",
-      "password": "dxCSh9h2"
+      "password": "ZHhDU2g5aDI="
     }
   }
 }
