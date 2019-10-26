@@ -5,6 +5,7 @@ const connect = require('connect');
 const serveStatic = require('serve-static');
 const { getNewPort } = require('../packages/remote');
 const debug = require('./debug');
+const stoppable = require('stoppable');
 
 class Server {
   constructor(fixtures) {
@@ -19,7 +20,7 @@ class Server {
     let app = connect().use(serveStatic(this.fixtures));
 
     await new Promise(resolve => {
-      this.server = app.listen(port, resolve);
+      this.server = stoppable(app.listen(port, resolve));
     });
 
     // `close` takes 5 secs otherwise
@@ -38,7 +39,7 @@ class Server {
     debug('Stopping test server...');
 
     await new Promise(resolve => {
-      this.server.close(resolve);
+      this.server.stop(resolve);
     });
 
     debug('Stopped test server');
