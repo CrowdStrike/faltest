@@ -4,7 +4,10 @@ const execa = require('execa');
 
 async function run(command, options) {
   try {
-    let cp = execa.command(command, options);
+    let cp = execa.command(command, {
+      preferLocal: true,
+      ...options,
+    });
 
     cp.stdout.pipe(process.stdout);
     cp.stderr.pipe(process.stderr);
