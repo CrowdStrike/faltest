@@ -10,7 +10,10 @@ const debug = require('../debug');
 // eslint-disable-next-line node/no-extraneous-require
 const log = require('loglevel');
 
-let shouldHideNextPassword;
+const replacementText = '[REDACTED]';
+const elementSendKeysRegex = /elementSendKeys\("(.*)", ".*"\)/;
+
+let replacementCountRemaining = 0;
 
 // https://github.com/pimterry/loglevel#writing-plugins
 const { methodFactory } = log;
@@ -34,12 +37,25 @@ log.methodFactory = function(methodName, level, loggerName) {
       return;
     }
 
-    if (shouldHideNextPassword && type && type.includes('DATA') && data.text) {
-      rawMethod(message, type, Object.assign({}, data, {
-        text: '[REDACTED]',
-      }));
-      shouldHideNextPassword = false;
-      return;
+    if (replacementCountRemaining > 0 && type) {
+      let wasFound;
+
+      if (type === '[35mCOMMAND[39m' && elementSendKeysRegex.test(data)) {
+        rawMethod(message, type, data.replace(elementSendKeysRegex, `elementSendKeys("$1", "${replacementText}")`));
+        wasFound = true;
+      }
+      if (type === '[33mDATA[39m' && data.text) {
+        rawMethod(message, type, {
+          ...data,
+          text: replacementText,
+        });
+        wasFound = true;
+      }
+
+      if (wasFound) {
+        replacementCountRemaining--;
+        return;
+      }
     }
 
     rawMethod(...arguments);
@@ -47,4 +63,4 @@ log.methodFactory = function(methodName, level, loggerName) {
 };
 log.setLevel(log.getLevel()); // Be sure to call setLevel method in order to apply plugin
 
-module.exports.hideNextPassword = () => shouldHideNextPassword = true;
+module.exports.hideNextPassword = () => replacementCountRemaining = 2;

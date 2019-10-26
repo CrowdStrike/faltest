@@ -8,6 +8,17 @@ const debug = require('../../src/debug');
 const sinon = require('sinon');
 const Server = require('../../../../helpers/server');
 
+const password = Math.random().toString(36).substr(2);
+
+const passwordMatcher = sinon.match(obj => {
+  if (typeof obj === 'string') {
+    return obj.includes(password);
+  }
+  for (let key in obj) {
+    return obj[key].includes(password);
+  }
+});
+
 describe(function() {
   test('same log level', 'info');
   test('more permissive log level', 'trace');
@@ -74,18 +85,31 @@ function test(title, logLevel) {
       }
     });
 
-    it('hides any passwords from logs', async function() {
-      let password = 'hKzIOvqs';
+    it('verifies our expectations are correct of what should be caught', async function() {
+      let input = await this.browser.$('input');
 
+      await input.setValue(password);
+
+      expect(rawMethod.withArgs(passwordMatcher)).to.have.callCount(0);
+      expect(rawMethod.withArgs(sinon.match.any, passwordMatcher)).to.have.callCount(0);
+      expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, passwordMatcher)).to.have.callCount(2);
+
+      expect(await input.getValue()).to.equal(password);
+    });
+
+    it('hides any passwords from logs', async function() {
       let input = await this.browser.$('input');
 
       await setPassword(input, password);
 
-      expect(await input.getValue()).to.equal(password);
+      expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, sinon.match({ text: '[REDACTED]' }))).to.have.been.calledOnce;
+      expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, sinon.match('[REDACTED]'))).to.have.been.calledOnce;
 
-      let args = [sinon.match.any, sinon.match.any, sinon.match({ text: '[REDACTED]' })];
-      expect(rawMethod).to.have.been.calledWith(...args);
-      expect(rawMethod.withArgs(...args)).to.have.been.calledOnce;
+      expect(rawMethod.withArgs(passwordMatcher), 'check for any missed').to.have.callCount(0);
+      expect(rawMethod.withArgs(sinon.match.any, passwordMatcher), 'check for any missed').to.have.callCount(0);
+      expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, passwordMatcher), 'check for any missed').to.have.callCount(0);
+
+      expect(await input.getValue()).to.equal(password);
     });
   });
 }
