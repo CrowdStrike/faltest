@@ -4,6 +4,7 @@ const path = require('path');
 const connect = require('connect');
 const serveStatic = require('serve-static');
 const { getNewPort } = require('../packages/remote');
+const debug = require('./debug');
 
 class Server {
   constructor(fixtures) {
@@ -34,9 +35,13 @@ class Server {
       return;
     }
 
+    debug('Stopping test server...');
+
     await new Promise(resolve => {
       this.server.close(resolve);
     });
+
+    debug('Stopped test server');
 
     this.server = null;
   }

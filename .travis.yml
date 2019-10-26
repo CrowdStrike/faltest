@@ -18,18 +18,18 @@ jobs:
     - yarn lint:js
   - name: Test
     env:
-    - DEBUG=@faltest* WEBDRIVER_HEADLESS=true
+    - DEBUG=@faltest*,faltest-helpers WEBDRIVER_HEADLESS=true
   - name: Acceptance
     services:
     - xvfb
     env:
-    - DEBUG=@faltest*
+    - DEBUG=@faltest*,faltest-helpers
     script:
     - yarn test:acceptance
   - name: Acceptance
     os: osx
     env:
-    - DEBUG=@faltest*
+    - DEBUG=@faltest*,faltest-helpers
     script:
     - yarn test:acceptance
   - name: Global Install Test
