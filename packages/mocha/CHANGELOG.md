@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.2...1.0.3) (2019-10-27)
+
+
+### Bug Fixes
+
+* add retries test ([0f66434](https://github.com/CrowdStrike/faltest/commit/0f66434))
+
 ### [1.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.1...1.0.2) (2019-10-21)
 
 

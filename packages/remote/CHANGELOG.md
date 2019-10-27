@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.12](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.5.11...1.5.12) (2019-10-27)
+
+
+### Bug Fixes
+
+* redact more password logging ([bf79e4a](https://github.com/CrowdStrike/faltest/commit/bf79e4a))
+
 ### [1.5.11](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.5.10...1.5.11) (2019-10-22)
 
 
