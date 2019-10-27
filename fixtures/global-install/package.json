@@ -12,6 +12,7 @@
     "@faltest/lifecycle": "file:../../packages/lifecycle"
   },
   "resolutions": {
+    "@faltest/mocha": "file:../../packages/mocha",
     "@faltest/remote": "file:../../packages/remote",
     "@faltest/utils": "file:../../packages/utils"
   }
