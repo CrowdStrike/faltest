@@ -216,10 +216,10 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
 
-"@wdio/config@5.15.1":
-  version "5.15.1"
-  resolved "https://registry.npmjs.org/@wdio/config/-/config-5.15.1.tgz#a010dd4a1dad4a36ee51c8557245b4bad6723198"
-  integrity sha512-8XKQCgZh0Y6jI94H1Meg71FE84PVPUAcTWZe07UhOIxNnGpADKP9KZsofMu5i8UnB32xKYXmhDJ4PJohoFItSg==
+"@wdio/config@5.15.3":
+  version "5.15.3"
+  resolved "https://registry.yarnpkg.com/@wdio/config/-/config-5.15.3.tgz#7ab7807bf6871119bcb2d73ed8f5058aa7c1197f"
+  integrity sha512-FE7AOphggjyZvFb9EfT9KRm5BwTkzyGe22tNczS2ntDbexNqs73mHw59cd8Fw7rgM9a1ruF20DmrIIwIeeFEZg==
   dependencies:
     "@wdio/logger" "5.13.2"
     deepmerge "^4.0.0"
@@ -235,10 +235,10 @@
     loglevel-plugin-prefix "^0.8.4"
     strip-ansi "^5.2.0"
 
-"@wdio/protocols@5.15.1":
-  version "5.15.1"
-  resolved "https://registry.npmjs.org/@wdio/protocols/-/protocols-5.15.1.tgz#cd51dd8f5154350a09c75e452c6a5a9c645e9cea"
-  integrity sha512-zg3pdFfecDHmeNS/E2HzksJDfz7e8B71NETrymMxpfWapUC9Jzac5HXbRBpByirmGSrzzXu8923ZZNQwdl7E7g==
+"@wdio/protocols@5.15.4":
+  version "5.15.4"
+  resolved "https://registry.yarnpkg.com/@wdio/protocols/-/protocols-5.15.4.tgz#de1122fc024dc5f947ae18e55ada4ea6de097995"
+  integrity sha512-chAM6Oxe5iY2fEKnWFn1S81nd3PGZJk20UhYDytbJWam15SYoY5HWtkl+ESGz8746pT6wDX/L2nNNe4MS4S16w==
 
 "@wdio/repl@5.15.1":
   version "5.15.1"
@@ -5229,24 +5229,24 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
-webdriver@5.15.1:
-  version "5.15.1"
-  resolved "https://registry.npmjs.org/webdriver/-/webdriver-5.15.1.tgz#6c17f639f777c4999d1cd0e88ce5dd6ef640467f"
-  integrity sha512-neSmJe2QVjslOa3BS2syVttKeuFbbQZ2VACtY3cMLZlMp9Y6H/mRtAa6iMrEyzbwbsXya7tyAp2EXtlckoI3nA==
+webdriver@5.15.4:
+  version "5.15.4"
+  resolved "https://registry.yarnpkg.com/webdriver/-/webdriver-5.15.4.tgz#271a26ee3d7efcda45565e4b79216651adc96efe"
+  integrity sha512-kSVDlJyT4N15tLY+9MAEuK4NIR8eattDYEGkO3N1vNfWu8huqDyICctKQ5NMUtbcGT6BJFORGKLykVY/qWGeGg==
   dependencies:
-    "@wdio/config" "5.15.1"
+    "@wdio/config" "5.15.3"
     "@wdio/logger" "5.13.2"
-    "@wdio/protocols" "5.15.1"
+    "@wdio/protocols" "5.15.4"
     "@wdio/utils" "5.15.1"
     lodash.merge "^4.6.1"
     request "^2.83.0"
 
-webdriverio@5.15.1:
-  version "5.15.1"
-  resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-5.15.1.tgz#1f408f09c23fd985dbf7b765212208c71bc541e3"
-  integrity sha512-5JHmOgxhrdwvk8q51mw7qGKX88975QRnolr14c3FeiTnukZ7nk4CKoSopW8hjBzK6xDYVQtSdDwhHLocOdsP9w==
+webdriverio@5.15.4:
+  version "5.15.4"
+  resolved "https://registry.yarnpkg.com/webdriverio/-/webdriverio-5.15.4.tgz#cc395d930cee798fa9a3ae6894dcf410ea0d847e"
+  integrity sha512-98CloID3nguqMSkfDqvUtgoxb7JUCYhytwziDym1O3hiyAjgmOm4VmgTCifjXJF47S0H7jTerWhV+e2aWwytWQ==
   dependencies:
-    "@wdio/config" "5.15.1"
+    "@wdio/config" "5.15.3"
     "@wdio/logger" "5.13.2"
     "@wdio/repl" "5.15.1"
     "@wdio/utils" "5.15.1"
@@ -5260,7 +5260,7 @@ webdriverio@5.15.1:
     resq "^1.6.0"
     rgb2hex "^0.1.0"
     serialize-error "^5.0.0"
-    webdriver "5.15.1"
+    webdriver "5.15.4"
 
 which-module@^2.0.0:
   version "2.0.0"
