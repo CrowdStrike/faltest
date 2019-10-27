@@ -20,7 +20,7 @@ class Server {
     let app = connect().use(serveStatic(this.fixtures));
 
     await new Promise(resolve => {
-      this.server = stoppable(app.listen(port, resolve));
+      this.server = stoppable(app.listen(port, resolve), 0);
     });
 
     // `close` takes 5 secs otherwise
