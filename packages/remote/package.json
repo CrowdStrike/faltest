@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@faltest/utils": "^1.2.0",
-    "chromedriver": "77.0.0",
+    "chromedriver": "78.0.1",
     "execa": "^3.0.0",
     "fkill": "^6.2.0",
     "geckodriver": "1.19.1",
