@@ -34,7 +34,7 @@
     "geckodriver": "1.19.0",
     "get-port": "^5.0.0",
     "ps-list": "^6.3.0",
-    "webdriverio": "5.15.4",
+    "webdriverio": "5.15.6",
     "yn": "^3.1.1"
   },
   "devDependencies": {
