@@ -166,7 +166,7 @@ function applyProperties(extraProperties, unassigned, assigned) {
 
   return Object.assign(
     assigned,
-    props
+    props,
   );
 }
 
