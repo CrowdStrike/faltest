@@ -65,7 +65,7 @@ function test(title, logLevel) {
 
       rawMethod = sandbox.stub(
         require('../../src/utils/require-before-webdriverio'),
-        'rawMethod'
+        'rawMethod',
       );
 
       await this.browser.url(`http://localhost:${port}/redact-password.html`);

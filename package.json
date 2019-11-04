@@ -26,7 +26,7 @@
     "chai-as-promised": "^7.1.1",
     "chai-string": "^1.5.0",
     "connect": "^3.7.0",
-    "eslint": "^6.1.0",
+    "eslint": "^6.6.0",
     "eslint-config-crowdstrike": "^1.0.0",
     "eslint-config-crowdstrike-node": "^2.0.0",
     "eslint-plugin-faltest": "^1.0.6",
