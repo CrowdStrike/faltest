@@ -1601,21 +1601,6 @@ execa@^1.0.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
-execa@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-2.0.4.tgz#2f5cc589c81db316628627004ea4e37b93391d8e"
-  integrity sha512-VcQfhuGD51vQUQtKIq2fjGDLDbL6N1DTQVpYzxZ7LPIXw3HqTuIz6uxRmpV1qf8i31LHf2kjiaGI+GdHwRgbnQ==
-  dependencies:
-    cross-spawn "^6.0.5"
-    get-stream "^5.0.0"
-    is-stream "^2.0.0"
-    merge-stream "^2.0.0"
-    npm-run-path "^3.0.0"
-    onetime "^5.1.0"
-    p-finally "^2.0.0"
-    signal-exit "^3.0.2"
-    strip-final-newline "^2.0.0"
-
 execa@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/execa/-/execa-3.2.0.tgz#18326b79c7ab7fbd6610fd900c1b9e95fa48f90a"
@@ -3065,13 +3050,13 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-monorepo-next@0.2.6:
-  version "0.2.6"
-  resolved "https://registry.yarnpkg.com/monorepo-next/-/monorepo-next-0.2.6.tgz#5c0b73ab7f08104e63cb8159c636174b5d6533ad"
-  integrity sha512-0FMsE0K9tg9ylDuj51zDUXZyzol+6Fz1qwyEsWAcZ3Eq9i+thGmoQYPs5dJOasS/ybk2Rr/V3TYrRbzheQEjlw==
+monorepo-next@0.2.7:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/monorepo-next/-/monorepo-next-0.2.7.tgz#78b537a8db51e796b1ac9d04d949ff0e595653c2"
+  integrity sha512-PwmWVkLZAIgInB0I1xV16PDqxFMzXLYPzdeY6P/bmf4heuQYZtnQH8NxK9qbqDxnqPJKjFsAMAbSHRRtgmJrag==
   dependencies:
     conventional-recommended-bump "6.0.0"
-    execa "^2.0.4"
+    execa "^3.0.0"
     glob "^7.1.4"
     inquirer "^7.0.0"
     semver "^6.3.0"
@@ -3191,13 +3176,6 @@ npm-run-path@^2.0.0:
   integrity sha1-NakjLfo11wZ7TLLd8jV7GHFTbF8=
   dependencies:
     path-key "^2.0.0"
-
-npm-run-path@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-3.1.0.tgz#7f91be317f6a466efed3c9f2980ad8a4ee8b0fa5"
-  integrity sha512-Dbl4A/VfiVGLgQv29URL9xshU8XDY1GeLy+fsaZ1AA8JDSfjvr5P5+pzRbWqRSBxk6/DW7MIh8lTM/PaGnP2kg==
-  dependencies:
-    path-key "^3.0.0"
 
 npm-run-path@^4.0.0:
   version "4.0.0"
