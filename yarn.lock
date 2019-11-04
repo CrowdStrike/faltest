@@ -1058,6 +1058,19 @@ conventional-commits-parser@^3.0.3:
     through2 "^3.0.0"
     trim-off-newlines "^1.0.0"
 
+conventional-commits-parser@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/conventional-commits-parser/-/conventional-commits-parser-3.0.5.tgz#df471d6cb3f6fecfd1356ac72e0b577dbdae0a9c"
+  integrity sha512-qVz9+5JwdJzsbt7JbJ6P7NOXBGt8CyLFJYSjKAuPSgO+5UGfcsbk9EMR+lI8Unlvx6qwIc2YDJlrGIfay2ehNA==
+  dependencies:
+    JSONStream "^1.0.4"
+    is-text-path "^2.0.0"
+    lodash "^4.2.1"
+    meow "^4.0.0"
+    split2 "^2.0.0"
+    through2 "^3.0.0"
+    trim-off-newlines "^1.0.0"
+
 conventional-recommended-bump@6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/conventional-recommended-bump/-/conventional-recommended-bump-6.0.0.tgz#bdafad56bc32bc04d58dbbd8bd6b750375500edc"
@@ -1067,6 +1080,20 @@ conventional-recommended-bump@6.0.0:
     conventional-changelog-preset-loader "^2.2.0"
     conventional-commits-filter "^2.0.2"
     conventional-commits-parser "^3.0.3"
+    git-raw-commits "2.0.0"
+    git-semver-tags "^3.0.0"
+    meow "^4.0.0"
+    q "^1.5.1"
+
+conventional-recommended-bump@6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/conventional-recommended-bump/-/conventional-recommended-bump-6.0.2.tgz#086e3380e8d66ca2b962d84af863a28d532f355a"
+  integrity sha512-9qWhAweJbT6CAHcCprBYzUb3tySsaRrUx0ckpMprHbtWOBfl3gxakUCBNd/4T3m2Iv9Cb8Y4P2Px3cR5ysXPDw==
+  dependencies:
+    concat-stream "^2.0.0"
+    conventional-changelog-preset-loader "^2.2.0"
+    conventional-commits-filter "^2.0.2"
+    conventional-commits-parser "^3.0.5"
     git-raw-commits "2.0.0"
     git-semver-tags "^3.0.0"
     meow "^4.0.0"
@@ -3114,12 +3141,12 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-monorepo-next@0.2.7:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/monorepo-next/-/monorepo-next-0.2.7.tgz#78b537a8db51e796b1ac9d04d949ff0e595653c2"
-  integrity sha512-PwmWVkLZAIgInB0I1xV16PDqxFMzXLYPzdeY6P/bmf4heuQYZtnQH8NxK9qbqDxnqPJKjFsAMAbSHRRtgmJrag==
+monorepo-next@0.2.8:
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/monorepo-next/-/monorepo-next-0.2.8.tgz#9ab800ced5ebec421693f6847cf384630d98ddf0"
+  integrity sha512-gq/rcDkpKF4Mr6WnEJRk6HS2/CtYqkB51DIyH/0r8ooIgwMjdOFAMtYPYMXvquopZh/rmiz03DBS/LQyr42N3A==
   dependencies:
-    conventional-recommended-bump "6.0.0"
+    conventional-recommended-bump "6.0.2"
     execa "^3.0.0"
     glob "^7.1.4"
     inquirer "^7.0.0"
