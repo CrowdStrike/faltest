@@ -16,6 +16,7 @@ const browserFunctionsToPassThrough = [
   'execute',
   'executeAsync',
   'keys',
+  'refresh',
 ];
 
 const elementFunctionsToPassThrough = [
