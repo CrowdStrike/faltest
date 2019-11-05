@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@1.4.0...1.5.0) (2019-11-05)
+
+
+### Features
+
+* add browser `refresh` ([24cd2f8](https://github.com/CrowdStrike/faltest/commit/24cd2f8))
+
 ## [1.4.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@1.3.1...1.4.0) (2019-10-22)
 
 
