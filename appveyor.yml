@@ -2,7 +2,7 @@ environment:
   matrix:
   - nodejs_version: "8"
   DEBUG: "@faltest*,faltest-helpers"
-  CHROMEDRIVER_VERSION: 75.0.3770.140
+  CHROMEDRIVER_VERSION: 78.0.3904.70
 
 branches:
   only:
