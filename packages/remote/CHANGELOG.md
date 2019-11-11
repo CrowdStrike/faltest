@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.19](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.5.18...1.5.19) (2019-11-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency webdriverio to v5.16.6 ([1183d9f](https://github.com/CrowdStrike/faltest/commit/1183d9ffe91ac76e6b7a59b9111576dd21f32349))
+
 ### [1.5.18](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.5.17...1.5.18) (2019-11-07)
 
 
