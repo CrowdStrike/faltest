@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@1.4.1...1.4.2) (2019-11-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency yargs to v15 ([79e8a1f](https://github.com/CrowdStrike/faltest/commit/79e8a1f9624a9f9e2344060b1598dc78e000cd7c))
+
 ### [1.4.1](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@1.4.0...1.4.1) (2019-10-27)
 
 ## [1.4.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@1.3.0...1.4.0) (2019-10-07)
