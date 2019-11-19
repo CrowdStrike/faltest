@@ -9,6 +9,9 @@ branches:
 addons:
   chrome: stable
   firefox: latest
+env:
+  global:
+  - DEBUG=@faltest*,faltest-helpers
 jobs:
   include:
   - name: Lint
@@ -18,23 +21,17 @@ jobs:
     - yarn lint:js
   - name: Test
     env:
-    - DEBUG=@faltest*,faltest-helpers WEBDRIVER_HEADLESS=true
+    - WEBDRIVER_HEADLESS=true
   - name: Acceptance
     services:
     - xvfb
-    env:
-    - DEBUG=@faltest*,faltest-helpers
     script:
     - yarn test:acceptance
   - name: Acceptance
     os: osx
-    env:
-    - DEBUG=@faltest*,faltest-helpers
     script:
     - yarn test:acceptance
   - name: Global Install Test
-    env:
-    - DEBUG=@faltest*
     cache:
       npm: false
     install:
