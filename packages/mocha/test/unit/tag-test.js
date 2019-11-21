@@ -35,7 +35,7 @@ describe(function() {
     it('matches a tag', function() {
       let grep = buildGrep([tagMatch1], '.*');
 
-      expect(grep).to.equal(`^(?=.*.*)(?=.*#${tagMatch1}).*$`);
+      expect(grep).to.equal(`^(?=.*.*)(?=.*#${tagMatch1}(\\W|$)).*$`);
       expect(match(grep)).to.deep.equal([
         `${filterMiss} #${tagMatch1}`,
         `${filterMiss} #${tagMatch1} #${tagMatch2}`,
@@ -45,7 +45,7 @@ describe(function() {
     it('matches multiple tags', function() {
       let grep = buildGrep([tagMatch1, tagMatch2], '.*');
 
-      expect(grep).to.equal(`^(?=.*.*)(?=.*#${tagMatch1})(?=.*#${tagMatch2}).*$`);
+      expect(grep).to.equal(`^(?=.*.*)(?=.*#${tagMatch1}(\\W|$))(?=.*#${tagMatch2}(\\W|$)).*$`);
       expect(match(grep)).to.deep.equal([
         `${filterMiss} #${tagMatch1} #${tagMatch2}`,
       ]);
@@ -54,7 +54,7 @@ describe(function() {
     it('negates a tag', function() {
       let grep = buildGrep([`!${tagMatch2}`], '.*');
 
-      expect(grep).to.equal(`^(?=.*.*)(?!.*#(${tagMatch2})).*$`);
+      expect(grep).to.equal(`^(?=.*.*)(?!.*#(${tagMatch2})( |$)).*$`);
       expect(match(grep)).to.deep.equal([
         `${filterMatch} #${tagMiss}`,
         `${filterMiss} #${tagMatch1}`,
@@ -64,7 +64,7 @@ describe(function() {
     it('negates multiple tags', function() {
       let grep = buildGrep([`!${tagMatch1}`, `!${tagMatch2}`], '.*');
 
-      expect(grep).to.equal(`^(?=.*.*)(?!.*#(${tagMatch1}|${tagMatch2})).*$`);
+      expect(grep).to.equal(`^(?=.*.*)(?!.*#(${tagMatch1}|${tagMatch2})( |$)).*$`);
       expect(match(grep)).to.deep.equal([
         `${filterMatch} #${tagMiss}`,
       ]);
@@ -73,7 +73,7 @@ describe(function() {
     it('match and negate a tag', function() {
       let grep = buildGrep([tagMatch1, `!${tagMatch2}`], '.*');
 
-      expect(grep).to.equal(`^(?=.*.*)(?=.*#${tagMatch1})(?!.*#(${tagMatch2})).*$`);
+      expect(grep).to.equal(`^(?=.*.*)(?=.*#${tagMatch1}(\\W|$))(?!.*#(${tagMatch2})( |$)).*$`);
       expect(match(grep)).to.deep.equal([
         `${filterMiss} #${tagMatch1}`,
       ]);
@@ -99,7 +99,7 @@ describe(function() {
     it('matches a filter and a tag', function() {
       let grep = buildGrep([tagMatch2], filterMatch);
 
-      expect(grep).to.equal(`^(?=.*${filterMatch})(?=.*#${tagMatch2}).*$`);
+      expect(grep).to.equal(`^(?=.*${filterMatch})(?=.*#${tagMatch2}(\\W|$)).*$`);
       expect(match(grep)).to.deep.equal([
         `${filterMatch} #${tagMatch2}`,
       ]);

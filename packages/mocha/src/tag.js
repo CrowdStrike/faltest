@@ -18,12 +18,12 @@ function buildGrep(tags, filter) {
   }
 
   for (let tag of tagsToMatch) {
-    grep += `(?=.*#${tag})`;
+    grep += `(?=.*#${tag}(\\W|$))`;
   }
 
   if (tagsToNegate.length) {
     let tagsString = tagsToNegate.join('|');
-    grep += `(?!.*#(${tagsString}))`;
+    grep += `(?!.*#(${tagsString})( |$))`;
   }
 
   grep += '.*$';
