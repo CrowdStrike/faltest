@@ -96,4 +96,41 @@ describe(Elements, function() {
       await expect(this.page.foo.first.bar).text.to.eventually.equal('foo bar');
     });
   });
+
+  describe('first and last', function() {
+    it('works', async function() {
+      await this.writeFixture('index.html', `
+        <div class="foo">
+        </div>
+      `);
+
+      this.page = this.createPage(class extends BasePageObject {
+        get bar() {
+          return this._createMany('.bar');
+        }
+      });
+
+      await this.open('index.html');
+
+      await expect(this.page.bar.first.waitForInsert()).to.eventually.be
+        .rejectedWith('waitForInsert(): waitUntil condition timed out');
+      await expect(this.page.bar.last.waitForInsert()).to.eventually.be
+        .rejectedWith('waitForInsert(): waitUntil condition timed out');
+
+      await this.browser.execute(() => {
+        // eslint-disable-next-line no-undef
+        document.querySelector('.foo').innerHTML += `
+          <div class="bar">
+            bar1
+          </div>
+          <div class="bar">
+            bar2
+          </div>
+        `;
+      });
+
+      await expect(this.page.bar.first).text.to.eventually.equal('bar1');
+      await expect(this.page.bar.last).text.to.eventually.equal('bar2');
+    });
+  });
 });
