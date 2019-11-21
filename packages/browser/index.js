@@ -275,7 +275,7 @@ function waitForExist(methodNameForErrorMessageOverride) {
     let args = arguments;
 
     function isExisting(elements) {
-      return !elements.length === reverse;
+      return elements && !elements.length === reverse;
     }
 
     // We are avoiding using `resolveElements` because we want to
@@ -286,7 +286,7 @@ function waitForExist(methodNameForErrorMessageOverride) {
       try {
         elementOrElements = await this._findElements(selectorOrElementOrElementsOrFunction);
 
-        if (!Array.isArray(elementOrElements)) {
+        if (elementOrElements && !Array.isArray(elementOrElements)) {
           let element = elementOrElements;
           await element.waitForExist(...args);
           return;
