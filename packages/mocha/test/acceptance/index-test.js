@@ -39,6 +39,15 @@ describe(function() {
         expect(stats.passes).to.equal(1);
       });
 
+      it('ignores #', async function() {
+        let stats = await runTests({
+          globs,
+          tag: ['#tag1'],
+        });
+
+        expect(stats.passes).to.equal(1);
+      });
+
       it('works with an inverted tag', async function() {
         let stats = await runTests({
           globs,
@@ -46,6 +55,12 @@ describe(function() {
         });
 
         expect(stats.passes).to.equal(2);
+      });
+    });
+
+    describe('filter', function() {
+      before(function() {
+        globs = [path.resolve(__dirname, '../fixtures/filter-test.js')];
       });
 
       it('works with a filter', async function() {

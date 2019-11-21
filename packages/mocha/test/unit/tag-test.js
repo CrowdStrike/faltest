@@ -79,6 +79,13 @@ describe(function() {
       ]);
     });
 
+    it('ignores # in input tags', function() {
+      let actual = buildGrep(['#oeEdZ'], '.*');
+      let expected = buildGrep(['oeEdZ'], '.*');
+
+      expect(actual).to.equal(expected);
+    });
+
     it('matches a filter', function() {
       let grep = buildGrep([], filterMatch);
 
