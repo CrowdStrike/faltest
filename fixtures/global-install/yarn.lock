@@ -10,10 +10,10 @@
     verror-extra "^1.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "1.4.3"
+  version "2.0.0"
   dependencies:
     "@faltest/mocha" "^1.0.4"
-    "@faltest/remote" "^1.5.12"
+    "@faltest/remote" "^2.0.0"
     "@faltest/utils" "^1.2.0"
     mocha "^6.2.0"
     yargs "^15.0.0"
@@ -34,7 +34,7 @@
     glob "^7.1.4"
     mocha-helpers "^4.2.1"
 
-"@faltest/remote@^1.5.12", "@faltest/remote@^2.0.0", "@faltest/remote@file:../../packages/remote":
+"@faltest/remote@^2.0.0", "@faltest/remote@file:../../packages/remote":
   version "2.0.0"
   dependencies:
     "@faltest/utils" "^1.2.0"

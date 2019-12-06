@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@1.4.3...2.0.0) (2019-12-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* track new breaking change
+
+### Bug Fixes
+
+* track new breaking change ([1fc85c6](https://github.com/CrowdStrike/faltest/commit/1fc85c68e3abfc5a92855a22bad1f33cf14b71c3))
+
 ### [1.4.3](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@1.4.2...1.4.3) (2019-11-21)
 
 ### [1.4.2](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@1.4.1...1.4.2) (2019-11-18)
