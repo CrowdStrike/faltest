@@ -74,6 +74,7 @@ describe(setUpWebDriver, function() {
     resetContext();
 
     overrides = {};
+    options = {};
 
     startWebDriver = sandbox.stub(webDriver, 'startWebDriver')
       .withArgs(overrides)
@@ -135,12 +136,12 @@ describe(setUpWebDriver, function() {
       return true;
     }));
 
-    options = {
+    Object.assign(options, {
       logIn,
       logOut,
       browserOverride: browserOverrideSpy,
       overrides,
-    };
+    });
 
     let event = sinon.match({
       context,
