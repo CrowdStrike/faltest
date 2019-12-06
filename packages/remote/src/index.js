@@ -278,7 +278,7 @@ function startBrowser(options = {}) {
         path: '/',
         port: parseInt(port),
         capabilities: await getCapabilities(options),
-        waitforTimeout: overrides.waitforTimeout !== undefined ? overrides.waitforTimeout : 30 * 1000,
+        waitforTimeout: overrides.waitforTimeout !== undefined ? overrides.waitforTimeout : defaults.timeout,
 
         // this is only needed for geckodriver because
         // it takes a while to boot up and doesn't notify
