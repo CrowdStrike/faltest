@@ -10,10 +10,10 @@
   },
   "devDependencies": {
     "@faltest/chai": "^1.1.0",
-    "@faltest/cli": "^1.4.3",
-    "@faltest/lifecycle": "^1.3.8",
+    "@faltest/cli": "^2.0.0",
+    "@faltest/lifecycle": "^2.0.0",
     "@faltest/mocha": "^1.0.4",
-    "@faltest/page-objects": "^1.8.3",
+    "@faltest/page-objects": "^2.0.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "config": "^3.2.2"

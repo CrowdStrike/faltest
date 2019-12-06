@@ -144,52 +144,6 @@
     commitlint-format-junit "^1.1.4"
     debug "^4.1.1"
 
-"@faltest/cli@^1.4.3":
-  version "1.4.3"
-  resolved "https://registry.npmjs.org/@faltest/cli/-/cli-1.4.3.tgz#7e64879172a180edf233ce2538f67b5e6b01d26b"
-  integrity sha512-9CweqsK8r7A178y7fTKMG8ZPRPDo/qP9XPNmMKow5w2b+GUkew126Dkcf5af0RuYodbprdnYpCB2ldMQaWPPGg==
-  dependencies:
-    "@faltest/mocha" "^1.0.4"
-    "@faltest/remote" "^1.5.12"
-    "@faltest/utils" "^1.2.0"
-    mocha "^6.2.0"
-    yargs "^15.0.0"
-    yn "^3.1.1"
-
-"@faltest/lifecycle@^1.3.8":
-  version "1.3.8"
-  resolved "https://registry.npmjs.org/@faltest/lifecycle/-/lifecycle-1.3.8.tgz#8f57790c9d3cbb49b43851f2d0b496709d51bbbe"
-  integrity sha512-yvdwogwIYKLtfhkCEI0DLvwnSO7qKfx9ZdzEVqIEMfvvtVHweeUqJWSJvpCmN/aRLxiZspEKdbiUVK5gVSeAhw==
-  dependencies:
-    "@faltest/remote" "^1.5.12"
-    "@faltest/utils" "^1.2.0"
-  optionalDependencies:
-    "@faltest/browser" "^1.0.0"
-
-"@faltest/page-objects@^1.8.3":
-  version "1.8.3"
-  resolved "https://registry.npmjs.org/@faltest/page-objects/-/page-objects-1.8.3.tgz#f9d8a3d305c885d77f1a17875b3aa71b9db4ae06"
-  integrity sha512-cxAlytYBq1BAjbOS7NBS4UNCwsbkzRuN15nK6mRw37JtAsNhQf4Ywz1jBfYZqTZUehiEu+7DAFgQFoZ/K5hxrA==
-  dependencies:
-    "@faltest/browser" "^1.6.1"
-    "@faltest/remote" "^1.5.12"
-    verror-extra "^1.0.0"
-
-"@faltest/remote@^1.5.12":
-  version "1.5.22"
-  resolved "https://registry.npmjs.org/@faltest/remote/-/remote-1.5.22.tgz#0c0b4c4a554e626b11aa8a2729d14493ae31a2f2"
-  integrity sha512-vJxKU71OkK2y4qC2CdyuikroMAQ8vUzpwWnV+T+mD0V9EfIItVhVrE51lshLbQsn3XSRMNuMCsfjf9TjlWFRlw==
-  dependencies:
-    "@faltest/utils" "^1.2.0"
-    chromedriver "78.0.1"
-    execa "^3.0.0"
-    fkill "^6.2.0"
-    geckodriver "1.19.1"
-    get-port "^5.0.0"
-    ps-list "^6.3.0"
-    webdriverio "5.16.10"
-    yn "^3.1.1"
-
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@marionebl/sander/-/sander-0.6.1.tgz#1958965874f24bc51be48875feb50d642fc41f7b"
