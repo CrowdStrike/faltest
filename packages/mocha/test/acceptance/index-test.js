@@ -27,7 +27,7 @@ describe(function() {
           globs,
         });
 
-        expect(stats.passes).to.equal(4);
+        expect(stats.passes).to.equal(5);
       });
 
       it('works with a tag', async function() {
@@ -54,7 +54,7 @@ describe(function() {
           tag: ['!tag1'],
         });
 
-        expect(stats.passes).to.equal(3);
+        expect(stats.passes).to.equal(4);
       });
 
       it('does\'t match other tags when substring', async function() {
@@ -72,7 +72,7 @@ describe(function() {
           tag: ['!tag'],
         });
 
-        expect(stats.passes).to.equal(3);
+        expect(stats.passes).to.equal(4);
       });
     });
 

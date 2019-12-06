@@ -11,7 +11,11 @@ describe('tag', function() {
     assert.ok(true);
   });
 
-  it('test with a tag #tag2', function() {
+  it('test with a tag #tag-2', function() {
+    assert.ok(true);
+  });
+
+  it('test with a tag #tagC', function() {
     assert.ok(true);
   });
 

@@ -18,7 +18,7 @@ function buildGrep(tags, filter) {
   }
 
   for (let tag of tagsToMatch) {
-    grep += `(?=.*#${tag}(\\W|$))`;
+    grep += `(?=.*#${tag}( |$))`;
   }
 
   if (tagsToNegate.length) {
