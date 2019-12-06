@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@faltest/browser": "^1.6.1",
-    "@faltest/remote": "^1.5.12",
+    "@faltest/remote": "^2.0.0",
     "verror-extra": "^1.0.0"
   },
   "devDependencies": {
