@@ -144,6 +144,18 @@
     commitlint-format-junit "^1.1.4"
     debug "^4.1.1"
 
+"@faltest/cli@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.npmjs.org/@faltest/cli/-/cli-1.4.3.tgz#7e64879172a180edf233ce2538f67b5e6b01d26b"
+  integrity sha512-9CweqsK8r7A178y7fTKMG8ZPRPDo/qP9XPNmMKow5w2b+GUkew126Dkcf5af0RuYodbprdnYpCB2ldMQaWPPGg==
+  dependencies:
+    "@faltest/mocha" "^1.0.4"
+    "@faltest/remote" "^1.5.12"
+    "@faltest/utils" "^1.2.0"
+    mocha "^6.2.0"
+    yargs "^15.0.0"
+    yn "^3.1.1"
+
 "@faltest/lifecycle@^1.3.8":
   version "1.3.8"
   resolved "https://registry.npmjs.org/@faltest/lifecycle/-/lifecycle-1.3.8.tgz#8f57790c9d3cbb49b43851f2d0b496709d51bbbe"
@@ -153,6 +165,15 @@
     "@faltest/utils" "^1.2.0"
   optionalDependencies:
     "@faltest/browser" "^1.0.0"
+
+"@faltest/page-objects@^1.8.3":
+  version "1.8.3"
+  resolved "https://registry.npmjs.org/@faltest/page-objects/-/page-objects-1.8.3.tgz#f9d8a3d305c885d77f1a17875b3aa71b9db4ae06"
+  integrity sha512-cxAlytYBq1BAjbOS7NBS4UNCwsbkzRuN15nK6mRw37JtAsNhQf4Ywz1jBfYZqTZUehiEu+7DAFgQFoZ/K5hxrA==
+  dependencies:
+    "@faltest/browser" "^1.6.1"
+    "@faltest/remote" "^1.5.12"
+    verror-extra "^1.0.0"
 
 "@faltest/remote@^1.5.12":
   version "1.5.22"
