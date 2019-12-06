@@ -14,7 +14,9 @@ describe(function() {
 
   before(async function() {
     this.webDriver = await startWebDriver({
-      browser: 'chrome',
+      overrides: {
+        browser: 'chrome',
+      },
     });
   });
 
@@ -28,10 +30,14 @@ describe(function() {
       browser2,
     ] = await Promise.all([
       startBrowser({
-        browser: 'chrome',
+        overrides: {
+          browser: 'chrome',
+        },
       }),
       startBrowser({
-        browser: 'chrome',
+        overrides: {
+          browser: 'chrome',
+        },
       }),
     ]);
 
