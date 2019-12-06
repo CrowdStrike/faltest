@@ -10,16 +10,27 @@ const {
   startBrowser: _startBrowser,
 } = require('../../src');
 const Server = require('../../../../helpers/server');
+const sinon = require('sinon');
 
 describe(function() {
   this.timeout(10 * 1000);
 
-  async function startWebDriver(browser) {
-    return await _startWebDriver({ browser, port: '0' });
+  async function startWebDriver({
+    browser,
+  }) {
+    return await _startWebDriver({
+      overrides: { browser, port: '0' },
+    });
   }
 
-  async function startBrowser(browser) {
-    return await _startBrowser({ browser, size: null });
+  async function startBrowser({
+    browser,
+    customizeCapabilities,
+  }) {
+    return await _startBrowser({
+      customizeCapabilities,
+      overrides: { browser, size: null },
+    });
   }
 
   async function waitForWebDriverExit(webDriver) {
@@ -48,11 +59,11 @@ describe(function() {
 
   describe('crashed web driver cleans up browsers', function() {
     async function test(_browser) {
-      let webDriver = await startWebDriver(_browser);
+      let webDriver = await startWebDriver({ browser: _browser });
 
       let webDriverPromise = waitForWebDriverExit(webDriver);
 
-      let browser = await startBrowser(_browser);
+      let browser = await startBrowser({ browser: _browser });
 
       let browserPromise = waitForBrowserExit(browser);
 
@@ -73,11 +84,34 @@ describe(function() {
     });
   });
 
+  describe('can alter capabilities', function() {
+    async function test(_browser) {
+      await startWebDriver({ browser: _browser });
+
+      let customizeCapabilities = sinon.stub().withArgs(_browser, sinon.match.object).resolves();
+
+      await startBrowser({
+        browser: _browser,
+        customizeCapabilities,
+      });
+
+      expect(customizeCapabilities).to.be.calledOnce;
+    }
+
+    it('chrome', async function() {
+      await test('chrome');
+    });
+
+    it('firefox', async function() {
+      await test('firefox');
+    });
+  });
+
   describe(killOrphans, function() {
     it('cleans up web drivers', async function() {
       let webDrivers = await Promise.all([
-        startWebDriver('chrome'),
-        startWebDriver('firefox'),
+        startWebDriver({ browser: 'chrome' }),
+        startWebDriver({ browser: 'firefox' }),
       ]);
 
       let [
@@ -95,11 +129,11 @@ describe(function() {
 
     describe('cleans up browsers too', function() {
       async function test(_browser) {
-        let webDriver = await startWebDriver(_browser);
+        let webDriver = await startWebDriver({ browser: _browser });
 
         let webDriverPromise = waitForWebDriverExit(webDriver);
 
-        let browser = await startBrowser(_browser);
+        let browser = await startBrowser({ browser: _browser });
 
         let browserPromise = waitForBrowserExit(browser);
 

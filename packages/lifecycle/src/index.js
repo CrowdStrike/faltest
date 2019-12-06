@@ -36,7 +36,7 @@ async function event(name, context, options) {
 }
 
 async function startWebDriver(options) {
-  let instance = await webDriver.startWebDriver(options.overrides);
+  let instance = await webDriver.startWebDriver(options);
 
   events.emit('start-web-driver', instance);
 
@@ -53,7 +53,7 @@ async function startBrowsers(options) {
   let { browsers: count = browserCount } = options.overrides;
 
   let browsers = await Promise.all(Array(count).fill().map(() => {
-    return webDriver.startBrowser(options.overrides);
+    return webDriver.startBrowser(options);
   }));
 
   browsers = browsers.map(options.browserOverride);

@@ -134,10 +134,11 @@ async function spawnWebDriver(name, args) {
   return webDriver;
 }
 
-function startWebDriver(overrides = {}) {
+function startWebDriver(options = {}) {
   return log(async () => {
     await killOrphans();
 
+    let { overrides = {} } = options;
     let _browser = overrides.browser || getDefaults().browser;
 
     await _getNewPort(overrides.port);
@@ -219,8 +220,11 @@ function stopWebDriver(webDriver) {
   });
 }
 
-function getCapabilities({
-  browser: _browser = getDefaults().browser,
+async function getCapabilities({
+  customizeCapabilities = (browserName, capabilities) => capabilities,
+  overrides: {
+    browser: _browser = getDefaults().browser,
+  },
 }) {
   let capabilities = {
     browserName: _browser,
@@ -228,15 +232,18 @@ function getCapabilities({
 
   let headless = getDefaults().headless;
 
+  let browserCapabilities;
+
   switch (_browser) {
     case 'chrome': {
       let args = [];
       if (headless) {
         args.push('--headless');
       }
-      capabilities['goog:chromeOptions'] = {
+      browserCapabilities = {
         args,
       };
+      capabilities['goog:chromeOptions'] = browserCapabilities;
       break;
     }
     case 'firefox': {
@@ -244,18 +251,22 @@ function getCapabilities({
       if (headless) {
         args.push('-headless');
       }
-      capabilities['moz:firefoxOptions'] = {
+      browserCapabilities = {
         args,
       };
+      capabilities['moz:firefoxOptions'] = browserCapabilities;
       break;
     }
   }
 
+  await customizeCapabilities(_browser, browserCapabilities);
+
   return capabilities;
 }
 
-function startBrowser(overrides = {}) {
+function startBrowser(options = {}) {
   return log(async () => {
+    let { overrides = {} } = options;
     let browser;
     let connectionRetryCount = 150;
 
@@ -266,7 +277,7 @@ function startBrowser(overrides = {}) {
         logLevel: overrides.logLevel || getDefaults().logLevel,
         path: '/',
         port: parseInt(port),
-        capabilities: getCapabilities(overrides),
+        capabilities: await getCapabilities(options),
         waitforTimeout: overrides.waitforTimeout !== undefined ? overrides.waitforTimeout : 30 * 1000,
 
         // this is only needed for geckodriver because

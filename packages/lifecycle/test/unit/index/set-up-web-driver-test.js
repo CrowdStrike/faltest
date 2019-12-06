@@ -54,7 +54,6 @@ describe(setUpWebDriver, function() {
 
   let role;
   let context;
-  let overrides;
   let options;
 
   function resetContext() {
@@ -73,17 +72,16 @@ describe(setUpWebDriver, function() {
 
     resetContext();
 
-    overrides = {};
     options = {};
 
     startWebDriver = sandbox.stub(webDriver, 'startWebDriver')
-      .withArgs(overrides)
+      .withArgs(options)
       .resolves(webDriverInstance);
     stopWebDriver = sandbox.stub(webDriver, 'stopWebDriver')
       .withArgs(webDriverInstance)
       .resolves();
     startBrowser = sandbox.stub(webDriver, 'startBrowser')
-      .withArgs(overrides)
+      .withArgs(options)
       .resolves(sharedBrowser);
     stopBrowser = sandbox.stub(webDriver, 'stopBrowser')
       .withArgs(sinon.match({ _browser: sharedBrowser }))
@@ -140,7 +138,7 @@ describe(setUpWebDriver, function() {
       logIn,
       logOut,
       browserOverride: browserOverrideSpy,
-      overrides,
+      overrides: {},
     });
 
     let event = sinon.match({
@@ -2782,7 +2780,7 @@ describe(setUpWebDriver, function() {
         shareSession: true,
       });
 
-      overrides.browsers = count;
+      options.overrides.browsers = count;
     });
 
     it('log in', async function() {
