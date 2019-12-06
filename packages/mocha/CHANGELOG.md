@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.4...1.0.5) (2019-12-06)
+
+
+### Bug Fixes
+
+* fix tag substring regex ([260bfd0](https://github.com/CrowdStrike/faltest/commit/260bfd0d3e1a2097750c9efd4f55ed137b5eb1d7))
+
 ### [1.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.3...1.0.4) (2019-11-21)
 
 
