@@ -7,7 +7,7 @@
     "src"
   ],
   "scripts": {
-    "test": "exit 0"
+    "test": "mocha --recursive --exit"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,10 @@
   "dependencies": {
     "callsites": "^3.1.0",
     "debug": "^4.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "sinon": "^7.3.2",
+    "tmp": "0.1.0"
   }
 }
