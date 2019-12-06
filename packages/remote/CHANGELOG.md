@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.5.22...2.0.0) (2019-12-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* remote api change
+startWebDriver and startBrowser now take whole options object instead of just overrides.
+
+### Features
+
+* allow modifying capabilities via `customizeCapabilities` ([7683fd3](https://github.com/CrowdStrike/faltest/commit/7683fd39be42d5e8a8740c33d8c3cc8a34a77b99))
+
 ### [1.5.22](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@1.5.21...1.5.22) (2019-11-26)
 
 
