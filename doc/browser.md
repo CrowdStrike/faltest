@@ -1,6 +1,6 @@
 # Browser
 
-The `Browser` class at [packages/browser/index.js](../packages/browser/index.js) is a wrapper of the [WebdriverIO browser](https://webdriver.io/docs/api/webdriver.html). It overrides almost every function. Its main purpose is to combine two `await` calls into one. With WebdriverIO, every browser operation requires at least two `await` calls. One to select an element, and another to perform an operation. The `Browser` class in this project abstracts those two calls away from you, only requiring one `await`.
+The `Browser` class at [packages/browser/src/index.js](../packages/browser/src/index.js) is a wrapper of the [WebdriverIO browser](https://webdriver.io/docs/api/webdriver.html). It overrides almost every function. Its main purpose is to combine two `await` calls into one. With WebdriverIO, every browser operation requires at least two `await` calls. One to select an element, and another to perform an operation. The `Browser` class in this project abstracts those two calls away from you, only requiring one `await`.
 
 ```js
 // before
