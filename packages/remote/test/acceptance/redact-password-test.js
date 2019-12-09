@@ -36,7 +36,6 @@ function test(title, logLevel) {
       },
     });
 
-    let sandbox;
     let rawMethod;
 
     let resetDebug = (obj => () => Object.assign(debug, obj))({
@@ -54,8 +53,6 @@ function test(title, logLevel) {
     });
 
     beforeEach(async function() {
-      sandbox = sinon.createSandbox();
-
       if (!debug.enabled) {
         // suppress real logging during this test
         // if logging is turned off
@@ -63,7 +60,7 @@ function test(title, logLevel) {
       }
       debug.enabled = true;
 
-      rawMethod = sandbox.stub(
+      rawMethod = sinon.stub(
         require('../../src/utils/require-before-webdriverio'),
         'rawMethod',
       );
@@ -72,9 +69,7 @@ function test(title, logLevel) {
     });
 
     afterEach(function() {
-      if (sandbox) {
-        sandbox.restore();
-      }
+      sinon.restore();
 
       resetDebug();
     });
