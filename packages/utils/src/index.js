@@ -5,4 +5,5 @@ module.exports = {
   defaults: require('./defaults'),
   log: require('./log'),
   waitForDownload: require('./wait-for-download'),
+  password: require('./password'),
 };

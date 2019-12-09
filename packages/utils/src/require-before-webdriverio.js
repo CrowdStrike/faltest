@@ -4,7 +4,7 @@
  */
 'use strict';
 
-const debug = require('../debug');
+const debug = require('./debug');
 
 // We want the version that comes with `webdriverio`.
 // eslint-disable-next-line node/no-extraneous-require

@@ -3,8 +3,7 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
-const { setPassword } = require('../../src');
-const debug = require('../../src/debug');
+const debug = require('@faltest/utils/src/debug');
 const sinon = require('sinon');
 const Server = require('../../../../helpers/server');
 
@@ -60,7 +59,7 @@ function test(title, logLevel) {
       debug.enabled = true;
 
       rawMethod = sinon.stub(
-        require('../../src/utils/require-before-webdriverio'),
+        require('@faltest/utils/src/require-before-webdriverio'),
         'rawMethod',
       );
 
@@ -80,21 +79,17 @@ function test(title, logLevel) {
     });
 
     it('verifies our expectations are correct of what should be caught', async function() {
-      let input = await this.browser.$('input');
-
-      await input.setValue(password);
+      await this.browser.setValue('input', password);
 
       expect(rawMethod.withArgs(passwordMatcher)).to.have.callCount(0);
       expect(rawMethod.withArgs(sinon.match.any, passwordMatcher)).to.have.callCount(0);
       expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, passwordMatcher)).to.have.callCount(2);
 
-      expect(await input.getValue()).to.equal(password);
+      expect(await this.browser.getValue('input')).to.equal(password);
     });
 
     it('hides any passwords from logs', async function() {
-      let input = await this.browser.$('input');
-
-      await setPassword(input, password);
+      await this.browser.setPassword('input', password);
 
       expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, sinon.match({ text: '[REDACTED]' }))).to.have.been.calledOnce;
       expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, sinon.match('[REDACTED]'))).to.have.been.calledOnce;
@@ -103,18 +98,16 @@ function test(title, logLevel) {
       expect(rawMethod.withArgs(sinon.match.any, passwordMatcher), 'check for any missed').to.have.callCount(0);
       expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, passwordMatcher), 'check for any missed').to.have.callCount(0);
 
-      expect(await input.getValue()).to.equal(password);
+      expect(await this.browser.getValue('input')).to.equal(password);
     });
 
     it('also hide empty strings', async function() {
-      let input = await this.browser.$('input');
-
-      await setPassword(input, '');
+      await this.browser.setPassword('input', '');
 
       expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, sinon.match({ text: '[REDACTED]' }))).to.have.been.calledOnce;
       expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, sinon.match('[REDACTED]'))).to.have.been.calledOnce;
 
-      expect(await input.getValue()).to.equal('');
+      expect(await this.browser.getValue('input')).to.equal('');
     });
   });
 }

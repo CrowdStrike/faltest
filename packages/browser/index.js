@@ -1,6 +1,7 @@
 'use strict';
 
 const { CustomVError } = require('verror-extra');
+const { hideNextPassword } = require('@faltest/utils').password;
 
 const browserFunctionsToPassThrough = [
   'reloadSession',
@@ -377,6 +378,11 @@ Browser.prototype.waitForVisible = resolveElement(async function waitForVisible(
 
 Browser.prototype.waitForHidden = resolveElement(async function waitForHidden(element) {
   await element.waitForDisplayed(undefined, true);
+});
+
+Browser.prototype.setPassword = resolveElement(async function setPassword(element, password) {
+  hideNextPassword();
+  await element.setValue(password);
 });
 
 Browser.prototype.findChild = findChild('findChild', '_findElement', '$');
