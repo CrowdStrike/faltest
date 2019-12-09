@@ -1,7 +1,6 @@
 'use strict';
 
 const BaseElement = require('./base-element');
-const { setPassword } = require('@faltest/remote');
 
 class Element extends BaseElement {
   async getElement() {
@@ -57,7 +56,7 @@ class Element extends BaseElement {
   }
 
   async setPassword() {
-    await setPassword(await this.getElement(), ...arguments);
+    await this._browser.setPassword(this._selector, ...arguments);
   }
 
   async sendKeys() {
