@@ -31,6 +31,7 @@ function test(title, logLevel) {
       shouldLogIn: false,
       overrides: {
         logLevel,
+        waitforTimeout: 0,
       },
     });
 
@@ -108,6 +109,18 @@ function test(title, logLevel) {
       expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, sinon.match('[REDACTED]'))).to.have.been.calledOnce;
 
       expect(await this.browser.getValue('input')).to.equal('');
+    });
+
+    it('hides any passwords from error messages', async function() {
+      let err;
+      try {
+        await this.browser.setPassword('.missing', password);
+      } catch (_err) {
+        err = _err;
+      }
+
+      expect(err.message).to.contain('setPassword(.missing,[REDACTED])')
+        .and.not.contain(password, 'check for any missed');
     });
   });
 }

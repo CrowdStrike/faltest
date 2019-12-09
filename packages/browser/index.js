@@ -1,7 +1,7 @@
 'use strict';
 
 const { CustomVError } = require('verror-extra');
-const { hideNextPassword } = require('@faltest/utils').password;
+const { hidePassword, replacementText } = require('@faltest/utils').password;
 
 const browserFunctionsToPassThrough = [
   'reloadSession',
@@ -194,11 +194,15 @@ class ElementError extends CustomVError {
       args = [_element, ...args];
     }
 
-    args = args.reduce((args, arg) => {
+    args = args.reduce((args, arg, i) => {
       let _arg;
       switch (typeof arg) {
         case 'string':
-          _arg = arg;
+          if (methodName === setPassword.name && i === 1) {
+            _arg = replacementText;
+          } else {
+            _arg = arg;
+          }
           break;
         case 'function':
           _arg = '<func>';
@@ -380,10 +384,12 @@ Browser.prototype.waitForHidden = resolveElement(async function waitForHidden(el
   await element.waitForDisplayed(undefined, true);
 });
 
-Browser.prototype.setPassword = resolveElement(async function setPassword(element, password) {
-  hideNextPassword();
-  await element.setValue(password);
-});
+async function setPassword(element, ...args) {
+  await hidePassword(async () => {
+    await element.setValue(...args);
+  });
+}
+Browser.prototype.setPassword = resolveElement(setPassword);
 
 Browser.prototype.findChild = findChild('findChild', '_findElement', '$');
 Browser.prototype.findChildren = findChild('findChildren', '_findElements', '$$');
