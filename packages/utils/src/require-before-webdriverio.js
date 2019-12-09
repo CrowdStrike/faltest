@@ -13,7 +13,10 @@ const log = require('loglevel');
 const replacementText = '[REDACTED]';
 const elementSendKeysRegex = /elementSendKeys\("(.+)", ".*"\)/;
 
-let replacementCountRemaining = 0;
+let replacementCountRemaining;
+function resetCounter() {
+  replacementCountRemaining = 0;
+}
 
 // https://github.com/pimterry/loglevel#writing-plugins
 const { methodFactory } = log;
@@ -64,3 +67,5 @@ log.methodFactory = function(methodName, level, loggerName) {
 log.setLevel(log.getLevel()); // Be sure to call setLevel method in order to apply plugin
 
 module.exports.hideNextPassword = () => replacementCountRemaining = 2;
+module.exports.resetCounter = resetCounter;
+module.exports.replacementText = replacementText;
