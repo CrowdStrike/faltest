@@ -7,7 +7,7 @@
     "index.js"
   ],
   "scripts": {
-    "test": "mocha --recursive"
+    "test": "mocha --recursive --exit"
   },
   "repository": {
     "type": "git",

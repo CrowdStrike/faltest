@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
-const { killOrphans } = require('../../../remote');
 const Server = require('../../../../helpers/server');
 const Browser = require('../..');
 
@@ -33,8 +32,6 @@ describe(Browser, function() {
     if (server) {
       await server.stop();
     }
-
-    await killOrphans();
   });
 
   // No docs means a test is worth it to understand.
