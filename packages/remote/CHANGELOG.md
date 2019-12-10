@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@2.1.1...2.1.2) (2019-12-10)
+
+
+### Bug Fixes
+
+* default overrides for destructuring ([eb2666f](https://github.com/CrowdStrike/faltest/commit/eb2666f6c58172a42fabd952eaec19a51ebe6daa))
+
 ### [2.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@2.1.0...2.1.1) (2019-12-10)
 
 ## [2.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@2.0.0...2.1.0) (2019-12-06)
