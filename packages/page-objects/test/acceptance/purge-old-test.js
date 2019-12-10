@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
-const { killOrphans } = require('../../../remote');
 const {
   BasePageObject,
   Table,
@@ -57,10 +56,6 @@ describe(Rows.prototype.purgeOld, function() {
     if (this.server) {
       await this.server.stop();
     }
-  });
-
-  after(async function() {
-    await killOrphans();
   });
 
   it('can purge old rows', async function() {

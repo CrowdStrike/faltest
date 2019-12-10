@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
-const { killOrphans } = require('../../../remote');
 const {
   BasePageObject,
 } = require('../../src');
@@ -50,10 +49,6 @@ describe(BasePageObject.prototype._chain, function() {
     if (this.server) {
       await this.server.stop();
     }
-  });
-
-  after(async function() {
-    await killOrphans();
   });
 
   it('can chain', async function() {
