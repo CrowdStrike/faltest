@@ -14,7 +14,6 @@ describe(function() {
     shareWebdriver: true,
     keepBrowserOpen: true,
     overrides: {
-      browser: 'chrome',
       waitforTimeout: 0,
     },
   });

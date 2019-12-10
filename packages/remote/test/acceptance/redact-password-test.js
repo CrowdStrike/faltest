@@ -31,7 +31,6 @@ function test(title, logLevel) {
       shareWebdriver: true,
       shouldLogIn: false,
       overrides: {
-        browser: 'chrome',
         logLevel,
       },
     });

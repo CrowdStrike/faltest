@@ -16,7 +16,6 @@ describe(function() {
     keepBrowserOpen: true,
     overrides: {
       browsers: 2,
-      browser: 'chrome',
     },
   });
 

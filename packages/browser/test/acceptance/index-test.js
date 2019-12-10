@@ -13,7 +13,6 @@ describe(Browser, function() {
     keepBrowserOpen: true,
     browserOverride: browser => new Browser(browser),
     overrides: {
-      browser: 'chrome',
       waitforTimeout: 0,
     },
   });
