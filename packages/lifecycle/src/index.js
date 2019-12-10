@@ -13,6 +13,7 @@ const target = process.env.WEBDRIVER_TARGET;
 const env = process.env.NODE_CONFIG_ENV;
 const throttleNetwork = process.env.WEBDRIVER_THROTTLE_NETWORK === 'true';
 const browserCount = parseInt(process.env.WEBDRIVER_BROWSERS) || defaults.browsers;
+const defaultOverrides = {};
 
 if (!shareWebdriver && keepBrowserOpen) {
   throw new Error('!shareWebdriver && keepBrowserOpen is undefined');
@@ -57,6 +58,7 @@ async function startBrowsers(options) {
   }));
 
   browsers = browsers.map(options.browserOverride);
+  browserOverrideUsed = options.browserOverride;
 
   // This can be removed in a major version.
   if (browsers.length === 1) {
@@ -71,6 +73,8 @@ async function startBrowsers(options) {
 let webDriverInstance;
 let sharedBrowsers;
 let loggedInRole;
+let browserOverrideUsed;
+let overridesUsed;
 
 async function stopBrowsers(browsers) {
   for (let browser of browsers) {
@@ -109,11 +113,21 @@ async function setUpWebDriverBefore(options) {
   await event('before-begin', this, options);
 
   if (options.shareWebdriver) {
+    if (webDriverInstance && (overridesUsed && overridesUsed !== options.overrides)) {
+      await stopWebDriver(webDriverInstance);
+      webDriverInstance = null;
+    }
+
     if (!webDriverInstance) {
       webDriverInstance = await startWebDriver(options);
     }
 
     if (options.keepBrowserOpen) {
+      if (sharedBrowsers && (browserOverrideUsed !== options.browserOverride || (overridesUsed && overridesUsed !== options.overrides))) {
+        await stopBrowsers(sharedBrowsers);
+        sharedBrowsers = null;
+      }
+
       if (!sharedBrowsers) {
         sharedBrowsers = await startBrowsers(options);
       }
@@ -200,6 +214,8 @@ async function setUpWebDriverAfterEach(options) {
 async function setUpWebDriverAfter(options) {
   await event('after-begin', this, options);
 
+  overridesUsed = options.overrides;
+
   await event('after-end', this, options);
 }
 
@@ -240,7 +256,7 @@ function setUpWebDriver(options) {
     env,
     throttleNetwork,
     browserOverride,
-    overrides: {},
+    overrides: defaultOverrides,
     ...options,
   };
 
@@ -262,6 +278,8 @@ function resetInternalState() {
   webDriverInstance = null;
   sharedBrowsers = null;
   loggedInRole = null;
+  browserOverrideUsed = null;
+  overridesUsed = null;
 }
 
 webDriver.events.on('kill-orphans', () => {

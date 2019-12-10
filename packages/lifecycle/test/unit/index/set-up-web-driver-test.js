@@ -2646,6 +2646,68 @@ describe(setUpWebDriver, function() {
     });
   });
 
+  describe(browserOverride, function() {
+    it('doesn\'t reuse browser if override changes', async function() {
+      setOptions({
+        shareWebdriver: true,
+        keepBrowserOpen: true,
+      });
+
+      await beforeTest();
+
+      expect(startBrowser).to.have.callCount(1);
+      expect(browserOverrideSpy).to.have.callCount(1);
+      expect(stopBrowser).to.have.callCount(0);
+
+      let oldBrowser = context.browser;
+
+      reset();
+
+      setOptions({
+        browserOverride: browser => browser,
+      });
+
+      await beforeTest();
+
+      expect(startBrowser).to.have.callCount(1);
+      expect(browserOverrideSpy).to.have.callCount(0);
+      expect(stopBrowser).to.have.callCount(1);
+
+      expect(context.browser).to.not.equal(oldBrowser);
+    });
+  });
+
+  describe('overrides', function() {
+    it('doesn\'t reuse web driver or browser if overrides change', async function() {
+      setOptions({
+        shareWebdriver: true,
+        keepBrowserOpen: true,
+      });
+
+      await beforeTest();
+
+      expect(startWebDriver).to.have.callCount(1);
+      expect(startBrowser).to.have.callCount(1);
+      expect(stopBrowser).to.have.callCount(0);
+      expect(stopWebDriver).to.have.callCount(0);
+
+      await afterTest();
+
+      reset();
+
+      setOptions({
+        overrides: {},
+      });
+
+      await beforeTest();
+
+      expect(startWebDriver).to.have.callCount(1);
+      expect(startBrowser).to.have.callCount(1);
+      expect(stopBrowser).to.have.callCount(1);
+      expect(stopWebDriver).to.have.callCount(1);
+    });
+  });
+
   it('resets internal state on kill orphans', function() {
     webDriver.events.emit('kill-orphans');
 
