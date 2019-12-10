@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
-const { killOrphans } = require('../../../remote');
 const {
   BasePageObject,
   Element,
@@ -38,8 +37,6 @@ describe(function() {
     if (server) {
       await server.stop();
     }
-
-    await killOrphans();
   });
 
   it('can override a default class via empty string', async function() {

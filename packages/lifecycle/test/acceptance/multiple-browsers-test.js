@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../src');
-const { killOrphans } = require('../../../remote');
 const Server = require('../../../../helpers/server');
 const { promisify } = require('util');
 const tmpDir = promisify(require('tmp').dir);
@@ -39,10 +38,6 @@ describe(function() {
     if (this.server) {
       await this.server.stop();
     }
-  });
-
-  after(async function() {
-    await killOrphans();
   });
 
   it('can manage multiple browsers', async function() {

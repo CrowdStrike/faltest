@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle/src');
-const { killOrphans } = require('../../../remote/src');
 const {
   BasePageObject,
   Elements,
@@ -52,10 +51,6 @@ describe(Elements, function() {
     if (this.server) {
       await this.server.stop();
     }
-  });
-
-  after(async function() {
-    await killOrphans();
   });
 
   describe('ChildType', function() {

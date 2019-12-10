@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
-const { killOrphans } = require('../../../remote');
 const {
   BasePageObject,
 } = require('../../src');
@@ -36,8 +35,6 @@ describe(function() {
     if (server) {
       await server.stop();
     }
-
-    await killOrphans();
   });
 
   it('can set a password', async function() {

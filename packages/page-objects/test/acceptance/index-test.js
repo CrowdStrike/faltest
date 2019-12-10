@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
-const { killOrphans } = require('../../../remote');
 const {
   BasePageObject,
   BaseElement,
@@ -40,8 +39,6 @@ describe(function() {
     if (server) {
       await server.stop();
     }
-
-    await killOrphans();
   });
 
   describe('wrapping page objects', function() {
