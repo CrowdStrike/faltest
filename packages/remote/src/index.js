@@ -224,7 +224,7 @@ async function getCapabilities({
   customizeCapabilities = (browserName, capabilities) => capabilities,
   overrides: {
     browser: _browser = getDefaults().browser,
-  },
+  } = {},
 }) {
   let capabilities = {
     browserName: _browser,
