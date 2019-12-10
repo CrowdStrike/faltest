@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/CrowdStrike/faltest/compare/runner-only@0.0.12...0.0.13) (2019-12-10)
+
 ### [0.0.12](https://github.com/CrowdStrike/faltest/compare/runner-only@0.0.11...0.0.12) (2019-12-06)
 
 ### [0.0.11](https://github.com/CrowdStrike/faltest/compare/runner-only@0.0.10...0.0.11) (2019-11-21)

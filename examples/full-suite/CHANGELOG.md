@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/CrowdStrike/faltest/compare/full-suite@0.0.16...0.0.17) (2019-12-10)
+
 ### [0.0.16](https://github.com/CrowdStrike/faltest/compare/full-suite@0.0.15...0.0.16) (2019-12-06)
 
 ### [0.0.15](https://github.com/CrowdStrike/faltest/compare/full-suite@0.0.14...0.0.15) (2019-11-21)
