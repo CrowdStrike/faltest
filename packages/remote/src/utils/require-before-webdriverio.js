@@ -11,7 +11,7 @@ const debug = require('../debug');
 const log = require('loglevel');
 
 const replacementText = '[REDACTED]';
-const elementSendKeysRegex = /elementSendKeys\("(.*)", ".*"\)/;
+const elementSendKeysRegex = /elementSendKeys\("(.+)", ".*"\)/;
 
 let replacementCountRemaining = 0;
 
@@ -44,7 +44,7 @@ log.methodFactory = function(methodName, level, loggerName) {
         rawMethod(message, type, data.replace(elementSendKeysRegex, `elementSendKeys("$1", "${replacementText}")`));
         wasFound = true;
       }
-      if (type === '[33mDATA[39m' && data.text) {
+      if (type === '[33mDATA[39m' && Object.prototype.hasOwnProperty.call(data, 'text')) {
         rawMethod(message, type, {
           ...data,
           text: replacementText,

@@ -105,5 +105,16 @@ function test(title, logLevel) {
 
       expect(await input.getValue()).to.equal(password);
     });
+
+    it('also hide empty strings', async function() {
+      let input = await this.browser.$('input');
+
+      await setPassword(input, '');
+
+      expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, sinon.match({ text: '[REDACTED]' }))).to.have.been.calledOnce;
+      expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, sinon.match('[REDACTED]'))).to.have.been.calledOnce;
+
+      expect(await input.getValue()).to.equal('');
+    });
   });
 }
