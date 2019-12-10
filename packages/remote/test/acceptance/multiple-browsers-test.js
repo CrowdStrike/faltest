@@ -13,11 +13,7 @@ describe(function() {
   this.timeout(30 * 1000);
 
   before(async function() {
-    this.webDriver = await startWebDriver({
-      overrides: {
-        browser: 'chrome',
-      },
-    });
+    this.webDriver = await startWebDriver();
   });
 
   after(async function() {
@@ -29,16 +25,8 @@ describe(function() {
       browser1,
       browser2,
     ] = await Promise.all([
-      startBrowser({
-        overrides: {
-          browser: 'chrome',
-        },
-      }),
-      startBrowser({
-        overrides: {
-          browser: 'chrome',
-        },
-      }),
+      startBrowser(),
+      startBrowser(),
     ]);
 
     await Promise.all([

@@ -20,7 +20,6 @@ describe(Rows.prototype.purgeOld, function() {
     shareWebdriver: true,
     keepBrowserOpen: true,
     overrides: {
-      browser: 'chrome',
       waitforTimeout: 0,
     },
   });

@@ -18,7 +18,6 @@ describe(BasePageObject.prototype._chain, function() {
     shareWebdriver: true,
     keepBrowserOpen: true,
     overrides: {
-      browser: 'chrome',
       waitforTimeout: 0,
     },
   });
