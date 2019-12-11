@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@2.0.5...2.0.6) (2019-12-11)
+
+
+### Bug Fixes
+
+* broken release ([b629a5b](https://github.com/CrowdStrike/faltest/commit/b629a5ba02391d7c3992ccfa1bba95023088064b))
+
 ### [2.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@2.0.4...2.0.5) (2019-12-11)
 
 ### [2.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@2.0.3...2.0.4) (2019-12-10)
