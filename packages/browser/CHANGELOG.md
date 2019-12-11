@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@1.6.3...2.0.0) (2019-12-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* The page objects need to get the password logic from a different source.
+
+### Features
+
+* move `setPassword` to browser from remote ([162867b](https://github.com/CrowdStrike/faltest/commit/162867bbdd52a628f3f1b5f4844ee409be0359ec))
+
+
+### Bug Fixes
+
+* redact any password in error messages ([9e7616d](https://github.com/CrowdStrike/faltest/commit/9e7616dc49feff56793e802bc71ae95bd179fe22))
+
 ### [1.6.3](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@1.6.2...1.6.3) (2019-12-10)
 
 ### [1.6.2](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@1.6.1...1.6.2) (2019-12-10)

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@2.0.4...3.0.0) (2019-12-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* The page objects need to get the password logic from a different source.
+
+### Features
+
+* move `setPassword` to browser from remote ([162867b](https://github.com/CrowdStrike/faltest/commit/162867bbdd52a628f3f1b5f4844ee409be0359ec))
+
 ### [2.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@2.0.3...2.0.4) (2019-12-10)
 
 ### [2.0.3](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@2.0.2...2.0.3) (2019-12-10)
