@@ -13,7 +13,7 @@
     "@faltest/cli": "^2.0.2",
     "@faltest/lifecycle": "^2.0.2",
     "@faltest/mocha": "^1.0.4",
-    "@faltest/page-objects": "^2.0.2",
+    "@faltest/page-objects": "^3.0.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "config": "^3.2.2"
