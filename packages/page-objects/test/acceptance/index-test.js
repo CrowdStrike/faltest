@@ -684,7 +684,7 @@ describe(function() {
 
         await expect(page.single1.missing2.isExisting()).to.eventually.be.false;
         await expect(page.single1.missing2.waitForInsert()).to.eventually.be
-          .rejectedWith('waitForInsert(<obj>): waitUntil condition timed out after 0ms: waitForInsert(): findChild(<obj>,<func>): findByText(<obj>,foo): Find by text "foo" yielded no results.');
+          .rejectedWith('waitForInsert(.missing2): waitUntil condition timed out after 0ms: waitForInsert(): findChild(.missing2,<func>): findByText(.missing2,foo): Find by text "foo" yielded no results.');
         await expect(page.single1.missing2.waitForDestroy()).to.eventually.be.fulfilled;
       });
     });
