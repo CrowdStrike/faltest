@@ -91,40 +91,63 @@ describe(Elements, function() {
     });
   });
 
-  describe('first and last', function() {
-    it('works', async function() {
+  describe('iterating', function() {
+    it('works with implicit style', async function() {
       await this.writeFixture('index.html', `
         <div class="foo">
+          <span>bar</span>
+        </div>
+        <div class="foo">
+          <span>baz</span>
         </div>
       `);
 
       this.page = this.createPage(class extends BasePageObject {
-        get bar() {
-          return this._createMany('.bar');
+        get foo() {
+          return this._createMany('.foo', ({ each }) => {
+            each(({ create }) => ({
+              span: create('span'),
+            }));
+          });
         }
       });
 
       await this.open('index.html');
 
-      await expect(this.page.bar.first.waitForInsert()).to.eventually.be
-        .rejectedWith('waitForInsert(): waitUntil condition timed out');
-      await expect(this.page.bar.last.waitForInsert()).to.eventually.be
-        .rejectedWith('waitForInsert(): waitUntil condition timed out');
+      let elements = await this.page.foo.getPageObjects();
 
-      await this.browser.execute(() => {
-        // eslint-disable-next-line no-undef
-        document.querySelector('.foo').innerHTML += `
-          <div class="bar">
-            bar1
-          </div>
-          <div class="bar">
-            bar2
-          </div>
-        `;
+      await expect(elements[0].span).text.to.eventually.equal('bar');
+      await expect(elements[1].span).text.to.eventually.equal('baz');
+    });
+
+    it('works with extending style', async function() {
+      await this.writeFixture('index.html', `
+        <div class="foo">
+          <span>bar</span>
+        </div>
+        <div class="foo">
+          <span>baz</span>
+        </div>
+      `);
+
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._extendMany(class extends Elements {
+            eachProperties({ create }) {
+              return {
+                span: create('span'),
+              };
+            }
+          }, '.foo');
+        }
       });
 
-      await expect(this.page.bar.first).text.to.eventually.equal('bar1');
-      await expect(this.page.bar.last).text.to.eventually.equal('bar2');
+      await this.open('index.html');
+
+      let elements = await this.page.foo.getPageObjects();
+
+      await expect(elements[0].span).text.to.eventually.equal('bar');
+      await expect(elements[1].span).text.to.eventually.equal('baz');
     });
   });
 });
