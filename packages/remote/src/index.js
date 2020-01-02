@@ -283,8 +283,8 @@ function startBrowser(options = {}) {
         // this is only needed for geckodriver because
         // it takes a while to boot up and doesn't notify
         // you via console output
-        // `connectionRetryTimeout` would be a better option,
-        // but it doesn't work (unimplemented)
+        // `connectionRetryTimeout` seems like it would be a better option,
+        // but the connections fail immediately and the timeout isn't even hit
         connectionRetryCount,
       });
     } catch (err) {
