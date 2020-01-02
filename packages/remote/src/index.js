@@ -269,6 +269,7 @@ function startBrowser(options = {}) {
     let { overrides = {} } = options;
     let browser;
     let connectionRetryCount = 150;
+    let connectionRetryTimeout = 90000;
 
     try {
       // We should refrain from using the `baseUrl` option here
@@ -285,10 +286,16 @@ function startBrowser(options = {}) {
         // you via console output
         // `connectionRetryTimeout` would be a better option,
         // but it doesn't work (unimplemented)
-        connectionRetryCount,
+        // connectionRetryCount,
+
+        // this is only needed for geckodriver because
+        // it takes a while to boot up and doesn't notify
+        // you via console output
+        connectionRetryTimeout,
       });
     } catch (err) {
       debug(`It is possible \`connectionRetryCount=${connectionRetryCount}\` is not high enough.`);
+      debug(`It is possible \`connectionRetryTimeout=${connectionRetryTimeout}\` is not high enough.`);
 
       throw err;
     }
