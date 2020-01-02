@@ -247,10 +247,10 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
 
-"@wdio/config@5.16.11":
-  version "5.16.11"
-  resolved "https://registry.yarnpkg.com/@wdio/config/-/config-5.16.11.tgz#2f2c58e4a50ab3fc9251f2ea8ec64c86d4266e5c"
-  integrity sha512-fGa7gDTyzzs28QIkJGPqG2ocgOvHBUanSDan4pw1pX7y1yJtPI0Nc3hkfxB6u/MqsW67GXCNMRyOS9Ri1I912A==
+"@wdio/config@5.17.0":
+  version "5.17.0"
+  resolved "https://registry.npmjs.org/@wdio/config/-/config-5.17.0.tgz#43c4a051a3b626310851778dd9ef6dd0518dc414"
+  integrity sha512-rdFcAR/5YlRfBXWh9463b+kU0JmwyfgFnAFy2GMhbJ9CSJSooflppPgGiC7+3hFOsqWqUMDWcLpQgYN9Fyv/gg==
   dependencies:
     "@wdio/logger" "5.16.10"
     deepmerge "^4.0.0"
@@ -5363,24 +5363,24 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
-webdriver@5.16.15:
-  version "5.16.15"
-  resolved "https://registry.yarnpkg.com/webdriver/-/webdriver-5.16.15.tgz#605ba0c25632ae54b030eb36e1ba816ae737527f"
-  integrity sha512-jR632i8Wt0O1yQzFVmv3pbCiGxtBpaA8Q+RD79yFlZVvqAgZDhGZEQj/5xYsbnXNZCmTjnGlmLi4FDH8u+jXCg==
+webdriver@5.17.0:
+  version "5.17.0"
+  resolved "https://registry.npmjs.org/webdriver/-/webdriver-5.17.0.tgz#451ac2df970210b1fe99fe197a9be378e2acde11"
+  integrity sha512-Jg3Z/O+EuKQA91wZNHHRFiSa4TqT8UyvH+Lgvdl6CeZEUstbtP0CpxmyMP8ZRJjMqvuM7/NMIpKjpWCRaCXYGA==
   dependencies:
-    "@wdio/config" "5.16.11"
+    "@wdio/config" "5.17.0"
     "@wdio/logger" "5.16.10"
     "@wdio/protocols" "5.16.7"
     "@wdio/utils" "5.16.15"
     lodash.merge "^4.6.1"
     request "^2.83.0"
 
-webdriverio@5.16.15:
-  version "5.16.15"
-  resolved "https://registry.yarnpkg.com/webdriverio/-/webdriverio-5.16.15.tgz#1bb577dfc96f3fa8cbbc34c13fc8cf3623d689e0"
-  integrity sha512-Sm2vpahcFPlVJIT9XoUPsXJGV2jEeebIIGaBAjTUXmOf3aS/12oClPCCcn1AgJ+muhPNbdK7ULkTGEmBFC1XUA==
+webdriverio@5.17.0:
+  version "5.17.0"
+  resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-5.17.0.tgz#ad4a43279f07168f6c43590b034469583a4ef792"
+  integrity sha512-hAYwnJGLBsgeGG7TT7kbiSaJPvoFfa4akGt+Hn+9c/KoUvwQafQ5vJ/tz98TFjOkwcs0FGxCXcu6Ra8iEzLvqQ==
   dependencies:
-    "@wdio/config" "5.16.11"
+    "@wdio/config" "5.17.0"
     "@wdio/logger" "5.16.10"
     "@wdio/repl" "5.16.15"
     "@wdio/utils" "5.16.15"
@@ -5394,7 +5394,7 @@ webdriverio@5.16.15:
     resq "^1.6.0"
     rgb2hex "^0.1.0"
     serialize-error "^5.0.0"
-    webdriver "5.16.15"
+    webdriver "5.17.0"
 
 which-module@^2.0.0:
   version "2.0.0"
