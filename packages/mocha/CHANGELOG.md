@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.5...@faltest/mocha@1.0.6) (2020-01-06)
+
+
+### Bug Fixes
+
+* relax mocha peer dep constraint ([7857ec0](https://github.com/CrowdStrike/faltest/commit/7857ec083be2867eec901d737954c3cc7d56201c))
+
 ### [1.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.4...1.0.5) (2019-12-06)
 
 
