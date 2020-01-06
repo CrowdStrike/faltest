@@ -36,6 +36,6 @@
   },
   "devDependencies": {
     "clear-module": "^4.0.0",
-    "mocha": "^6.2.0"
+    "mocha": "^7.0.0"
   }
 }
