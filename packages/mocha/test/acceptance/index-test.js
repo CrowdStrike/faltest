@@ -5,6 +5,8 @@ const { expect } = require('../../../../helpers/chai');
 const path = require('path');
 const clearModule = require('clear-module');
 const { runTests } = require('../../src');
+const { promisify } = require('util');
+const tmpDir = promisify(require('tmp').dir);
 
 describe(function() {
   describe(runTests, function() {
@@ -149,6 +151,27 @@ describe(function() {
         });
 
         expect(stats.passes).to.equal(1);
+      });
+    });
+
+    describe('reporter', function() {
+      before(function() {
+        globs = [path.resolve(__dirname, '../fixtures/reporter-test.js')];
+      });
+
+      beforeEach(async function() {
+        this.output = path.join(await tmpDir(), 'output-test');
+      });
+
+      it('works', async function() {
+        await runTests({
+          globs,
+          reporter: 'xunit',
+          reporterOptions: `output=${this.output}`,
+        });
+
+        expect(this.output).to.be.a.file()
+          .with.contents.that.match(/^<testsuite /);
       });
     });
   });
