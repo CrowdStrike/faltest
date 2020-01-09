@@ -200,6 +200,10 @@ function startWebDriver(options = {}) {
 
     webDriver.once('exit', killOrphans);
 
+    // Do this here instead of `startBrowser` for optimisation.
+    // We end up running it less often.
+    await logBrowserVersion(_browser);
+
     return webDriver;
   });
 }
@@ -218,6 +222,52 @@ function stopWebDriver(webDriver) {
       webDriver.once('exit', resolve);
     });
   });
+}
+
+async function logBrowserVersion(browser) {
+  let location;
+  let args = [];
+  let options = {
+    preferLocal: false,
+  };
+  switch (browser) {
+    case 'chrome':
+      switch (process.platform) {
+        case 'darwin':
+          location = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+          break;
+        case 'linux':
+          location = 'google-chrome';
+          break;
+        case 'win32':
+          location = 'start';
+          args.push('chrome');
+          // location = 'chrome.exe';
+          options.shell = true;
+          break;
+      }
+      args.push('--version');
+      break;
+    case 'firefox':
+      switch (process.platform) {
+        case 'darwin':
+          location = '/Applications/Firefox.app/Contents/MacOS/firefox-bin';
+          break;
+        case 'linux':
+          location = 'firefox';
+          options.shell = true;
+          break;
+        case 'win32':
+          // location = 'start';
+          // args.push('firefox');
+          location = 'firefox';
+          options.shell = true;
+          break;
+      }
+      args.push('-v');
+      break;
+  }
+  await spawnAwait(location, args, options);
 }
 
 async function getCapabilities({
