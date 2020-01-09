@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/CrowdStrike/faltest/compare/custom-cli@0.0.9...custom-cli@0.0.10) (2020-01-09)
+
 ### [0.0.9](https://github.com/CrowdStrike/faltest/compare/custom-cli@0.0.8...custom-cli@0.0.9) (2020-01-09)
 
 ### [0.0.8](https://github.com/CrowdStrike/faltest/compare/custom-cli@0.0.7...0.0.8) (2019-12-10)

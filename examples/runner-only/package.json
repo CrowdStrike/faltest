@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "runner-only",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "scripts": {
     "start": "faltest tests/**/*-test.js"
   },
@@ -9,7 +9,7 @@
     "node": ">=8.10"
   },
   "devDependencies": {
-    "@faltest/cli": "^2.0.5",
-    "@faltest/lifecycle": "^2.0.9"
+    "@faltest/cli": "^2.0.6",
+    "@faltest/lifecycle": "^2.0.10"
   }
 }

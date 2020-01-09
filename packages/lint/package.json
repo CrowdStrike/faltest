@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-faltest",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "ESLint rules for FalTest",
   "main": "src",
   "files": [
@@ -30,7 +30,7 @@
     "node": ">=8.10"
   },
   "dependencies": {
-    "@faltest/chai": "^1.1.0",
+    "@faltest/chai": "^1.1.3",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {

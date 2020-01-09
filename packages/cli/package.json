@@ -1,6 +1,6 @@
 {
   "name": "@faltest/cli",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "The CLI for the FalTest system",
   "bin": {
     "faltest": "bin/index.js"
@@ -31,9 +31,9 @@
     "node": ">=8.10"
   },
   "dependencies": {
-    "@faltest/mocha": "^1.0.4",
-    "@faltest/remote": "^3.0.8",
-    "@faltest/utils": "^2.0.3",
+    "@faltest/mocha": "^1.0.7",
+    "@faltest/remote": "^3.0.9",
+    "@faltest/utils": "^2.0.4",
     "mocha": "^6.2.0",
     "yargs": "^15.0.0",
     "yn": "^3.1.1"
