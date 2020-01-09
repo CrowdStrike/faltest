@@ -75,11 +75,11 @@ Filtering by tags is a little different between roles and other tags. Since a te
 
 Logging can be accomplished via the `DEBUG` environment variable (<https://github.com/visionmedia/debug>). Supported variables are:
 
-*   `faltest` - basic logging
-*   `faltest:verbose` - verbose logging __only__
-*   `faltest*` - all logging
+*   `@faltest/remote,@faltest/lifecycle,...` - basic logging
+*   `@faltest/remote:verbose,...` - verbose logging __only__
+*   `@faltest*` - all logging
 
-An example use would be `DEBUG=faltest* faltest --tag smoke`.
+An example use would be `DEBUG=@faltest* faltest --tag smoke`.
 
 ## Browser Versions
 
