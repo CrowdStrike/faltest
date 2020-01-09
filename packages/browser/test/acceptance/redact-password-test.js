@@ -3,7 +3,7 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
-const debug = require('@faltest/utils/src/debug');
+const debug = require('../../../utils/src/scope-debug');
 const sinon = require('sinon');
 const Server = require('../../../../helpers/server');
 
