@@ -2,10 +2,8 @@
 # yarn lockfile v1
 
 
-"@faltest/browser@^2.0.0":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@faltest/browser/-/browser-2.0.1.tgz#a7e73fbc80dfdbbc3498f54ca7cc0529403b9647"
-  integrity sha512-eCAlcPVSXOxHlVhR6UQVaY2YBWf684i4FA9aPR8UQnvUbD8okGuOW8Mz+LsuFi8CQzY4cQRXhLAIEiT7f2LAdA==
+"@faltest/browser@^2.0.0", "@faltest/browser@file:../../packages/browser":
+  version "2.0.3"
   dependencies:
     "@faltest/utils" "^2.0.0"
     verror-extra "^1.0.0"
