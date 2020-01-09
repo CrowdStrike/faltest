@@ -2,29 +2,29 @@
 # yarn lockfile v1
 
 
-"@faltest/browser@^2.0.0", "@faltest/browser@file:../../packages/browser":
-  version "2.0.3"
+"@faltest/browser@^2.0.4", "@faltest/browser@file:../../packages/browser":
+  version "2.0.4"
   dependencies:
-    "@faltest/utils" "^2.0.0"
+    "@faltest/utils" "^2.0.3"
     verror-extra "^1.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "2.0.4"
+  version "2.0.5"
   dependencies:
     "@faltest/mocha" "^1.0.4"
-    "@faltest/remote" "^3.0.0"
-    "@faltest/utils" "^2.0.0"
+    "@faltest/remote" "^3.0.8"
+    "@faltest/utils" "^2.0.3"
     mocha "^7.0.0"
     yargs "^15.0.0"
     yn "^3.1.1"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "2.0.8"
+  version "2.0.9"
   dependencies:
-    "@faltest/remote" "^3.0.0"
-    "@faltest/utils" "^2.0.0"
+    "@faltest/remote" "^3.0.8"
+    "@faltest/utils" "^2.0.3"
   optionalDependencies:
-    "@faltest/browser" "^2.0.0"
+    "@faltest/browser" "^2.0.4"
 
 "@faltest/mocha@^1.0.4", "@faltest/mocha@file:../../packages/mocha":
   version "1.0.6"
@@ -33,10 +33,10 @@
     glob "^7.1.4"
     mocha-helpers "^4.2.1"
 
-"@faltest/remote@^3.0.0", "@faltest/remote@file:../../packages/remote":
-  version "3.0.7"
+"@faltest/remote@^3.0.8", "@faltest/remote@file:../../packages/remote":
+  version "3.0.8"
   dependencies:
-    "@faltest/utils" "^2.0.0"
+    "@faltest/utils" "^2.0.3"
     chromedriver "79.0.0"
     execa "^3.0.0"
     fkill "^6.2.0"
@@ -46,8 +46,8 @@
     webdriverio "5.18.4"
     yn "^3.1.1"
 
-"@faltest/utils@^2.0.0", "@faltest/utils@file:../../packages/utils":
-  version "2.0.2"
+"@faltest/utils@^2.0.3", "@faltest/utils@file:../../packages/utils":
+  version "2.0.3"
   dependencies:
     callsites "^3.1.0"
     debug "^4.1.1"
