@@ -52,7 +52,9 @@ async function runTests({
     grep,
     color: true,
     reporter,
-    reporterOptions,
+
+    // https://github.com/mochajs/mocha/issues/4142#issuecomment-573295470
+    reporterOption: reporterOptions,
   };
   if (disableTimeouts) {
     mochaOpts.timeout = false;
