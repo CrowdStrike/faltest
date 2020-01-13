@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.8](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.7...@faltest/mocha@1.0.8) (2020-01-13)
+
+
+### Bug Fixes
+
+* use documented `reporterOption` ([0e2cf10](https://github.com/CrowdStrike/faltest/commit/0e2cf10562ff342a2365c1d1287ed1d9c19d1d75)), closes [/github.com/mochajs/mocha/issues/4142#issuecomment-573295470](https://github.com/CrowdStrike//github.com/mochajs/mocha/issues/4142/issues/issuecomment-573295470)
+
 ### [1.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.6...@faltest/mocha@1.0.7) (2020-01-09)
 
 ### [1.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.5...@faltest/mocha@1.0.6) (2020-01-06)

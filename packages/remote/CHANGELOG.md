@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.11](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.0.10...@faltest/remote@3.0.11) (2020-01-13)
+
 ### [3.0.10](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.0.9...@faltest/remote@3.0.10) (2020-01-10)
 
 
