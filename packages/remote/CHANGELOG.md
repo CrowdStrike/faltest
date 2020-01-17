@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.12](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.0.11...@faltest/remote@3.0.12) (2020-01-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency webdriverio to v5.18.6 ([ecff95f](https://github.com/CrowdStrike/faltest/commit/ecff95f73ca6fb73758e8c473b394bc050be9621))
+
 ### [3.0.11](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.0.10...@faltest/remote@3.0.11) (2020-01-13)
 
 ### [3.0.10](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.0.9...@faltest/remote@3.0.10) (2020-01-10)
