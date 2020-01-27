@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.13](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.0.12...@faltest/remote@3.0.13) (2020-01-27)
+
+
+### Bug Fixes
+
+* bring back `reporterOptions` ([313024e](https://github.com/CrowdStrike/faltest/commit/313024e9057620f353e68666d05cb1a6890dea5c))
+
 ### [3.0.12](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.0.11...@faltest/remote@3.0.12) (2020-01-17)
 
 

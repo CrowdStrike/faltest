@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.8](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.0.7...@faltest/cli@2.0.8) (2020-01-27)
+
+
+### Bug Fixes
+
+* bring back `reporterOptions` ([313024e](https://github.com/CrowdStrike/faltest/commit/313024e9057620f353e68666d05cb1a6890dea5c))
+
 ### [2.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.0.6...@faltest/cli@2.0.7) (2020-01-13)
 
 ### [2.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.0.5...@faltest/cli@2.0.6) (2020-01-09)
