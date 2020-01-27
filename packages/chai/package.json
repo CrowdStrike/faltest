@@ -28,7 +28,7 @@
     "node": ">=8.10"
   },
   "devDependencies": {
-    "mocha": "^7.0.0",
+    "mocha": "^7.0.1",
     "sinon": "^8.0.0"
   },
   "peerDependencies": {
