@@ -83,10 +83,10 @@ An example use would be `DEBUG=@faltest* faltest --tag smoke`.
 
 ## Browser Versions
 
-To override the [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) version to match your [Chrome](https://www.google.com/chrome) version, follow the guide [here](https://github.com/giggio/node-chromedriver#versioning). For example:
+To override the [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) version to match your [Chrome](https://www.google.com/chrome) version, follow the guide [here](https://github.com/giggio/node-chromedriver#versioning) or [here](https://github.com/giggio/node-chromedriver#detect-chromedriver-version). For example:
 
 ```
-CHROMEDRIVER_VERSION=75.0.3770.140 npm install
+DETECT_CHROMEDRIVER_VERSION=true npm install
 ```
 
 ## Real-world Examples
