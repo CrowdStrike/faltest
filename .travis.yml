@@ -7,11 +7,11 @@ branches:
   # npm version tags
   - /^(?:[a-z-]+|@[a-z-]+\/[a-z-]+)@\d+\.\d+\.\d+$/
 addons:
-  chrome: stable
   firefox: latest
 env:
   global:
   - DEBUG=@faltest*,faltest-helpers
+  - CHROMEDRIVER_VERSION=73.0.3683.68
 jobs:
   include:
   - name: Lint
