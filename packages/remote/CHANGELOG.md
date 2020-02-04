@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.14](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.0.13...@faltest/remote@3.0.14) (2020-02-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chromedriver to v79.0.2 ([6fe3a80](https://github.com/CrowdStrike/faltest/commit/6fe3a80454291c3146ce834e0172813ab70a866d))
+* **deps:** update dependency chromedriver to v79.0.3 ([da42830](https://github.com/CrowdStrike/faltest/commit/da42830d1e275a3ef329d90f4e566b71781d2eb6))
+
 ### [3.0.13](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.0.12...@faltest/remote@3.0.13) (2020-01-27)
 
 
