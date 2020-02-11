@@ -9,12 +9,8 @@ const {
 const sinon = require('sinon');
 
 describe(function() {
-  beforeEach(function() {
-    this.sandbox = sinon.createSandbox();
-  });
-
   afterEach(function() {
-    this.sandbox.restore();
+    sinon.restore();
   });
 
   it('encodes a string', function() {
@@ -44,11 +40,11 @@ describe(function() {
   it('should purge if match and not in range', function() {
     let name = 'test-name';
 
-    this.sandbox.useFakeTimers(new Date().getTime() - 60 * 60 * 1000);
+    sinon.useFakeTimers(new Date().getTime() - 60 * 60 * 1000);
 
     let oldEncoded = encodeString(name);
 
-    this.sandbox.restore();
+    sinon.restore();
 
     expect(shouldPurge(oldEncoded, [name], 30 * 60 * 1000)).to.be.true;
   });
