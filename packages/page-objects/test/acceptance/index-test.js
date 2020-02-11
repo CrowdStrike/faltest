@@ -165,16 +165,6 @@ describe(function() {
   });
 
   describe(Elements, function() {
-    let sandbox;
-
-    beforeEach(function() {
-      sandbox = sinon.createSandbox();
-    });
-
-    afterEach(function() {
-      sandbox.restore();
-    });
-
     it('works', async function() {
       let page = this.createPage(class extends BasePageObject {
         get multiple1() {
@@ -294,8 +284,8 @@ describe(function() {
         }
       });
 
-      let _findElement = sandbox.spy(page._browser, '_findElement');
-      let _findElements = sandbox.spy(page._browser, '_findElements');
+      let _findElement = sinon.spy(page._browser, '_findElement');
+      let _findElements = sinon.spy(page._browser, '_findElements');
 
       function resetHistory() {
         _findElement.resetHistory();

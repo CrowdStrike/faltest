@@ -20,7 +20,6 @@ const {
 } = mocha;
 
 describe(setUpWebDriver, function() {
-  let sandbox;
   let webDriverInstance;
   let sharedBrowser;
 
@@ -63,8 +62,6 @@ describe(setUpWebDriver, function() {
   }
 
   beforeEach(function() {
-    sandbox = sinon.createSandbox();
-
     webDriverInstance = {};
     sharedBrowser = {};
 
@@ -74,16 +71,16 @@ describe(setUpWebDriver, function() {
 
     options = {};
 
-    startWebDriver = sandbox.stub(webDriver, 'startWebDriver')
+    startWebDriver = sinon.stub(webDriver, 'startWebDriver')
       .withArgs(options)
       .resolves(webDriverInstance);
-    stopWebDriver = sandbox.stub(webDriver, 'stopWebDriver')
+    stopWebDriver = sinon.stub(webDriver, 'stopWebDriver')
       .withArgs(webDriverInstance)
       .resolves();
-    startBrowser = sandbox.stub(webDriver, 'startBrowser')
+    startBrowser = sinon.stub(webDriver, 'startBrowser')
       .withArgs(options)
       .resolves(sharedBrowser);
-    stopBrowser = sandbox.stub(webDriver, 'stopBrowser')
+    stopBrowser = sinon.stub(webDriver, 'stopBrowser')
       .withArgs(sinon.match({ _browser: sharedBrowser }))
       .resolves();
     // eslint-disable-next-line require-await
@@ -202,7 +199,7 @@ describe(setUpWebDriver, function() {
 
     events.removeListener('reset-internal-state', onResetInternalState);
 
-    sandbox.restore();
+    sinon.restore();
   });
 
   after(function() {
