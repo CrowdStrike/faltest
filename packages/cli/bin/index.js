@@ -57,7 +57,12 @@ let globs = faltestConfig.globs || argv._;
     await require('@faltest/remote').killOrphans();
   }
 
-  if (!stats.tests) {
+  // `suites` is a better property to check than `tests` because
+  // you could have an error in a `before`/`beforeEach` that causes
+  // `tests` to be zero and `suites` to be non-zero.
+  let wereTestsFound = !!stats.suites;
+
+  if (!wereTestsFound) {
     // We should file an issue for Mocha not throwing
     // when a `grep` removes all the tests
     throw new Error('no tests found');
