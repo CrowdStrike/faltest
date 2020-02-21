@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.9](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.0.8...@faltest/cli@2.0.9) (2020-02-21)
+
+
+### Bug Fixes
+
+* fix for `before`/`beforeEach` errors ([32b7ddb](https://github.com/CrowdStrike/faltest/commit/32b7ddb139674b15c37a8880987759f772cfeb70))
+
 ### [2.0.8](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.0.7...@faltest/cli@2.0.8) (2020-01-27)
 
 

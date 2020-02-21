@@ -9,7 +9,7 @@
     verror-extra "^1.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "2.0.8"
+  version "2.0.9"
   dependencies:
     "@faltest/mocha" "^1.0.7"
     "@faltest/remote" "^3.0.9"
@@ -19,7 +19,7 @@
     yn "^3.1.1"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "2.0.12"
+  version "2.0.13"
   dependencies:
     "@faltest/remote" "^3.0.9"
     "@faltest/utils" "^2.0.4"
