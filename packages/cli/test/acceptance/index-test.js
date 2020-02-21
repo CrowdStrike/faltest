@@ -29,7 +29,16 @@ describe(function() {
         cwd: path.resolve(__dirname, '../..'),
       });
 
-      await expect(promise).to.eventually.be.rejectedWith('no tests found');
+      // chai-as-promised@7.1.1 isn't working here for some reason
+      // await expect(promise).to.eventually.be.rejectedWith('Error: no tests found');
+
+      try {
+        await promise;
+
+        expect(true, 'should have rejected').to.be.ok;
+      } catch (err) {
+        expect(err.message).to.include('Error: no tests found');
+      }
     });
   });
 
@@ -77,18 +86,25 @@ describe(function() {
   });
 
   it('before error - no tests run', async function() {
+    let promise = exec('node bin --reporter json test/fixtures/before-error-test.js', {
+      cwd: path.resolve(__dirname, '../..'),
+      env: {
+        FALTEST_PRINT_VERSION: false,
+        ...process.env,
+      },
+    });
+
+    // chai-as-promised@7.1.1 isn't working here for some reason
+    // await expect(promise).to.eventually.not.be.rejectedWith('Error: no tests found');
+
     let stdout;
 
     try {
-      await exec('node bin --reporter json test/fixtures/before-error-test.js', {
-        cwd: path.resolve(__dirname, '../..'),
-        env: {
-          FALTEST_PRINT_VERSION: false,
-          ...process.env,
-        },
-      });
+      await promise;
+
+      expect(true, 'should have rejected').to.be.ok;
     } catch (err) {
-      expect(err.message).to.not.include('no tests found');
+      expect(err.message).to.not.include('Error: no tests found');
 
       stdout = err.stdout;
     }
