@@ -7,20 +7,30 @@ const { promisify } = require('util');
 const exec = promisify(require('child_process').exec);
 
 describe(function() {
-  it('works with glob', async function() {
-    let { stdout } = await exec(`node bin --reporter json test/fixtures/**/*-test.js`, {
-      cwd: path.resolve(__dirname, '../..'),
-      env: {
-        FALTEST_PRINT_VERSION: false,
-        ...process.env,
-      },
+  describe('glob', function() {
+    it('works', async function() {
+      let { stdout } = await exec(`node bin --reporter json test/fixtures/**/*-test.js`, {
+        cwd: path.resolve(__dirname, '../..'),
+        env: {
+          FALTEST_PRINT_VERSION: false,
+          ...process.env,
+        },
+      });
+
+      let json = JSON.parse(stdout);
+
+      expect(json.stats.tests).to.equal(1);
+      expect(json.stats.failures).to.equal(0);
+      expect(json.tests[0].fullTitle).to.equal('sample works');
     });
 
-    let json = JSON.parse(stdout);
+    it('all tests filtered out', async function() {
+      let promise = exec(`node bin test/fixtures/**/*-no-matches`, {
+        cwd: path.resolve(__dirname, '../..'),
+      });
 
-    expect(json.stats.tests).to.equal(1);
-    expect(json.stats.failures).to.equal(0);
-    expect(json.tests[0].fullTitle).to.equal('sample works');
+      await expect(promise).to.eventually.be.rejectedWith('no tests found');
+    });
   });
 
   it('works with config', async function() {
