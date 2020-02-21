@@ -2,7 +2,7 @@
 
 const assert = require('assert');
 
-describe('sample', function() {
+describe('passing', function() {
   it('works', function() {
     assert.ok(true);
   });

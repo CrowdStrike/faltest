@@ -9,7 +9,7 @@ const exec = promisify(require('child_process').exec);
 describe(function() {
   describe('glob', function() {
     it('works', async function() {
-      let { stdout } = await exec(`node bin --reporter json test/fixtures/**/*-test.js`, {
+      let { stdout } = await exec(`node bin --reporter json test/fixtures/**/passing-test.js`, {
         cwd: path.resolve(__dirname, '../..'),
         env: {
           FALTEST_PRINT_VERSION: false,
@@ -21,7 +21,7 @@ describe(function() {
 
       expect(json.stats.tests).to.equal(1);
       expect(json.stats.failures).to.equal(0);
-      expect(json.tests[0].fullTitle).to.equal('sample works');
+      expect(json.tests[0].fullTitle).to.equal('passing works');
     });
 
     it('all tests filtered out', async function() {
@@ -34,7 +34,7 @@ describe(function() {
   });
 
   it('works with config', async function() {
-    let { stdout } = await exec(`node bin --reporter json`, {
+    let { stdout } = await exec(`node bin --reporter json test/fixtures/passing-test.js`, {
       cwd: path.resolve(__dirname, '../..'),
       env: {
         FALTEST_PRINT_VERSION: false,
@@ -47,7 +47,7 @@ describe(function() {
 
     expect(json.stats.tests).to.equal(1);
     expect(json.stats.failures).to.equal(0);
-    expect(json.tests[0].fullTitle).to.equal('sample works');
+    expect(json.tests[0].fullTitle).to.equal('passing works');
   });
 
   it('prints version', async function() {
@@ -61,7 +61,7 @@ describe(function() {
   });
 
   it('allows custom bin', async function() {
-    let { stdout } = await exec(`node test/fixtures/bin --reporter json`, {
+    let { stdout } = await exec(`node test/fixtures/bin --reporter json test/fixtures/passing-test.js`, {
       cwd: path.resolve(__dirname, '../..'),
       env: {
         FALTEST_PRINT_VERSION: false,
@@ -73,6 +73,31 @@ describe(function() {
 
     expect(json.stats.tests).to.equal(1);
     expect(json.stats.failures).to.equal(0);
-    expect(json.tests[0].fullTitle).to.equal('sample works');
+    expect(json.tests[0].fullTitle).to.equal('passing works');
+  });
+
+  it('before error - no tests run', async function() {
+    let stdout;
+
+    try {
+      await exec(`node bin --reporter json test/fixtures/before-error-test.js`, {
+        cwd: path.resolve(__dirname, '../..'),
+        env: {
+          FALTEST_PRINT_VERSION: false,
+          ...process.env,
+        },
+      });
+    } catch (err) {
+      expect(err.message).to.not.include('no tests found');
+
+      stdout = err.stdout;
+    }
+
+    let json = JSON.parse(stdout);
+
+    expect(json.stats.tests).to.equal(0);
+    expect(json.stats.failures).to.equal(1);
+    expect(json.failures[0].fullTitle).to.equal('before error "before all" hook for "works"');
+    expect(json.failures[0].err.message).to.equal('thrown error in before hook');
   });
 });
