@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.10](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.9...@faltest/mocha@1.0.10) (2020-03-12)
+
+
+### Bug Fixes
+
+* update min `mocha-helpers` version ([c4c7e96](https://github.com/CrowdStrike/faltest/commit/c4c7e96508b76fae88f2065a2ed2656c6c4c393c))
+
 ### [1.0.9](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.8...@faltest/mocha@1.0.9) (2020-01-27)
 
 

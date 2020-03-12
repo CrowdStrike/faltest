@@ -27,11 +27,11 @@
     "@faltest/browser" "^2.0.5"
 
 "@faltest/mocha@^1.0.7", "@faltest/mocha@file:../../packages/mocha":
-  version "1.0.9"
+  version "1.0.10"
   dependencies:
     choma "^1.2.1"
     glob "^7.1.4"
-    mocha-helpers "^4.2.1"
+    mocha-helpers "^4.3.0"
 
 "@faltest/remote@^3.0.9", "@faltest/remote@file:../../packages/remote":
   version "3.0.15"
@@ -1551,10 +1551,10 @@ mkdirp@0.5.1, mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mocha-helpers@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/mocha-helpers/-/mocha-helpers-4.2.1.tgz#494ac88a1f16854c1daa6f07e7bfa37a1b0ad84d"
-  integrity sha512-ezXtM7NiHuYwk09pGHpsE2iIq4OOZ2KQNPGzPNahU2h9uPOGVhw4RkvWMAqaKS0BPlP+VMDEHXcnkHIis2kEpw==
+mocha-helpers@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.npmjs.org/mocha-helpers/-/mocha-helpers-4.3.0.tgz#9a499686a3681b1b6fdf69866d61e4c29a630081"
+  integrity sha512-9KjxN8lUOoU4c9ealu8To41EWE+7zmFvYncuB7wMKYDK2ol78IeOVpBIy+2kCssksIUWwE0tFk2bLxevtYbY9Q==
   dependencies:
     callsites "^3.0.0"
     commondir "^1.0.1"
