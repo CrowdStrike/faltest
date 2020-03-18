@@ -11,8 +11,8 @@ class Page extends BasePageObject {
 
     await this._browser.url(`https://codepen.io/crowdstrike/full/${envs[env]}?target=${target}`);
 
-    // only needed for codepen, selects the first iframe
-    await this._browser._browser.switchToFrame(0);
+    // only needed for codepen, selects the iframe
+    await this._browser._browser.switchToFrame(await this._browser.$('#result'));
   }
 
   get email() {
