@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.0.9...@faltest/cli@2.1.0) (2020-03-23)
+
+
+### Features
+
+* add ability to turn off all browser killing ([e4dab2f](https://github.com/CrowdStrike/faltest/commit/e4dab2fca0bf2937cc5220a7b03a4275fbb3e90f))
+* expose bin `faltest-kill-orphans` to manually clean up ([cd90361](https://github.com/CrowdStrike/faltest/commit/cd90361a76244aebf640118eaabdc0232e1dace5))
+
 ### [2.0.9](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.0.8...@faltest/cli@2.0.9) (2020-02-21)
 
 

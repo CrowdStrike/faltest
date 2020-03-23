@@ -9,7 +9,7 @@
     verror-extra "^1.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "2.0.9"
+  version "2.1.0"
   dependencies:
     "@faltest/mocha" "^1.0.7"
     "@faltest/remote" "^3.0.9"
@@ -34,7 +34,7 @@
     mocha-helpers "^4.3.0"
 
 "@faltest/remote@^3.0.9", "@faltest/remote@file:../../packages/remote":
-  version "3.0.15"
+  version "3.1.0"
   dependencies:
     "@faltest/utils" "^2.0.4"
     chromedriver "79.0.3"
