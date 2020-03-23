@@ -121,7 +121,7 @@ function initCli({
       'disable-cleanup': {
         type: 'boolean',
         default: false,
-        description: 'Disable all browser cleanup',
+        description: 'Disables all browser cleanup. Run `faltest-kill-orphans` to clean up manually.',
       },
       'reporter': {
         type: 'string',
