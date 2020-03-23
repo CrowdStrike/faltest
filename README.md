@@ -61,7 +61,8 @@ Here are a couple examples of using the FalTest CLI.
   --timeouts-override  Override all Mocha timeouts for debugging purposes
   --disable-timeouts   Disable all Mocha timeouts for debugging purposes
                                                       [boolean] [default: false]
-  --disable-cleanup    Disable all browser cleanup    [boolean] [default: false]
+  --disable-cleanup    Disables all browser cleanup. Run `faltest-kill-orphans`
+                       to clean up manually.          [boolean] [default: false]
   --reporter           Change the Mocha reporter                        [string]
   --reporter-options   Supply Mocha reporter options                    [string]
 ```

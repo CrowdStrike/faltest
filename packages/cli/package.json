@@ -3,7 +3,8 @@
   "version": "2.0.9",
   "description": "The CLI for the FalTest system",
   "bin": {
-    "faltest": "bin/index.js"
+    "faltest": "bin/index.js",
+    "faltest-kill-orphans": "bin/kill-orphans.js"
   },
   "main": "src",
   "files": [
