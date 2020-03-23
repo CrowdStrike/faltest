@@ -143,15 +143,21 @@ function startWebDriver(options = {}) {
 
     await _getNewPort(overrides.port);
 
-    let webDriver;
+    let driverName;
+    let driverArgs;
+
     switch (_browser) {
       case 'chrome':
-        webDriver = await spawnWebDriver('chromedriver', [`--port=${port}`]);
+        driverName = 'chromedriver';
+        driverArgs = [`--port=${port}`];
         break;
       case 'firefox':
-        webDriver = await spawnWebDriver('geckodriver', ['--port', port]);
+        driverName = 'geckodriver';
+        driverArgs = ['--port', port];
         break;
     }
+
+    let webDriver = await spawnWebDriver(driverName, driverArgs);
 
     await new Promise(resolve => {
       switch (_browser) {
