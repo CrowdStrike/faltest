@@ -127,6 +127,35 @@ async function spawnWebDriver(name, args) {
 
   // webDriver.stdout.pipe(process.stdout);
 
+  await new Promise(resolve => {
+    switch (name) {
+      case 'chromedriver': {
+        // I believe this is an eslint bug
+        // This code should be passing for ES6, according to the docs
+        // https://eslint.org/docs/5.0.0/rules/no-inner-declarations
+        // eslint-disable-next-line no-inner-declarations
+        function wait(data) {
+          if (data.toString().includes('Starting ChromeDriver')) {
+            resolve();
+
+            webDriver.stdout.removeListener('data', wait);
+          }
+        }
+
+        webDriver.stdout.on('data', wait);
+
+        break;
+      }
+      case 'geckodriver': {
+        // ff doesn't print anything,
+        // so it appears it is immediately available?
+        resolve();
+
+        break;
+      }
+    }
+  });
+
   // https://github.com/sindresorhus/execa/issues/173
   delete webDriver.then;
   delete webDriver.catch;
@@ -158,35 +187,6 @@ function startWebDriver(options = {}) {
     }
 
     let webDriver = await spawnWebDriver(driverName, driverArgs);
-
-    await new Promise(resolve => {
-      switch (_browser) {
-        case 'chrome': {
-          // I believe this is an eslint bug
-          // This code should be passing for ES6, according to the docs
-          // https://eslint.org/docs/5.0.0/rules/no-inner-declarations
-          // eslint-disable-next-line no-inner-declarations
-          function wait(data) {
-            if (data.toString().includes('Starting ChromeDriver')) {
-              resolve();
-
-              webDriver.stdout.removeListener('data', wait);
-            }
-          }
-
-          webDriver.stdout.on('data', wait);
-
-          break;
-        }
-        case 'firefox': {
-          // ff doesn't print anything,
-          // so it appears it is immediately available?
-          resolve();
-
-          break;
-        }
-      }
-    });
 
     // There's a flaw with the logic in https://github.com/IndigoUnited/node-cross-spawn/issues/16.
     // If you mark `shell: true`, then it skips validating that the file exists.
