@@ -181,12 +181,14 @@ async function spawnWebDriver(name, args) {
 
 function startWebDriver(options = {}) {
   return log(async () => {
-    await killOrphans();
+    if (!yn(process.env.WEBDRIVER_DISABLE_CLEANUP)) {
+      await module.exports.killOrphans();
+    }
 
     let { overrides = {} } = options;
     let _browser = overrides.browser || getDefaults().browser;
 
-    await _getNewPort(overrides.port);
+    await module.exports._getNewPort(overrides.port);
 
     let driverName;
     let driverArgs;
@@ -202,9 +204,11 @@ function startWebDriver(options = {}) {
         break;
     }
 
-    let webDriver = await spawnWebDriver(driverName, driverArgs);
+    let webDriver = await module.exports.spawnWebDriver(driverName, driverArgs);
 
-    webDriver.once('exit', killOrphans);
+    if (!yn(process.env.WEBDRIVER_DISABLE_CLEANUP)) {
+      webDriver.once('exit', module.exports.killOrphans);
+    }
 
     return webDriver;
   });
@@ -216,7 +220,9 @@ function stopWebDriver(webDriver) {
       return;
     }
 
-    webDriver.removeListener('exit', killOrphans);
+    if (!yn(process.env.WEBDRIVER_DISABLE_CLEANUP)) {
+      webDriver.removeListener('exit', killOrphans);
+    }
 
     webDriver.kill();
 
@@ -347,3 +353,5 @@ module.exports.startBrowser = startBrowser;
 module.exports.stopBrowser = stopBrowser;
 module.exports.resizeBrowser = resizeBrowser;
 module.exports.events = events;
+module.exports._getNewPort = _getNewPort;
+module.exports.spawnWebDriver = spawnWebDriver;

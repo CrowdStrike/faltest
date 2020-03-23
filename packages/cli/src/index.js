@@ -118,6 +118,11 @@ function initCli({
         default: false,
         description: 'Disable all Mocha timeouts for debugging purposes',
       },
+      'disable-cleanup': {
+        type: 'boolean',
+        default: false,
+        description: 'Disable all browser cleanup',
+      },
       'reporter': {
         type: 'string',
         description: 'Change the Mocha reporter',
@@ -184,6 +189,7 @@ function initCli({
     ['WEBDRIVER_SIZE', 'size'],
     ['WEBDRIVER_THROTTLE_NETWORK', 'throttleNetwork'],
     ['WEBDRIVER_TIMEOUTS_OVERRIDE', 'timeoutsOverride'],
+    ['WEBDRIVER_DISABLE_CLEANUP', 'disableCleanup'],
   ]) {
     if (!env[envVar] && argv[option] !== undefined) {
       env[envVar] = argv[option];

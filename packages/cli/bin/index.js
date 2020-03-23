@@ -54,7 +54,9 @@ let globs = faltestConfig.globs || argv._;
       ...argv,
     });
   } finally {
-    await require('@faltest/remote').killOrphans();
+    if (!argv.disableCleanup) {
+      await require('@faltest/remote').killOrphans();
+    }
   }
 
   // `suites` is a better property to check than `tests` because
