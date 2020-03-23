@@ -156,6 +156,22 @@ async function spawnWebDriver(name, args) {
     }
   });
 
+  // There's a flaw with the logic in https://github.com/IndigoUnited/node-cross-spawn/issues/16.
+  // If you mark `shell: true`, then it skips validating that the file exists.
+  // Then when we force kill the process, it's error handling logic kicks in
+  // and says, "Oh the file doesn't exist? Then throw a ENOENT error."
+  if (process.platform === 'win32') {
+    let { emit } = webDriver;
+
+    webDriver.emit = function(eventName, exitCode) {
+      if (eventName === 'exit' && exitCode === 1) {
+        return true;
+      }
+
+      return emit.apply(webDriver, arguments);
+    };
+  }
+
   // https://github.com/sindresorhus/execa/issues/173
   delete webDriver.then;
   delete webDriver.catch;
@@ -187,22 +203,6 @@ function startWebDriver(options = {}) {
     }
 
     let webDriver = await spawnWebDriver(driverName, driverArgs);
-
-    // There's a flaw with the logic in https://github.com/IndigoUnited/node-cross-spawn/issues/16.
-    // If you mark `shell: true`, then it skips validating that the file exists.
-    // Then when we force kill the process, it's error handling logic kicks in
-    // and says, "Oh the file doesn't exist? Then throw a ENOENT error."
-    if (process.platform === 'win32') {
-      let { emit } = webDriver;
-
-      webDriver.emit = function(eventName, exitCode) {
-        if (eventName === 'exit' && exitCode === 1) {
-          return true;
-        }
-
-        return emit.apply(webDriver, arguments);
-      };
-    }
 
     webDriver.once('exit', killOrphans);
 
