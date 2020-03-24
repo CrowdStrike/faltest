@@ -71,4 +71,10 @@ let globs = faltestConfig.globs || argv._;
   } else if (stats.failures) {
     process.exitCode = 1;
   }
+
+  if (argv.disableCleanup) {
+    // simulate Mocha's --exit
+    // eslint-disable-next-line no-process-exit
+    process.exit(process.exitCode || 0);
+  }
 })();
