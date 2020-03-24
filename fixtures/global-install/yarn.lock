@@ -9,7 +9,7 @@
     verror-extra "^1.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "2.1.0"
+  version "2.1.1"
   dependencies:
     "@faltest/mocha" "^1.0.7"
     "@faltest/remote" "^3.0.9"

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.1.0...@faltest/cli@2.1.1) (2020-03-24)
+
+
+### Bug Fixes
+
+* convert bin to executable ([76171bf](https://github.com/CrowdStrike/faltest/commit/76171bfb52df2dded1aca4589cccee0cdea8eea6))
+* simulate Mocha's --exit ([59dcef0](https://github.com/CrowdStrike/faltest/commit/59dcef039908b5db8e0f6abbfc094de315114344))
+
 ## [2.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.0.9...@faltest/cli@2.1.0) (2020-03-23)
 
 
