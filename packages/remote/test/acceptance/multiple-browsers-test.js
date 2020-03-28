@@ -42,8 +42,8 @@ describe(function() {
       browser2.getTitle(),
     ]);
 
-    expect(title1).to.equal('WebdriverIO · Next-gen WebDriver test framework for Node.js');
-    expect(title2).to.equal('WebdriverIO · Next-gen WebDriver test framework for Node.js');
+    expect(title1).to.equal('WebdriverIO · Next-gen browser automation test framework for Node.js');
+    expect(title2).to.equal('WebdriverIO · Next-gen browser automation test framework for Node.js');
 
     await Promise.all([
       stopBrowser(browser1),
