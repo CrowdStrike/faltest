@@ -3311,10 +3311,10 @@ modify-values@^1.0.0:
   resolved "https://registry.npmjs.org/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-monorepo-next@0.2.36:
-  version "0.2.36"
-  resolved "https://registry.npmjs.org/monorepo-next/-/monorepo-next-0.2.36.tgz#fbf87473c11de71cd3b4d89adadd3df770f16a98"
-  integrity sha512-bmSL2fihpMqcp0zDxHdDmbajB4e/EwXIzuQQrTGK3qTQtcvgEeT6a19vr07NglSw6XxhjIWqgBWFDFny4wcH8Q==
+monorepo-next@0.2.38:
+  version "0.2.38"
+  resolved "https://registry.yarnpkg.com/monorepo-next/-/monorepo-next-0.2.38.tgz#d02f7839e6654008f3f807e6c7ac1344622b0e9b"
+  integrity sha512-6qqoumAcMzXOI3uuIf6Bd3iIIY1ufbIElO0k5BfFMn2eEKpk9jKrVcRm9WRfKOFnZjLSIeFUtRzwNvclYFA9rA==
   dependencies:
     conventional-changelog "3.1.18"
     conventional-recommended-bump "6.0.5"
