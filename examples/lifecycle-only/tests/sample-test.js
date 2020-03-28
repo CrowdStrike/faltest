@@ -11,6 +11,6 @@ describe('sample', function() {
 
     let title = await this.browser.getTitle();
 
-    assert.strictEqual(title, 'WebdriverIO · Next-gen WebDriver test framework for Node.js');
+    assert.strictEqual(title, 'WebdriverIO · Next-gen browser automation test framework for Node.js');
   });
 });
