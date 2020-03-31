@@ -202,4 +202,21 @@ describe(function() {
     await expect(this.page.foo.waitForDestroy())
       .to.eventually.be.fulfilled;
   });
+
+  it(Element.prototype.getAttribute, async function() {
+    await this.writeFixture('index.html', `
+      <div class="foo">
+    `);
+
+    this.page = this.createPage(class extends BasePageObject {
+      get foo() {
+        return this._create('.foo');
+      }
+    });
+
+    await this.open('index.html');
+
+    await expect(this.page.foo.getAttribute('class'))
+      .to.eventually.equal('foo');
+  });
 });
