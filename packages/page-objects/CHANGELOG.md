@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.9](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@3.0.8...@faltest/page-objects@3.0.9) (2020-03-31)
+
+
+### Bug Fixes
+
+* missing return statement in getAttribute ([63ff8ee](https://github.com/CrowdStrike/faltest/commit/63ff8eee0db3515ffc870f5c2864c788348e917d))
+
 ### [3.0.8](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@3.0.7...@faltest/page-objects@3.0.8) (2020-02-21)
 
 ### [3.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@3.0.6...@faltest/page-objects@3.0.7) (2020-01-27)

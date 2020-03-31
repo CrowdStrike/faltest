@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/CrowdStrike/faltest/compare/lifecycle-only@0.0.10...lifecycle-only@0.0.11) (2020-03-31)
+
 ### [0.0.10](https://github.com/CrowdStrike/faltest/compare/lifecycle-only@0.0.9...lifecycle-only@0.0.10) (2020-01-09)
 
 ### [0.0.9](https://github.com/CrowdStrike/faltest/compare/lifecycle-only@0.0.8...lifecycle-only@0.0.9) (2020-01-09)

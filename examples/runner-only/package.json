@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "runner-only",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "scripts": {
     "start": "faltest tests/**/*-test.js"
   },

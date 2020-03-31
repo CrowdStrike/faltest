@@ -34,7 +34,7 @@
     mocha-helpers "^4.3.0"
 
 "@faltest/remote@^3.0.9", "@faltest/remote@file:../../packages/remote":
-  version "3.1.0"
+  version "3.1.1"
   dependencies:
     "@faltest/utils" "^2.0.4"
     chromedriver "79.0.3"
