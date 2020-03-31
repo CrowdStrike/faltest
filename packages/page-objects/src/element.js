@@ -68,7 +68,7 @@ class Element extends BaseElement {
   }
 
   async getAttribute() {
-    await this._browser.getAttribute(this._selector, ...arguments);
+    return await this._browser.getAttribute(this._selector, ...arguments);
   }
 }
 
