@@ -73,6 +73,7 @@ async function startBrowsers(options) {
 let webDriverInstance;
 let sharedBrowsers;
 let contextAlreadyInit;
+let sessionError;
 let loggedInRole;
 let browserOverrideUsed;
 let overridesUsed;
@@ -94,8 +95,14 @@ async function stopBrowsers(browsers) {
 
 async function logIn(options) {
   for (let browser of sharedBrowsers) {
-    this.browser = browser;
-    await options.logIn.call(this, options);
+    try {
+      this.browser = browser;
+      await options.logIn.call(this, options);
+    } catch (err) {
+      sessionError = true;
+
+      throw err;
+    }
   }
 
   loggedInRole = this.role;
@@ -103,8 +110,14 @@ async function logIn(options) {
 
 async function logOut(options) {
   for (let browser of sharedBrowsers) {
-    this.browser = browser;
-    await options.logOut.call(this, options);
+    try {
+      this.browser = browser;
+      await options.logOut.call(this, options);
+    } catch (err) {
+      sessionError = true;
+
+      throw err;
+    }
   }
 
   loggedInRole = null;
@@ -181,7 +194,7 @@ async function setUpWebDriverBeforeEach(options) {
   }
   contextAlreadyInit = false;
 
-  if (!options.shareSession) {
+  if (!options.shareSession || sessionError) {
     if (loggedInRole) {
       await logOut.call(this, options);
     }
@@ -191,6 +204,7 @@ async function setUpWebDriverBeforeEach(options) {
     }
 
     await event('init-session', this, options);
+    sessionError = false;
   }
 
   if (options.throttleNetwork) {

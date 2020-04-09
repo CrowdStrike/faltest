@@ -244,6 +244,17 @@ describe(setUpWebDriver, function() {
     expect(onAfterEachEnd).to.have.been.calledAfter(onAfterEachBegin);
   }
 
+  function assertLifecycleBeforeError() {
+    expect(onBeforeBegin).to.have.callCount(1);
+    expect(onBeforeEnd).to.have.callCount(0);
+    expect(onBeforeEachBegin).to.have.callCount(0);
+    expect(onBeforeEachEnd).to.have.callCount(0);
+    expect(onAfterEachBegin).to.have.callCount(0);
+    expect(onAfterEachEnd).to.have.callCount(0);
+    expect(onAfterBegin).to.have.callCount(0);
+    expect(onAfterEnd).to.have.callCount(0);
+  }
+
   function assertLifecycleEach() {
     expect(onBeforeBegin).to.have.callCount(0);
     expect(onBeforeEnd).to.have.callCount(0);
@@ -2570,6 +2581,53 @@ describe(setUpWebDriver, function() {
 
       expect(logIn).to.have.callCount(0);
       expect(logOut).to.have.callCount(1);
+    });
+
+    it('doesn\'t share session if login failure', async function() {
+      setOptions({
+        shouldLogIn: true,
+      });
+
+      options.logIn = sinon.stub().rejects(new Error('test login error'));
+
+      await expect(beforeTest()).to.eventually.be.rejectedWith('test login error');
+
+      expect(options.logIn).to.have.callCount(1);
+      expect(logOut).to.have.callCount(0);
+
+      expect(onInitSession).to.have.callCount(0);
+
+      assertLifecycleBeforeError();
+
+      assertContext();
+
+      reset();
+
+      options.logIn = logIn;
+
+      await eachTest();
+
+      expect(logIn).to.have.callCount(1);
+      expect(logOut).to.have.callCount(0);
+
+      expect(onInitSession).to.have.callCount(1);
+
+      assertLifecycleEach();
+
+      assertContext();
+
+      reset();
+
+      await afterTest();
+
+      expect(logIn).to.have.callCount(0);
+      expect(logOut).to.have.callCount(0);
+
+      expect(onInitSession).to.have.callCount(0);
+
+      assertLifecycleAfter();
+
+      assertContext();
     });
   });
 
