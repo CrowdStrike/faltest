@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.15](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@2.0.14...@faltest/lifecycle@2.0.15) (2020-04-09)
+
+
+### Bug Fixes
+
+* recover after login failure ([243aa8c](https://github.com/CrowdStrike/faltest/commit/243aa8ca4f6e9a41b130cc1bc8ca0fa4864f0919))
+
 ### [2.0.14](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@2.0.13...@faltest/lifecycle@2.0.14) (2020-04-09)
 
 
