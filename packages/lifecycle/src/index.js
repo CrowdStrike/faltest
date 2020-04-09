@@ -72,6 +72,7 @@ async function startBrowsers(options) {
 
 let webDriverInstance;
 let sharedBrowsers;
+let contextAlreadyInit;
 let loggedInRole;
 let browserOverrideUsed;
 let overridesUsed;
@@ -135,6 +136,7 @@ async function setUpWebDriverBefore(options) {
       this.browser = sharedBrowsers[0];
       this.browsers = sharedBrowsers;
       await event('init-context', this, options);
+      contextAlreadyInit = true;
 
       if (options.shareSession) {
         if (loggedInRole && (!options.shouldLogIn || !this.role || !options.areRolesEqual(this.role, loggedInRole))) {
@@ -172,9 +174,12 @@ async function setUpWebDriverBeforeEach(options) {
     sharedBrowsers = await startBrowsers(options);
   }
 
-  this.browser = sharedBrowsers[0];
-  this.browsers = sharedBrowsers;
-  await event('init-context', this, options);
+  if (!contextAlreadyInit) {
+    this.browser = sharedBrowsers[0];
+    this.browsers = sharedBrowsers;
+    await event('init-context', this, options);
+  }
+  contextAlreadyInit = false;
 
   if (!options.shareSession) {
     if (loggedInRole) {
