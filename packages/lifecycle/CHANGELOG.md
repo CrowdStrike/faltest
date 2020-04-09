@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.14](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@2.0.13...@faltest/lifecycle@2.0.14) (2020-04-09)
+
+
+### Bug Fixes
+
+* init-context doesn't need to be called twice per test ([368c8aa](https://github.com/CrowdStrike/faltest/commit/368c8aafaa96c3c10818a676fc858213713aaf69))
+
 ### [2.0.13](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@2.0.12...@faltest/lifecycle@2.0.13) (2020-02-21)
 
 ### [2.0.12](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@2.0.11...@faltest/lifecycle@2.0.12) (2020-01-27)
