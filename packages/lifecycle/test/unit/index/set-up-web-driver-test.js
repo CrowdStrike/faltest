@@ -1558,7 +1558,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(1);
       expect(onStartBrowser).to.have.callCount(1);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -1641,7 +1641,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(0);
       expect(onStartBrowser).to.have.callCount(0);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -1727,7 +1727,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(1);
       expect(onStartBrowser).to.have.callCount(1);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -1804,7 +1804,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(0);
       expect(onStartBrowser).to.have.callCount(0);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -1887,7 +1887,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(1);
       expect(onStartBrowser).to.have.callCount(1);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -1972,7 +1972,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(0);
       expect(onStartBrowser).to.have.callCount(0);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -2065,7 +2065,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(1);
       expect(onStartBrowser).to.have.callCount(1);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -2148,7 +2148,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(0);
       expect(onStartBrowser).to.have.callCount(0);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -2230,7 +2230,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(1);
       expect(onStartBrowser).to.have.callCount(1);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -2303,7 +2303,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(0);
       expect(onStartBrowser).to.have.callCount(0);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -2382,7 +2382,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(1);
       expect(onStartBrowser).to.have.callCount(1);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -2459,7 +2459,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(0);
       expect(onStartBrowser).to.have.callCount(0);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -2863,7 +2863,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(1);
       expect(onStartBrowsers).to.have.callCount(1);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowsers).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -2946,7 +2946,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(0);
       expect(onStartBrowser).to.have.callCount(0);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -3028,7 +3028,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(1);
       expect(onStartBrowsers).to.have.callCount(1);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowsers).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
@@ -3101,7 +3101,7 @@ describe(setUpWebDriver, function() {
 
       expect(onStartWebDriver).to.have.callCount(0);
       expect(onStartBrowser).to.have.callCount(0);
-      expect(onInitContext).to.have.callCount(2);
+      expect(onInitContext).to.have.callCount(1);
       expect(onInitSession).to.have.callCount(1);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
