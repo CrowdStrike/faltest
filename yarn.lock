@@ -1583,10 +1583,10 @@ eslint-plugin-es@^3.0.0:
     eslint-utils "^2.0.0"
     regexpp "^3.0.0"
 
-eslint-plugin-json-files@0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-json-files/-/eslint-plugin-json-files-0.8.0.tgz#cfad4df0340a8ce82b8b1ef32ca395baa071bbe9"
-  integrity sha512-VZ2NI0FZ2QWZKMp4pNibOthXvj0RPevEJmmgVnSgzg0y8KsDdaBdN8BHzqjckh2TprSD8LxszPd5J4QtH73LPQ==
+eslint-plugin-json-files@0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-json-files/-/eslint-plugin-json-files-0.8.1.tgz#cdcdf566cc5f81b7a7fd79ceda61564ce635d2ab"
+  integrity sha512-4uhEh2q6bow8XE3XjRTK9cg9nio0x91WXmjDiLV5ip0aN6XO0aGaUk7BUcS2AwhLMbsZOc/V93G5hhab955ftg==
   dependencies:
     requireindex "^1.2.0"
     semver "^6.0.0"
