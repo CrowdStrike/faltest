@@ -20,7 +20,7 @@ describe('sample', function() {
       this.browsers[1].getTitle(),
     ]);
 
-    assert.strictEqual(title1, 'WebdriverIO · Next-gen browser automation test framework for Node.js');
-    assert.strictEqual(title2, 'WebdriverIO · Next-gen browser automation test framework for Node.js');
+    assert.strictEqual(title1, 'WebdriverIO · Next-gen browser and mobile automation test framework for Node.js');
+    assert.strictEqual(title2, 'WebdriverIO · Next-gen browser and mobile automation test framework for Node.js');
   });
 });
