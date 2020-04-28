@@ -2,6 +2,8 @@
 
 const { properties } = require('@faltest/chai');
 
+const propertyKeys = Object.keys(properties);
+
 module.exports = {
   create(context) {
     return {
@@ -12,7 +14,7 @@ module.exports = {
 
         let { parent } = node;
 
-        if (parent.type !== 'MemberExpression' || !properties.includes(parent.property.name)) {
+        if (parent.type !== 'MemberExpression' || !propertyKeys.includes(parent.property.name)) {
           return;
         }
 
