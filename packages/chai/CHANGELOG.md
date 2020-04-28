@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@1.1.5...@faltest/chai@2.0.0) (2020-04-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* consumers of this object will need to update
+
+### Features
+
+* add lint rule `use-chai-methods` ([26651cb](https://github.com/CrowdStrike/faltest/commit/26651cbd74d64e2d6bcb0a58d12f315a99757f18))
+* expose the whole chai properties object ([a9728b2](https://github.com/CrowdStrike/faltest/commit/a9728b2c6df8ac60199cec4b2f5157bc279b1f53))
+
 ### [1.1.5](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@1.1.4...@faltest/chai@1.1.5) (2020-01-27)
 
 
