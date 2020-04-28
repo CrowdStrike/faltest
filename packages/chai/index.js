@@ -105,3 +105,4 @@ function chaiWebDriver(chai, utils) {
 module.exports = chaiWebDriver;
 
 module.exports.properties = properties;
+module.exports.Browser = Browser;
