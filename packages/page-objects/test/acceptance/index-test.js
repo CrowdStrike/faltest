@@ -455,7 +455,7 @@ describe(function() {
           }
         });
 
-        await expect(page.missing1.missing2.isExisting()).to.eventually.be.false;
+        await expect(page.missing1.missing2).exist.to.eventually.be.false;
       });
 
       it('ignores children\'s missing parent when checking for exist', async function() {
@@ -469,7 +469,7 @@ describe(function() {
           }
         });
 
-        await expect(page.missing1.missing2.isExisting()).to.eventually.be.false;
+        await expect(page.missing1.missing2).exist.to.eventually.be.false;
       });
     });
 
@@ -573,14 +573,14 @@ describe(function() {
 
         let [{ missing2 }] = await page.missing1.getPageObjects();
 
-        await expect(missing2.isExisting()).to.eventually.be.true;
+        await expect(missing2).exist.to.eventually.be.true;
         await expect(missing2.waitForInsert()).to.eventually.be.fulfilled;
         await expect(missing2.waitForDestroy()).to.eventually.be
           .rejectedWith('waitForDestroy(div): element ("div") still existing ');
 
         await this.remove();
 
-        await expect(missing2.isExisting()).to.eventually.be.false;
+        await expect(missing2).exist.to.eventually.be.false;
         await expect(missing2.waitForInsert()).to.eventually.be
           .rejectedWith('waitForInsert(#ULYQ9KJAER[0]): element ("#ULYQ9KJAER") still not existing');
         await expect(missing2.waitForDestroy()).to.eventually.be.fulfilled;
@@ -599,14 +599,14 @@ describe(function() {
 
         let [{ missing2 }] = await page.missing1.getPageObjects();
 
-        await expect(missing2.isExisting()).to.eventually.be.true;
+        await expect(missing2).exist.to.eventually.be.true;
         await expect(missing2.waitForInsert()).to.eventually.be.fulfilled;
         await expect(missing2.waitForDestroy()).to.eventually.be
           .rejectedWith('waitForDestroy(<func>): waitUntil condition timed out');
 
         await this.remove();
 
-        await expect(missing2.isExisting()).to.eventually.be.false;
+        await expect(missing2).exist.to.eventually.be.false;
         await expect(missing2.waitForInsert()).to.eventually.be
           .rejectedWith('waitForInsert(#ULYQ9KJAER[0]): element ("#ULYQ9KJAER") still not existing');
         await expect(missing2.waitForDestroy()).to.eventually.be.fulfilled;
@@ -623,7 +623,7 @@ describe(function() {
           }
         });
 
-        await expect(page.missing1.missing2.isExisting()).to.eventually.be.false;
+        await expect(page.missing1.missing2).exist.to.eventually.be.false;
         await expect(page.missing1.missing2.waitForInsert()).to.eventually.be
           .rejectedWith('waitForInsert(.missing1): waitUntil condition timed out');
         await expect(page.missing1.missing2.waitForDestroy()).to.eventually.be.fulfilled;
@@ -638,7 +638,7 @@ describe(function() {
           }
         });
 
-        await expect(page.multiple1.missing2.isExisting()).to.eventually.be.false;
+        await expect(page.multiple1.missing2).exist.to.eventually.be.false;
         await expect(page.multiple1.missing2.waitForInsert()).to.eventually.be
           .rejectedWith('findChild(.multiple1,<func>): scopeBy(.multiple1,<func>): Could not find match (length 2)');
         await expect(page.multiple1.missing2.waitForDestroy()).to.eventually.be.fulfilled;
@@ -655,7 +655,7 @@ describe(function() {
           }
         });
 
-        await expect(page.single1.missing2.isExisting()).to.eventually.be.false;
+        await expect(page.single1.missing2).exist.to.eventually.be.false;
         await expect(page.single1.missing2.waitForInsert()).to.eventually.be
           .rejectedWith('waitForInsert(<func>): waitUntil condition timed out');
         await expect(page.single1.missing2.waitForDestroy()).to.eventually.be.fulfilled;
@@ -672,7 +672,7 @@ describe(function() {
           }
         });
 
-        await expect(page.single1.missing2.isExisting()).to.eventually.be.false;
+        await expect(page.single1.missing2).exist.to.eventually.be.false;
         await expect(page.single1.missing2.waitForInsert()).to.eventually.be
           .rejectedWith('waitForInsert(.missing2): waitUntil condition timed out after 0ms: waitForInsert(): findChild(.missing2,<func>): findByText(.missing2,foo): Find by text "foo" yielded no results.');
         await expect(page.single1.missing2.waitForDestroy()).to.eventually.be.fulfilled;
