@@ -39,6 +39,7 @@ module.exports = {
 
         'faltest/chai-webdriver-eventually': 'error',
         'faltest/mocha-roles-only': 'error',
+        'faltest/use-chai-methods': 'error',
       },
     },
     {
