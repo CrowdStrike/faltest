@@ -104,4 +104,4 @@ function chaiWebDriver(chai, utils) {
 
 module.exports = chaiWebDriver;
 
-module.exports.properties = Object.keys(properties);
+module.exports.properties = properties;
