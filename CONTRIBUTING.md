@@ -91,12 +91,22 @@ Tagging tests uses the `#` sigil followed by a kebab case name. Tagging happens 
 
 ### Roles
 
-Roles are a special type of [tag](#tagging). You invoke them the same way, using the `--tag` option, but they must map to login details contained in `config/`. You tag tests using the `roles` helper. The `roles` helper binds the tests inside it for each role in the string.
+Roles are a special type of [tag](#tagging). You invoke them the same way, using the `--tag` option, but they must map to login details contained in `config/`. You tag tests using the `roles` helper. The `roles` helper binds the tests inside it for each role in the string, array of string or first `n` arguments.
 
 If you have a scenario like
 
 ```js
 roles('#my-role-1 #my-role-2', function() {
+  it('my test', function() {
+    // ...
+  });
+});
+```
+
+or
+
+```js
+roles('#my-role-1', '#my-role-2', function() {
   it('my test', function() {
     // ...
   });
