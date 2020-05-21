@@ -6,6 +6,9 @@ const {
 } = require('./cp');
 require('@faltest/utils/src/require-before-webdriverio');
 const { remote } = require('webdriverio');
+const execa = require('execa');
+const path = require('path');
+
 const psList = require('ps-list');
 const fkill = require('fkill');
 const getPort = require('get-port');
@@ -119,7 +122,23 @@ async function _getNewPort(_port) {
 }
 
 async function spawnWebDriver(name, args) {
-  await spawnAwait(name, ['--version']);
+  let { stdout:  browserVersion} = await execa('google-chrome', ['--version']);
+
+  let driverVersion = '-----';
+  try {
+    driverVersion = await spawnAwait(name, ['--version']);
+  } catch (e) {}
+
+  console.log(browserVersion, driverVersion);
+  if (browserVersion !== driverVersion) {
+    console.log(`Browser version (${browserVersion}) and driver version ${driverVersion} must match...`);
+
+    let driverToInstall = `chromedriver@^${browserVersion.match(/\d\d/)}`;
+
+    console.log(`Installing: ${driverToInstall}`);
+
+    await execa('yarn', ['add', driverToInstall], { cwd: path.join(__dirname, '..')});
+  }
 
   let webDriver = spawn(name, args, {
     stdio: ['ignore', 'pipe', 'ignore'],
