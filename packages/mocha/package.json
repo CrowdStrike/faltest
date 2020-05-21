@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/mocha#readme",
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10.20.1"
   },
   "dependencies": {
     "choma": "^1.2.1",

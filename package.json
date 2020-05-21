@@ -18,7 +18,7 @@
     "url": "git+ssh://git@github.com/CrowdStrike/faltest.git"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10.20.1"
   },
   "devDependencies": {
     "@crowdstrike/commitlint": "^1.0.4",
@@ -45,5 +45,8 @@
     "sinon-chai": "^3.3.0",
     "stoppable": "^1.1.0",
     "tmp": "0.1.0"
+  },
+  "volta": {
+    "node": "10.20.1"
   }
 }
