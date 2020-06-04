@@ -11,6 +11,9 @@ class Page extends BasePageObject {
 
     await this._browser.url(`https://codepen.io/crowdstrike/full/${envs[env]}?target=${target}`);
 
+    // wait for DDoS protection if running headless
+    await this._browser.waitForDestroy('.cf-im-under-attack');
+
     // only needed for codepen, selects the iframe
     await this._browser._browser.switchToFrame(await this._browser.$('#result'));
   }
