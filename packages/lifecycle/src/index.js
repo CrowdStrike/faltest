@@ -301,7 +301,7 @@ function resetInternalState() {
   overridesUsed = null;
 }
 
-on(webDriver.events, 'kill-orphans', async () => {
+on(webDriver.events, 'kill-orphans-end', async () => {
   // prevent using stored objects with killed processes
   resetInternalState();
 
