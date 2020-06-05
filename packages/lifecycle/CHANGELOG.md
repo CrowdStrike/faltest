@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.0.1...@faltest/lifecycle@3.1.0) (2020-06-05)
+
+
+### Features
+
+* add `faltestOptions` to test context ([b0bd065](https://github.com/CrowdStrike/faltest/commit/b0bd065e7e8b32f1f4c153e4304a9e604884027e))
+
 ### [3.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.0.0...@faltest/lifecycle@3.0.1) (2020-06-05)
 
 

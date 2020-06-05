@@ -19,7 +19,7 @@
     yn "^3.1.1"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "3.0.1"
+  version "3.1.0"
   dependencies:
     "@faltest/remote" "^4.0.0"
     "@faltest/utils" "^2.0.4"
