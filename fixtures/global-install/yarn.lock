@@ -9,19 +9,19 @@
     verror-extra "^1.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "2.1.1"
+  version "2.1.2"
   dependencies:
     "@faltest/mocha" "^1.0.7"
-    "@faltest/remote" "^3.0.9"
+    "@faltest/remote" "^4.0.0"
     "@faltest/utils" "^2.0.4"
     mocha "^7.0.1"
     yargs "^15.0.0"
     yn "^3.1.1"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "3.0.0"
+  version "3.0.1"
   dependencies:
-    "@faltest/remote" "^3.0.9"
+    "@faltest/remote" "^4.0.0"
     "@faltest/utils" "^2.0.4"
   optionalDependencies:
     "@faltest/browser" "^2.0.5"
@@ -33,8 +33,8 @@
     glob "^7.1.4"
     mocha-helpers "^4.3.0"
 
-"@faltest/remote@^3.0.9", "@faltest/remote@file:../../packages/remote":
-  version "3.2.1"
+"@faltest/remote@^4.0.0", "@faltest/remote@file:../../packages/remote":
+  version "4.0.0"
   dependencies:
     "@faltest/utils" "^2.0.4"
     chromedriver "80.0.0"

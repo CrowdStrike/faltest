@@ -1,6 +1,6 @@
 {
   "name": "@faltest/lifecycle",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A Mocha environment for the @faltest/remote project",
   "main": "src",
   "files": [
@@ -27,7 +27,7 @@
     "node": ">=8.10"
   },
   "dependencies": {
-    "@faltest/remote": "^3.0.9",
+    "@faltest/remote": "^4.0.0",
     "@faltest/utils": "^2.0.4"
   },
   "optionalDependencies": {

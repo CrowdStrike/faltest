@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.2.1...@faltest/remote@4.0.0) (2020-06-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* The `kill-orphans` event has been replaced with `kill-orphans-end`.
+
+### Features
+
+* add begin and end events to kill-orphans ([f6289c4](https://github.com/CrowdStrike/faltest/commit/f6289c4b73e8dd8d360a680ab1c4b5eec92914ac))
+
+
+* remove the old kill-orphans event ([8444f68](https://github.com/CrowdStrike/faltest/commit/8444f68e9e78949314121e649593bbff2e00b300))
+
 ### [3.2.1](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.2.0...@faltest/remote@3.2.1) (2020-06-05)
 
 
