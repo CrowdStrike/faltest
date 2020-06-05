@@ -123,6 +123,12 @@ async function logOut(options) {
   loggedInRole = null;
 }
 
+async function initContext(options) {
+  this.browser = sharedBrowsers[0];
+  this.browsers = sharedBrowsers;
+  await lifecycleEvent('init-context', this, options);
+}
+
 async function setUpWebDriverBefore(options) {
   await lifecycleEvent('before-begin', this, options);
 
@@ -146,9 +152,7 @@ async function setUpWebDriverBefore(options) {
         sharedBrowsers = await startBrowsers(options);
       }
 
-      this.browser = sharedBrowsers[0];
-      this.browsers = sharedBrowsers;
-      await lifecycleEvent('init-context', this, options);
+      await initContext.call(this, options);
       contextAlreadyInit = true;
 
       if (options.shareSession) {
@@ -188,9 +192,7 @@ async function setUpWebDriverBeforeEach(options) {
   }
 
   if (!contextAlreadyInit) {
-    this.browser = sharedBrowsers[0];
-    this.browsers = sharedBrowsers;
-    await lifecycleEvent('init-context', this, options);
+    await initContext.call(this, options);
   }
   contextAlreadyInit = false;
 
