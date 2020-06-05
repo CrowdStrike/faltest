@@ -13,7 +13,10 @@ const debug = require('./debug');
 const log = require('./log');
 const EventEmitter = require('events');
 const yn = require('yn');
-const { defaults } = require('@faltest/utils');
+const {
+  defaults,
+  event: { emit },
+} = require('@faltest/utils');
 // const config = require('config');
 
 // We aren't using `@wdio/cli` (wdio testrunner)
@@ -97,7 +100,7 @@ async function killOrphans() {
     await kill(orphan);
   }
 
-  events.emit('kill-orphans');
+  await emit(events, 'kill-orphans');
 }
 
 async function getNewPort(port) {
