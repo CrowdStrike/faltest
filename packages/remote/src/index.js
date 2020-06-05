@@ -56,6 +56,8 @@ function getDefaults() {
 let events = new EventEmitter();
 
 async function killOrphans() {
+  await emit(events, 'kill-orphans-start');
+
   let processes = await module.exports.psList();
 
   let orphanedWebDrivers = processes.filter(({ name, pid, ppid }) => {
@@ -101,6 +103,7 @@ async function killOrphans() {
   }
 
   await emit(events, 'kill-orphans');
+  await emit(events, 'kill-orphans-end');
 }
 
 async function getNewPort(port) {
