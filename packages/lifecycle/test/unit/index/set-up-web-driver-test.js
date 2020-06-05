@@ -2765,7 +2765,7 @@ describe(setUpWebDriver, function() {
   });
 
   it('resets internal state on kill orphans', async function() {
-    await emit(webDriver.events, 'kill-orphans');
+    await emit(webDriver.events, 'kill-orphans-end');
 
     expect(onResetInternalState).to.have.callCount(1);
   });
