@@ -4,7 +4,13 @@ const webDriver = require('@faltest/remote');
 const Browser = require('@faltest/browser');
 const log = require('./log');
 const EventEmitter = require('events');
-const { defaults } = require('@faltest/utils');
+const {
+  defaults,
+  event: {
+    emit: _emit,
+    on,
+  },
+} = require('@faltest/utils');
 
 const shareWebdriver = process.env.WEBDRIVER_SHARE_WEBDRIVER === 'true';
 const keepBrowserOpen = process.env.WEBDRIVER_KEEP_BROWSER_OPEN === 'true';
@@ -24,22 +30,16 @@ if (!keepBrowserOpen && shareSession) {
 
 let events = new EventEmitter();
 
-async function event(name, context, options) {
-  let promises = [];
+const emit = _emit.bind(null, events);
 
-  events.emit(name, {
-    context,
-    promises,
-    options,
-  });
-
-  await Promise.all(promises);
+async function lifecycleEvent(name, context, options) {
+  await emit(name, { context, options });
 }
 
 async function startWebDriver(options) {
   let instance = await webDriver.startWebDriver(options);
 
-  events.emit('start-web-driver', instance);
+  await emit('start-web-driver', instance);
 
   return instance;
 }
@@ -47,7 +47,7 @@ async function startWebDriver(options) {
 async function stopWebDriver(instance) {
   await webDriver.stopWebDriver(instance);
 
-  events.emit('stop-web-driver');
+  await emit('stop-web-driver');
 }
 
 async function startBrowsers(options) {
@@ -62,10 +62,10 @@ async function startBrowsers(options) {
 
   // This can be removed in a major version.
   if (browsers.length === 1) {
-    events.emit('start-browser', browsers[0]);
+    await emit('start-browser', browsers[0]);
   }
 
-  events.emit('start-browsers', browsers);
+  await emit('start-browsers', browsers);
 
   return browsers;
 }
@@ -85,10 +85,10 @@ async function stopBrowsers(browsers) {
 
   // This can be removed in a major version.
   if (browsers.length === 1) {
-    events.emit('stop-browser');
+    await emit('stop-browser');
   }
 
-  events.emit('stop-browsers');
+  await emit('stop-browsers');
 
   loggedInRole = null;
 }
@@ -124,7 +124,7 @@ async function logOut(options) {
 }
 
 async function setUpWebDriverBefore(options) {
-  await event('before-begin', this, options);
+  await lifecycleEvent('before-begin', this, options);
 
   if (options.shareWebdriver) {
     if (webDriverInstance && (overridesUsed && overridesUsed !== options.overrides)) {
@@ -148,7 +148,7 @@ async function setUpWebDriverBefore(options) {
 
       this.browser = sharedBrowsers[0];
       this.browsers = sharedBrowsers;
-      await event('init-context', this, options);
+      await lifecycleEvent('init-context', this, options);
       contextAlreadyInit = true;
 
       if (options.shareSession) {
@@ -160,16 +160,16 @@ async function setUpWebDriverBefore(options) {
           await logIn.call(this, options);
         }
 
-        await event('init-session', this, options);
+        await lifecycleEvent('init-session', this, options);
       }
     }
   }
 
-  await event('before-end', this, options);
+  await lifecycleEvent('before-end', this, options);
 }
 
 async function setUpWebDriverBeforeEach(options) {
-  await event('before-each-begin', this, options);
+  await lifecycleEvent('before-each-begin', this, options);
 
   if (!options.keepBrowserOpen && sharedBrowsers) {
     await stopBrowsers(sharedBrowsers);
@@ -190,7 +190,7 @@ async function setUpWebDriverBeforeEach(options) {
   if (!contextAlreadyInit) {
     this.browser = sharedBrowsers[0];
     this.browsers = sharedBrowsers;
-    await event('init-context', this, options);
+    await lifecycleEvent('init-context', this, options);
   }
   contextAlreadyInit = false;
 
@@ -203,7 +203,7 @@ async function setUpWebDriverBeforeEach(options) {
       await logIn.call(this, options);
     }
 
-    await event('init-session', this, options);
+    await lifecycleEvent('init-session', this, options);
     sessionError = false;
   }
 
@@ -214,11 +214,11 @@ async function setUpWebDriverBeforeEach(options) {
     }
   }
 
-  await event('before-each-end', this, options);
+  await lifecycleEvent('before-each-end', this, options);
 }
 
 async function setUpWebDriverAfterEach(options) {
-  await event('after-each-begin', this, options);
+  await lifecycleEvent('after-each-begin', this, options);
 
   if (options.throttleNetwork) {
     for (let browser of sharedBrowsers) {
@@ -227,15 +227,15 @@ async function setUpWebDriverAfterEach(options) {
     }
   }
 
-  await event('after-each-end', this, options);
+  await lifecycleEvent('after-each-end', this, options);
 }
 
 async function setUpWebDriverAfter(options) {
-  await event('after-begin', this, options);
+  await lifecycleEvent('after-begin', this, options);
 
   overridesUsed = options.overrides;
 
-  await event('after-end', this, options);
+  await lifecycleEvent('after-end', this, options);
 }
 
 function browserOverride(browser) {
@@ -301,11 +301,11 @@ function resetInternalState() {
   overridesUsed = null;
 }
 
-webDriver.events.on('kill-orphans', () => {
+on(webDriver.events, 'kill-orphans', async () => {
   // prevent using stored objects with killed processes
   resetInternalState();
 
-  events.emit('reset-internal-state');
+  await emit('reset-internal-state');
 });
 
 module.exports.setUpWebDriver = setUpWebDriver;
