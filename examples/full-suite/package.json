@@ -3,7 +3,7 @@
   "name": "full-suite",
   "version": "0.0.23",
   "scripts": {
-    "start": "faltest"
+    "start": "faltest --failure-artifacts --failure-artifacts-output-dir dist"
   },
   "engines": {
     "node": ">=8.10"

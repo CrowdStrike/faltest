@@ -123,6 +123,15 @@ function initCli({
         default: false,
         description: 'Disables all browser cleanup. Run `faltest-kill-orphans` to clean up manually.',
       },
+      'failure-artifacts': {
+        type: 'boolean',
+        default: false,
+        description: 'Save screenshots, html, and logs on test failure',
+      },
+      'failure-artifacts-output-dir': {
+        type: 'string',
+        description: 'Location to save failure artifacts',
+      },
       'reporter': {
         type: 'string',
         description: 'Change the Mocha reporter',
@@ -174,6 +183,10 @@ function initCli({
     argv.random = true;
   }
 
+  if (argv.failureArtifacts && !argv.failureArtifactsOutputDir) {
+    throw new Error('You must specify --failure-artifacts-output-dir if you use --failure-artifacts.');
+  }
+
   let { env } = process;
 
   for (let [envVar, option] of [
@@ -190,6 +203,8 @@ function initCli({
     ['WEBDRIVER_THROTTLE_NETWORK', 'throttleNetwork'],
     ['WEBDRIVER_TIMEOUTS_OVERRIDE', 'timeoutsOverride'],
     ['WEBDRIVER_DISABLE_CLEANUP', 'disableCleanup'],
+    ['WEBDRIVER_FAILURE_ARTIFACTS', 'failureArtifacts'],
+    ['WEBDRIVER_FAILURE_ARTIFACTS_OUTPUT_DIR', 'failureArtifactsOutputDir'],
   ]) {
     if (!env[envVar] && argv[option] !== undefined) {
       env[envVar] = argv[option];
