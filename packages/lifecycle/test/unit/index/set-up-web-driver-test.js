@@ -6,6 +6,7 @@ const webDriver = require('@faltest/remote');
 const Browser = require('@faltest/browser');
 const sinon = require('sinon');
 const mocha = require('../../../src');
+const { event: { emit, on } } = require('../../../../utils');
 
 const {
   setUpWebDriver,
@@ -155,25 +156,25 @@ describe(setUpWebDriver, function() {
     onAfterBegin = onAfterBegin.withArgs(event);
     onAfterEnd = onAfterEnd.withArgs(event);
 
-    events.on('start-web-driver', onStartWebDriver);
-    events.on('stop-web-driver', onStopWebDriver);
-    events.on('start-browser', onStartBrowser);
-    events.on('start-browsers', onStartBrowsers);
-    events.on('stop-browser', onStopBrowser);
-    events.on('stop-browsers', onStopBrowsers);
-    events.on('init-context', onInitContext);
-    events.on('init-session', onInitSession);
+    on(events, 'start-web-driver', onStartWebDriver);
+    on(events, 'stop-web-driver', onStopWebDriver);
+    on(events, 'start-browser', onStartBrowser);
+    on(events, 'start-browsers', onStartBrowsers);
+    on(events, 'stop-browser', onStopBrowser);
+    on(events, 'stop-browsers', onStopBrowsers);
+    on(events, 'init-context', onInitContext);
+    on(events, 'init-session', onInitSession);
 
-    events.on('before-begin', onBeforeBegin);
-    events.on('before-end', onBeforeEnd);
-    events.on('before-each-begin', onBeforeEachBegin);
-    events.on('before-each-end', onBeforeEachEnd);
-    events.on('after-each-begin', onAfterEachBegin);
-    events.on('after-each-end', onAfterEachEnd);
-    events.on('after-begin', onAfterBegin);
-    events.on('after-end', onAfterEnd);
+    on(events, 'before-begin', onBeforeBegin);
+    on(events, 'before-end', onBeforeEnd);
+    on(events, 'before-each-begin', onBeforeEachBegin);
+    on(events, 'before-each-end', onBeforeEachEnd);
+    on(events, 'after-each-begin', onAfterEachBegin);
+    on(events, 'after-each-end', onAfterEachEnd);
+    on(events, 'after-begin', onAfterBegin);
+    on(events, 'after-end', onAfterEnd);
 
-    events.on('reset-internal-state', onResetInternalState);
+    on(events, 'reset-internal-state', onResetInternalState);
 
     resetInternalState();
   });
@@ -2763,8 +2764,8 @@ describe(setUpWebDriver, function() {
     });
   });
 
-  it('resets internal state on kill orphans', function() {
-    webDriver.events.emit('kill-orphans');
+  it('resets internal state on kill orphans', async function() {
+    await emit(webDriver.events, 'kill-orphans');
 
     expect(onResetInternalState).to.have.callCount(1);
   });
