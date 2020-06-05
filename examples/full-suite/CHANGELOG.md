@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.23](https://github.com/CrowdStrike/faltest/compare/full-suite@0.0.22...full-suite@0.0.23) (2020-06-05)
+
+
+### Bug Fixes
+
+* wait for CloudFlare DDoS protection in example ([8ec1f23](https://github.com/CrowdStrike/faltest/commit/8ec1f2333bfb4416234ade372c2c19ac1a7eba9a))
+
 ### [0.0.22](https://github.com/CrowdStrike/faltest/compare/full-suite@0.0.21...full-suite@0.0.22) (2020-04-28)
 
 ### [0.0.21](https://github.com/CrowdStrike/faltest/compare/full-suite@0.0.20...full-suite@0.0.21) (2020-03-23)

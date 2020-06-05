@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.2.0...@faltest/remote@3.2.1) (2020-06-05)
+
+
+### Bug Fixes
+
+* use new event helper ([d37b265](https://github.com/CrowdStrike/faltest/commit/d37b2652b7252b7edce0f0f6b3c32087ff12d14f))
+
 ## [3.2.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.1.1...@faltest/remote@3.2.0) (2020-04-21)
 
 

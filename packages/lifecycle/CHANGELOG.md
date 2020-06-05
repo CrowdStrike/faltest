@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@2.0.15...@faltest/lifecycle@3.0.0) (2020-06-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* the event signature changed
+
+### Features
+
+* update to the new event syntax ([f6c71e5](https://github.com/CrowdStrike/faltest/commit/f6c71e5782da68646ca36df8401479fa59845838))
+
 ### [2.0.15](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@2.0.14...@faltest/lifecycle@2.0.15) (2020-04-09)
 
 

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@2.0.6...@faltest/utils@2.1.0) (2020-06-05)
+
+
+### Features
+
+* add promise event emitter helper ([2379698](https://github.com/CrowdStrike/faltest/commit/237969865f3b7d02040fce17bd04595038380411))
+
 ### [2.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@2.0.5...@faltest/utils@2.0.6) (2020-01-27)
 
 

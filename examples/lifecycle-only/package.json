@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "lifecycle-only",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "scripts": {
     "start": "mocha tests/**/*-test.js --exit"
   },
@@ -9,7 +9,7 @@
     "node": ">=8.10"
   },
   "devDependencies": {
-    "@faltest/lifecycle": "^2.0.10",
+    "@faltest/lifecycle": "^3.0.0",
     "mocha": "^6.2.0"
   }
 }

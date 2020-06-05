@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "full-suite",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "scripts": {
     "start": "faltest"
   },
@@ -11,7 +11,7 @@
   "devDependencies": {
     "@faltest/chai": "^2.0.0",
     "@faltest/cli": "^2.0.6",
-    "@faltest/lifecycle": "^2.0.10",
+    "@faltest/lifecycle": "^3.0.0",
     "@faltest/mocha": "^1.0.7",
     "@faltest/page-objects": "^3.0.5",
     "chai": "^4.2.0",
