@@ -126,6 +126,7 @@ async function logOut(options) {
 async function initContext(options) {
   this.browser = sharedBrowsers[0];
   this.browsers = sharedBrowsers;
+  this.faltestOptions = options;
   await lifecycleEvent('init-context', this, options);
 }
 
