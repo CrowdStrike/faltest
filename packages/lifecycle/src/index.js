@@ -311,12 +311,14 @@ on(webDriver.events, 'kill-orphans-end', async () => {
   await emit('reset-internal-state');
 });
 
-module.exports.setUpWebDriver = setUpWebDriver;
-module.exports.resetInternalState = resetInternalState;
-module.exports.setUpWebDriverBefore = setUpWebDriverBefore;
-module.exports.setUpWebDriverBeforeEach = setUpWebDriverBeforeEach;
-module.exports.setUpWebDriverAfterEach = setUpWebDriverAfterEach;
-module.exports.setUpWebDriverAfter = setUpWebDriverAfter;
-module.exports.areRolesEqual = areRolesEqual;
-module.exports.browserOverride = browserOverride;
-module.exports.events = events;
+module.exports = {
+  setUpWebDriver,
+  resetInternalState,
+  setUpWebDriverBefore,
+  setUpWebDriverBeforeEach,
+  setUpWebDriverAfterEach,
+  setUpWebDriverAfter,
+  areRolesEqual,
+  browserOverride,
+  events,
+};
