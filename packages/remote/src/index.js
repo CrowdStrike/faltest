@@ -102,7 +102,6 @@ async function killOrphans() {
     await kill(orphan);
   }
 
-  await emit(events, 'kill-orphans');
   await emit(events, 'kill-orphans-end');
 }
 
