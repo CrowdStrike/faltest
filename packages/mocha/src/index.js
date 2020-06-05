@@ -79,4 +79,5 @@ module.exports = {
   runTests,
   createRolesHelper: require('./role').create,
   createFlaggedTest: require('./flag').create,
+  createFailureArtifactsHelpers: require('./failure-artifacts').create,
 };

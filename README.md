@@ -29,42 +29,51 @@ Here are a couple examples of using the FalTest CLI.
 (regen using `yarn start --help`)
 
 ```
-  --help               Show help                                       [boolean]
-  --version            Show version number                             [boolean]
-  --browser            Type of browser to run
+  --help                          Show help                            [boolean]
+  --version                       Show version number                  [boolean]
+  --browser                       Type of browser to run
                      [string] [choices: "chrome", "firefox"] [default: "chrome"]
-  --browsers           Number of browsers to run                    [default: 1]
-  --port               Port for WebDriver                [string] [default: "0"]
-  --headless           Run browser in headless mode   [boolean] [default: false]
-  --retries            When all else fails, try again!              [default: 0]
-  --target             Run against a different UI server/URL
-                              [string] [choices: "default"] [default: "default"]
-  --env                Run against a different data source
-                              [string] [choices: "default"] [default: "default"]
-  --share-webdriver    Keep the WebDriver process open between test runs
-                                                       [boolean] [default: true]
-  --keep-browser-open  Keep the browser open between test runs (sets
-                       --share-webdriver)             [boolean] [default: false]
-  --share-session      Keep the session (login, etc.) between test runs (sets
-                       --share-webdriver and --keep-browser-open)
+  --browsers                      Number of browsers to run         [default: 1]
+  --port                          Port for WebDriver     [string] [default: "0"]
+  --headless                      Run browser in headless mode
                                                       [boolean] [default: false]
-  --size               Override the browser size. ex. "--size 1024 768"
-  --throttle-network   Slow down the network so you can see the loading states
-                       better                         [boolean] [default: false]
-  --tag                Filter groups of tests using the #hash tagging system
-                       (hashes are optional). Prefix with ! to negate.
-                                               [array] [choices: ] [default: []]
-  --filter             Filter the tests by name using a pattern
+  --retries                       When all else fails, try again!   [default: 0]
+  --target                        Run against a different UI server/URL
+                              [string] [choices: "default"] [default: "default"]
+  --env                           Run against a different data source
+                              [string] [choices: "default"] [default: "default"]
+  --share-webdriver               Keep the WebDriver process open between test
+                                  runs                 [boolean] [default: true]
+  --keep-browser-open             Keep the browser open between test runs (sets
+                                  --share-webdriver)  [boolean] [default: false]
+  --share-session                 Keep the session (login, etc.) between test
+                                  runs (sets --share-webdriver and
+                                  --keep-browser-open)[boolean] [default: false]
+  --size                          Override the browser size. ex. "--size 1024
+                                  768"
+  --throttle-network              Slow down the network so you can see the
+                                  loading states better
+                                                      [boolean] [default: false]
+  --tag                           Filter groups of tests using the #hash tagging
+                                  system (hashes are optional). Prefix with ! to
+                                  negate.      [array] [choices: ] [default: []]
+  --filter                        Filter the tests by name using a pattern
                                                         [string] [default: ".*"]
-  --random             Randomise test order           [boolean] [default: false]
-  --seed               Set the random seed to reproduce test order      [string]
-  --timeouts-override  Override all Mocha timeouts for debugging purposes
-  --disable-timeouts   Disable all Mocha timeouts for debugging purposes
+  --random                        Randomise test order[boolean] [default: false]
+  --seed                          Set the random seed to reproduce test order
+                                                                        [string]
+  --timeouts-override             Override all Mocha timeouts for debugging
+                                  purposes
+  --disable-timeouts              Disable all Mocha timeouts for debugging
+                                  purposes            [boolean] [default: false]
+  --disable-cleanup               Disables all browser cleanup. Run
+                                  `faltest-kill-orphans` to clean up manually.
                                                       [boolean] [default: false]
-  --disable-cleanup    Disables all browser cleanup. Run `faltest-kill-orphans`
-                       to clean up manually.          [boolean] [default: false]
-  --reporter           Change the Mocha reporter                        [string]
-  --reporter-options   Supply Mocha reporter options                    [string]
+  --failure-artifacts             Save screenshots, html, and logs on test
+                                  failure             [boolean] [default: false]
+  --failure-artifacts-output-dir  Location to save failure artifacts    [string]
+  --reporter                      Change the Mocha reporter             [string]
+  --reporter-options              Supply Mocha reporter options         [string]
 ```
 
 ## Filtering
@@ -82,6 +91,10 @@ Logging can be accomplished via the `DEBUG` environment variable (<https://githu
 *   `@faltest*` - all logging
 
 An example use would be `DEBUG=@faltest* faltest --tag smoke`.
+
+## Failure Artifacts
+
+Using the options `--failure-artifacts` and `--failure-artifacts-output-dir`, you can get screenshots, html, and browser logs of test failures.
 
 ## Browser Versions
 

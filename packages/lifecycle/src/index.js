@@ -11,6 +11,9 @@ const {
     on,
   },
 } = require('@faltest/utils');
+const {
+  createFailureArtifactsHelpers,
+} = require('@faltest/mocha');
 
 const shareWebdriver = process.env.WEBDRIVER_SHARE_WEBDRIVER === 'true';
 const keepBrowserOpen = process.env.WEBDRIVER_KEEP_BROWSER_OPEN === 'true';
@@ -20,6 +23,8 @@ const env = process.env.NODE_CONFIG_ENV;
 const throttleNetwork = process.env.WEBDRIVER_THROTTLE_NETWORK === 'true';
 const browserCount = parseInt(process.env.WEBDRIVER_BROWSERS) || defaults.browsers;
 const defaultOverrides = {};
+const failureArtifacts = process.env.WEBDRIVER_FAILURE_ARTIFACTS === 'true';
+const failureArtifactsOutputDir = process.env.WEBDRIVER_FAILURE_ARTIFACTS_OUTPUT_DIR;
 
 if (!shareWebdriver && keepBrowserOpen) {
   throw new Error('!shareWebdriver && keepBrowserOpen is undefined');
@@ -263,6 +268,17 @@ function areRolesEqual(role1, role2) {
   return role1.get(key) === role2.get(key);
 }
 
+let lifecycleHooks = {
+  before: global.before,
+  beforeEach: global.beforeEach,
+  afterEach: global.afterEach,
+  after: global.after,
+};
+
+if (failureArtifacts) {
+  lifecycleHooks = createFailureArtifactsHelpers(lifecycleHooks, failureArtifactsOutputDir);
+}
+
 function setUpWebDriver(options) {
   this.timeout(60 * 1000);
 
@@ -288,7 +304,7 @@ function setUpWebDriver(options) {
     ['afterEach', setUpWebDriverAfterEach],
     ['after', setUpWebDriverAfter],
   ]) {
-    global[name](function() {
+    lifecycleHooks[name](function() {
       return log(name, async () => {
         await func.call(this, options);
       });

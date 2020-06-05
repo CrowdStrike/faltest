@@ -7,7 +7,7 @@
     "src"
   ],
   "scripts": {
-    "test": "mocha \"test/!(fixtures)/**/*-test.js\""
+    "test": "mocha \"test/!(fixtures)/**/*-test.js\" --exit"
   },
   "repository": {
     "type": "git",

@@ -11,12 +11,19 @@ const tmpDir = promisify(require('tmp').dir);
 describe(function() {
   describe(runTests, function() {
     let globs;
+    let processEnv;
+
+    beforeEach(function() {
+      processEnv = { ...process.env };
+    });
 
     afterEach(function() {
       // unfortunately, mocha caches previously run files,
       // even though it is a new instance...
       // https://github.com/mochajs/mocha/blob/v6.2.0/lib/mocha.js#L334
       clearModule.all();
+
+      Object.assign(process.env, processEnv);
     });
 
     describe('tags', function() {
@@ -172,6 +179,43 @@ describe(function() {
 
         expect(this.output).to.be.a.file()
           .with.contents.that.match(/^<testsuite /);
+      });
+    });
+
+    describe('failure artifacts', function() {
+      before(function() {
+        globs = [path.resolve(__dirname, '../fixtures/failure-artifacts-test.js')];
+      });
+
+      beforeEach(async function() {
+        this.outputDir = process.env.WEBDRIVER_FAILURE_ARTIFACTS_OUTPUT_DIR = await tmpDir();
+      });
+
+      it('works', async function() {
+        let stats = await runTests({
+          globs,
+          filter: 'failure$',
+        });
+
+        expect(path.join(this.outputDir, 'failure artifacts failure.png')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts failure.html')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts failure.browser.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts failure.driver.txt')).to.be.a.file();
+
+        expect(stats.tests).to.equal(1);
+        expect(stats.failures).to.equal(1);
+      });
+
+      it('doesn\'t make artifacts on test success', async function() {
+        let stats = await runTests({
+          globs,
+          filter: 'success$',
+        });
+
+        expect(this.outputDir).to.be.a.directory().and.empty;
+
+        expect(stats.tests).to.equal(1);
+        expect(stats.passes).to.equal(1);
       });
     });
   });
