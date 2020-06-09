@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.1.2...@faltest/cli@2.2.0) (2020-06-09)
+
+
+### Features
+
+* add failure artifacts to tests ([a3023ef](https://github.com/CrowdStrike/faltest/commit/a3023efca010d2d25a6e537a7ced93c9eba425ba))
+
 ### [2.1.2](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.1.1...@faltest/cli@2.1.2) (2020-06-05)
 
 ### [2.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.1.0...@faltest/cli@2.1.1) (2020-03-24)

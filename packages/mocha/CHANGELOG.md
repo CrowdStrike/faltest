@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.11...@faltest/mocha@1.1.0) (2020-06-09)
+
+
+### Features
+
+* add failure artifacts to tests ([a3023ef](https://github.com/CrowdStrike/faltest/commit/a3023efca010d2d25a6e537a7ced93c9eba425ba))
+
 ### [1.0.11](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.10...@faltest/mocha@1.0.11) (2020-06-05)
 
 ### [1.0.10](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.9...@faltest/mocha@1.0.10) (2020-03-12)

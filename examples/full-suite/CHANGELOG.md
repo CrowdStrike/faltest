@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/CrowdStrike/faltest/compare/full-suite@0.0.23...full-suite@0.1.0) (2020-06-09)
+
+
+### Features
+
+* add failure artifacts to tests ([a3023ef](https://github.com/CrowdStrike/faltest/commit/a3023efca010d2d25a6e537a7ced93c9eba425ba))
+
 ### [0.0.23](https://github.com/CrowdStrike/faltest/compare/full-suite@0.0.22...full-suite@0.0.23) (2020-06-05)
 
 
