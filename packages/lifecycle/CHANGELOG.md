@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.2.0...@faltest/lifecycle@3.2.1) (2020-06-09)
+
+
+### Bug Fixes
+
+* remove redundant `WEBDRIVER_FAILURE_ARTIFACTS_OUTPUT_DIR` ([d18da33](https://github.com/CrowdStrike/faltest/commit/d18da33c8df8d31d2c66c3f9c5d91be7c4378efb))
+
 ## [3.2.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.1.0...@faltest/lifecycle@3.2.0) (2020-06-09)
 
 
