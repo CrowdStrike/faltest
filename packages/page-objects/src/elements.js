@@ -72,6 +72,11 @@ class Elements extends BaseElement {
       return elements[elements.length - 1];
     }, this.eachProperties);
   }
+
+  async getLength() {
+    let elements = await this.getElements();
+    return elements.length;
+  }
 }
 
 module.exports = Elements;
