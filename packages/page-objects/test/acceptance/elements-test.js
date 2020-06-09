@@ -150,4 +150,28 @@ describe(Elements, function() {
       await expect(elements[1].span).text.to.eventually.equal('baz');
     });
   });
+
+  describe('API', function() {
+    beforeEach(async function() {
+      await this.writeFixture('index.html', `
+        <div class="foo">bar1</div>
+        <div class="foo">bar2</div>
+        <div class="foo">bar3</div>
+      `);
+
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
+
+      await this.open('index.html');
+    });
+
+    it(Elements.prototype.getLength, async function() {
+      let length = await this.page.foo.getLength();
+
+      expect(length).to.equal(3);
+    });
+  });
 });
