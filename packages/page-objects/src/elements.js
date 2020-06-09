@@ -60,16 +60,18 @@ class Elements extends BaseElement {
   }
 
   get first() {
-    return this._extend(this.ChildType, async () => {
-      let elements = await this.getElements();
-      return elements[0];
-    }, this.eachProperties);
+    return this.nth(0);
   }
 
   get last() {
+    return this.nth(-1);
+  }
+
+  nth(i) {
     return this._extend(this.ChildType, async () => {
       let elements = await this.getElements();
-      return elements[elements.length - 1];
+      let element = elements[i + (i < 0 ? elements.length : 0)];
+      return element;
     }, this.eachProperties);
   }
 
