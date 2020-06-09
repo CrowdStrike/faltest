@@ -172,6 +172,6 @@ function applyProperties(extraProperties, unassigned, assigned) {
 
 BasePageObject.prototype.extend = extend;
 BasePageObject.prototype._extendUnscoped = extend;
-BasePageObject.prototype._extendUnscopedMany = extend;
+BasePageObject.prototype._extendManyUnscoped = extend;
 
 module.exports = BasePageObject;
