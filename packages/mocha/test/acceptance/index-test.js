@@ -188,6 +188,7 @@ describe(function() {
       });
 
       beforeEach(async function() {
+        process.env.WEBDRIVER_FAILURE_ARTIFACTS = 'true';
         this.outputDir = process.env.WEBDRIVER_FAILURE_ARTIFACTS_OUTPUT_DIR = await tmpDir();
       });
 

@@ -23,7 +23,6 @@ const env = process.env.NODE_CONFIG_ENV;
 const throttleNetwork = process.env.WEBDRIVER_THROTTLE_NETWORK === 'true';
 const browserCount = parseInt(process.env.WEBDRIVER_BROWSERS) || defaults.browsers;
 const defaultOverrides = {};
-const failureArtifacts = process.env.WEBDRIVER_FAILURE_ARTIFACTS === 'true';
 
 if (!shareWebdriver && keepBrowserOpen) {
   throw new Error('!shareWebdriver && keepBrowserOpen is undefined');
@@ -267,16 +266,12 @@ function areRolesEqual(role1, role2) {
   return role1.get(key) === role2.get(key);
 }
 
-let lifecycleHooks = {
+let lifecycleHooks = createFailureArtifactsHelpers({
   before: global.before,
   beforeEach: global.beforeEach,
   afterEach: global.afterEach,
   after: global.after,
-};
-
-if (failureArtifacts) {
-  lifecycleHooks = createFailureArtifactsHelpers(lifecycleHooks);
-}
+});
 
 function setUpWebDriver(options) {
   this.timeout(60 * 1000);
