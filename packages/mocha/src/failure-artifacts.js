@@ -64,8 +64,11 @@ function failureArtifacts(outputDir) {
 }
 
 
-function create(mocha, outputDir = process.env.WEBDRIVER_FAILURE_ARTIFACTS_OUTPUT_DIR) {
-  if (!outputDir) {
+function create(mocha, {
+  enabled = process.env.WEBDRIVER_FAILURE_ARTIFACTS === 'true',
+  outputDir = process.env.WEBDRIVER_FAILURE_ARTIFACTS_OUTPUT_DIR,
+} = {}) {
+  if (enabled && !outputDir) {
     throw new Error('You must supply an output dir.');
   }
 
@@ -79,7 +82,11 @@ function create(mocha, outputDir = process.env.WEBDRIVER_FAILURE_ARTIFACTS_OUTPU
     'after',
   ].reduce((hooks, lifecycle) => {
     if (mocha[lifecycle]) {
-      hooks[lifecycle] = wrap(mocha[lifecycle], __failureArtifacts);
+      if (enabled) {
+        hooks[lifecycle] = wrap(mocha[lifecycle], __failureArtifacts);
+      } else {
+        hooks[lifecycle] = mocha[lifecycle];
+      }
     }
     return hooks;
   }, {});
