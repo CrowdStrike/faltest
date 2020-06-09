@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.1.0...@faltest/mocha@1.1.1) (2020-06-09)
+
+
+### Bug Fixes
+
+* add `enabled` flag to `createFailureArtifactsHelpers` ([bbff9b0](https://github.com/CrowdStrike/faltest/commit/bbff9b0e173cb7391e90156f2fe894614cd8c172))
+
 ## [1.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.0.11...@faltest/mocha@1.1.0) (2020-06-09)
 
 
