@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@3.0.11...@faltest/page-objects@3.1.0) (2020-06-09)
+
+
+### Features
+
+* add `Elements.getLength` ([fef7a2b](https://github.com/CrowdStrike/faltest/commit/fef7a2b9da15248a48ba54de20822f4e28c0bf87))
+* add `Elements.nth` ([5cef8eb](https://github.com/CrowdStrike/faltest/commit/5cef8eb038c49c9236a383de789926391b09ae9d))
+
 ### [3.0.11](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@3.0.10...@faltest/page-objects@3.0.11) (2020-06-05)
 
 ### [3.0.10](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@3.0.9...@faltest/page-objects@3.0.10) (2020-04-28)
