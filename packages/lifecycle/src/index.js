@@ -24,7 +24,6 @@ const throttleNetwork = process.env.WEBDRIVER_THROTTLE_NETWORK === 'true';
 const browserCount = parseInt(process.env.WEBDRIVER_BROWSERS) || defaults.browsers;
 const defaultOverrides = {};
 const failureArtifacts = process.env.WEBDRIVER_FAILURE_ARTIFACTS === 'true';
-const failureArtifactsOutputDir = process.env.WEBDRIVER_FAILURE_ARTIFACTS_OUTPUT_DIR;
 
 if (!shareWebdriver && keepBrowserOpen) {
   throw new Error('!shareWebdriver && keepBrowserOpen is undefined');
@@ -276,7 +275,7 @@ let lifecycleHooks = {
 };
 
 if (failureArtifacts) {
-  lifecycleHooks = createFailureArtifactsHelpers(lifecycleHooks, failureArtifactsOutputDir);
+  lifecycleHooks = createFailureArtifactsHelpers(lifecycleHooks);
 }
 
 function setUpWebDriver(options) {
