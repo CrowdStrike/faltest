@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@3.1.0...@faltest/page-objects@3.1.1) (2020-06-09)
+
+
+### Bug Fixes
+
+* rename `_extendUnscopedMany` to `_extendManyUnscoped` ([2086500](https://github.com/CrowdStrike/faltest/commit/20865008a289fafaf92818d521b57057faa9a903))
+
 ## [3.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@3.0.11...@faltest/page-objects@3.1.0) (2020-06-09)
 
 
