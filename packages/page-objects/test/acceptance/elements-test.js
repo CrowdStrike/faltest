@@ -173,5 +173,23 @@ describe(Elements, function() {
 
       expect(length).to.equal(3);
     });
+
+    it(Object.getOwnPropertyDescriptor(Elements.prototype, 'first').get, async function() {
+      let { first } = this.page.foo;
+
+      await expect(first).text.to.eventually.equal('bar1');
+    });
+
+    it(Object.getOwnPropertyDescriptor(Elements.prototype, 'last').get, async function() {
+      let { last } = this.page.foo;
+
+      await expect(last).text.to.eventually.equal('bar3');
+    });
+
+    it(Elements.prototype.nth, async function() {
+      let middle = this.page.foo.nth(1);
+
+      await expect(middle).text.to.eventually.equal('bar2');
+    });
   });
 });
