@@ -13,6 +13,9 @@ const tmpDir = promisify(require('tmp').dir);
 const writeFile = promisify(require('fs').writeFile);
 const path = require('path');
 
+const attributeEquals = (attr, value) =>
+  async (pageObject) => (await pageObject.getAttribute(attr)) === value;
+
 describe(function() {
   setUpWebDriver.call(this, {
     shareWebdriver: true,
@@ -50,6 +53,12 @@ describe(function() {
     if (this.server) {
       await this.server.stop();
     }
+
+    if (this.browser && this.browser.options) {
+      // some of the tests need to validate wait conditions and modify the wait
+      // timeout so this needs to be reset to avoid leaking context between tests
+      this.browser.options.waitforTimeout = 0;
+    }
   });
 
   it(Element.prototype.isEnabled, async function() {
@@ -69,39 +78,156 @@ describe(function() {
       .enabled.to.eventually.be.false;
   });
 
-  it(Element.prototype.waitForEnabled, async function() {
-    await this.writeFixture('index.html', `
-      <input class="foo">
-    `);
+  describe(Element.prototype.waitForEnabled, function() {
+    it('waits for element to become enabled', async function() {
+      await this.writeFixture('index.html', `
+        <input class="foo">
+      `);
 
-    this.page = this.createPage(class extends BasePageObject {
-      get foo() {
-        return this._create('.foo');
-      }
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._create('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      await expect(this.page.foo.waitForEnabled())
+        .to.eventually.be.fulfilled;
     });
 
-    await this.open('index.html');
+    it('waits for scoped element to become enabled', async function() {
+      await this.writeFixture('index.html', `
+        <input class="foo" name="foo" disabled>
+        <input class="foo" name="bar" id="foo" disabled>
+      `);
 
-    await expect(this.page.foo.waitForEnabled())
-      .to.eventually.be.fulfilled;
-  });
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
 
-  it(Element.prototype.waitForDisabled, async function() {
-    await this.writeFixture('index.html', `
-      <input class="foo" disabled>
-    `);
+      await this.open('index.html');
 
-    this.page = this.createPage(class extends BasePageObject {
-      get foo() {
-        return this._create('.foo');
-      }
+      this.page._browser._browser.options.waitforTimeout = 10000;
+      this.page._browser._browser.execute(`(() => {
+        setTimeout(function() {
+          const element = document.getElementById('foo');
+          element.disabled = false;
+        }, 100);
+      })()`);
+
+      await expect(this.page.foo.scopeBy(attributeEquals('name', 'bar')).waitForEnabled())
+        .to.eventually.be.fulfilled;
     });
 
-    await this.open('index.html');
+    it('waits for element to exist and become enabled', async function() {
+      await this.writeFixture('index.html', `
+        <input class="foo" name="foo" disabled>
+      `);
 
-    await expect(this.page.foo.waitForDisabled())
-      .to.eventually.be.fulfilled;
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      this.page._browser._browser.options.waitforTimeout = 10000;
+      this.page._browser._browser.execute(`(() => {
+        setTimeout(function() {
+          const element = document.createElement('input');
+          
+          element.name = 'bar';
+          element.className = 'foo';
+          element.disabled = false;
+          
+          document.body.appendChild(element);
+        }, 100);
+      })()`);
+
+      await expect(this.page.foo.scopeBy(attributeEquals('name', 'bar')).waitForEnabled())
+        .to.eventually.be.fulfilled;
+    });
   });
+
+  describe(Element.prototype.waitForDisabled, function() {
+    it('waits for element to become disabled', async function() {
+      await this.writeFixture('index.html', `
+        <input class="foo" disabled>
+      `);
+
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._create('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      await expect(this.page.foo.waitForDisabled())
+        .to.eventually.be.fulfilled;
+    });
+
+    it('waits for scoped element to become disabled', async function() {
+      await this.writeFixture('index.html', `
+        <input class="foo" name="foo">
+        <input class="foo" name="bar" id="foo">
+      `);
+
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      this.page._browser._browser.options.waitforTimeout = 10000;
+      this.page._browser._browser.execute(`(() => {
+        setTimeout(function() {
+          const element = document.getElementById('foo');
+          element.disabled = true;
+        }, 100);
+      })()`);
+
+      await expect(this.page.foo.scopeBy(attributeEquals('name', 'bar')).waitForDisabled())
+        .to.eventually.be.fulfilled;
+    });
+
+    it('waits for element to exist and become disabled', async function() {
+      await this.writeFixture('index.html', `
+        <input class="foo" name="foo">
+      `);
+
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      this.page._browser._browser.options.waitforTimeout = 10000;
+      this.page._browser._browser.execute(`(() => {
+        setTimeout(function() {
+          const element = document.createElement('input');
+          
+          element.name = 'bar';
+          element.className = 'foo';
+          element.disabled = true;
+          
+          document.body.appendChild(element);
+        }, 100);
+      })()`);
+
+      await expect(this.page.foo.scopeBy(attributeEquals('name', 'bar')).waitForDisabled())
+        .to.eventually.be.fulfilled;
+    });
+  });
+
 
   it(Element.prototype.isDisplayed, async function() {
     await this.writeFixture('index.html', `
@@ -120,38 +246,154 @@ describe(function() {
       .displayed.to.eventually.be.false;
   });
 
-  it(Element.prototype.waitForVisible, async function() {
-    await this.writeFixture('index.html', `
-      <input class="foo">
-    `);
+  describe(Element.prototype.waitForVisible, function() {
+    it('waits for element to become visible', async function() {
+      await this.writeFixture('index.html', `
+        <input class="foo">
+      `);
 
-    this.page = this.createPage(class extends BasePageObject {
-      get foo() {
-        return this._create('.foo');
-      }
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._create('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      await expect(this.page.foo.waitForVisible())
+        .to.eventually.be.fulfilled;
     });
 
-    await this.open('index.html');
+    it('waits for scoped element to become visible', async function() {
+      await this.writeFixture('index.html', `
+        <div class="foo" style="display:none">Foo</div>
+        <div class="foo" id="foo" style="display:none">Bar</div>
+      `);
 
-    await expect(this.page.foo.waitForVisible())
-      .to.eventually.be.fulfilled;
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      this.page._browser._browser.options.waitforTimeout = 10000;
+      this.page._browser._browser.execute(`(() => {
+        setTimeout(function() {
+          const element = document.getElementById('foo');
+          element.style = 'display:block';
+        }, 100);
+      })()`);
+
+      await expect(this.page.foo.scopeByText('Bar').waitForVisible())
+        .to.eventually.be.fulfilled;
+    });
+
+    it('waits for element to exist and become visible', async function() {
+      await this.writeFixture('index.html', `
+        <div class="foo" style="display:none">Foo</div>
+      `);
+
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      this.page._browser._browser.options.waitforTimeout = 10000;
+      this.page._browser._browser.execute(`(() => {
+        setTimeout(function() {
+          const element = document.createElement('div');
+          
+          element.innerHTML = 'Bar';
+          element.className = 'foo';
+          element.style = 'display:block';
+          
+          document.body.appendChild(element);
+        }, 100);
+      })()`);
+
+      await expect(this.page.foo.scopeByText('Bar').waitForVisible())
+        .to.eventually.be.fulfilled;
+    });
   });
 
-  it(Element.prototype.waitForHidden, async function() {
-    await this.writeFixture('index.html', `
-      <input class="foo" style="display:none">
-    `);
+  describe(Element.prototype.waitForHidden, function() {
+    it('waits for element to become hidden', async function() {
+      await this.writeFixture('index.html', `
+        <input class="foo" style="display:none">
+      `);
 
-    this.page = this.createPage(class extends BasePageObject {
-      get foo() {
-        return this._create('.foo');
-      }
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._create('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      await expect(this.page.foo.waitForHidden())
+        .to.eventually.be.fulfilled;
     });
 
-    await this.open('index.html');
+    it('waits for scoped element to become hidden', async function() {
+      await this.writeFixture('index.html', `
+        <div class="foo">Foo</div>
+        <div class="foo" id="foo">Bar</div>
+      `);
 
-    await expect(this.page.foo.waitForHidden())
-      .to.eventually.be.fulfilled;
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      this.page._browser._browser.options.waitforTimeout = 10000;
+      this.page._browser._browser.execute(`(() => {
+        setTimeout(function() {
+          const element = document.getElementById('foo');
+          element.style = 'display:none';
+        }, 100);
+      })()`);
+
+      await expect(this.page.foo.scopeByText('Bar').waitForHidden())
+        .to.eventually.be.fulfilled;
+    });
+
+    it('waits for element to exist and become hidden', async function() {
+      await this.writeFixture('index.html', `
+        <div class="foo">Foo</div>
+      `);
+
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      this.page._browser._browser.options.waitforTimeout = 10000;
+      this.page._browser._browser.execute(`(() => {
+        setTimeout(function() {
+          const element = document.createElement('div');
+          
+          element.innerHTML = 'Bar';
+          element.className = 'foo';
+          element.style = 'display:none';
+          
+          document.body.appendChild(element);
+        }, 100);
+      })()`);
+
+      await expect(this.page.foo.scopeByText('Bar').waitForHidden())
+        .to.eventually.be.fulfilled;
+    });
   });
 
   it(Element.prototype.isExisting, async function() {
@@ -170,37 +412,94 @@ describe(function() {
       .exist.to.eventually.be.false;
   });
 
-  it(Element.prototype.waitForInsert, async function() {
-    await this.writeFixture('index.html', `
-      <input class="foo">
-    `);
+  describe(Element.prototype.waitForInsert, function() {
+    it('waits for element to be inserted', async function() {
+      await this.writeFixture('index.html', `
+        <input class="foo">
+      `);
 
-    this.page = this.createPage(class extends BasePageObject {
-      get foo() {
-        return this._create('.foo');
-      }
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._create('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      await expect(this.page.foo.waitForInsert())
+        .to.eventually.be.fulfilled;
     });
 
-    await this.open('index.html');
+    it('waits for scoped element to be inserted', async function() {
+      await this.writeFixture('index.html', `
+        <div class="foo">Foo</div>
+      `);
 
-    await expect(this.page.foo.waitForInsert())
-      .to.eventually.be.fulfilled;
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      this.page._browser._browser.options.waitforTimeout = 10000;
+      this.page._browser._browser.execute(`(() => {
+        setTimeout(function() {
+          const element = document.createElement('div');
+          element.innerHTML = 'Bar';
+          element.className = 'foo';
+          document.body.appendChild(element);
+        }, 100);
+      })()`);
+
+      await expect(this.page.foo.scopeByText('Bar').waitForInsert())
+        .to.eventually.be.fulfilled;
+    });
   });
 
-  it(Element.prototype.waitForDestroy, async function() {
-    await this.writeFixture('index.html', `
-    `);
+  describe(Element.prototype.waitForDestroy, function() {
+    it('waits for element to be destroyed', async function() {
+      await this.writeFixture('index.html', `
+      `);
 
-    this.page = this.createPage(class extends BasePageObject {
-      get foo() {
-        return this._create('.foo');
-      }
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._create('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      await expect(this.page.foo.waitForDestroy())
+        .to.eventually.be.fulfilled;
     });
 
-    await this.open('index.html');
+    it('waits for scoped element to be destroyed', async function() {
+      await this.writeFixture('index.html', `
+        <div class="foo">Foo</div>
+        <div class="foo" id="foo">Bar</div>
+      `);
 
-    await expect(this.page.foo.waitForDestroy())
-      .to.eventually.be.fulfilled;
+      this.page = this.createPage(class extends BasePageObject {
+        get foo() {
+          return this._createMany('.foo');
+        }
+      });
+
+      await this.open('index.html');
+
+      this.page._browser._browser.options.waitforTimeout = 10000;
+      this.page._browser._browser.execute(`(() => {
+        setTimeout(function() {
+          const element = document.getElementById('foo');
+          element.parentNode.removeChild(element);
+        }, 100);
+      })()`);
+
+      await expect(this.page.foo.scopeByText('Bar').waitForDestroy())
+        .to.eventually.be.fulfilled;
+    });
   });
 
   it(Element.prototype.getAttribute, async function() {

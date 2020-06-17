@@ -12,10 +12,12 @@ class Element extends BaseElement {
   }
 
   async waitForEnabled() {
+    await this.waitForInsert();
     await this._browser.waitForEnabled(this._selector, ...arguments);
   }
 
   async waitForDisabled() {
+    await this.waitForInsert();
     await this._browser.waitForDisabled(this._selector, ...arguments);
   }
 
@@ -24,10 +26,12 @@ class Element extends BaseElement {
   }
 
   async waitForVisible() {
+    await this.waitForInsert();
     await this._browser.waitForVisible(this._selector, ...arguments);
   }
 
   async waitForHidden() {
+    await this.waitForInsert();
     await this._browser.waitForHidden(this._selector, ...arguments);
   }
 
