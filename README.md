@@ -26,8 +26,7 @@ Here are a couple examples of using the FalTest CLI.
 
 ## Default Options
 
-(regen using `yarn start --help`)
-
+<!-- CODEGEN_CLI_HELP_START -->
 ```
   --help                          Show help                            [boolean]
   --version                       Show version number                  [boolean]
@@ -75,6 +74,7 @@ Here are a couple examples of using the FalTest CLI.
   --reporter                      Change the Mocha reporter             [string]
   --reporter-options              Supply Mocha reporter options         [string]
 ```
+<!-- CODEGEN_CLI_HELP_END -->
 
 ## Filtering
 
