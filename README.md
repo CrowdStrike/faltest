@@ -83,6 +83,10 @@ There are a couple ways to filter tests, `--tag` and `--filter`. Tags are predef
 
 Filtering by tags is a little different between roles and other tags. Since a test only ever has one role at a time attached to it, `--tag role1 role2` would never match any tests, since tags function as a logical AND and not an OR. On the other hand, tests can be attached to more than one tag. In this case, `--tag tag1 tag2` would target those tests only, and exclude the tests focusing on either tag exclusively.
 
+## Duplicating
+
+You can duplicate you test suite to run concurrently with `--duplicate 1`. This is a good way to ensure that your tests work when multiple people are running them at the same time. If you wanted to run three suites at once, you would use `--duplicate 2` to run two copies of your original run.
+
 ## Logging
 
 Logging can be accomplished via the `DEBUG` environment variable (<https://github.com/visionmedia/debug>). Supported variables are:
