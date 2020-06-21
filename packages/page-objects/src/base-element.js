@@ -29,7 +29,7 @@ class BaseElement extends BasePageObject {
       // await this._browser._browser.setTimeout({ implicit: 0 });
       this._browser._browser.options.waitforTimeout = 0;
 
-      return await this._browser.isExisting(this._selector);
+      return await this._browser.isExisting(this._selector, ...arguments);
     }, () => {
       // If it's an expected error, that means a parent doesn't exist,
       // which also means the child can't exist, so exit successfully.
@@ -46,17 +46,17 @@ class BaseElement extends BasePageObject {
       // If it's an expected error, that means a parent doesn't exist,
       // so wait for the missing parent, then try again.
       if (elementError instanceof PageObjectRetryError) {
-        await elementError.pageObject.waitForInsert();
+        await elementError.pageObject.waitForInsert(...arguments);
       } else {
-        await this._browser.waitForInsert(elementError.element);
+        await this._browser.waitForInsert(elementError.element, ...arguments);
       }
-      await this._browser.waitForInsert(this._selector);
+      await this._browser.waitForInsert(this._selector, ...arguments);
     });
   }
 
   async waitForDestroy() {
     await handleError.call(this, async () => {
-      await this._browser.waitForDestroy(this._selector);
+      await this._browser.waitForDestroy(this._selector, ...arguments);
     }, () => {
       // If it's an expected error, that means a parent doesn't exist,
       // which also means the child can't exist, so exit successfully.
