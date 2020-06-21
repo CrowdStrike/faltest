@@ -5,6 +5,7 @@ require('../src/utils/throw-up');
 
 const debug = require('../src/debug');
 const initCli = require('../src');
+const { runTests } = require('@faltest/mocha');
 const path = require('path');
 const yn = require('yn');
 
@@ -45,37 +46,13 @@ if (faltestConfig.processArgs) {
 let globs = faltestConfig.globs || argv._;
 
 (async () => {
-  let statsArray = [];
+  let stats;
 
-  async function runTests(runTests) {
-    let stats = await runTests({
+  try {
+    stats = await runTests({
       globs,
       ...argv,
     });
-
-    statsArray.push(stats);
-  }
-
-  try {
-    if (argv.duplicate > 0) {
-      const { spawn, Pool, Worker } = require('threads');
-
-      let pool = Pool(() => spawn(new Worker('../src/worker')), argv.duplicate + 1);
-
-      for (let i = 0; i <= argv.duplicate; i++) {
-        pool.queue(runTests);
-      }
-
-      let errors = await pool.settled();
-
-      if (errors.length) {
-        throw errors[0];
-      }
-
-      await pool.terminate();
-    } else {
-      await runTests(require('../src/worker'));
-    }
   } finally {
     if (!argv.disableCleanup) {
       await require('@faltest/remote').killOrphans();
@@ -85,13 +62,13 @@ let globs = faltestConfig.globs || argv._;
   // `suites` is a better property to check than `tests` because
   // you could have an error in a `before`/`beforeEach` that causes
   // `tests` to be zero and `suites` to be non-zero.
-  let wereTestsFound = !!statsArray[0].suites;
+  let wereTestsFound = !!stats.suites;
 
   if (!wereTestsFound) {
     // We should file an issue for Mocha not throwing
     // when a `grep` removes all the tests
     throw new Error('no tests found');
-  } else if (statsArray.find(stats => stats.failures)) {
+  } else if (stats.failures) {
     process.exitCode = 1;
   }
 

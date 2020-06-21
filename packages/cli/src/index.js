@@ -100,11 +100,6 @@ function initCli({
         default: '.*',
         description: 'Filter the tests by name using a pattern',
       },
-      'duplicate': {
-        type: 'integer',
-        default: 0,
-        description: 'Run the same test concurrently to simulate multiple users running tests at once',
-      },
       'random': {
         type: 'boolean',
         default: false,
