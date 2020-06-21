@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.2.0...@faltest/cli@2.3.0) (2020-06-21)
+
+
+### Features
+
+* add `--duplicate` option ([57145e7](https://github.com/CrowdStrike/faltest/commit/57145e7cfbedaaf1eb49f7f2c56c2b073b39f997))
+
 ## [2.2.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.1.2...@faltest/cli@2.2.0) (2020-06-09)
 
 

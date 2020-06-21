@@ -59,6 +59,9 @@ Options:
                                   negate.      [array] [choices: ] [default: []]
   --filter                        Filter the tests by name using a pattern
                                                         [string] [default: ".*"]
+  --duplicate                     Run the same test concurrently to simulate
+                                  multiple users running tests at once
+                                                                    [default: 0]
   --random                        Randomise test order[boolean] [default: false]
   --seed                          Set the random seed to reproduce test order
                                                                         [string]
