@@ -6,15 +6,18 @@ const path = require('path');
 const { promisify } = require('util');
 const exec = promisify(require('child_process').exec);
 
+const cwd = path.resolve(__dirname, '../..');
+const env = {
+  FALTEST_PRINT_VERSION: false,
+  ...process.env,
+};
+
 describe(function() {
   describe('glob', function() {
     it('works', async function() {
       let { stdout } = await exec('node bin --reporter json test/fixtures/**/passing-test.js', {
-        cwd: path.resolve(__dirname, '../..'),
-        env: {
-          FALTEST_PRINT_VERSION: false,
-          ...process.env,
-        },
+        cwd,
+        env,
       });
 
       let json = JSON.parse(stdout);
@@ -26,7 +29,7 @@ describe(function() {
 
     it('all tests filtered out', async function() {
       let promise = exec('node bin test/fixtures/**/*-no-matches', {
-        cwd: path.resolve(__dirname, '../..'),
+        cwd,
       });
 
       // chai-as-promised@7.1.1 isn't working here for some reason
@@ -44,11 +47,10 @@ describe(function() {
 
   it('works with config', async function() {
     let { stdout } = await exec('node bin --reporter json test/fixtures/passing-test.js', {
-      cwd: path.resolve(__dirname, '../..'),
+      cwd,
       env: {
-        FALTEST_PRINT_VERSION: false,
         FALTEST_CONFIG_DIR: 'test/fixtures',
-        ...process.env,
+        ...env,
       },
     });
 
@@ -61,7 +63,7 @@ describe(function() {
 
   it('prints version', async function() {
     let { stdout } = await exec('node bin --help', {
-      cwd: path.resolve(__dirname, '../..'),
+      cwd,
     });
 
     let { name, version } = require('../../package');
@@ -71,11 +73,8 @@ describe(function() {
 
   it('allows custom bin', async function() {
     let { stdout } = await exec('node test/fixtures/bin --reporter json test/fixtures/passing-test.js', {
-      cwd: path.resolve(__dirname, '../..'),
-      env: {
-        FALTEST_PRINT_VERSION: false,
-        ...process.env,
-      },
+      cwd,
+      env,
     });
 
     let json = JSON.parse(stdout);
@@ -87,11 +86,8 @@ describe(function() {
 
   it('before error - no tests run', async function() {
     let promise = exec('node bin --reporter json test/fixtures/before-error-test.js', {
-      cwd: path.resolve(__dirname, '../..'),
-      env: {
-        FALTEST_PRINT_VERSION: false,
-        ...process.env,
-      },
+      cwd,
+      env,
     });
 
     // chai-as-promised@7.1.1 isn't working here for some reason
