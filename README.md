@@ -28,6 +28,7 @@ Here are a couple examples of using the FalTest CLI.
 
 <!-- CODEGEN_CLI_HELP_START -->
 ```
+Options:
   --help                          Show help                            [boolean]
   --version                       Show version number                  [boolean]
   --browser                       Type of browser to run

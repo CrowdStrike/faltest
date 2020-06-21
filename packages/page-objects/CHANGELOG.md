@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.2](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@3.1.1...@faltest/page-objects@3.1.2) (2020-06-21)
+
+
+### Bug Fixes
+
+* pass arguments in some places ([3cb29b4](https://github.com/CrowdStrike/faltest/commit/3cb29b487c0dcd1bed45eac79987a79e10935469))
+
 ### [3.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@3.1.0...@faltest/page-objects@3.1.1) (2020-06-09)
 
 

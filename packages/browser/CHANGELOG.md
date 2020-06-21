@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.9](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@2.0.8...@faltest/browser@2.0.9) (2020-06-21)
+
+
+### Bug Fixes
+
+* pass arguments in some places ([3cb29b4](https://github.com/CrowdStrike/faltest/commit/3cb29b487c0dcd1bed45eac79987a79e10935469))
+
 ### [2.0.8](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@2.0.7...@faltest/browser@2.0.8) (2020-06-05)
 
 ### [2.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@2.0.6...@faltest/browser@2.0.7) (2020-01-27)
