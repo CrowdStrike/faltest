@@ -38,7 +38,7 @@ describe(function() {
       try {
         await promise;
 
-        expect(true, 'should have rejected').to.be.ok;
+        expect(false, 'should have rejected').to.be.ok;
       } catch (err) {
         expect(err.message).to.include('Error: no tests found');
       }
