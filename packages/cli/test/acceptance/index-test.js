@@ -112,6 +112,8 @@ describe(function() {
   });
 
   describe('duplicate', function() {
+    this.timeout(60 * 1000);
+
     it('works', async function() {
       let { stdout } = await execa('node', ['bin', '--duplicate=1', '--reporter=json', 'test/fixtures/**/passing-test.js'], {
         cwd,
