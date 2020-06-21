@@ -266,11 +266,11 @@ Browser.prototype._findElement = find('$');
 Browser.prototype._findElements = find('$$');
 
 // This handles arrays (`browser.$$`) too.
-Browser.prototype.isExisting = resolveElement(async function isExisting(elementOrElements) {
+Browser.prototype.isExisting = resolveElement(async function isExisting(elementOrElements, ...args) {
   if (Array.isArray(elementOrElements)) {
     return elementOrElements.length > 0;
   }
-  return await elementOrElements.isExisting();
+  return await elementOrElements.isExisting(...args);
 });
 
 // This version handles both `browser.$` and `browser.$$`.
