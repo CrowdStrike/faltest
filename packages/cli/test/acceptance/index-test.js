@@ -3,19 +3,17 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const path = require('path');
-const { promisify } = require('util');
-const exec = promisify(require('child_process').exec);
+const execa = require('execa');
 
 const cwd = path.resolve(__dirname, '../..');
 const env = {
   FALTEST_PRINT_VERSION: false,
-  ...process.env,
 };
 
 describe(function() {
   describe('glob', function() {
     it('works', async function() {
-      let { stdout } = await exec('node bin --reporter json test/fixtures/**/passing-test.js', {
+      let { stdout } = await execa('node', ['bin', '--reporter=json', 'test/fixtures/**/passing-test.js'], {
         cwd,
         env,
       });
@@ -28,7 +26,7 @@ describe(function() {
     });
 
     it('all tests filtered out', async function() {
-      let promise = exec('node bin test/fixtures/**/*-no-matches', {
+      let promise = execa('node', ['bin', 'test/fixtures/**/*-no-matches'], {
         cwd,
       });
 
@@ -40,17 +38,17 @@ describe(function() {
 
         expect(false, 'should have rejected').to.be.ok;
       } catch (err) {
-        expect(err.message).to.include('Error: no tests found');
+        expect(err.stderr).to.include('Error: no tests found');
       }
     });
   });
 
   it('works with config', async function() {
-    let { stdout } = await exec('node bin --reporter json test/fixtures/passing-test.js', {
+    let { stdout } = await execa('node', ['bin', '--reporter=json', 'test/fixtures/passing-test.js'], {
       cwd,
       env: {
-        FALTEST_CONFIG_DIR: 'test/fixtures',
         ...env,
+        FALTEST_CONFIG_DIR: 'test/fixtures',
       },
     });
 
@@ -62,7 +60,7 @@ describe(function() {
   });
 
   it('prints version', async function() {
-    let { stdout } = await exec('node bin --help', {
+    let { stdout } = await execa('node', ['bin', '--help'], {
       cwd,
     });
 
@@ -72,7 +70,7 @@ describe(function() {
   });
 
   it('allows custom bin', async function() {
-    let { stdout } = await exec('node test/fixtures/bin --reporter json test/fixtures/passing-test.js', {
+    let { stdout } = await execa('node', ['test/fixtures/bin', '--reporter=json', ' test/fixtures/passing-test.js'], {
       cwd,
       env,
     });
@@ -85,7 +83,7 @@ describe(function() {
   });
 
   it('before error - no tests run', async function() {
-    let promise = exec('node bin --reporter json test/fixtures/before-error-test.js', {
+    let promise = execa('node', ['bin', '--reporter=json', 'test/fixtures/before-error-test.js'], {
       cwd,
       env,
     });
