@@ -110,4 +110,41 @@ describe(function() {
     expect(json.failures[0].fullTitle).to.equal('before error "before all" hook for "works"');
     expect(json.failures[0].err.message).to.equal('thrown error in before hook');
   });
+
+  describe('duplicate', function() {
+    it('works', async function() {
+      let { stdout } = await execa('node', ['bin', '--duplicate=1', '--reporter=json', 'test/fixtures/**/passing-test.js'], {
+        cwd,
+        env,
+      });
+
+      for (let _stdout of [
+        stdout.substr(0, stdout.length / 2),
+        stdout.substr(stdout.length / 2),
+      ]) {
+        let json = JSON.parse(_stdout);
+
+        expect(json.stats.tests).to.equal(1);
+        expect(json.stats.failures).to.equal(0);
+        expect(json.tests[0].fullTitle).to.equal('passing works');
+      }
+    });
+
+    it('all tests filtered out', async function() {
+      let promise = execa('node', ['bin', '--duplicate=1', 'test/fixtures/**/*-no-matches'], {
+        cwd,
+      });
+
+      // chai-as-promised@7.1.1 isn't working here for some reason
+      // await expect(promise).to.eventually.be.rejectedWith('Error: no tests found');
+
+      try {
+        await promise;
+
+        expect(false, 'should have rejected').to.be.ok;
+      } catch (err) {
+        expect(err.stderr).to.include('Error: no tests found');
+      }
+    });
+  });
 });
