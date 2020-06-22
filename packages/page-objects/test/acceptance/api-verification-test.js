@@ -121,36 +121,6 @@ describe(function() {
       await expect(this.page.foo.scopeBy(attributeEquals('name', 'bar')).waitForEnabled())
         .to.eventually.be.fulfilled;
     });
-
-    it('waits for element to exist and become enabled', async function() {
-      await this.writeFixture('index.html', `
-        <input class="foo" name="foo" disabled>
-      `);
-
-      this.page = this.createPage(class extends BasePageObject {
-        get foo() {
-          return this._createMany('.foo');
-        }
-      });
-
-      await this.open('index.html');
-
-      this.page._browser._browser.options.waitforTimeout = 10000;
-      this.page._browser._browser.execute(`(() => {
-        setTimeout(function() {
-          const element = document.createElement('input');
-          
-          element.name = 'bar';
-          element.className = 'foo';
-          element.disabled = false;
-          
-          document.body.appendChild(element);
-        }, 100);
-      })()`);
-
-      await expect(this.page.foo.scopeBy(attributeEquals('name', 'bar')).waitForEnabled())
-        .to.eventually.be.fulfilled;
-    });
   });
 
   describe(Element.prototype.waitForDisabled, function() {
@@ -190,36 +160,6 @@ describe(function() {
         setTimeout(function() {
           const element = document.getElementById('foo');
           element.disabled = true;
-        }, 100);
-      })()`);
-
-      await expect(this.page.foo.scopeBy(attributeEquals('name', 'bar')).waitForDisabled())
-        .to.eventually.be.fulfilled;
-    });
-
-    it('waits for element to exist and become disabled', async function() {
-      await this.writeFixture('index.html', `
-        <input class="foo" name="foo">
-      `);
-
-      this.page = this.createPage(class extends BasePageObject {
-        get foo() {
-          return this._createMany('.foo');
-        }
-      });
-
-      await this.open('index.html');
-
-      this.page._browser._browser.options.waitforTimeout = 10000;
-      this.page._browser._browser.execute(`(() => {
-        setTimeout(function() {
-          const element = document.createElement('input');
-          
-          element.name = 'bar';
-          element.className = 'foo';
-          element.disabled = true;
-          
-          document.body.appendChild(element);
         }, 100);
       })()`);
 
@@ -289,36 +229,6 @@ describe(function() {
       await expect(this.page.foo.scopeByText('Bar').waitForVisible())
         .to.eventually.be.fulfilled;
     });
-
-    it('waits for element to exist and become visible', async function() {
-      await this.writeFixture('index.html', `
-        <div class="foo" style="display:none">Foo</div>
-      `);
-
-      this.page = this.createPage(class extends BasePageObject {
-        get foo() {
-          return this._createMany('.foo');
-        }
-      });
-
-      await this.open('index.html');
-
-      this.page._browser._browser.options.waitforTimeout = 10000;
-      this.page._browser._browser.execute(`(() => {
-        setTimeout(function() {
-          const element = document.createElement('div');
-          
-          element.innerHTML = 'Bar';
-          element.className = 'foo';
-          element.style = 'display:block';
-          
-          document.body.appendChild(element);
-        }, 100);
-      })()`);
-
-      await expect(this.page.foo.scopeByText('Bar').waitForVisible())
-        .to.eventually.be.fulfilled;
-    });
   });
 
   describe(Element.prototype.waitForHidden, function() {
@@ -358,36 +268,6 @@ describe(function() {
         setTimeout(function() {
           const element = document.getElementById('foo');
           element.style = 'display:none';
-        }, 100);
-      })()`);
-
-      await expect(this.page.foo.scopeByText('Bar').waitForHidden())
-        .to.eventually.be.fulfilled;
-    });
-
-    it('waits for element to exist and become hidden', async function() {
-      await this.writeFixture('index.html', `
-        <div class="foo">Foo</div>
-      `);
-
-      this.page = this.createPage(class extends BasePageObject {
-        get foo() {
-          return this._createMany('.foo');
-        }
-      });
-
-      await this.open('index.html');
-
-      this.page._browser._browser.options.waitforTimeout = 10000;
-      this.page._browser._browser.execute(`(() => {
-        setTimeout(function() {
-          const element = document.createElement('div');
-          
-          element.innerHTML = 'Bar';
-          element.className = 'foo';
-          element.style = 'display:none';
-          
-          document.body.appendChild(element);
         }, 100);
       })()`);
 
