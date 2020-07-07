@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.3](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.2.2...@faltest/lifecycle@3.2.3) (2020-07-07)
+
+
+### Bug Fixes
+
+* remove `node-config` assumption from roles ([b0f58ab](https://github.com/CrowdStrike/faltest/commit/b0f58ab328a2e440f683a6b86c3442b195eafc14))
+
 ### [3.2.2](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.2.1...@faltest/lifecycle@3.2.2) (2020-06-09)
 
 
