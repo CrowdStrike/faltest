@@ -2772,119 +2772,62 @@ describe(setUpWebDriver, function() {
 
   describe(areRolesEqual, function() {
     it('same email', function() {
-      let has = sinon.stub();
-      has.withArgs('email').returns(true);
-      has.withArgs('username').returns(false);
-      let get1 = sinon.stub().withArgs('email').returns('foo@bar.baz');
-      let get2 = sinon.stub().withArgs('email').returns('foo@bar.baz');
-
       let role1 = {
-        has,
-        get: get1,
+        email: 'foo@bar.baz',
       };
       let role2 = {
-        has,
-        get: get2,
+        email: 'foo@bar.baz',
       };
 
       let result = areRolesEqual(role1, role2);
 
       expect(result).to.be.true;
-
-      expect(get1).to.have.callCount(1);
-      expect(get2).to.have.callCount(1);
     });
 
     it('different email', function() {
-      let has = sinon.stub();
-      has.withArgs('email').returns(true);
-      has.withArgs('username').returns(false);
-      let get1 = sinon.stub().withArgs('email').returns('foo1@bar.baz');
-      let get2 = sinon.stub().withArgs('email').returns('foo2@bar.baz');
-
       let role1 = {
-        has,
-        get: get1,
+        email: 'foo1@bar.baz',
       };
       let role2 = {
-        has,
-        get: get2,
+        email: 'foo2@bar.baz',
       };
 
       let result = areRolesEqual(role1, role2);
 
       expect(result).to.be.false;
-
-      expect(get1).to.have.callCount(1);
-      expect(get2).to.have.callCount(1);
     });
 
     it('same username', function() {
-      let has = sinon.stub();
-      has.withArgs('email').returns(false);
-      has.withArgs('username').returns(true);
-      let get1 = sinon.stub().withArgs('username').returns('foo');
-      let get2 = sinon.stub().withArgs('username').returns('foo');
-
       let role1 = {
-        has,
-        get: get1,
+        username: 'foo',
       };
       let role2 = {
-        has,
-        get: get2,
+        username: 'foo',
       };
 
       let result = areRolesEqual(role1, role2);
 
       expect(result).to.be.true;
-
-      expect(get1).to.have.callCount(1);
-      expect(get2).to.have.callCount(1);
     });
 
     it('different username', function() {
-      let has = sinon.stub();
-      has.withArgs('email').returns(true);
-      has.withArgs('username').returns(false);
-      let get1 = sinon.stub().withArgs('username').returns('foo1');
-      let get2 = sinon.stub().withArgs('username').returns('foo2');
-
       let role1 = {
-        has,
-        get: get1,
+        username: 'foo1',
       };
       let role2 = {
-        has,
-        get: get2,
+        username: 'foo2',
       };
 
       let result = areRolesEqual(role1, role2);
 
       expect(result).to.be.false;
-
-      expect(get1).to.have.callCount(1);
-      expect(get2).to.have.callCount(1);
     });
 
     it('throws when no property match', function() {
-      let has = sinon.stub();
-      has.withArgs('email').returns(false);
-      has.withArgs('username').returns(false);
-      let get = sinon.spy();
-
-      let role1 = {
-        has,
-        get,
-      };
-      let role2 = {
-        has,
-        get,
-      };
+      let role1 = {};
+      let role2 = {};
 
       expect(() => areRolesEqual(role1, role2)).to.throw('Checking the default role properties of "username" and "email" failed. Looks like you need to implement `areRolesEqual` yourself.');
-
-      expect(get).to.have.callCount(0);
     });
   });
 
