@@ -253,9 +253,9 @@ function areRolesEqual(role1, role2) {
   let property2 = 'email';
 
   let key;
-  if (role1.has(property1) && role2.has(property1)) {
+  if (property1 in role1 && property1 in role2) {
     key = property1;
-  } else if (role1.has(property2) && role2.has(property2)) {
+  } else if (property2 in role1 && property2 in role2) {
     key = property2;
   }
 
@@ -263,7 +263,7 @@ function areRolesEqual(role1, role2) {
     throw new Error(`Checking the default role properties of "${property1}" and "${property2}" failed. Looks like you need to implement \`${areRolesEqual.name}\` yourself.`);
   }
 
-  return role1.get(key) === role2.get(key);
+  return role1[key] === role2[key];
 }
 
 let lifecycleHooks = createFailureArtifactsHelpers({
