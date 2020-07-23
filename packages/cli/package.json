@@ -1,6 +1,6 @@
 {
   "name": "@faltest/cli",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "The CLI for the FalTest system",
   "bin": {
     "faltest": "bin/index.js",

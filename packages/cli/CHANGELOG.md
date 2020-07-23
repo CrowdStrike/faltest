@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.1](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.4.0...@faltest/cli@2.4.1) (2020-07-23)
+
+
+### Bug Fixes
+
+* stop logging process.env ([4f11cef](https://github.com/CrowdStrike/faltest/commit/4f11cefc2128f636d212a68684975734f67d8f7b))
+
 ## [2.4.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.3.1...@faltest/cli@2.4.0) (2020-06-21)
 
 
