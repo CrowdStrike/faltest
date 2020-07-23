@@ -3,7 +3,6 @@
 
 require('../src/utils/throw-up');
 
-const debug = require('../src/debug');
 const initCli = require('../src');
 const path = require('path');
 const yn = require('yn');
@@ -15,9 +14,6 @@ if (!process.env.NODE_CONFIG_DIR) {
   // and still find the config files
   process.env.NODE_CONFIG_DIR = path.resolve(configDir, 'config');
 }
-
-debug.verbose('process.env');
-debug.verbose(process.env);
 
 let faltestConfig;
 try {
