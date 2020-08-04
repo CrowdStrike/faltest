@@ -1,6 +1,5 @@
 # Prevent accidental check-in of `roles.only` (mocha-roles-only)
 
-
 ## Rule Details
 
 Examples of **incorrect** code for this rule:

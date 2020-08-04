@@ -27,6 +27,7 @@ Here are a couple examples of using the FalTest CLI.
 ## Default Options
 
 <!-- CODEGEN_CLI_HELP_START -->
+
 ```
 Options:
   --help                          Show help                            [boolean]
@@ -78,6 +79,7 @@ Options:
   --reporter                      Change the Mocha reporter             [string]
   --reporter-options              Supply Mocha reporter options         [string]
 ```
+
 <!-- CODEGEN_CLI_HELP_END -->
 
 ## Filtering
@@ -95,7 +97,7 @@ You can duplicate you test suite to run concurrently with `--duplicate 1`. This 
 Logging can be accomplished via the `DEBUG` environment variable (<https://github.com/visionmedia/debug>). Supported variables are:
 
 *   `@faltest/remote,@faltest/lifecycle,...` - basic logging
-*   `@faltest/remote:verbose,...` - verbose logging __only__
+*   `@faltest/remote:verbose,...` - verbose logging **only**
 *   `@faltest*` - all logging
 
 An example use would be `DEBUG=@faltest* faltest --tag smoke`.
