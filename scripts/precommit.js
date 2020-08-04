@@ -9,9 +9,11 @@ const rootDirectory = path.resolve(__dirname, '..');
 
 async function replace({ replacementRegex, replacementText, filePath }) {
   replacementText = `$1
+
 \`\`\`
 ${replacementText}
 \`\`\`
+
 $2`;
 
   await replaceFile(filePath, (contents) => {
