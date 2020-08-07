@@ -6,6 +6,7 @@ const fs = require('fs');
 const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
 const mkdir = promisify(fs.mkdir);
+const filenamify = require('filenamify');
 
 function failureArtifacts(outputDir) {
   return test => {
@@ -22,6 +23,9 @@ function failureArtifacts(outputDir) {
         }
 
         let title = parts.join(' ');
+
+        // Tests with / in the name are bad.
+        title = filenamify(title);
 
         return title;
       }
