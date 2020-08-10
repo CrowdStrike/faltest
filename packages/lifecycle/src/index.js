@@ -11,9 +11,7 @@ const {
     on,
   },
 } = require('@faltest/utils');
-const {
-  createFailureArtifactsHelpers,
-} = require('@faltest/mocha');
+const mocha = require('@faltest/mocha');
 
 const shareWebdriver = process.env.WEBDRIVER_SHARE_WEBDRIVER === 'true';
 const keepBrowserOpen = process.env.WEBDRIVER_KEEP_BROWSER_OPEN === 'true';
@@ -22,6 +20,8 @@ const target = process.env.WEBDRIVER_TARGET;
 const env = process.env.NODE_CONFIG_ENV;
 const throttleNetwork = process.env.WEBDRIVER_THROTTLE_NETWORK === 'true';
 const browserCount = parseInt(process.env.WEBDRIVER_BROWSERS) || defaults.browsers;
+const failureArtifactsEnabled = process.env.WEBDRIVER_FAILURE_ARTIFACTS === 'true';
+const failureArtifactsOutputDir = process.env.WEBDRIVER_FAILURE_ARTIFACTS_OUTPUT_DIR;
 const defaultOverrides = {};
 
 if (!shareWebdriver && keepBrowserOpen) {
@@ -29,6 +29,10 @@ if (!shareWebdriver && keepBrowserOpen) {
 }
 if (!keepBrowserOpen && shareSession) {
   throw new Error('!keepBrowserOpen && shareSession is undefined');
+}
+
+if (failureArtifactsEnabled && !failureArtifactsOutputDir) {
+  throw new Error('You must supply a failure artifacts output dir.');
 }
 
 let events = new EventEmitter();
@@ -233,6 +237,12 @@ async function setUpWebDriverAfterEach(options) {
     }
   }
 
+  if (this.currentTest.state === 'failed') {
+    if (options.failureArtifactsEnabled) {
+      await mocha.failureArtifacts.call(this, options.failureArtifactsOutputDir);
+    }
+  }
+
   await lifecycleEvent('after-each-end', this, options);
 }
 
@@ -266,13 +276,6 @@ function areRolesEqual(role1, role2) {
   return role1[key] === role2[key];
 }
 
-let lifecycleHooks = createFailureArtifactsHelpers({
-  before: global.before,
-  beforeEach: global.beforeEach,
-  afterEach: global.afterEach,
-  after: global.after,
-});
-
 function setUpWebDriver(options) {
   this.timeout(60 * 1000);
 
@@ -289,6 +292,8 @@ function setUpWebDriver(options) {
     throttleNetwork,
     browserOverride,
     overrides: defaultOverrides,
+    failureArtifactsEnabled,
+    failureArtifactsOutputDir,
     ...options,
   };
 
@@ -298,7 +303,7 @@ function setUpWebDriver(options) {
     ['afterEach', setUpWebDriverAfterEach],
     ['after', setUpWebDriverAfter],
   ]) {
-    lifecycleHooks[name](function() {
+    global[name](function() {
       return log(name, async () => {
         await func.call(this, options);
       });

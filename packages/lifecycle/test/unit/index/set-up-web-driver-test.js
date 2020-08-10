@@ -17,6 +17,7 @@ const {
   events,
 } = require('../../../src');
 const { event: { emit, on } } = require('../../../../utils');
+const mocha = require('@faltest/mocha');
 
 describe(setUpWebDriver, function() {
   let webDriverInstance;
@@ -49,6 +50,7 @@ describe(setUpWebDriver, function() {
 
   let onResetInternalState;
   let browserOverrideSpy;
+  let failureArtifacts;
 
   let role;
   let context;
@@ -57,6 +59,7 @@ describe(setUpWebDriver, function() {
   function resetContext() {
     context = {
       role,
+      currentTest: {},
     };
   }
 
@@ -116,6 +119,8 @@ describe(setUpWebDriver, function() {
     onAfterEnd = sinon.spy();
 
     onResetInternalState = sinon.spy();
+
+    failureArtifacts = sinon.stub(mocha, 'failureArtifacts');
 
     onStartWebDriver = onStartWebDriver.withArgs(webDriverInstance);
     onStartBrowser = onStartBrowser.withArgs(sinon.match(value => {
@@ -323,6 +328,7 @@ describe(setUpWebDriver, function() {
 
       onResetInternalState,
       browserOverrideSpy,
+      failureArtifacts,
     ]) {
       stub.resetHistory();
     }
@@ -3157,6 +3163,43 @@ describe(setUpWebDriver, function() {
       assertLifecycleAfter();
 
       assertContext();
+    });
+  });
+
+  describe(setUpWebDriverAfterEach, function() {
+    describe(mocha.failureArtifacts, function() {
+      async function test() {
+        await setUpWebDriverAfterEach.call(context, options);
+      }
+
+      it('doesn\'t call if test hasn\'t failed', async function() {
+        options.failureArtifactsEnabled = true;
+
+        await test();
+
+        expect(failureArtifacts).to.have.callCount(0);
+      });
+
+      it('doesn\'t call if not enabled', async function() {
+        context.currentTest.state = 'failed';
+
+        await test();
+
+        expect(failureArtifacts).to.have.callCount(0);
+      });
+
+      it('works', async function() {
+        context.currentTest.state = 'failed';
+        options.failureArtifactsEnabled = true;
+
+        options.failureArtifactsOutputDir = 'failure artifacts output dir test';
+
+        failureArtifacts = failureArtifacts.withArgs(options.failureArtifactsOutputDir);
+
+        await test();
+
+        expect(failureArtifacts).to.have.callCount(1);
+      });
     });
   });
 });
