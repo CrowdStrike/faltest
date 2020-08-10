@@ -3174,6 +3174,7 @@ describe(setUpWebDriver, function() {
 
       it('doesn\'t call if test hasn\'t failed', async function() {
         options.failureArtifactsEnabled = true;
+        context.currentTest.state = 'passed';
 
         await test();
 
@@ -3181,15 +3182,12 @@ describe(setUpWebDriver, function() {
       });
 
       it('doesn\'t call if not enabled', async function() {
-        context.currentTest.state = 'failed';
-
         await test();
 
         expect(failureArtifacts).to.have.callCount(0);
       });
 
       it('works', async function() {
-        context.currentTest.state = 'failed';
         options.failureArtifactsEnabled = true;
 
         options.failureArtifactsOutputDir = 'failure artifacts output dir test';
