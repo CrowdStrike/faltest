@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.4](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.2.3...@faltest/lifecycle@3.2.4) (2020-08-10)
+
+
+### Bug Fixes
+
+* use the new failure artifacts API ([dae48f6](https://github.com/CrowdStrike/faltest/commit/dae48f6525b4eeb6da97eac1a8cc455eb89a2d48))
+
 ### [3.2.3](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.2.2...@faltest/lifecycle@3.2.3) (2020-07-07)
 
 

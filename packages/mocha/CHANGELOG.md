@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.1.2...@faltest/mocha@2.0.0) (2020-08-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* `createFailureArtifacts` was removed because it is no longer necessary.
+
+### Features
+
+* optimize failure artifacts ([f5dcb2a](https://github.com/CrowdStrike/faltest/commit/f5dcb2a370517c18d25c83417f8aca6601e44f5a))
+
 ### [1.1.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.1.1...@faltest/mocha@1.1.2) (2020-08-07)
 
 
