@@ -5,9 +5,6 @@ const { expect } = require('../../../../../helpers/chai');
 const webDriver = require('@faltest/remote');
 const Browser = require('@faltest/browser');
 const sinon = require('sinon');
-const mocha = require('../../../src');
-const { event: { emit, on } } = require('../../../../utils');
-
 const {
   setUpWebDriver,
   resetInternalState,
@@ -18,7 +15,8 @@ const {
   areRolesEqual,
   browserOverride,
   events,
-} = mocha;
+} = require('../../../src');
+const { event: { emit, on } } = require('../../../../utils');
 
 describe(setUpWebDriver, function() {
   let webDriverInstance;
