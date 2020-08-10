@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@2.0.0...@faltest/mocha@2.0.1) (2020-08-10)
+
+
+### Bug Fixes
+
+* handle failure artifacts in `beforeEach` correctly ([094e2a9](https://github.com/CrowdStrike/faltest/commit/094e2a9086f3b193103ec5cc1e15b5f9de4cdd1a))
+
 ## [2.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@1.1.2...@faltest/mocha@2.0.0) (2020-08-10)
 
 
