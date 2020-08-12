@@ -3181,6 +3181,15 @@ describe(setUpWebDriver, function() {
         expect(failureArtifacts).to.have.callCount(0);
       });
 
+      it('doesn\'t call if test is pending', async function() {
+        options.failureArtifactsEnabled = true;
+        context.currentTest.pending = true;
+
+        await test();
+
+        expect(failureArtifacts).to.have.callCount(0);
+      });
+
       it('doesn\'t call if not enabled', async function() {
         await test();
 
