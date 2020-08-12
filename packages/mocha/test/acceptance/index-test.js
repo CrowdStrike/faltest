@@ -6,6 +6,7 @@ const path = require('path');
 const clearModule = require('clear-module');
 const { runTests } = require('../../src');
 const { promisify } = require('util');
+const { afterEach } = require('mocha');
 const tmpDir = promisify(require('tmp').dir);
 
 describe(function() {
@@ -217,6 +218,31 @@ describe(function() {
 
         expect(stats.tests).to.equal(1);
         expect(stats.passes).to.equal(1);
+      });
+
+      it('doesn\'t make artifacts on it.skip', async function() {
+        let stats = await runTests({
+          globs,
+          filter: 'it it\\.skip$',
+        });
+
+        expect(this.outputDir).to.be.a.directory().and.empty;
+
+        expect(stats.tests).to.equal(1);
+        expect(stats.pending).to.equal(1);
+      });
+
+      it('doesn\'t make artifacts on this.skip', async function() {
+        this.skip();
+        let stats = await runTests({
+          globs,
+          filter: 'it this\\.skip$',
+        });
+
+        expect(this.outputDir).to.be.a.directory().and.empty;
+
+        expect(stats.tests).to.equal(1);
+        expect(stats.pending).to.equal(1);
       });
 
       it('handles errors in beforeEach', async function() {

@@ -36,6 +36,7 @@ module.exports = {
         'mocha/no-nested-tests': 'off',
         'mocha/no-pending-tests': 'off',
         'mocha/no-exclusive-tests': 'error',
+        'mocha/no-skipped-tests': 'error',
 
         'faltest/chai-webdriver-eventually': 'error',
         'faltest/mocha-roles-only': 'error',

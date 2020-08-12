@@ -237,8 +237,19 @@ async function setUpWebDriverAfterEach(options) {
     }
   }
 
-  // handle 'failed' and `undefined` if it happens in `beforeEach`
-  if (this.currentTest.state !== 'passed') {
+  // success:
+  //   state: `'passed'`
+  //   pending: `false`
+  // failure in `it`:
+  //   state: `'failed'`
+  //   pending: `false`
+  // failure in `beforeEach`:
+  //   state: `undefined`
+  //   pending: `false`
+  // `this.skip`:
+  //   state: `undefined`
+  //   pending: `true`
+  if (this.currentTest.state !== 'passed' && !this.currentTest.pending) {
     if (options.failureArtifactsEnabled) {
       await mocha.failureArtifacts.call(this, options.failureArtifactsOutputDir);
     }
