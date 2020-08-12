@@ -14,6 +14,15 @@ describe('failure artifacts', function() {
     it('success', function() {
       assert.ok(true);
     });
+
+    // eslint-disable-next-line mocha/no-skipped-tests
+    it.skip('it.skip', function() {
+      assert.ok(false);
+    });
+
+    it('this.skip', function() {
+      this.skip();
+    });
   });
 
   describe('beforeEach', function() {
