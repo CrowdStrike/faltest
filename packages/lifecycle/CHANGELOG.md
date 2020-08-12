@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.6](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.2.5...@faltest/lifecycle@3.2.6) (2020-08-12)
+
+
+### Bug Fixes
+
+* don't create failure artifacts for `this.skip` tests ([054b8f4](https://github.com/CrowdStrike/faltest/commit/054b8f4339e30534a0aecf6ccccf9e06d240cdc0))
+
 ### [3.2.5](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.2.4...@faltest/lifecycle@3.2.5) (2020-08-10)
 
 
