@@ -4,7 +4,8 @@ const path = require('path');
 const fs = require('fs');
 const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
-const mkdir = promisify(fs.mkdir);
+// const mkdir = promisify(fs.mkdir);
+const mkdirp = promisify(require('mkdirp'));
 const filenamify = require('filenamify');
 
 function buildTitle(test) {
@@ -28,9 +29,10 @@ function buildTitle(test) {
 
 async function failureArtifacts(outputDir) {
   let title = buildTitle(this.currentTest);
-  try {
-    await mkdir(outputDir);
-  } catch (err) {}
+
+  // once node 10.12.0
+  // await mkdir(outputDir, { recursive: true });
+  await mkdirp(outputDir);
 
   let element = await this.browser.$('body');
 
