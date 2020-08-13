@@ -6,7 +6,6 @@ const path = require('path');
 const clearModule = require('clear-module');
 const { runTests } = require('../../src');
 const { promisify } = require('util');
-const { afterEach } = require('mocha');
 const tmpDir = promisify(require('tmp').dir);
 
 describe(function() {
@@ -233,7 +232,6 @@ describe(function() {
       });
 
       it('doesn\'t make artifacts on this.skip', async function() {
-        this.skip();
         let stats = await runTests({
           globs,
           filter: 'it this\\.skip$',
