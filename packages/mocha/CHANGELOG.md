@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.3](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@2.0.2...@faltest/mocha@2.0.3) (2020-08-13)
+
+
+### Bug Fixes
+
+* fix test typos ([42c9980](https://github.com/CrowdStrike/faltest/commit/42c9980b79b8cce5bc4f9ec5ecdd7d09ae6fe5a2))
+* use `mkdirp` for nested failure artifact dirs ([ef54a93](https://github.com/CrowdStrike/faltest/commit/ef54a93dd8cab35a97e8b415ad40b5239b8b24c9))
+
 ### [2.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@2.0.1...@faltest/mocha@2.0.2) (2020-08-12)
 
 
