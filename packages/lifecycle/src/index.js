@@ -227,6 +227,39 @@ async function setUpWebDriverBeforeEach(options) {
   await lifecycleEvent('before-each-end', this, options);
 }
 
+async function failureArtifacts(options) {
+  // success:
+  //   state: `'passed'`
+  //   pending: `false`
+  // failure in `it`:
+  //   state: `'failed'`
+  //   pending: `false`
+  // failure in `before`/`beforeEach`:
+  //   state: `undefined`
+  //   pending: `false`
+  // `this.skip`:
+  //   state: `undefined`
+  //   pending: `true`
+  // Also, certain situations can make `currentTest` `undefined`,
+  // but I haven't narrowed down the exact criteria.
+  let isFailure = !this.currentTest || this.currentTest.state !== 'passed' && !this.currentTest.pending;
+
+  if (isFailure) {
+    if (options.failureArtifactsEnabled && !this.failureArtifactsHandled) {
+      await mocha.failureArtifacts.call(this, options.failureArtifactsOutputDir);
+    }
+  }
+
+  // An error in `before` will skip `afterEach`,
+  // and an error in `beforeEach` will run through `afterEach` and `after`,
+  // so we need to skip `after` if already handled in `afterEach`.
+  // Also, when in `after`, `currentTest` is always the last `it`
+  // in the `describe` block, even if the last `it` was filtered out and not run,
+  // so we need to always mark `afterEach` as handled, because in this case,
+  // `after`'s `state` would be `undefined`.
+  this.failureArtifactsHandled = true;
+}
+
 async function setUpWebDriverAfterEach(options) {
   await lifecycleEvent('after-each-begin', this, options);
 
@@ -237,23 +270,7 @@ async function setUpWebDriverAfterEach(options) {
     }
   }
 
-  // success:
-  //   state: `'passed'`
-  //   pending: `false`
-  // failure in `it`:
-  //   state: `'failed'`
-  //   pending: `false`
-  // failure in `beforeEach`:
-  //   state: `undefined`
-  //   pending: `false`
-  // `this.skip`:
-  //   state: `undefined`
-  //   pending: `true`
-  if (this.currentTest.state !== 'passed' && !this.currentTest.pending) {
-    if (options.failureArtifactsEnabled) {
-      await mocha.failureArtifacts.call(this, options.failureArtifactsOutputDir);
-    }
-  }
+  await failureArtifacts.apply(this, arguments);
 
   await lifecycleEvent('after-each-end', this, options);
 }
@@ -262,6 +279,8 @@ async function setUpWebDriverAfter(options) {
   await lifecycleEvent('after-begin', this, options);
 
   overridesUsed = options.overrides;
+
+  await failureArtifacts.apply(this, arguments);
 
   await lifecycleEvent('after-end', this, options);
 }

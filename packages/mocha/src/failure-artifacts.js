@@ -28,6 +28,12 @@ function buildTitle(test) {
 }
 
 async function failureArtifacts(outputDir) {
+  // If an error occurs in `before` or `beforeEach`,
+  // there's a change the browser has not been initialized yet.
+  if (!this.browser) {
+    return;
+  }
+
   let title = buildTitle(this.currentTest);
 
   // once node 10.12.0
