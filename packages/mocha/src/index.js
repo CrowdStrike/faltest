@@ -4,31 +4,48 @@ const Mocha = require('mocha');
 const { promisify } = require('util');
 const glob = promisify(require('glob'));
 const { buildGrep } = require('./tag');
+const failureArtifacts = require('./failure-artifacts');
 
-async function runMocha(mocha) {
+const { constants } = Mocha.Runner;
+
+async function runMocha(mocha, options) {
   let runner;
+
+  let promises = [];
 
   await new Promise(resolve => {
     // `mocha.run` is synchronous if no tests were found,
     // otherwise, it's asynchronous...
     runner = mocha.run(resolve);
+
+    runner.on(constants.EVENT_TEST_FAIL, test => {
+      if (options.failureArtifacts) {
+        let promise = failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+
+        promises.push(promise);
+      }
+    });
   });
+
+  await Promise.all(promises);
 
   return runner;
 }
 
-async function runTests({
-  globs,
-  retries,
-  tag: tags = [],
-  filter = '',
-  random,
-  seed,
-  timeoutsOverride,
-  disableTimeouts,
-  reporter,
-  reporterOptions,
-}) {
+async function runTests(options) {
+  let {
+    globs,
+    retries,
+    tag: tags = [],
+    filter = '',
+    random,
+    seed,
+    timeoutsOverride,
+    disableTimeouts,
+    reporter,
+    reporterOptions,
+  } = options;
+
   if (random) {
     if (seed) {
       process.env.CHOMA_SEED = seed;
@@ -70,7 +87,7 @@ async function runTests({
     }
   }
 
-  let runner = await runMocha(mocha);
+  let runner = await runMocha(mocha, options);
 
   return runner.stats;
 }
@@ -79,5 +96,4 @@ module.exports = {
   runTests,
   createRolesHelper: require('./role').create,
   createFlaggedTest: require('./flag').create,
-  failureArtifacts: require('./failure-artifacts'),
 };
