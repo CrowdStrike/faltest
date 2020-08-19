@@ -34,7 +34,7 @@ async function failureArtifacts(outputDir) {
     return;
   }
 
-  let title = buildTitle(this.currentTest);
+  let title = buildTitle(this.test);
 
   // once node 10.12.0
   // await mkdir(outputDir, { recursive: true });

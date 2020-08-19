@@ -11,7 +11,6 @@ const tmpDir = promisify(require('tmp').dir);
 describe(function() {
   describe(_runTests, function() {
     let globs;
-    let processEnv;
 
     before(function() {
       this.runTests = async options => {
@@ -22,17 +21,11 @@ describe(function() {
       };
     });
 
-    beforeEach(function() {
-      processEnv = { ...process.env };
-    });
-
     afterEach(function() {
       // unfortunately, mocha caches previously run files,
       // even though it is a new instance...
       // https://github.com/mochajs/mocha/blob/v6.2.0/lib/mocha.js#L334
       clearModule.all();
-
-      Object.assign(process.env, processEnv);
     });
 
     describe('tags', function() {
@@ -178,22 +171,30 @@ describe(function() {
     describe('failure artifacts', function() {
       before(function() {
         globs = [path.resolve(__dirname, '../fixtures/failure-artifacts-test.js')];
+
+        let { runTests } = this;
+        this.runTests = async options => {
+          return await runTests({
+            failureArtifacts: true,
+            failureArtifactsOutputDir: this.outputDir,
+            ...options,
+          });
+        };
       });
 
       beforeEach(async function() {
-        process.env.WEBDRIVER_FAILURE_ARTIFACTS = 'true';
-        this.outputDir = process.env.WEBDRIVER_FAILURE_ARTIFACTS_OUTPUT_DIR = await tmpDir();
+        this.outputDir = await tmpDir();
       });
 
       it('works', async function() {
         let stats = await this.runTests({
-          filter: 'it normal failure$',
+          filter: 'it failure$',
         });
 
-        expect(path.join(this.outputDir, 'failure artifacts it normal failure.png')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it normal failure.html')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it normal failure.browser.txt')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it normal failure.driver.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it failure.png')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it failure.html')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it failure.browser.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it failure.driver.txt')).to.be.a.file();
 
         expect(stats.tests).to.equal(1);
         expect(stats.failures).to.equal(1);
@@ -201,40 +202,7 @@ describe(function() {
 
       it('doesn\'t make artifacts on test success', async function() {
         let stats = await this.runTests({
-          filter: 'it normal success$',
-        });
-
-        expect(this.outputDir).to.be.a.directory().and.empty;
-
-        expect(stats.tests).to.equal(1);
-        expect(stats.passes).to.equal(1);
-      });
-
-      it('doesn\'t make artifacts on it.skip', async function() {
-        let stats = await this.runTests({
-          filter: 'it normal it\\.skip$',
-        });
-
-        expect(this.outputDir).to.be.a.directory().and.empty;
-
-        expect(stats.tests).to.equal(1);
-        expect(stats.pending).to.equal(1);
-      });
-
-      it('doesn\'t make artifacts on this.skip', async function() {
-        let stats = await this.runTests({
-          filter: 'it normal this\\.skip$',
-        });
-
-        expect(this.outputDir).to.be.a.directory().and.empty;
-
-        expect(stats.tests).to.equal(1);
-        expect(stats.pending).to.equal(1);
-      });
-
-      it('ignores last test in `after`', async function() {
-        let stats = await this.runTests({
-          filter: 'it `after` order success$',
+          filter: 'it success$',
         });
 
         expect(this.outputDir).to.be.a.directory().and.empty;
@@ -248,10 +216,10 @@ describe(function() {
           filter: 'beforeEach failure$',
         });
 
-        expect(path.join(this.outputDir, 'failure artifacts beforeEach failure.png')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts beforeEach failure.html')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts beforeEach failure.browser.txt')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts beforeEach failure.driver.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts beforeEach !before each! hook for !failure.png')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts beforeEach !before each! hook for !failure.html')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts beforeEach !before each! hook for !failure.browser.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts beforeEach !before each! hook for !failure.driver.txt')).to.be.a.file();
 
         expect(stats.tests).to.equal(0);
         expect(stats.failures).to.equal(1);
@@ -262,10 +230,10 @@ describe(function() {
           filter: 'before with browser failure$',
         });
 
-        expect(path.join(this.outputDir, 'failure artifacts before with browser failure.png')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts before with browser failure.html')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts before with browser failure.browser.txt')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts before with browser failure.driver.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts before with browser !before all! hook for !failure.png')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts before with browser !before all! hook for !failure.html')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts before with browser !before all! hook for !failure.browser.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts before with browser !before all! hook for !failure.driver.txt')).to.be.a.file();
 
         expect(stats.tests).to.equal(0);
         expect(stats.failures).to.equal(1);
@@ -279,6 +247,34 @@ describe(function() {
         expect(this.outputDir).to.be.a.directory().and.empty;
 
         expect(stats.tests).to.equal(0);
+        expect(stats.failures).to.equal(1);
+      });
+
+      it('handles errors in afterEach', async function() {
+        let stats = await this.runTests({
+          filter: 'afterEach failure$',
+        });
+
+        expect(path.join(this.outputDir, 'failure artifacts afterEach !after each! hook for !failure.png')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts afterEach !after each! hook for !failure.html')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts afterEach !after each! hook for !failure.browser.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts afterEach !after each! hook for !failure.driver.txt')).to.be.a.file();
+
+        expect(stats.tests).to.equal(1);
+        expect(stats.failures).to.equal(1);
+      });
+
+      it('handles errors in after', async function() {
+        let stats = await this.runTests({
+          filter: 'after failure$',
+        });
+
+        expect(path.join(this.outputDir, 'failure artifacts after !after all! hook for !failure.png')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts after !after all! hook for !failure.html')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts after !after all! hook for !failure.browser.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts after !after all! hook for !failure.driver.txt')).to.be.a.file();
+
+        expect(stats.tests).to.equal(1);
         expect(stats.failures).to.equal(1);
       });
     });

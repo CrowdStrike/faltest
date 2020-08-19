@@ -5,39 +5,14 @@ const { setUpWebDriver } = require('../../../lifecycle');
 
 describe('failure artifacts', function() {
   describe('it', function() {
-    describe('normal', function() {
-      setUpWebDriver.call(this);
+    setUpWebDriver.call(this);
 
-      it('failure', function() {
-        assert.ok(false);
-      });
-
-      it('success', function() {
-        assert.ok(true);
-      });
-
-      // eslint-disable-next-line mocha/no-skipped-tests
-      it.skip('it.skip', function() {
-        assert.ok(false);
-      });
-
-      it('this.skip', function() {
-        this.skip();
-      });
+    it('failure', function() {
+      assert.ok(false);
     });
 
-    describe('`after` order', function() {
-      setUpWebDriver.call(this);
-
-      it('success', function() {
-        assert.ok(true);
-      });
-
-      // `after`'s `currentTest` will be this, ever though
-      // it was filtered out and never run...
-      it('failure', function() {
-        assert.ok(false);
-      });
+    it('success', function() {
+      assert.ok(true);
     });
   });
 
@@ -73,6 +48,30 @@ describe('failure artifacts', function() {
       });
 
       it('failure', function() {});
+    });
+  });
+
+  describe('afterEach', function() {
+    setUpWebDriver.call(this);
+
+    afterEach(function() {
+      assert.ok(false);
+    });
+
+    it('failure', function() {
+      assert.ok(true);
+    });
+  });
+
+  describe('after', function() {
+    setUpWebDriver.call(this);
+
+    after(function() {
+      assert.ok(false);
+    });
+
+    it('failure', function() {
+      assert.ok(true);
     });
   });
 });
