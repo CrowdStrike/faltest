@@ -4,14 +4,23 @@ const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const path = require('path');
 const clearModule = require('clear-module');
-const { runTests } = require('../../src');
+const { runTests: _runTests } = require('../../src');
 const { promisify } = require('util');
 const tmpDir = promisify(require('tmp').dir);
 
 describe(function() {
-  describe(runTests, function() {
+  describe(_runTests, function() {
     let globs;
     let processEnv;
+
+    before(function() {
+      this.runTests = async options => {
+        return await _runTests({
+          globs,
+          ...options,
+        });
+      };
+    });
 
     beforeEach(function() {
       processEnv = { ...process.env };
@@ -32,16 +41,13 @@ describe(function() {
       });
 
       it('works', async function() {
-        let stats = await runTests({
-          globs,
-        });
+        let stats = await this.runTests();
 
         expect(stats.passes).to.equal(5);
       });
 
       it('works with a tag', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           tag: ['tag1'],
         });
 
@@ -49,8 +55,7 @@ describe(function() {
       });
 
       it('ignores #', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           tag: ['#tag1'],
         });
 
@@ -58,8 +63,7 @@ describe(function() {
       });
 
       it('works with an inverted tag', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           tag: ['!tag1'],
         });
 
@@ -67,8 +71,7 @@ describe(function() {
       });
 
       it('does\'t match other tags when substring', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           tag: ['tag'],
         });
 
@@ -76,8 +79,7 @@ describe(function() {
       });
 
       it('does\'t match other tags when substring - negated', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           tag: ['!tag'],
         });
 
@@ -91,8 +93,7 @@ describe(function() {
       });
 
       it('works with a filter', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           filter: '#tag1',
         });
 
@@ -106,16 +107,13 @@ describe(function() {
       });
 
       it('works', async function() {
-        let stats = await runTests({
-          globs,
-        });
+        let stats = await this.runTests();
 
         expect(stats.passes).to.equal(3);
       });
 
       it('works with a role', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           tag: ['role1'],
         });
 
@@ -123,8 +121,7 @@ describe(function() {
       });
 
       it('works with an inverted role', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           tag: ['!role1'],
         });
 
@@ -138,9 +135,7 @@ describe(function() {
       });
 
       it('works', async function() {
-        let stats = await runTests({
-          globs,
-        });
+        let stats = await this.runTests();
 
         expect(stats.passes).to.equal(1);
       });
@@ -152,8 +147,7 @@ describe(function() {
       });
 
       it('works', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           retries: 1,
         });
 
@@ -171,8 +165,7 @@ describe(function() {
       });
 
       it('works', async function() {
-        await runTests({
-          globs,
+        await this.runTests({
           reporter: 'xunit',
           reporterOptions: `output=${this.output}`,
         });
@@ -193,8 +186,7 @@ describe(function() {
       });
 
       it('works', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           filter: 'it normal failure$',
         });
 
@@ -208,8 +200,7 @@ describe(function() {
       });
 
       it('doesn\'t make artifacts on test success', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           filter: 'it normal success$',
         });
 
@@ -220,8 +211,7 @@ describe(function() {
       });
 
       it('doesn\'t make artifacts on it.skip', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           filter: 'it normal it\\.skip$',
         });
 
@@ -232,8 +222,7 @@ describe(function() {
       });
 
       it('doesn\'t make artifacts on this.skip', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           filter: 'it normal this\\.skip$',
         });
 
@@ -244,8 +233,7 @@ describe(function() {
       });
 
       it('ignores last test in `after`', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           filter: 'it `after` order success$',
         });
 
@@ -256,8 +244,7 @@ describe(function() {
       });
 
       it('handles errors in beforeEach', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           filter: 'beforeEach failure$',
         });
 
@@ -271,8 +258,7 @@ describe(function() {
       });
 
       it('handles errors in before', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           filter: 'before with browser failure$',
         });
 
@@ -286,8 +272,7 @@ describe(function() {
       });
 
       it('doesn\'t make artifacts if no browser', async function() {
-        let stats = await runTests({
-          globs,
+        let stats = await this.runTests({
           filter: 'before without browser failure$',
         });
 
