@@ -195,13 +195,13 @@ describe(function() {
       it('works', async function() {
         let stats = await runTests({
           globs,
-          filter: 'it failure$',
+          filter: 'it normal failure$',
         });
 
-        expect(path.join(this.outputDir, 'failure artifacts it failure.png')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it failure.html')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it failure.browser.txt')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it failure.driver.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it normal failure.png')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it normal failure.html')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it normal failure.browser.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it normal failure.driver.txt')).to.be.a.file();
 
         expect(stats.tests).to.equal(1);
         expect(stats.failures).to.equal(1);
@@ -210,7 +210,7 @@ describe(function() {
       it('doesn\'t make artifacts on test success', async function() {
         let stats = await runTests({
           globs,
-          filter: 'it success$',
+          filter: 'it normal success$',
         });
 
         expect(this.outputDir).to.be.a.directory().and.empty;
@@ -222,7 +222,7 @@ describe(function() {
       it('doesn\'t make artifacts on it.skip', async function() {
         let stats = await runTests({
           globs,
-          filter: 'it it\\.skip$',
+          filter: 'it normal it\\.skip$',
         });
 
         expect(this.outputDir).to.be.a.directory().and.empty;
@@ -234,13 +234,25 @@ describe(function() {
       it('doesn\'t make artifacts on this.skip', async function() {
         let stats = await runTests({
           globs,
-          filter: 'it this\\.skip$',
+          filter: 'it normal this\\.skip$',
         });
 
         expect(this.outputDir).to.be.a.directory().and.empty;
 
         expect(stats.tests).to.equal(1);
         expect(stats.pending).to.equal(1);
+      });
+
+      it('ignores last test in `after`', async function() {
+        let stats = await runTests({
+          globs,
+          filter: 'it `after` order success$',
+        });
+
+        expect(this.outputDir).to.be.a.directory().and.empty;
+
+        expect(stats.tests).to.equal(1);
+        expect(stats.passes).to.equal(1);
       });
 
       it('handles errors in beforeEach', async function() {
@@ -253,6 +265,33 @@ describe(function() {
         expect(path.join(this.outputDir, 'failure artifacts beforeEach failure.html')).to.be.a.file();
         expect(path.join(this.outputDir, 'failure artifacts beforeEach failure.browser.txt')).to.be.a.file();
         expect(path.join(this.outputDir, 'failure artifacts beforeEach failure.driver.txt')).to.be.a.file();
+
+        expect(stats.tests).to.equal(0);
+        expect(stats.failures).to.equal(1);
+      });
+
+      it('handles errors in before', async function() {
+        let stats = await runTests({
+          globs,
+          filter: 'before with browser failure$',
+        });
+
+        expect(path.join(this.outputDir, 'failure artifacts before with browser failure.png')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts before with browser failure.html')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts before with browser failure.browser.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts before with browser failure.driver.txt')).to.be.a.file();
+
+        expect(stats.tests).to.equal(0);
+        expect(stats.failures).to.equal(1);
+      });
+
+      it('doesn\'t make artifacts if no browser', async function() {
+        let stats = await runTests({
+          globs,
+          filter: 'before without browser failure$',
+        });
+
+        expect(this.outputDir).to.be.a.directory().and.empty;
 
         expect(stats.tests).to.equal(0);
         expect(stats.failures).to.equal(1);
