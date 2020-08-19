@@ -29,7 +29,7 @@ function buildTitle(test) {
 
 async function failureArtifacts(outputDir) {
   // If an error occurs in `before` or `beforeEach`,
-  // there's a change the browser has not been initialized yet.
+  // there's a chance the browser has not been initialized yet.
   if (!this.browser) {
     return;
   }
