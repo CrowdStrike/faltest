@@ -20,7 +20,7 @@
     yn "^3.1.1"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "3.2.6"
+  version "3.2.7"
   dependencies:
     "@faltest/mocha" "^2.0.0"
     "@faltest/remote" "^4.0.0"
@@ -29,7 +29,7 @@
     "@faltest/browser" "^2.0.5"
 
 "@faltest/mocha@^2.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "2.0.3"
+  version "2.0.4"
   dependencies:
     choma "^1.2.1"
     filenamify "^4.1.0"
