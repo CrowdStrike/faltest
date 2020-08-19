@@ -9,9 +9,9 @@
     verror-extra "^1.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "2.4.2"
+  version "2.4.3"
   dependencies:
-    "@faltest/mocha" "^2.0.0"
+    "@faltest/mocha" "^3.0.0"
     "@faltest/remote" "^4.0.0"
     "@faltest/utils" "^2.0.4"
     mocha "^7.0.1"
@@ -20,16 +20,15 @@
     yn "^3.1.1"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "3.2.7"
+  version "4.0.0"
   dependencies:
-    "@faltest/mocha" "^2.0.0"
     "@faltest/remote" "^4.0.0"
     "@faltest/utils" "^2.0.4"
   optionalDependencies:
     "@faltest/browser" "^2.0.5"
 
-"@faltest/mocha@^2.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "2.0.4"
+"@faltest/mocha@^3.0.0", "@faltest/mocha@file:../../packages/mocha":
+  version "3.0.0"
   dependencies:
     choma "^1.2.1"
     filenamify "^4.1.0"

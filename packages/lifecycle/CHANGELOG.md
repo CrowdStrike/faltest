@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.2.7...@faltest/lifecycle@4.0.0) (2020-08-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* failure artifacts are now handled in `@faltest/mocha`.
+
+### Features
+
+* remove failure artifact handling ([aff0b46](https://github.com/CrowdStrike/faltest/commit/aff0b469e374846cbc58643777c112fb6114c910))
+
 ### [3.2.7](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.2.6...@faltest/lifecycle@3.2.7) (2020-08-19)
 
 

@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/kellyselden/faltest/compare/multiple-browsers@0.0.9...multiple-browsers@0.0.10) (2020-08-19)
+
 ### [0.0.9](https://github.com/CrowdStrike/faltest/compare/multiple-browsers@0.0.8...multiple-browsers@0.0.9) (2020-06-05)
 
 ### [0.0.8](https://github.com/CrowdStrike/faltest/compare/multiple-browsers@0.0.7...multiple-browsers@0.0.8) (2020-03-31)

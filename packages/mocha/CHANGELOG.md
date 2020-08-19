@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@2.0.4...@faltest/mocha@3.0.0) (2020-08-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* The implementation of `failureArtifacts` has different assumptions, and `failureArtifacts` is no longer exported.
+
+### Features
+
+* use mocha events to handle failure artifacts ([d1068e2](https://github.com/CrowdStrike/faltest/commit/d1068e20947131b6f626796b49884ff5fd7d009f))
+
 ### [2.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@2.0.3...@faltest/mocha@2.0.4) (2020-08-19)
 
 
