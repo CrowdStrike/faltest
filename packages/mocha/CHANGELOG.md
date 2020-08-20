@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.4](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@3.1.3...@faltest/mocha@3.1.4) (2020-08-20)
+
+
+### Bug Fixes
+
+* clean up `promisesToFlushBetweenTests` ([dbe0f69](https://github.com/CrowdStrike/faltest/commit/dbe0f69e43fe004af24dc54022628957f5729c28))
+
 ### [3.1.3](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@3.1.2...@faltest/mocha@3.1.3) (2020-08-20)
 
 
