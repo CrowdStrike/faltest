@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@4.0.1...@faltest/lifecycle@4.0.2) (2020-08-20)
+
+
+### Bug Fixes
+
+* prevents "stale element reference" errors ([5934995](https://github.com/CrowdStrike/faltest/commit/59349956382b9c134f6f52341d9792a166568317))
+
 ### [4.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@4.0.0...@faltest/lifecycle@4.0.1) (2020-08-20)
 
 
