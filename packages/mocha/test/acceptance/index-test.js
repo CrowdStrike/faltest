@@ -7,6 +7,7 @@ const clearModule = require('clear-module');
 const { runTests: _runTests } = require('../../src');
 const { promisify } = require('util');
 const tmpDir = promisify(require('tmp').dir);
+const failureArtifacts = require('../../src/failure-artifacts');
 
 describe(function() {
   describe(_runTests, function() {
@@ -209,6 +210,16 @@ describe(function() {
 
         expect(stats.tests).to.equal(1);
         expect(stats.passes).to.equal(1);
+      });
+
+      it(`handles errors in ${failureArtifacts.name}`, async function() {
+        let promise = this.runTests({
+          filter: `it ${failureArtifacts.name} error failure$`,
+        });
+
+        await expect(promise).to.eventually.be.rejectedWith('test $ error');
+
+        expect(this.outputDir).to.be.a.directory().and.empty;
       });
 
       it('handles errors in beforeEach', async function() {

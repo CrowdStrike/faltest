@@ -1,9 +1,16 @@
 'use strict';
 
 const assert = require('assert');
+const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
+const failureArtifacts = require('../../src/failure-artifacts');
+const sinon = require('sinon');
 
 describe('failure artifacts', function() {
+  afterEach(function() {
+    sinon.restore();
+  });
+
   describe('it', function() {
     setUpWebDriver.call(this);
 
@@ -13,6 +20,22 @@ describe('failure artifacts', function() {
 
     it('success', function() {
       assert.ok(true);
+    });
+
+    describe(`${failureArtifacts.name} error`, function() {
+      let $;
+
+      beforeEach(function() {
+        $ = sinon.stub(this.browser, '$').rejects(new Error('test $ error'));
+      });
+
+      after(function() {
+        expect($).to.have.been.called;
+      });
+
+      it('failure', function() {
+        assert.ok(false);
+      });
     });
   });
 

@@ -12,6 +12,7 @@ async function runMocha(mocha, options) {
   let runner;
 
   let promises = [];
+  let errors = [];
 
   await new Promise(resolve => {
     // `mocha.run` is synchronous if no tests were found,
@@ -22,12 +23,20 @@ async function runMocha(mocha, options) {
       if (options.failureArtifacts) {
         let promise = failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
 
+        // Mocha inspects the Promise rejection queue on exit or something.
+        // We can't leave any rejecting promises for later.
+        promise = promise.catch(err => errors.push(err));
+
         promises.push(promise);
       }
     });
   });
 
   await Promise.all(promises);
+
+  if (errors.length) {
+    throw errors[0];
+  }
 
   return runner;
 }
