@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@4.0.0...@faltest/lifecycle@4.0.1) (2020-08-20)
+
+
+### Bug Fixes
+
+* remove unused debug file ([002e25f](https://github.com/CrowdStrike/faltest/commit/002e25fa948ee0bdc82f829b5f86095c8c0d5b12))
+
 ## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@3.2.7...@faltest/lifecycle@4.0.0) (2020-08-19)
 
 
