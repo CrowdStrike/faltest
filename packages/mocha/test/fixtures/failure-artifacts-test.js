@@ -37,6 +37,20 @@ describe('failure artifacts', function() {
         assert.ok(false);
       });
     });
+
+    describe('prevent stale', function() {
+      beforeEach(async function() {
+        await this.browser.url('https://webdriver.io');
+      });
+
+      it('failure', function() {
+        assert.ok(false);
+      });
+
+      it('success', function() {
+        assert.ok(true);
+      });
+    });
   });
 
   describe('beforeEach', function() {

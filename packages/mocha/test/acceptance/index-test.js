@@ -222,6 +222,22 @@ describe(function() {
         expect(this.outputDir).to.be.a.directory().and.empty;
       });
 
+      it('prevents "stale element reference" errors', async function() {
+        this.timeout(30 * 1000);
+
+        let stats = await this.runTests({
+          filter: 'it prevent stale ',
+        });
+
+        expect(path.join(this.outputDir, 'failure artifacts it prevent stale failure.png')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it prevent stale failure.html')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it prevent stale failure.browser.txt')).to.be.a.file();
+        expect(path.join(this.outputDir, 'failure artifacts it prevent stale failure.driver.txt')).to.be.a.file();
+
+        expect(stats.tests).to.equal(2);
+        expect(stats.failures).to.equal(1);
+      });
+
       it('handles errors in beforeEach', async function() {
         let stats = await this.runTests({
           filter: 'beforeEach failure$',

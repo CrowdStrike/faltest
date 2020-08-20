@@ -20,8 +20,12 @@ async function runMocha(mocha, options) {
     runner = mocha.run(resolve);
 
     runner.on(constants.EVENT_TEST_FAIL, test => {
+      let perTestPromises = [];
+
       if (options.failureArtifacts) {
         let promise = failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+
+        perTestPromises.push(promise);
 
         // Mocha inspects the Promise rejection queue on exit or something.
         // We can't leave any rejecting promises for later.
@@ -29,6 +33,10 @@ async function runMocha(mocha, options) {
 
         promises.push(promise);
       }
+
+      // Prevent "stale element reference: element is not attached to the page document"
+      // or "Error: connect ECONNREFUSED 127.0.0.1:61188"
+      global.promisesToFlushBetweenTests = perTestPromises;
     });
   });
 
