@@ -19,6 +19,10 @@ async function runMocha(mocha, options) {
     // otherwise, it's asynchronous...
     runner = mocha.run(resolve);
 
+    runner.on(constants.EVENT_TEST_BEGIN, () => {
+      global.promisesToFlushBetweenTests = [];
+    });
+
     runner.on(constants.EVENT_TEST_FAIL, test => {
       let perTestPromises = [];
 
