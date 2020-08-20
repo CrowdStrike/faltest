@@ -27,6 +27,7 @@
     "node": ">=8.10"
   },
   "dependencies": {
+    "@faltest/utils": "^2.0.4",
     "choma": "^1.2.1",
     "filenamify": "^4.1.0",
     "glob": "^7.1.4",
