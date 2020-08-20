@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@3.1.0...@faltest/mocha@3.1.1) (2020-08-20)
+
+
+### Bug Fixes
+
+* add more logging ([0981681](https://github.com/CrowdStrike/faltest/commit/098168167e725d516edcd3757abf191c12981fc4))
+
 ## [3.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@3.0.0...@faltest/mocha@3.1.0) (2020-08-20)
 
 
