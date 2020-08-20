@@ -32,6 +32,7 @@ async function failureArtifacts(outputDir) {
   // If an error occurs in `before` or `beforeEach`,
   // there's a chance the browser has not been initialized yet.
   if (!this.browser) {
+    debug('Tried to write failure artifacts, but there is no browser set.');
     return;
   }
 
