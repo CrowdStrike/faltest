@@ -7,6 +7,7 @@ const writeFile = promisify(fs.writeFile);
 // const mkdir = promisify(fs.mkdir);
 const mkdirp = promisify(require('mkdirp'));
 const filenamify = require('filenamify');
+const debug = require('./debug');
 
 function buildTitle(test) {
   let parts = [];
@@ -40,22 +41,25 @@ async function failureArtifacts(outputDir) {
   // await mkdir(outputDir, { recursive: true });
   await mkdirp(outputDir);
 
+  async function writeArtifact(fileName, ...args) {
+    let filePath = path.join(outputDir, fileName);
+    debug(`Writing failure artifact to ${filePath}.`);
+    await writeFile(filePath, ...args);
+  }
+
   let element = await this.browser.$('body');
 
   let screenshot = await this.browser._browser.takeElementScreenshot(element.elementId);
-  let screenshotPath = path.join(outputDir, `${title}.png`);
-  await writeFile(screenshotPath, screenshot, 'base64');
+  await writeArtifact(`${title}.png`, screenshot, 'base64');
 
   let html = await element.getHTML();
-  let htmlPath = path.join(outputDir, `${title}.html`);
-  await writeFile(htmlPath, html);
+  await writeArtifact(`${title}.html`, html);
 
   let logTypes = await this.browser._browser.getLogTypes();
   for (let logType of logTypes) {
     let logs = await this.browser._browser.getLogs(logType);
     let logsText = JSON.stringify(logs, null, 2);
-    let logPath = path.join(outputDir, `${title}.${logType}.txt`);
-    await writeFile(logPath, logsText);
+    await writeArtifact(`${title}.${logType}.txt`, logsText);
   }
 }
 
