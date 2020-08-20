@@ -223,8 +223,6 @@ describe(function() {
       });
 
       it('prevents "stale element reference" errors', async function() {
-        this.timeout(30 * 1000);
-
         let stats = await this.runTests({
           filter: 'it prevent stale ',
         });

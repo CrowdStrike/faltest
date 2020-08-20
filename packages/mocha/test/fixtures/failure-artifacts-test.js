@@ -5,6 +5,7 @@ const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
 const failureArtifacts = require('../../src/failure-artifacts');
 const sinon = require('sinon');
+const Server = require('../../../../helpers/server');
 
 describe('failure artifacts', function() {
   afterEach(function() {
@@ -40,7 +41,17 @@ describe('failure artifacts', function() {
 
     describe('prevent stale', function() {
       beforeEach(async function() {
-        await this.browser.url('https://webdriver.io');
+        this.server = new Server();
+
+        let port = await this.server.start();
+
+        await this.browser.url(`http://localhost:${port}`);
+      });
+
+      afterEach(async function() {
+        if (this.server) {
+          await this.server.stop();
+        }
       });
 
       it('failure', function() {
