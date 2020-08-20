@@ -230,6 +230,14 @@ async function setUpWebDriverAfterEach(options) {
     }
   }
 
+  if (global.promisesToFlushBetweenTests) {
+    try {
+      await Promise.all(global.promisesToFlushBetweenTests);
+    } catch (err) {
+      // This will be handled by the source.
+    }
+  }
+
   await lifecycleEvent('after-each-end', this, options);
 }
 
