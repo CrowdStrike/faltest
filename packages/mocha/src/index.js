@@ -5,6 +5,7 @@ const { promisify } = require('util');
 const glob = promisify(require('glob'));
 const { buildGrep } = require('./tag');
 const failureArtifacts = require('./failure-artifacts');
+const debug = require('./debug');
 
 const { constants } = Mocha.Runner;
 
@@ -41,6 +42,10 @@ async function runMocha(mocha, options) {
       // Prevent "stale element reference: element is not attached to the page document"
       // or "Error: connect ECONNREFUSED 127.0.0.1:61188"
       global.promisesToFlushBetweenTests = perTestPromises;
+    });
+
+    runner.on(constants.EVENT_TEST_RETRY, (test, err) => {
+      debug(`Retrying failed test "${test.title}": ${err}`);
     });
   });
 
