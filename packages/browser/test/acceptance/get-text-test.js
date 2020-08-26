@@ -22,10 +22,6 @@ describe(Browser.prototype.getText, function() {
   let fixturesPath;
 
   before(function() {
-    this.createPage = function(Page) {
-      return new Page(this.browser);
-    };
-
     this.open = async function(pathname) {
       await this.browser.url(`http://localhost:${this.port}/${pathname}`);
     };
