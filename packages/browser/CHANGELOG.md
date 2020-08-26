@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@2.0.9...@faltest/browser@2.1.0) (2020-08-26)
+
+
+### Features
+
+* add `waitForText` inverted option ([9f2956a](https://github.com/CrowdStrike/faltest/commit/9f2956abbe8046f1f986cefbfe3cca71ff2ed7a6))
+
 ### [2.0.9](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@2.0.8...@faltest/browser@2.0.9) (2020-06-21)
 
 
