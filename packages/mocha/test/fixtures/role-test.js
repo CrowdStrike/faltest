@@ -3,7 +3,7 @@
 const assert = require('assert');
 const { createRolesHelper } = require('../../src');
 
-const roles = createRolesHelper(describe, role => role);
+const roles = createRolesHelper(global, role => role);
 
 describe('role', function() {
   roles('#role1', function() {

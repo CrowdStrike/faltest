@@ -18,7 +18,7 @@ function areAllFlagsPresent(names, total) {
 }
 
 function flaggedTest(total, isDeactivated) {
-  return it => {
+  return mocha => {
     return function flaggedTest(stringOrObject, callback) {
       let name;
       let flags = [];
@@ -33,10 +33,10 @@ function flaggedTest(total, isDeactivated) {
 
       if (!isDeactivated && flags.length) {
         name = formatTitle(name);
-        name += `${it.titleSeparator || titleSeparator}flags: ${flags.join(', ')}`;
+        name += `${mocha.it.titleSeparator || titleSeparator}flags: ${flags.join(', ')}`;
       }
 
-      it(name, async function () {
+      mocha.it(name, async function () {
         if (!isDeactivated && flags.length && !areAllFlagsPresent(flags, total)) {
           this.skip();
           return;
@@ -48,10 +48,10 @@ function flaggedTest(total, isDeactivated) {
   };
 }
 
-function create(it, flags, isDeactivated) {
+function create(mocha, flags, isDeactivated) {
   let _flaggedTest = flaggedTest(flags, isDeactivated);
 
-  let _it = wrap(it, _flaggedTest);
+  let _it = wrap(mocha, 'it', _flaggedTest);
 
   return _it;
 }

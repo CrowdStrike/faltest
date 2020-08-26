@@ -1,13 +1,13 @@
 'use strict';
 
-function wrap(mocha, func) {
-  let _mocha = func(mocha);
-  for (let name of Object.keys(mocha)) {
-    if (typeof mocha[name] === 'function') {
-      _mocha[name] = func(mocha[name]);
+function wrap(mocha, name, func) {
+  let test = func({ [name]() { return mocha[name](...arguments); } });
+  for (let modifier of Object.keys(mocha[name])) {
+    if (typeof mocha[name][modifier] === 'function') {
+      test[modifier] = func({ [name]() { return mocha[name][modifier](...arguments); } });
     }
   }
-  return _mocha;
+  return test;
 }
 
 module.exports = {
