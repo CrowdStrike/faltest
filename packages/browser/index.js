@@ -362,9 +362,10 @@ Browser.prototype.findByText = resolveElements(async function findByText(element
   throw new Error(`Find by text "${text}" yielded no results.`);
 });
 
-Browser.prototype.waitForText = resolveElement(async function waitForText(element, text) {
+Browser.prototype.waitForText = resolveElement(async function waitForText(element, text, invert) {
   await this.waitUntil(async () => {
-    return await this.getText(element) === text;
+    let currentText = await this.getText(element);
+    return invert ? currentText !== text : currentText === text;
   });
 });
 
