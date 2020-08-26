@@ -6,7 +6,7 @@ const {
 const { wrap } = require('./mocha');
 
 function roles(getRole, getFilePathTitle) {
-  return describe => {
+  return mocha => {
     return function roles(tags, callback) {
       // must be instanced and not inline
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec#Finding_successive_matches
@@ -17,8 +17,8 @@ function roles(getRole, getFilePathTitle) {
         for (let matches; matches = regex.exec(tags);) {
           let role = matches[1];
 
-          describe(`#${role}`, function() {
-            before(function() {
+          mocha.describe(`#${role}`, function() {
+            global.before(function() {
               this.role = getRole(role);
             });
 
@@ -36,10 +36,10 @@ function roles(getRole, getFilePathTitle) {
   };
 }
 
-function create(describe, getRole, getFilePathTitle) {
+function create(mocha, getRole, getFilePathTitle) {
   let __roles = roles(getRole, getFilePathTitle);
 
-  let _roles = wrap(describe, __roles);
+  let _roles = wrap(mocha, 'describe', __roles);
 
   return _roles;
 }

@@ -3,7 +3,7 @@
 const assert = require('assert');
 const { createFlaggedTest } = require('../../src');
 
-global.it = createFlaggedTest(it, ['flag1']);
+const it = createFlaggedTest(global, ['flag1']);
 
 describe('flag', function() {
   it({
