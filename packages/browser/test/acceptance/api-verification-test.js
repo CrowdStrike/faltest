@@ -140,4 +140,17 @@ describe(function() {
     await expect(this.browser.waitForDestroy('.foo'))
       .to.eventually.be.fulfilled;
   });
+
+  it('waitForText', async function() {
+    await this.writeFixture('index.html', `
+      <span class="foo">
+        bar
+      </span>
+    `);
+
+    await this.open('index.html');
+
+    await expect(this.browser.waitForText('.foo', 'bar'))
+      .to.eventually.be.fulfilled;
+  });
 });
