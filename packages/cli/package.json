@@ -1,6 +1,6 @@
 {
   "name": "@faltest/cli",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "The CLI for the FalTest system",
   "bin": {
     "faltest": "bin/index.js",
@@ -32,7 +32,7 @@
     "node": ">=8.10"
   },
   "dependencies": {
-    "@faltest/mocha": "^3.0.0",
+    "@faltest/mocha": "^4.0.0",
     "@faltest/remote": "^4.0.0",
     "@faltest/utils": "^2.0.4",
     "mocha": "^7.0.1",

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@3.2.0...@faltest/mocha@4.0.0) (2020-08-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* The first param of `createRolesHelper` and `createFlaggedTest` has changed to be the object source of the mocha hooks (usually `global`).
+
+### Bug Fixes
+
+* defer accessing mocha hooks until needed ([8eb4625](https://github.com/CrowdStrike/faltest/commit/8eb46256c72234069c1350355f691d8a94b37b42))
+
 ## [3.2.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@3.1.4...@faltest/mocha@3.2.0) (2020-08-24)
 
 
