@@ -7,11 +7,11 @@ const {
   createFlaggedTest,
 } = require('@faltest/mocha');
 
-const roles = createRolesHelper(global.describe, role => config.get('roles').get(role));
+const roles = createRolesHelper(global, role => config.get('roles').get(role));
 
 const featureFlags = [];
 
-const it = createFlaggedTest(global.it, featureFlags);
+const it = createFlaggedTest(global, featureFlags);
 
 module.exports = {
   setUpWebDriver,
