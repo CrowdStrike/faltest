@@ -24,11 +24,11 @@ async function runMocha(mocha, options) {
       global.promisesToFlushBetweenTests = [];
     });
 
-    runner.on(constants.EVENT_TEST_FAIL, test => {
+    function handlePromises(callback) {
       let perTestPromises = [];
 
       if (options.failureArtifacts) {
-        let promise = failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+        let promise = callback();
 
         perTestPromises.push(promise);
 
@@ -42,10 +42,22 @@ async function runMocha(mocha, options) {
       // Prevent "stale element reference: element is not attached to the page document"
       // or "Error: connect ECONNREFUSED 127.0.0.1:61188"
       global.promisesToFlushBetweenTests = perTestPromises;
+    }
+
+    runner.on(constants.EVENT_TEST_FAIL, test => {
+      handlePromises(() => {
+        return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+      });
     });
 
     runner.on(constants.EVENT_TEST_RETRY, (test, err) => {
       debug(`Retrying failed test "${test.title}": ${err}`);
+    });
+
+    runner.on(constants.EVENT_TEST_PASS, (test) => {
+      handlePromises(() => {
+        return failureArtifacts.flush.call(test.ctx);
+      });
     });
   });
 

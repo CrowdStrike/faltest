@@ -64,4 +64,17 @@ async function failureArtifacts(outputDir) {
   }
 }
 
+async function flush() {
+  let logTypes = await this.browser._browser.getLogTypes();
+  for (let logType of logTypes) {
+    // https://v5.webdriver.io/docs/api/chromium.html#getlogs
+    // "Log buffer is reset after each request."
+    // For the failure logs to be useful, it should only include the failing test,
+    // not the whole test run up until the failure. So we need to clear the logs
+    // between each test.
+    await this.browser._browser.getLogs(logType);
+  }
+}
+
 module.exports = failureArtifacts;
+module.exports.flush = flush;
