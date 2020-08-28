@@ -3238,16 +3238,17 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.4:
   dependencies:
     minimist "^1.2.5"
 
-mocha-helpers@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/mocha-helpers/-/mocha-helpers-4.3.0.tgz#9a499686a3681b1b6fdf69866d61e4c29a630081"
-  integrity sha512-9KjxN8lUOoU4c9ealu8To41EWE+7zmFvYncuB7wMKYDK2ol78IeOVpBIy+2kCssksIUWwE0tFk2bLxevtYbY9Q==
+mocha-helpers@^4.3.0, mocha-helpers@^4.6.1:
+  version "4.6.1"
+  resolved "https://registry.npmjs.org/mocha-helpers/-/mocha-helpers-4.6.1.tgz#8ee4ef5373b90a6d77790a7e3b264e2f0cd1e179"
+  integrity sha512-ZZ8YJd+YjeMIepJSt5FzTd16Jw37hQICEVXhQthsfNwJRvUYJqMUWmAfE9pvGv3NL/YlFzBuSi48xLvUhDdgKA==
   dependencies:
     callsites "^3.0.0"
     commondir "^1.0.1"
+    mocha "^7.2.0"
     titleize "^2.1.0"
 
-mocha@^7.0.1:
+mocha@^7.0.1, mocha@^7.2.0:
   version "7.2.0"
   resolved "https://registry.npmjs.org/mocha/-/mocha-7.2.0.tgz#01cc227b00d875ab1eed03a75106689cfed5a604"
   integrity sha512-O9CIypScywTVpNaRrCAgoUnJgozpIofjKUYmJhiCIJMiuYnLI6otcb1/kpW9/n/tJODHGZ7i8aLQoDVsMtOKQQ==
