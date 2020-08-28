@@ -1,6 +1,6 @@
 'use strict';
 
-const { describe, it } = require('../../../../helpers/mocha');
+const { describe, it, setUpObjectReset } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const { setUpWebDriver } = require('../../../lifecycle');
 const debug = require('../../../utils/src/scope-debug');
@@ -37,10 +37,7 @@ function test(title, logLevel) {
 
     let rawMethod;
 
-    let resetDebug = (obj => () => Object.assign(debug, obj))({
-      enabled: debug.enabled,
-      log: debug.log,
-    });
+    setUpObjectReset(debug);
 
     let server;
     let port;
@@ -69,8 +66,6 @@ function test(title, logLevel) {
 
     afterEach(function() {
       sinon.restore();
-
-      resetDebug();
     });
 
     after(async function() {
