@@ -12,6 +12,10 @@ const log = require('loglevel');
 
 const replacementText = '[REDACTED]';
 const elementSendKeysRegex = /elementSendKeys\("(.+)", ".*"\)/;
+// eslint-disable-next-line no-control-regex
+const commandRegex = /^(?:\x1b\[35m)?COMMAND(?:\x1b\[39m)?$/;
+// eslint-disable-next-line no-control-regex
+const dataRegex = /^(?:\x1b\[33m)?DATA(?:\x1b\[39m)?$/;
 
 let replacementCountRemaining;
 function resetCounter() {
@@ -43,11 +47,11 @@ log.methodFactory = function(methodName, level, loggerName) {
     if (replacementCountRemaining > 0 && type) {
       let wasFound;
 
-      if (type === '[35mCOMMAND[39m' && elementSendKeysRegex.test(data)) {
+      if (commandRegex.test(type) && elementSendKeysRegex.test(data)) {
         rawMethod(message, type, data.replace(elementSendKeysRegex, `elementSendKeys("$1", "${replacementText}")`));
         wasFound = true;
       }
-      if (type === '[33mDATA[39m' && Object.prototype.hasOwnProperty.call(data, 'text')) {
+      if (dataRegex.test(type) && Object.prototype.hasOwnProperty.call(data, 'text')) {
         rawMethod(message, type, {
           ...data,
           text: replacementText,
