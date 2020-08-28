@@ -3001,13 +3001,6 @@ lodash@4.17.15, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.2.1
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
-log-symbols@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-2.2.0.tgz#5740e1c5d6f0dfda4ad9323b5332107ef6b4c40a"
-  integrity sha512-VeIAFslyIerEJLXHziedo2basKbMKtTw3vfn5IzG0XTjhAVEJyNHnL2p7vc+wBDSdQuUpNw3M2u6xb9QsAY5Eg==
-  dependencies:
-    chalk "^2.0.1"
-
 log-symbols@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-3.0.0.tgz#f3a08516a5dea893336a7dee14d18a1cfdab77c4"
@@ -3231,24 +3224,17 @@ minizlib@^1.1.0:
   dependencies:
     minipass "^2.9.0"
 
-mkdirp@0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.3.tgz#5a514b7179259287952881e94410ec5465659f8c"
-  integrity sha512-P+2gwrFqx8lhew375MQHHeTlY8AuOJSrGf0R5ddkEndUkmwpgUob/vQuBD1V22/Cw1/lJr4x+EjllSezBThzBg==
-  dependencies:
-    minimist "^1.2.5"
-
-mkdirp@0.5.4, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.4:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.4.tgz#fd01504a6797ec5c9be81ff43d204961ed64a512"
-  integrity sha512-iG9AK/dJLtJ0XNgTuDbSyNS3zECqDlAhnQW4CsNxBG3LQJBbHmRX1egw39DmtOdCAqY+dKXV+sgPgilNWUKMVw==
-  dependencies:
-    minimist "^1.2.5"
-
 mkdirp@0.5.5:
   version "0.5.5"
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.5.tgz#d91cefd62d1436ca0f41620e251288d420099def"
   integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
+  dependencies:
+    minimist "^1.2.5"
+
+mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.4.tgz#fd01504a6797ec5c9be81ff43d204961ed64a512"
+  integrity sha512-iG9AK/dJLtJ0XNgTuDbSyNS3zECqDlAhnQW4CsNxBG3LQJBbHmRX1egw39DmtOdCAqY+dKXV+sgPgilNWUKMVw==
   dependencies:
     minimist "^1.2.5"
 
@@ -3261,39 +3247,10 @@ mocha-helpers@^4.3.0:
     commondir "^1.0.1"
     titleize "^2.1.0"
 
-mocha@^6.2.0:
-  version "6.2.3"
-  resolved "https://registry.yarnpkg.com/mocha/-/mocha-6.2.3.tgz#e648432181d8b99393410212664450a4c1e31912"
-  integrity sha512-0R/3FvjIGH3eEuG17ccFPk117XL2rWxatr81a57D+r/x2uTYZRbdZ4oVidEUMh2W2TJDa7MdAb12Lm2/qrKajg==
-  dependencies:
-    ansi-colors "3.2.3"
-    browser-stdout "1.3.1"
-    debug "3.2.6"
-    diff "3.5.0"
-    escape-string-regexp "1.0.5"
-    find-up "3.0.0"
-    glob "7.1.3"
-    growl "1.10.5"
-    he "1.2.0"
-    js-yaml "3.13.1"
-    log-symbols "2.2.0"
-    minimatch "3.0.4"
-    mkdirp "0.5.4"
-    ms "2.1.1"
-    node-environment-flags "1.0.5"
-    object.assign "4.1.0"
-    strip-json-comments "2.0.1"
-    supports-color "6.0.0"
-    which "1.3.1"
-    wide-align "1.1.3"
-    yargs "13.3.2"
-    yargs-parser "13.1.2"
-    yargs-unparser "1.6.0"
-
 mocha@^7.0.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/mocha/-/mocha-7.1.1.tgz#89fbb30d09429845b1bb893a830bf5771049a441"
-  integrity sha512-3qQsu3ijNS3GkWcccT5Zw0hf/rWvu1fTN9sPvEd81hlwsr30GX2GcDSSoBxo24IR8FelmrAydGC6/1J5QQP4WA==
+  version "7.2.0"
+  resolved "https://registry.npmjs.org/mocha/-/mocha-7.2.0.tgz#01cc227b00d875ab1eed03a75106689cfed5a604"
+  integrity sha512-O9CIypScywTVpNaRrCAgoUnJgozpIofjKUYmJhiCIJMiuYnLI6otcb1/kpW9/n/tJODHGZ7i8aLQoDVsMtOKQQ==
   dependencies:
     ansi-colors "3.2.3"
     browser-stdout "1.3.1"
@@ -3308,7 +3265,7 @@ mocha@^7.0.1:
     js-yaml "3.13.1"
     log-symbols "3.0.0"
     minimatch "3.0.4"
-    mkdirp "0.5.3"
+    mkdirp "0.5.5"
     ms "2.1.1"
     node-environment-flags "1.0.6"
     object.assign "4.1.0"
@@ -3404,14 +3361,6 @@ nise@^3.0.1:
     just-extend "^4.0.2"
     lolex "^5.0.1"
     path-to-regexp "^1.7.0"
-
-node-environment-flags@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/node-environment-flags/-/node-environment-flags-1.0.5.tgz#fa930275f5bf5dae188d6192b24b4c8bbac3d76a"
-  integrity sha512-VNYPRfGfmZLx0Ye20jWzHUjyTW/c+6Wq+iLhDzUI4XmhrDd9l/FozXV3F2xOaXjvp0co0+v1YSR3CMP6g+VvLQ==
-  dependencies:
-    object.getownpropertydescriptors "^2.0.3"
-    semver "^5.7.0"
 
 node-environment-flags@1.0.6:
   version "1.0.6"
