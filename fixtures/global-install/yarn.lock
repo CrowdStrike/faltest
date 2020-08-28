@@ -28,7 +28,7 @@
     "@faltest/browser" "^2.0.5"
 
 "@faltest/mocha@^4.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "4.0.0"
+  version "4.0.1"
   dependencies:
     "@faltest/utils" "^2.0.4"
     choma "^1.2.1"

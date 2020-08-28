@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@4.0.0...@faltest/mocha@4.0.1) (2020-08-28)
+
+
+### Bug Fixes
+
+* clear logs between tests to improve failure logs ([91fca85](https://github.com/CrowdStrike/faltest/commit/91fca85334470e68638332c1f60a463237c002a9))
+
 ## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@3.2.0...@faltest/mocha@4.0.0) (2020-08-26)
 
 
