@@ -285,6 +285,7 @@ function setUpWebDriver(options) {
     throttleNetwork,
     browserOverride,
     overrides: defaultOverrides,
+    mocha: global,
     timeout: 60 * 1000,
     ...options,
   };
@@ -297,7 +298,7 @@ function setUpWebDriver(options) {
     ['afterEach', setUpWebDriverAfterEach],
     ['after', setUpWebDriverAfter],
   ]) {
-    global[name](function() {
+    options.mocha[name](function() {
       return log(name, async () => {
         await func.call(this, options);
       });
