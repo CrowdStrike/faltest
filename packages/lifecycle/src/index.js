@@ -272,8 +272,6 @@ function areRolesEqual(role1, role2) {
 }
 
 function setUpWebDriver(options) {
-  this.timeout(60 * 1000);
-
   options = {
     shareWebdriver,
     keepBrowserOpen,
@@ -287,8 +285,11 @@ function setUpWebDriver(options) {
     throttleNetwork,
     browserOverride,
     overrides: defaultOverrides,
+    timeout: 60 * 1000,
     ...options,
   };
+
+  this.timeout(options.timeout);
 
   for (let [name, func] of [
     ['before', setUpWebDriverBefore],
