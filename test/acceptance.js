@@ -18,4 +18,30 @@ describe(function() {
 
     expect(output).to.include(' 1 passing');
   });
+
+  it('cross-env FORCE_COLOR=1 mocha fixtures/redact-password-test.js --exit', async function() {
+    this.timeout(60 * 1000);
+
+    let output = await this.run();
+
+    expect(output).to.include(' 4 passing');
+  });
+
+  // more permissive log level
+  it('cross-env LOG_LEVEL=trace mocha fixtures/redact-password-test.js --exit', async function() {
+    this.timeout(60 * 1000);
+
+    let output = await this.run();
+
+    expect(output).to.include(' 4 passing');
+  });
+
+  // without colors
+  it('cross-env FORCE_COLOR=0 mocha fixtures/redact-password-test.js --exit', async function() {
+    this.timeout(60 * 1000);
+
+    let output = await this.run();
+
+    expect(output).to.include(' 4 passing');
+  });
 });
