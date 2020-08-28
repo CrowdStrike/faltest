@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@4.0.2...@faltest/lifecycle@4.1.0) (2020-08-28)
+
+
+### Features
+
+* allow overriding the default timeout ([9302cfa](https://github.com/CrowdStrike/faltest/commit/9302cfafdb4592071adf8077735711decdf091e4))
+* allow overriding the mocha hook source ([809f664](https://github.com/CrowdStrike/faltest/commit/809f6644bfab8621387ae67e9312d340cc677ce4))
+
 ### [4.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@4.0.1...@faltest/lifecycle@4.0.2) (2020-08-20)
 
 
