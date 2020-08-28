@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "mocha": "^7.0.1",
-    "sinon": "^8.0.0"
+    "sinon": "^9.0.0"
   },
   "peerDependencies": {
     "@faltest/browser": ">=1.3.0",
