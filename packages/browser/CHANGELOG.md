@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@2.1.0...@faltest/browser@2.1.1) (2020-08-28)
+
+
+### Bug Fixes
+
+* accommodate logging without colors enabled when redacting ([0ecb207](https://github.com/CrowdStrike/faltest/commit/0ecb2073b15a6572e10ad513fe62ea9404cd42c7))
+
 ## [2.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@2.0.9...@faltest/browser@2.1.0) (2020-08-26)
 
 
