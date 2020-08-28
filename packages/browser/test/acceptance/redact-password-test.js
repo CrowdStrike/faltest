@@ -97,7 +97,7 @@ function test(title, logLevel) {
       expect(await this.browser.getValue('input')).to.equal(password);
     });
 
-    it('also hide empty strings', async function() {
+    it('also hides empty strings', async function() {
       await this.browser.setPassword('input', '');
 
       expect(rawMethod.withArgs(sinon.match.any, sinon.match.any, sinon.match({ text: '[REDACTED]' }))).to.have.been.calledOnce;
