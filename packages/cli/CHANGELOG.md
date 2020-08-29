@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.4.4...@faltest/cli@2.5.0) (2020-08-29)
+
+
+### Features
+
+* add a `--dry-run` option ([aa6dc5a](https://github.com/CrowdStrike/faltest/commit/aa6dc5a007fd6d20e3428a0e3231e4ec1aedf4a1))
+
 ### [2.4.4](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.4.3...@faltest/cli@2.4.4) (2020-08-26)
 
 ### [2.4.3](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.4.2...@faltest/cli@2.4.3) (2020-08-19)

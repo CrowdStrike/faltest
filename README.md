@@ -78,6 +78,9 @@ Options:
   --failure-artifacts-output-dir  Location to save failure artifacts    [string]
   --reporter                      Change the Mocha reporter             [string]
   --reporter-options              Supply Mocha reporter options         [string]
+  --dry-run                       List the tests that would have run instead of
+                                  actually running them
+                                                      [boolean] [default: false]
 ```
 
 <!-- CODEGEN_CLI_HELP_END -->

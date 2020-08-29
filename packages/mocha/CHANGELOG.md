@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@4.0.1...@faltest/mocha@4.1.0) (2020-08-29)
+
+
+### Features
+
+* add a `--dry-run` option ([aa6dc5a](https://github.com/CrowdStrike/faltest/commit/aa6dc5a007fd6d20e3428a0e3231e4ec1aedf4a1))
+
 ### [4.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@4.0.0...@faltest/mocha@4.0.1) (2020-08-28)
 
 
