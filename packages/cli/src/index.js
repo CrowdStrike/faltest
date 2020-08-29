@@ -145,6 +145,11 @@ function initCli({
         type: 'string',
         description: 'Supply Mocha reporter options',
       },
+      'dry-run': {
+        type: 'boolean',
+        default: false,
+        description: 'List the tests that would have run instead of actually running them',
+      },
       ...extraOptions,
     })
     .strict();

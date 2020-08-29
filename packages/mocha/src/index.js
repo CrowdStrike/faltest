@@ -7,7 +7,8 @@ const { buildGrep } = require('./tag');
 const failureArtifacts = require('./failure-artifacts');
 const debug = require('./debug');
 
-const { constants } = Mocha.Runner;
+const { Runner } = Mocha;
+const { constants } = Runner;
 
 async function runMocha(mocha, options) {
   let runner;
@@ -82,6 +83,7 @@ async function runTests(options) {
     disableTimeouts,
     reporter,
     reporterOptions,
+    dryRun,
   } = options;
 
   if (random) {
@@ -125,7 +127,29 @@ async function runTests(options) {
     }
   }
 
-  let runner = await runMocha(mocha, options);
+  let runner;
+  let { ...prototype } = Runner.prototype;
+
+  if (dryRun) {
+    Object.assign(Runner.prototype, {
+      hook(name, fn) {
+        fn();
+      },
+      runTest(fn) {
+        try {
+          this.test.skip();
+        } catch (err) {
+          fn(err);
+        }
+      },
+    });
+  }
+
+  try {
+    runner = await runMocha(mocha, options);
+  } finally {
+    Object.assign(Runner.prototype, prototype);
+  }
 
   return runner.stats;
 }

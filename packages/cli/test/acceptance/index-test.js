@@ -155,4 +155,17 @@ describe(function() {
       }
     });
   });
+
+  it('can dry run', async function() {
+    let { stdout } = await execa('node', ['bin', '--reporter=json', 'test/fixtures/dry-run-test.js', '--dry-run'], {
+      cwd,
+      env,
+    });
+
+    let json = JSON.parse(stdout);
+
+    expect(json.stats.tests).to.equal(1);
+    expect(json.stats.pending).to.equal(1);
+    expect(json.tests[0].fullTitle).to.equal('dry run failure isn\'t run');
+  });
 });

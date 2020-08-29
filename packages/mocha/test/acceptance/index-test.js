@@ -303,5 +303,19 @@ describe(function() {
         expect(stats.failures).to.equal(1);
       });
     });
+
+    describe('dry run', function() {
+      before(function() {
+        globs = [path.resolve(__dirname, '../fixtures/dry-run-test.js')];
+      });
+
+      it('works', async function() {
+        let stats = await this.runTests({
+          dryRun: true,
+        });
+
+        expect(stats.pending).to.equal(1);
+      });
+    });
   });
 });
