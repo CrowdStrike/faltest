@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0.0",
+  "packages": [
+    {
+      "name": "standard-node-template",
+      "version": "1.0.0",
+      "blueprints": [
+        {
+          "name": "standard-node-template",
+          "isBaseBlueprint": true
+        }
+      ]
+    }
+  ]
+}
