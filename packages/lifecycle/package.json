@@ -34,7 +34,7 @@
     "@faltest/browser": "^2.0.5"
   },
   "devDependencies": {
-    "mocha": "^7.0.1",
+    "mocha": "^8.0.0",
     "sinon": "^9.0.0",
     "tmp": "0.2.1"
   }
