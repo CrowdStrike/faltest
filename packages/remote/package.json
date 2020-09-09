@@ -29,7 +29,7 @@
   "dependencies": {
     "@faltest/utils": "^2.0.4",
     "chromedriver": "80.0.2",
-    "execa": "^3.0.0",
+    "execa": "^4.0.0",
     "fkill": "^6.2.0",
     "geckodriver": "1.19.1",
     "get-port": "^5.0.0",
