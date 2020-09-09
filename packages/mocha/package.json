@@ -32,7 +32,7 @@
     "filenamify": "^4.1.0",
     "glob": "^7.1.4",
     "mkdirp": "0.5.5",
-    "mocha-helpers": "^4.3.0"
+    "mocha-helpers": "^5.0.0"
   },
   "peerDependencies": {
     "mocha": ">=6"
