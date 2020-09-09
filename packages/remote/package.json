@@ -30,7 +30,7 @@
     "@faltest/utils": "^2.0.4",
     "chromedriver": "85.0.1",
     "execa": "^4.0.0",
-    "fkill": "^6.2.0",
+    "fkill": "^7.0.0",
     "geckodriver": "1.20.0",
     "get-port": "^5.0.0",
     "ps-list": "^6.3.0",
