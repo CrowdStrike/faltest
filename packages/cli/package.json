@@ -37,7 +37,7 @@
     "@faltest/utils": "^2.0.4",
     "mocha": "^8.0.0",
     "threads": "^1.6.1",
-    "yargs": "^15.0.0",
+    "yargs": "^16.0.0",
     "yn": "^4.0.0"
   },
   "devDependencies": {
