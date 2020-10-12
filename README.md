@@ -7,7 +7,7 @@ A different take on [WebDriver](https://www.w3.org/TR/webdriver1) browser testin
 
 ## Requirements
 
-Make sure [Node.js](https://nodejs.org) 8.10+ is installed.
+Make sure [Node.js](https://nodejs.org) 10.12+ is installed.
 
 ## Setup
 
