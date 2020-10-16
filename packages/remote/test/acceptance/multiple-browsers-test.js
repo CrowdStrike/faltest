@@ -10,7 +10,7 @@ const {
 } = require('../../../remote');
 
 describe(function() {
-  this.timeout(30 * 1000);
+  this.timeout(30e3);
 
   before(async function() {
     this.webDriver = await startWebDriver();

@@ -20,7 +20,7 @@ describe(function() {
 
   describe(getCwd('custom-cli'), function() {
     it('yarn start', async function() {
-      this.timeout(30 * 1000);
+      this.timeout(30e3);
 
       let output = await this.run();
 
@@ -30,7 +30,7 @@ describe(function() {
 
   describe(getCwd('full-suite'), function() {
     it('yarn start --target fixtures --env dev --tag user --tag smoke', async function() {
-      this.timeout(30 * 1000);
+      this.timeout(30e3);
 
       let output = await this.run();
 
@@ -39,7 +39,7 @@ describe(function() {
     });
 
     it('yarn start --tag admin --tag !smoke', async function() {
-      this.timeout(60 * 1000);
+      this.timeout(60e3);
 
       let output = await this.run();
 
@@ -48,7 +48,7 @@ describe(function() {
     });
 
     it('yarn start --tag admin --filter unfinished', async function() {
-      this.timeout(30 * 1000);
+      this.timeout(30e3);
 
       let output = await this.run();
 
@@ -59,7 +59,7 @@ describe(function() {
 
   describe(getCwd('lifecycle-only'), function() {
     it('yarn start', async function() {
-      this.timeout(30 * 1000);
+      this.timeout(30e3);
 
       let output = await this.run();
 
@@ -69,7 +69,7 @@ describe(function() {
 
   describe(getCwd('multiple-browsers'), function() {
     it('yarn start', async function() {
-      this.timeout(30 * 1000);
+      this.timeout(30e3);
 
       let output = await this.run();
 
@@ -79,7 +79,7 @@ describe(function() {
 
   describe(getCwd('runner-only'), function() {
     it('yarn start', async function() {
-      this.timeout(30 * 1000);
+      this.timeout(30e3);
 
       let output = await this.run();
 
