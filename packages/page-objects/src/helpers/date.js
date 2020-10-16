@@ -1,6 +1,6 @@
 'use strict';
 
-const thirtyMins = 30 * 60 * 1000;
+const thirtyMins = 30 * 60e3;
 
 function encodeString(original, outOfRange, interval = thirtyMins) {
   let now = new Date().getTime();

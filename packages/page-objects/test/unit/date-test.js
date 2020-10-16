@@ -40,13 +40,13 @@ describe(function() {
   it('should purge if match and not in range', function() {
     let name = 'test-name';
 
-    sinon.useFakeTimers(new Date().getTime() - 60 * 60 * 1000);
+    sinon.useFakeTimers(new Date().getTime() - 60 * 60e3);
 
     let oldEncoded = encodeString(name);
 
     sinon.restore();
 
-    expect(shouldPurge(oldEncoded, [name], 30 * 60 * 1000)).to.be.true;
+    expect(shouldPurge(oldEncoded, [name], 30 * 60e3)).to.be.true;
   });
 
   it('should purge if match and force not in range', function() {

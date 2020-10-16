@@ -286,7 +286,7 @@ function setUpWebDriver(options) {
     browserOverride,
     overrides: defaultOverrides,
     mocha: global,
-    timeout: 60 * 1000,
+    timeout: 60e3,
     ...options,
   };
 

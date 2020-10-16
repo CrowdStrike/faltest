@@ -12,7 +12,7 @@ describe(function() {
   });
 
   it('faltest --retries 1 fixtures/retries-test.js', async function() {
-    this.timeout(30 * 1000);
+    this.timeout(30e3);
 
     let output = await this.run();
 
@@ -20,7 +20,7 @@ describe(function() {
   });
 
   it('cross-env FORCE_COLOR=1 mocha fixtures/redact-password-test.js --exit', async function() {
-    this.timeout(60 * 1000);
+    this.timeout(60e3);
 
     let output = await this.run();
 
@@ -29,7 +29,7 @@ describe(function() {
 
   // more permissive log level
   it('cross-env LOG_LEVEL=trace mocha fixtures/redact-password-test.js --exit', async function() {
-    this.timeout(60 * 1000);
+    this.timeout(60e3);
 
     let output = await this.run();
 
@@ -38,7 +38,7 @@ describe(function() {
 
   // without colors
   it('cross-env FORCE_COLOR=0 mocha fixtures/redact-password-test.js --exit', async function() {
-    this.timeout(60 * 1000);
+    this.timeout(60e3);
 
     let output = await this.run();
 

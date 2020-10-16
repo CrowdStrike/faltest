@@ -54,7 +54,7 @@ class Browser {
       latency = 1;
       throughput = 1;
     } else {
-      latency = 1 * 1000;
+      latency = 1e3;
       throughput = 25 * 1024;
     }
     await this._browser.setNetworkConditions({ latency, throughput });
