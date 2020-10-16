@@ -1646,10 +1646,10 @@ escape-string-regexp@4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-config-crowdstrike-node@^2.0.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-crowdstrike-node/-/eslint-config-crowdstrike-node-2.2.0.tgz#3ade350b084d213ece219524196b1af288ef62e7"
-  integrity sha512-AYJwsuv/8IjIuyrfFJTSy7k6h+8G4uBktPdSUxS0NV1vW+jo4B+G/M+V/bIEcC0FGW3zq1Msxc15pePZ+MRLfQ==
+eslint-config-crowdstrike-node@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-crowdstrike-node/-/eslint-config-crowdstrike-node-3.0.0.tgz#b7b4c6dc84008f8683c74b33af86a16dcf4d8da0"
+  integrity sha512-yIeeg4BTT3SYsebbbOdg7S5MIN8g0NcexvH9RHxiagmYPKmmVaBB9BITPCT1kuVLi9wq/OGebc9U/ErypXYCDg==
 
 eslint-config-crowdstrike@^3.0.0:
   version "3.0.0"
