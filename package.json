@@ -40,7 +40,7 @@
     "mocha-helpers": "^5.0.0",
     "monorepo-next": "^2.0.0",
     "remark-cli": "^9.0.0",
-    "remark-preset-lint-crowdstrike": "^1.0.2",
+    "remark-preset-lint-crowdstrike": "^2.0.0",
     "renovate-config-standard": "^2.0.0",
     "serve-static": "^1.14.1",
     "sinon": "^9.0.0",
