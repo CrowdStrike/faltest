@@ -5632,10 +5632,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-verror-extra@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/verror-extra/-/verror-extra-1.0.0.tgz#d651ad8d56fd46a75dfe05ee96a3da7ff63ef6cf"
-  integrity sha512-zcxdmXQPcIn5IV+ghHIR8CUWahkycQSPTTZcUtIbMAVed+2SE9R0napz1bjBbEqUmMqjNGo1VYuQv19jv6VpUA==
+verror-extra@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/verror-extra/-/verror-extra-2.0.0.tgz#8f587a36c6fe5c7597b96b0d9d0c4bf2e8c4124d"
+  integrity sha512-vBHMnSh5IhOLcl68dWCrjqMZMSjkAyuuC27LlNqPukvjs2OTFlBzZvkgSfP9QeMhEJeXaO5PJA5n88aQRZjOmg==
   dependencies:
     verror "^1.10.0"
 
