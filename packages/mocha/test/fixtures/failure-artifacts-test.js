@@ -24,14 +24,16 @@ describe('failure artifacts', function() {
     });
 
     describe(`${failureArtifacts.name} error`, function() {
-      let $;
+      let takeScreenshot;
 
       beforeEach(function() {
-        $ = sinon.stub(this.browser, '$').rejects(new Error('test $ error'));
+        takeScreenshot = sinon
+          .stub(this.browser._browser, 'takeScreenshot')
+          .rejects(new Error('test takeScreenshot error'));
       });
 
       after(function() {
-        expect($).to.have.been.called;
+        expect(takeScreenshot).to.have.been.called;
       });
 
       it('failure', function() {
