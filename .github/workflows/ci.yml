@@ -1,0 +1,103 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+
+env:
+  DEBUG: "@faltest*,faltest-helpers"
+  DETECT_CHROMEDRIVER_VERSION: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+
+    - run: yarn install --frozen-lockfile
+    - run: yarn lint:git
+    - run: yarn lint:md
+    - run: yarn lint:js
+
+  test:
+    needs: lint
+
+    strategy:
+      matrix:
+        os:
+        - ubuntu-latest
+        node:
+        - 10
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+
+    - run: yarn install --frozen-lockfile
+    - run: yarn test
+      env:
+        WEBDRIVER_HEADLESS: true
+
+  acceptance:
+    needs: lint
+
+    strategy:
+      matrix:
+        os:
+        - ubuntu-latest
+        - macos-latest
+        node:
+        - 10
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+
+    - run: yarn install --frozen-lockfile
+    - if: runner.os == 'Linux'
+      # https://github.com/juliangruber/browser-run/issues/147#issue-495226343
+      run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+    - run: yarn test:acceptance
+      env:
+        DISPLAY: :99.0
+
+  global-install-test:
+    needs: lint
+
+    strategy:
+      matrix:
+        os:
+        - ubuntu-latest
+        node:
+        - 10
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+
+    # https://github.com/actions/setup-node/issues/85#issuecomment-715565131
+    - run: echo "$(yarn global bin)" >> $GITHUB_PATH
+
+    - name: simulate global install
+      run: |
+        yarn install --production
+        yarn link
+      working-directory: fixtures/global-install
+
+    - run: my-cli --headless
