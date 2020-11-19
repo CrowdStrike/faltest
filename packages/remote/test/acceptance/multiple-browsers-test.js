@@ -17,7 +17,9 @@ describe(function() {
   });
 
   after(async function() {
-    await stopWebDriver(this.webDriver);
+    if (this.webDriver) {
+      await stopWebDriver(this.webDriver);
+    }
   });
 
   it('can manage multiple browsers', async function() {
