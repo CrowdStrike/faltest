@@ -132,34 +132,30 @@ async function spawnWebDriver(name, args) {
 
   // webDriver.stdout.pipe(process.stdout);
 
-  await new Promise(resolve => {
-    switch (name) {
-      case 'chromedriver': {
-        // I believe this is an eslint bug
-        // This code should be passing for ES6, according to the docs
-        // https://eslint.org/docs/5.0.0/rules/no-inner-declarations
-        // eslint-disable-next-line no-inner-declarations
-        function wait(data) {
-          if (data.toString().includes('ChromeDriver was started successfully.')) {
-            resolve();
+  async function waitForText(text) {
+    await new Promise(resolve => {
+      function wait(data) {
+        if (data.toString().includes(text)) {
+          resolve();
 
-            webDriver.stdout.removeListener('data', wait);
-          }
+          webDriver.stdout.removeListener('data', wait);
         }
-
-        webDriver.stdout.on('data', wait);
-
-        break;
       }
-      case 'geckodriver': {
-        // ff doesn't print anything,
-        // so it appears it is immediately available?
-        resolve();
 
-        break;
-      }
-    }
-  });
+      webDriver.stdout.on('data', wait);
+    });
+  }
+
+  switch (name) {
+    case 'chromedriver':
+      await waitForText('ChromeDriver was started successfully.');
+
+      break;
+    case 'geckodriver':
+      await waitForText('Listening on 127.0.0.1');
+
+      break;
+  }
 
   // There's a flaw with the logic in https://github.com/IndigoUnited/node-cross-spawn/issues/16.
   // If you mark `shell: true`, then it skips validating that the file exists.
