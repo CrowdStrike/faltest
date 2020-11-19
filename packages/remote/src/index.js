@@ -140,7 +140,7 @@ async function spawnWebDriver(name, args) {
         // https://eslint.org/docs/5.0.0/rules/no-inner-declarations
         // eslint-disable-next-line no-inner-declarations
         function wait(data) {
-          if (data.toString().includes('Starting ChromeDriver')) {
+          if (data.toString().includes('ChromeDriver was started successfully.')) {
             resolve();
 
             webDriver.stdout.removeListener('data', wait);
