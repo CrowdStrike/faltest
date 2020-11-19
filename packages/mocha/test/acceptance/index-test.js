@@ -13,6 +13,8 @@ const fixturesPath = path.resolve(__dirname, '../fixtures');
 
 describe(function() {
   describe(_runTests, function() {
+    this.timeout(10e3);
+
     let globs;
 
     before(function() {

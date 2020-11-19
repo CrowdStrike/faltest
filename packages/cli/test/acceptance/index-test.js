@@ -12,6 +12,8 @@ const env = {
 };
 
 describe(function() {
+  this.timeout(5e3);
+
   describe('glob', function() {
     it('works', async function() {
       let { stdout } = await execa('node', ['bin', '--reporter=json', 'test/fixtures/**/passing-test.js'], {

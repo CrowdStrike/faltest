@@ -13,7 +13,7 @@ const Server = require('../../../../helpers/server');
 const sinon = require('sinon');
 
 describe(function() {
-  this.timeout(10e3);
+  this.timeout(30e3);
 
   async function startWebDriver({
     browser,
