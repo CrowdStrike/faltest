@@ -48,12 +48,10 @@ async function failureArtifacts(outputDir) {
     await writeFile(filePath, ...args);
   }
 
-  let element = await this.browser.$('body');
-
-  let screenshot = await this.browser._browser.takeElementScreenshot(element.elementId);
+  let screenshot = await this.browser._browser.takeScreenshot();
   await writeArtifact(`${title}.png`, screenshot, 'base64');
 
-  let html = await element.getHTML();
+  let html = await this.browser._browser.getPageSource();
   await writeArtifact(`${title}.html`, html);
 
   let logTypes = await this.browser._browser.getLogTypes();

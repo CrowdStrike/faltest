@@ -219,7 +219,7 @@ describe(function() {
           filter: `it ${failureArtifacts.name} error failure$`,
         });
 
-        await expect(promise).to.eventually.be.rejectedWith('test $ error');
+        await expect(promise).to.eventually.be.rejectedWith('test takeScreenshot error');
 
         expect(this.outputDir).to.be.a.directory().and.empty;
       });
