@@ -21,6 +21,7 @@ describe(function() {
       this.runTests = async options => {
         return await _runTests({
           globs,
+          reporter: path.join(fixturesPath, 'null-reporter.js'),
           ...options,
         });
       };
