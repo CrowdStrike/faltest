@@ -9,6 +9,8 @@ const { promisify } = require('util');
 const tmpDir = promisify(require('tmp').dir);
 const failureArtifacts = require('../../src/failure-artifacts');
 
+const fixturesPath = path.resolve(__dirname, '../fixtures');
+
 describe(function() {
   describe(_runTests, function() {
     let globs;
@@ -31,7 +33,7 @@ describe(function() {
 
     describe('tags', function() {
       before(function() {
-        globs = [path.resolve(__dirname, '../fixtures/tag-test.js')];
+        globs = [path.join(fixturesPath, 'tag-test.js')];
       });
 
       it('works', async function() {
@@ -83,7 +85,7 @@ describe(function() {
 
     describe('filter', function() {
       before(function() {
-        globs = [path.resolve(__dirname, '../fixtures/filter-test.js')];
+        globs = [path.join(fixturesPath, 'filter-test.js')];
       });
 
       it('works with a filter', async function() {
@@ -97,7 +99,7 @@ describe(function() {
 
     describe('roles', function() {
       before(function() {
-        globs = [path.resolve(__dirname, '../fixtures/role-test.js')];
+        globs = [path.join(fixturesPath, 'role-test.js')];
       });
 
       it('works', async function() {
@@ -125,7 +127,7 @@ describe(function() {
 
     describe('feature flags', function() {
       before(function() {
-        globs = [path.resolve(__dirname, '../fixtures/flag-test.js')];
+        globs = [path.join(fixturesPath, 'flag-test.js')];
       });
 
       it('works', async function() {
@@ -137,7 +139,7 @@ describe(function() {
 
     describe('retries', function() {
       before(function() {
-        globs = [path.resolve(__dirname, '../fixtures/retries-test.js')];
+        globs = [path.join(fixturesPath, 'retries-test.js')];
       });
 
       it('works', async function() {
@@ -151,7 +153,7 @@ describe(function() {
 
     describe('reporter', function() {
       before(function() {
-        globs = [path.resolve(__dirname, '../fixtures/reporter-test.js')];
+        globs = [path.join(fixturesPath, 'reporter-test.js')];
       });
 
       beforeEach(async function() {
@@ -171,7 +173,7 @@ describe(function() {
 
     describe('failure artifacts', function() {
       before(function() {
-        globs = [path.resolve(__dirname, '../fixtures/failure-artifacts-test.js')];
+        globs = [path.join(fixturesPath, 'failure-artifacts-test.js')];
 
         let { runTests } = this;
         this.runTests = async options => {
@@ -306,7 +308,7 @@ describe(function() {
 
     describe('dry run', function() {
       before(function() {
-        globs = [path.resolve(__dirname, '../fixtures/dry-run-test.js')];
+        globs = [path.join(fixturesPath, 'dry-run-test.js')];
       });
 
       it('works', async function() {
