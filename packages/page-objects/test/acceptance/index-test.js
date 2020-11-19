@@ -35,6 +35,10 @@ describe(function() {
     };
   });
 
+  afterEach(function() {
+    sinon.restore();
+  });
+
   after(async function() {
     if (server) {
       await server.stop();
