@@ -21,33 +21,20 @@ describe(function() {
   });
 
   it('can manage multiple browsers', async function() {
-    let [
-      browser1,
-      browser2,
-    ] = await Promise.all([
-      startBrowser(),
-      startBrowser(),
-    ]);
+    let browsers = await Promise.all([...Array(2)].map(startBrowser));
 
-    await Promise.all([
-      browser1.url('https://webdriver.io'),
-      browser2.url('https://webdriver.io'),
-    ]);
+    await Promise.all(browsers.map(browser => {
+      return browser.url('https://webdriver.io');
+    }));
 
-    let [
-      title1,
-      title2,
-    ] = await Promise.all([
-      browser1.getTitle(),
-      browser2.getTitle(),
-    ]);
+    let titles = await Promise.all(browsers.map(browser => {
+      return browser.getTitle();
+    }));
 
-    expect(title1).to.equal('WebdriverIO · Next-gen browser and mobile automation test framework for Node.js');
-    expect(title2).to.equal('WebdriverIO · Next-gen browser and mobile automation test framework for Node.js');
+    for (let title of titles) {
+      expect(title).to.equal('WebdriverIO · Next-gen browser and mobile automation test framework for Node.js');
+    }
 
-    await Promise.all([
-      stopBrowser(browser1),
-      stopBrowser(browser2),
-    ]);
+    await Promise.all(browsers.map(stopBrowser));
   });
 });
