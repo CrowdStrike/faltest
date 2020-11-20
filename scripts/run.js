@@ -8,7 +8,7 @@
 const execa = require('execa');
 const path = require('path');
 
-const [packagePrefix, scriptName] = process.argv.slice(2);
+const [packagePrefix, scriptName, ...args] = process.argv.slice(2);
 
 (async () => {
   let cp = await execa('yarn', ['--silent', 'workspaces', 'info']);
@@ -27,7 +27,7 @@ const [packagePrefix, scriptName] = process.argv.slice(2);
     console.log(location);
 
     try {
-      await execa('yarn', [scriptName], {
+      await execa('yarn', [scriptName, ...args], {
         cwd,
         stdio: 'inherit',
       });
