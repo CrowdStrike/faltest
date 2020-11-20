@@ -6,7 +6,7 @@ const path = require('path');
 const clearModule = require('clear-module');
 const { runTests: _runTests } = require('../../src');
 const { promisify } = require('util');
-const tmpDir = promisify(require('tmp').dir);
+const createTmpDir = promisify(require('tmp').dir);
 const failureArtifacts = require('../../src/failure-artifacts');
 
 const fixturesPath = path.resolve(__dirname, '../fixtures');
@@ -159,7 +159,7 @@ describe(function() {
       });
 
       beforeEach(async function() {
-        this.output = path.join(await tmpDir(), 'output-test');
+        this.output = path.join(await createTmpDir(), 'output-test');
       });
 
       it('works', async function() {
@@ -188,7 +188,7 @@ describe(function() {
       });
 
       beforeEach(async function() {
-        this.outputDir = await tmpDir();
+        this.outputDir = await createTmpDir();
       });
 
       it('works', async function() {
