@@ -5,8 +5,10 @@ const { expect } = require('../helpers/chai');
 const _run = require('../helpers/run');
 const path = require('path');
 
+const examplesPath = path.resolve(__dirname, '../examples');
+
 function getCwd(example) {
-  return path.resolve(__dirname, '../examples', example);
+  return path.join(examplesPath, example);
 }
 
 describe(function() {
