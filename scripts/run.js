@@ -11,7 +11,7 @@ const path = require('path');
 const [packagePrefix, scriptName] = process.argv.slice(2);
 
 (async () => {
-  let cp = await execa.command('yarn --silent workspaces info');
+  let cp = await execa('yarn', ['--silent', 'workspaces', 'info']);
 
   let json = JSON.parse(cp.stdout);
 
