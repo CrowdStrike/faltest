@@ -7,6 +7,7 @@
 
 const execa = require('execa');
 const path = require('path');
+const pAll = require('p-all');
 
 const [packagePrefix, scriptName, ...args] = process.argv.slice(2);
 
@@ -17,36 +18,24 @@ const root = path.resolve(__dirname, '..');
 
   let json = JSON.parse(cp.stdout);
 
-  let firstError;
-
-  for (let { location } of Object.values(json)) {
+  let promises = Object.values(json).map(({ location }) => async () => {
     if (!location.startsWith(packagePrefix)) {
-      continue;
+      return;
     }
 
     let cwd = path.join(root, location);
 
     console.log(location);
 
-    try {
-      await execa('yarn', [scriptName, ...args], {
-        cwd,
-        stdio: 'inherit',
-      });
-    } catch (err) {
-      // Continue running all the test suites,
-      // but keep the first error for reporting later.
-      // There may something in https://github.com/sindresorhus/promise-fun
-      // to clean this up.
-      if (!firstError) {
-        firstError = err;
-      }
-    }
-  }
+    await execa('yarn', [scriptName, ...args], {
+      cwd,
+      stdio: 'inherit',
+    });
+  });
 
-  if (firstError) {
-    throw firstError;
-  }
+  await pAll(promises, {
+    concurrency: 1,
+  });
 })();
 
 require('../packages/cli/src/utils/throw-up');
