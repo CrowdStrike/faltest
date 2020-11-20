@@ -10,7 +10,7 @@ const {
 } = require('../../src');
 const Server = require('../../../../helpers/server');
 const { promisify } = require('util');
-const tmpDir = promisify(require('tmp').dir);
+const createTmpDir = promisify(require('tmp').dir);
 const writeFile = promisify(require('fs').writeFile);
 const path = require('path');
 
@@ -40,7 +40,7 @@ describe(Elements, function() {
   });
 
   beforeEach(async function() {
-    fixturesPath = await tmpDir();
+    fixturesPath = await createTmpDir();
 
     this.server = new Server(fixturesPath);
 
