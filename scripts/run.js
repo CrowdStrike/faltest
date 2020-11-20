@@ -10,6 +10,8 @@ const path = require('path');
 
 const [packagePrefix, scriptName, ...args] = process.argv.slice(2);
 
+const root = path.resolve(__dirname, '..');
+
 (async () => {
   let cp = await execa('yarn', ['--silent', 'workspaces', 'info']);
 
@@ -22,7 +24,7 @@ const [packagePrefix, scriptName, ...args] = process.argv.slice(2);
       continue;
     }
 
-    let cwd = path.resolve(__dirname, '..', location);
+    let cwd = path.join(root, location);
 
     console.log(location);
 
