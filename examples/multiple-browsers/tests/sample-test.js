@@ -8,8 +8,8 @@ describe('sample', function() {
 
   it('works', async function() {
     await Promise.all([
-      this.browsers[0].url('https://webdriver.io'),
-      this.browsers[1].url('https://webdriver.io'),
+      this.browsers[0].url('https://crowdstrike.github.io/faltest'),
+      this.browsers[1].url('https://crowdstrike.github.io/faltest'),
     ]);
 
     let [
@@ -20,7 +20,7 @@ describe('sample', function() {
       this.browsers[1].getTitle(),
     ]);
 
-    assert.strictEqual(title1, 'WebdriverIO · Next-gen browser and mobile automation test framework for Node.js');
-    assert.strictEqual(title2, 'WebdriverIO · Next-gen browser and mobile automation test framework for Node.js');
+    assert.strictEqual(title1, 'Testing FalTest');
+    assert.strictEqual(title2, 'Testing FalTest');
   });
 });
