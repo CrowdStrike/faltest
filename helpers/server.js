@@ -7,9 +7,11 @@ const { getNewPort } = require('../packages/remote');
 const debug = require('./debug');
 const stoppable = require('stoppable');
 
+const defaultFixtures = path.resolve(__dirname, '../fixtures');
+
 class Server {
   constructor(fixtures) {
-    this.fixtures = fixtures || path.resolve(__dirname, '../fixtures');
+    this.fixtures = fixtures || defaultFixtures;
   }
 
   async start(port) {
