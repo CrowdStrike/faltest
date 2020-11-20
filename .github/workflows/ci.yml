@@ -74,6 +74,11 @@ jobs:
       env:
         DISPLAY: :99.0
 
+    - if: failure()
+      uses: actions/upload-artifact@v2
+      with:
+        path: examples/full-suite/dist
+
   global-install-test:
     needs: lint
 
