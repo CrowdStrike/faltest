@@ -7,10 +7,10 @@ describe('sample', function() {
   setUpWebDriver.call(this);
 
   it('works', async function() {
-    await this.browser.url('https://webdriver.io');
+    await this.browser.url('https://crowdstrike.github.io/faltest');
 
     let title = await this.browser.getTitle();
 
-    assert.strictEqual(title, 'WebdriverIO · Next-gen browser and mobile automation test framework for Node.js');
+    assert.strictEqual(title, 'Testing FalTest');
   });
 });

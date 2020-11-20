@@ -10,7 +10,7 @@ const {
 } = require('../../../remote');
 
 describe(function() {
-  this.timeout(60e3);
+  this.timeout(30e3);
 
   before(async function() {
     this.webDriver = await startWebDriver();
@@ -26,7 +26,7 @@ describe(function() {
     let browsers = await Promise.all([...Array(2)].map(startBrowser));
 
     await Promise.all(browsers.map(browser => {
-      return browser.url('https://webdriver.io');
+      return browser.url('https://crowdstrike.github.io/faltest');
     }));
 
     let titles = await Promise.all(browsers.map(browser => {
@@ -34,7 +34,7 @@ describe(function() {
     }));
 
     for (let title of titles) {
-      expect(title).to.equal('WebdriverIO · Next-gen browser and mobile automation test framework for Node.js');
+      expect(title).to.equal('Testing FalTest');
     }
 
     await Promise.all(browsers.map(stopBrowser));
