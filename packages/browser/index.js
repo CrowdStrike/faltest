@@ -276,16 +276,16 @@ Browser.prototype.isExisting = resolveElement(async function isExisting(elementO
 // This version handles both `browser.$` and `browser.$$`.
 // The WebDriverIO version only handles `browser.$`.
 function waitForExist(methodNameForErrorMessageOverride) {
-  return function(timeout, reverse = false) {
-    let args = arguments;
-
+  return function(reverse = false) {
     function isExisting(elements) {
       return elements && !elements.length === reverse;
     }
 
     // We are avoiding using `resolveElements` because we want to
     // throw an error with a different signature.
-    return async function waitForExist(selectorOrElementOrElementsOrFunction) {
+    return async function waitForExist(selectorOrElementOrElementsOrFunction, ...args) {
+      let [timeout] = args;
+
       let elementOrElements;
 
       try {
@@ -293,7 +293,7 @@ function waitForExist(methodNameForErrorMessageOverride) {
 
         if (elementOrElements && !Array.isArray(elementOrElements)) {
           let element = elementOrElements;
-          await element.waitForExist(...args);
+          await element.waitForExist(timeout, reverse);
           return;
         }
 
@@ -330,7 +330,7 @@ function waitForExist(methodNameForErrorMessageOverride) {
 }
 
 Browser.prototype.waitForInsert = waitForExist('waitForInsert')();
-Browser.prototype.waitForDestroy = waitForExist('waitForDestroy')(undefined, true);
+Browser.prototype.waitForDestroy = waitForExist('waitForDestroy')(true);
 
 Browser.prototype.getText = resolveElement(async function getText(element) {
   // `element.getText` won't work because WebDriver calculates CSS,
