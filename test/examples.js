@@ -29,9 +29,9 @@ describe(function() {
   });
 
   describe(getCwd('full-suite'), function() {
-    it('yarn start --target fixtures --env dev --tag user --tag smoke', async function() {
-      this.timeout(30e3);
+    this.timeout(30e3);
 
+    it('yarn start --target fixtures --env dev --tag user --tag smoke', async function() {
       let output = await this.run();
 
       expect(output).to.include(' 1 passing');
@@ -39,8 +39,6 @@ describe(function() {
     });
 
     it('yarn start --tag admin --tag !smoke', async function() {
-      this.timeout(60e3);
-
       let output = await this.run();
 
       expect(output).to.include(' 2 passing');
@@ -48,8 +46,6 @@ describe(function() {
     });
 
     it('yarn start --tag admin --filter unfinished', async function() {
-      this.timeout(30e3);
-
       let output = await this.run();
 
       expect(output).to.include(' 1 passing');

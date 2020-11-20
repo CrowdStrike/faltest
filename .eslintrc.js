@@ -2,16 +2,33 @@
 
 module.exports = {
   root: true,
-  extends: [
-    'crowdstrike-node',
-  ],
-  rules: {
-    // https://github.com/eslint/eslint/issues/11899
-    'require-atomic-updates': 'off',
-
-    'faltest/no-browser-throttle': 'error',
-  },
   overrides: [
+    {
+      files: [
+        '**/*.js',
+      ],
+      extends: [
+        'crowdstrike',
+      ],
+    },
+    {
+      files: [
+        '**/*.js',
+        '**/*.json',
+      ],
+      excludedFiles: [
+        'docs/**/*.js',
+      ],
+      extends: [
+        'crowdstrike-node',
+      ],
+      rules: {
+        // https://github.com/eslint/eslint/issues/11899
+        'require-atomic-updates': 'off',
+
+        'faltest/no-browser-throttle': 'error',
+      },
+    },
     {
       files: [
         'packages/*/test/**/*-test.js',
@@ -69,6 +86,14 @@ module.exports = {
       ],
       rules: {
         'node/shebang': 'off',
+      },
+    },
+    {
+      files: [
+        'docs/**/*.js',
+      ],
+      env: {
+        browser: true,
       },
     },
   ],
