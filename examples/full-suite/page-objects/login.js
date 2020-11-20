@@ -4,18 +4,7 @@ const { BasePageObject } = require('@faltest/page-objects');
 
 class Page extends BasePageObject {
   async open(env, target) {
-    let envs = {
-      dev: 'YzKwVQq',
-      prod: 'wvwMbee',
-    };
-
-    await this._browser.url(`https://codepen.io/crowdstrike/full/${envs[env]}?target=${target}`);
-
-    // wait for DDoS protection if running headless
-    await this._browser.waitForDestroy('.cf-im-under-attack');
-
-    // only needed for codepen, selects the iframe
-    await this._browser._browser.switchToFrame(await this._browser.$('#result'));
+    await this._browser.url(`https://crowdstrike.github.io/faltest/${env}?target=${target}`);
   }
 
   get email() {
