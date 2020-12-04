@@ -54,8 +54,9 @@ describe(BasePageObject.prototype._chain, function() {
   it('can chain', async function() {
     await this.writeFixture('index.html', `
       <div class="foo">
+        foo
         <div class="bar">
-          foo bar
+          bar
         </div>
       </div>
     `);
@@ -70,6 +71,6 @@ describe(BasePageObject.prototype._chain, function() {
 
     await this.open('index.html');
 
-    await expect(this.page.foo.bar).text.to.eventually.equal('foo bar');
+    await expect(this.page.foo.bar).text.to.eventually.equal('bar');
   });
 });
