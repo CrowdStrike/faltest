@@ -5,7 +5,7 @@ const fs = require('fs');
 const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
 // const mkdir = promisify(fs.mkdir);
-const mkdirp = promisify(require('mkdirp'));
+const mkdirp = require('mkdirp');
 const filenamify = require('filenamify');
 const debug = require('./debug');
 
