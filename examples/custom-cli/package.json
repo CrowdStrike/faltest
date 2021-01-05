@@ -9,7 +9,7 @@
     "start": "yarn my-cli"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10.12"
   },
   "devDependencies": {
     "@faltest/cli": "^2.0.6",

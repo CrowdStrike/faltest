@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/lint#readme",
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10.12"
   },
   "dependencies": {
     "@faltest/chai": "^2.0.0",
