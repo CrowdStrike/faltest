@@ -1,6 +1,6 @@
 {
   "name": "@faltest/utils",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "Shared utils for FalTest packages",
   "main": "src",
   "files": [

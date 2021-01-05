@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@4.1.0...@faltest/mocha@5.0.0) (2021-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump all packages to node 10
+
+### Bug Fixes
+
+* update mkdirp ([7d0e295](https://github.com/CrowdStrike/faltest/commit/7d0e2959ab440c83ca118c408363f549db875506))
+* use full screen for screen shots ([936caa7](https://github.com/CrowdStrike/faltest/commit/936caa73236afe89a26c6e190b74d24716391143))
+* use native node 10 `mkdir -p` ([085c6c7](https://github.com/CrowdStrike/faltest/commit/085c6c725bf3c3cde4b14922f5a742d52b6607ce))
+* **deps:** update dependency mocha-helpers to v5 ([d4662c8](https://github.com/CrowdStrike/faltest/commit/d4662c816fe416b2ac8dbaf4279ef4a32b562f30))
+
+
+* bump all packages to node 10 ([17cd7c0](https://github.com/CrowdStrike/faltest/commit/17cd7c0173a4c57e15b1b187b73411c4e466b9b0))
+
 ## [4.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@4.0.1...@faltest/mocha@4.1.0) (2020-08-29)
 
 

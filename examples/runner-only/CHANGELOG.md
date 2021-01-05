@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/kellyselden/faltest/compare/runner-only@0.0.18...runner-only@1.0.0) (2021-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump all packages to node 10
+
+* bump all packages to node 10 ([17cd7c0](https://github.com/kellyselden/faltest/commit/17cd7c0173a4c57e15b1b187b73411c4e466b9b0))
+
 ### [0.0.18](https://github.com/kellyselden/faltest/compare/runner-only@0.0.17...runner-only@0.0.18) (2020-08-19)
 
 ### [0.0.17](https://github.com/CrowdStrike/faltest/compare/runner-only@0.0.16...runner-only@0.0.17) (2020-06-05)

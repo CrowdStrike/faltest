@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "full-suite",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "scripts": {
     "start": "faltest --failure-artifacts --failure-artifacts-output-dir dist"
   },
@@ -9,11 +9,11 @@
     "node": ">=10.12"
   },
   "devDependencies": {
-    "@faltest/chai": "^2.0.0",
-    "@faltest/cli": "^2.0.6",
-    "@faltest/lifecycle": "^4.0.0",
-    "@faltest/mocha": "^4.0.0",
-    "@faltest/page-objects": "^3.0.5",
+    "@faltest/chai": "^3.0.0",
+    "@faltest/cli": "^3.0.0",
+    "@faltest/lifecycle": "^5.0.0",
+    "@faltest/mocha": "^5.0.0",
+    "@faltest/page-objects": "^4.0.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "config": "^3.2.2"

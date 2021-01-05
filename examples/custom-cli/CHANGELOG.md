@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/kellyselden/faltest/compare/custom-cli@0.0.13...custom-cli@1.0.0) (2021-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump all packages to node 10
+
+* bump all packages to node 10 ([17cd7c0](https://github.com/kellyselden/faltest/commit/17cd7c0173a4c57e15b1b187b73411c4e466b9b0))
+
 ### [0.0.13](https://github.com/kellyselden/faltest/compare/custom-cli@0.0.12...custom-cli@0.0.13) (2020-08-19)
 
 ### [0.0.12](https://github.com/CrowdStrike/faltest/compare/custom-cli@0.0.11...custom-cli@0.0.12) (2020-06-05)

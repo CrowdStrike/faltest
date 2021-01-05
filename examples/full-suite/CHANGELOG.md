@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/kellyselden/faltest/compare/full-suite@0.1.3...full-suite@1.0.0) (2021-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump all packages to node 10
+
+* bump all packages to node 10 ([17cd7c0](https://github.com/kellyselden/faltest/commit/17cd7c0173a4c57e15b1b187b73411c4e466b9b0))
+
 ### [0.1.3](https://github.com/kellyselden/faltest/compare/full-suite@0.1.2...full-suite@0.1.3) (2020-08-26)
 
 ### [0.1.2](https://github.com/kellyselden/faltest/compare/full-suite@0.1.1...full-suite@0.1.2) (2020-08-19)

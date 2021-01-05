@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@2.1.1...@faltest/browser@3.0.0) (2021-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump all packages to node 10
+
+### Features
+
+* allow overriding `timeout` in `waitForInsert` and `waitForDestroy` ([d194e0d](https://github.com/CrowdStrike/faltest/commit/d194e0d718e84f33ebf31bd0eac12f6ff2689542))
+
+
+### Bug Fixes
+
+* **deps:** update dependency verror-extra to v2 ([6188e1d](https://github.com/CrowdStrike/faltest/commit/6188e1dffa6197566002561281346527d2ebbba9))
+
+
+* bump all packages to node 10 ([17cd7c0](https://github.com/CrowdStrike/faltest/commit/17cd7c0173a4c57e15b1b187b73411c4e466b9b0))
+
 ### [2.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@2.1.0...@faltest/browser@2.1.1) (2020-08-28)
 
 

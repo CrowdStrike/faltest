@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.5.0...@faltest/cli@3.0.0) (2021-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump all packages to node 10
+
+### Bug Fixes
+
+* **deps:** update dependency execa to v4 ([bb0ddc4](https://github.com/CrowdStrike/faltest/commit/bb0ddc4d124a8fbbf58a2bc9e9ae2d0d0d30e146))
+* **deps:** update dependency execa to v5 ([e8bbbdf](https://github.com/CrowdStrike/faltest/commit/e8bbbdf7b841b632859d992a8bb703b671d384d1))
+* **deps:** update dependency yargs to v16 ([1a42987](https://github.com/CrowdStrike/faltest/commit/1a429876e0a86da5cc6b7c3da2c458b8a0067a53))
+* **deps:** update dependency yn to v4 ([bb79945](https://github.com/CrowdStrike/faltest/commit/bb79945aa2592036d6cb563bf3f3ca55d978ac92))
+
+
+* bump all packages to node 10 ([17cd7c0](https://github.com/CrowdStrike/faltest/commit/17cd7c0173a4c57e15b1b187b73411c4e466b9b0))
+
 ## [2.5.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@2.4.4...@faltest/cli@2.5.0) (2020-08-29)
 
 

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@2.1.1...@faltest/utils@3.0.0) (2021-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump all packages to node 10
+
+* bump all packages to node 10 ([17cd7c0](https://github.com/CrowdStrike/faltest/commit/17cd7c0173a4c57e15b1b187b73411c4e466b9b0))
+
 ### [2.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@2.1.0...@faltest/utils@2.1.1) (2020-08-28)
 
 

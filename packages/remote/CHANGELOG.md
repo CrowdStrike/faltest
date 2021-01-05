@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@4.0.0...@faltest/remote@5.0.0) (2021-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump all packages to node 10
+
+### Bug Fixes
+
+* **deps:** update dependency chromedriver to v80.0.2 ([94a1267](https://github.com/CrowdStrike/faltest/commit/94a1267963968554d1a287d90118d6be9e22fe31))
+* **deps:** update dependency chromedriver to v85 ([c95f789](https://github.com/CrowdStrike/faltest/commit/c95f789f28c2036566f61a33cc2d5f944bb9af22))
+* **deps:** update dependency chromedriver to v86 ([308587c](https://github.com/CrowdStrike/faltest/commit/308587cb210c121efac39ba4cfe876c71fadd177))
+* **deps:** update dependency chromedriver to v87 ([d3972a9](https://github.com/CrowdStrike/faltest/commit/d3972a9e260aee38894100bd66d0f6b6bed3c932))
+* **deps:** update dependency chromedriver to v87.0.1 ([e5ea6a8](https://github.com/CrowdStrike/faltest/commit/e5ea6a8e6253a796dc08b9f79e5499df996deea2))
+* **deps:** update dependency chromedriver to v87.0.2 ([aecea3e](https://github.com/CrowdStrike/faltest/commit/aecea3ed268da12c621f71b8ee68318664e9c3cd))
+* **deps:** update dependency chromedriver to v87.0.3 ([35af338](https://github.com/CrowdStrike/faltest/commit/35af338643b319a1e13aba515d6e6f57bc9a4aca))
+* **deps:** update dependency chromedriver to v87.0.4 ([1ac7e44](https://github.com/CrowdStrike/faltest/commit/1ac7e44d44f1094b1b24dc981924e26cc5942839))
+* **deps:** update dependency execa to v4 ([bb0ddc4](https://github.com/CrowdStrike/faltest/commit/bb0ddc4d124a8fbbf58a2bc9e9ae2d0d0d30e146))
+* **deps:** update dependency execa to v5 ([e8bbbdf](https://github.com/CrowdStrike/faltest/commit/e8bbbdf7b841b632859d992a8bb703b671d384d1))
+* **deps:** update dependency fkill to v7 ([d581052](https://github.com/CrowdStrike/faltest/commit/d58105272c705fcfdaf08e8bfb31a9be10db00d5))
+* **deps:** update dependency geckodriver to v1.20.0 ([a71fba7](https://github.com/CrowdStrike/faltest/commit/a71fba73a38b88f061cacc4cc0e216cf6e395454))
+* **deps:** update dependency geckodriver to v1.21.0 ([7d36ec4](https://github.com/CrowdStrike/faltest/commit/7d36ec4f6493a17c1197588f408d2705660f051e))
+* **deps:** update dependency geckodriver to v1.21.1 ([0a78433](https://github.com/CrowdStrike/faltest/commit/0a784334596765b29fd694158e225b5707d572ab))
+* chromedriver now prints a better message ([f1adf9b](https://github.com/CrowdStrike/faltest/commit/f1adf9bc46a22bd2e46ae717d7061362895287b2))
+* now can wait for geckodriver text ([d69edfe](https://github.com/CrowdStrike/faltest/commit/d69edfe4d7b2a66f679ee35e0bda330d69b5614b))
+* **deps:** update dependency yn to v4 ([bb79945](https://github.com/CrowdStrike/faltest/commit/bb79945aa2592036d6cb563bf3f3ca55d978ac92))
+* update chromedriver@80.0.1 ([2c4e194](https://github.com/CrowdStrike/faltest/commit/2c4e19423ae71b77460e9870003f8e7d16d0eae9))
+
+
+* bump all packages to node 10 ([17cd7c0](https://github.com/CrowdStrike/faltest/commit/17cd7c0173a4c57e15b1b187b73411c4e466b9b0))
+
 ## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@3.2.1...@faltest/remote@4.0.0) (2020-06-05)
 
 
