@@ -11,7 +11,25 @@ env:
   DETECT_CHROMEDRIVER_VERSION: true
 
 jobs:
+  lint-git:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+        ref: ${{ github.event.pull_request.head.sha }}
+    # grab default branch to calculate branch point to know when to stop linting
+    - if: ${{ github.base_ref }}
+      run: git branch ${{ github.base_ref }} origin/${{ github.base_ref }}
+    - uses: actions/setup-node@v2
+
+    - run: yarn install --frozen-lockfile
+    - run: yarn lint:git
+
   lint:
+    needs: lint-git
+
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +37,6 @@ jobs:
     - uses: actions/setup-node@v2
 
     - run: yarn install --frozen-lockfile
-    - run: yarn lint:git
     - run: yarn lint:md
     - run: yarn lint:js
 
