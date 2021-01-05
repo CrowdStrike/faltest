@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/lifecycle#readme",
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10.12"
   },
   "dependencies": {
     "@faltest/remote": "^4.0.0",

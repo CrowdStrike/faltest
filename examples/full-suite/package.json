@@ -6,7 +6,7 @@
     "start": "faltest --failure-artifacts --failure-artifacts-output-dir dist"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10.12"
   },
   "devDependencies": {
     "@faltest/chai": "^2.0.0",

@@ -5,7 +5,7 @@
     "my-cli": "bin/index.js"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10.12"
   },
   "dependencies": {
     "@faltest/cli": "file:../../packages/cli",

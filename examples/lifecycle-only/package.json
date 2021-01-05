@@ -6,7 +6,7 @@
     "start": "mocha tests/**/*-test.js --exit"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10.12"
   },
   "devDependencies": {
     "@faltest/lifecycle": "^4.0.0",
