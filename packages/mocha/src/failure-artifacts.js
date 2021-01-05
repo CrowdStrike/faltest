@@ -4,8 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
-// const mkdir = promisify(fs.mkdir);
-const mkdirp = require('mkdirp');
+const mkdir = promisify(fs.mkdir);
 const filenamify = require('filenamify');
 const debug = require('./debug');
 
@@ -38,9 +37,7 @@ async function failureArtifacts(outputDir) {
 
   let title = buildTitle(this.test);
 
-  // once node 10.12.0
-  // await mkdir(outputDir, { recursive: true });
-  await mkdirp(outputDir);
+  await mkdir(outputDir, { recursive: true });
 
   async function writeArtifact(fileName, ...args) {
     let filePath = path.join(outputDir, fileName);
