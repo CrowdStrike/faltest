@@ -1,9 +1,9 @@
 'use strict';
 
 const assert = require('assert');
-const { createFlaggedTest } = require('../../src');
+const { createFlaggedIt } = require('../../src');
 
-const it = createFlaggedTest(global, ['flag1']);
+const it = createFlaggedIt(global, ['flag1']);
 
 describe('flag', function() {
   it({

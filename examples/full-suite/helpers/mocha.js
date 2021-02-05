@@ -4,14 +4,14 @@ const config = require('config');
 const { setUpWebDriver } = require('@faltest/lifecycle');
 const {
   createRolesHelper,
-  createFlaggedTest,
+  createFlaggedIt,
 } = require('@faltest/mocha');
 
 const roles = createRolesHelper(global, role => config.get('roles').get(role));
 
 const featureFlags = [];
 
-const it = createFlaggedTest(global, featureFlags);
+const it = createFlaggedIt(global, featureFlags);
 
 module.exports = {
   setUpWebDriver,
