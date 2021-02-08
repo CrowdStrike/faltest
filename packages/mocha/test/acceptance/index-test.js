@@ -136,7 +136,7 @@ describe(function() {
       it('works', async function() {
         let stats = await this.runTests();
 
-        expect(stats.passes).to.equal(1);
+        expect(stats.passes).to.equal(4);
       });
     });
 
