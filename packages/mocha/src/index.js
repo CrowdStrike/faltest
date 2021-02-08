@@ -161,6 +161,7 @@ async function runTests(options) {
 module.exports = {
   runTests,
   createRolesHelper: require('./role').create,
+  createFlaggedTest: createFlaggedIt,
   createFlaggedIt,
   createFlaggedDescribe,
 };
