@@ -9,7 +9,7 @@
     "lint:js": "eslint . --ext js,json",
     "lint:md": "remark -f doc CONTRIBUTING.md README.md packages/*/README.md examples/*/README.md packages/lint/doc",
     "release": "next release --scripts.precommit \"\\\"$PWD/scripts/precommit.js\\\" && git add -A\" --scripts.postbump \"\\\"$PWD/scripts/postbump.js\\\"\" --no-bump-in-range-dependencies",
-    "start": "./packages/cli/bin/index.js",
+    "start": "faltest",
     "test": "./scripts/run.js packages test",
     "test:acceptance": "mocha --recursive"
   },
