@@ -23,7 +23,7 @@ Here are a couple examples of using the FalTest CLI.
 
 ## Default Options
 
-<!-- CODEGEN_CLI_HELP_START -->
+<!-- CODEGEN_CLI_HELP -->
 
 ```
 Options:
@@ -80,7 +80,7 @@ Options:
                                                       [boolean] [default: false]
 ```
 
-<!-- CODEGEN_CLI_HELP_END -->
+<!-- CODEGEN_CLI_HELP -->
 
 ## Filtering
 
