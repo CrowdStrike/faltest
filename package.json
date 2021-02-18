@@ -8,7 +8,7 @@
     "lint:git": "commitlint",
     "lint:js": "eslint . --ext js,json",
     "lint:md": "remark -f doc CONTRIBUTING.md README.md packages/*/README.md examples/*/README.md packages/lint/doc",
-    "release": "next release --scripts.precommit \"\\\"$PWD/scripts/precommit.js\\\" && git add README.md\" --scripts.postbump \"\\\"$PWD/scripts/postbump.js\\\"\" --no-bump-in-range-dependencies",
+    "release": "next release --scripts.precommit \"yargs-help-output README.md --npm-script-name start && git add README.md\" --scripts.postbump \"\\\"$PWD/scripts/postbump.js\\\"\" --no-bump-in-range-dependencies",
     "start": "faltest",
     "test": "./scripts/run.js packages test",
     "test:acceptance": "mocha --recursive"
