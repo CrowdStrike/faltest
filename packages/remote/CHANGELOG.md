@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@5.0.0...@faltest/remote@5.0.1) (2021-02-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chromedriver to v87.0.7 ([5491b9d](https://github.com/CrowdStrike/faltest/commit/5491b9d748cc77150afd945483610a9e4d4faab9))
+* **deps:** update dependency chromedriver to v88 ([9c3eae5](https://github.com/CrowdStrike/faltest/commit/9c3eae5aad50ce66f577ba2d6c78dff0836db1b7))
+* **deps:** update dependency geckodriver to v1.22.1 ([cc1537c](https://github.com/CrowdStrike/faltest/commit/cc1537c44e74e60d8bc16e10b91b142e6c782884))
+
 ## [5.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@4.0.0...@faltest/remote@5.0.0) (2021-01-05)
 
 

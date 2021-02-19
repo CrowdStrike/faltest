@@ -26,6 +26,7 @@ Here are a couple examples of using the FalTest CLI.
 <!-- CODEGEN_CLI_HELP -->
 
 ```
+@faltest/cli v3.0.0
 Options:
   --help                          Show help                            [boolean]
   --version                       Show version number                  [boolean]
