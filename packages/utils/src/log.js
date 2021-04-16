@@ -15,11 +15,11 @@ function log(name) {
 
     debug.verbose(`begin ${blockName}`);
 
-    let result = await callback();
-
-    debug.verbose(`end ${blockName}`);
-
-    return result;
+    try {
+      return await callback();
+    } finally {
+      debug.verbose(`end ${blockName}`);
+    }
   };
 }
 
