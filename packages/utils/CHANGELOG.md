@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@3.0.1...@faltest/utils@3.1.0) (2021-04-16)
+
+
+### Features
+
+* include elapsed time in log ([e0d87d5](https://github.com/CrowdStrike/faltest/commit/e0d87d586b91c1c837dc850a1c405c2320e61508))
+
+
+### Bug Fixes
+
+* always log end even if error ([d0cf2e6](https://github.com/CrowdStrike/faltest/commit/d0cf2e6312f51d8912ee6c533f3be6efd50fa3d5))
+
 ### [3.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@3.0.0...@faltest/utils@3.0.1) (2021-04-16)
 
 ## [3.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@2.1.1...@faltest/utils@3.0.0) (2021-01-05)
