@@ -15,10 +15,14 @@ function log(name) {
 
     debug.verbose(`begin ${blockName}`);
 
+    let before = new Date();
+
     try {
       return await callback();
     } finally {
-      debug.verbose(`end ${blockName}`);
+      let elapsed = new Date() - before;
+
+      debug.verbose(`end ${blockName} in ${elapsed}ms}`);
     }
   };
 }
