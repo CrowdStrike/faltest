@@ -20,7 +20,7 @@
     yn "^4.0.0"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "5.0.0"
+  version "5.0.1"
   dependencies:
     "@faltest/remote" "^5.0.0"
     "@faltest/utils" "^3.0.0"
@@ -28,7 +28,7 @@
     "@faltest/browser" "^3.0.0"
 
 "@faltest/mocha@^5.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "5.0.0"
+  version "5.0.1"
   dependencies:
     "@faltest/utils" "^3.0.0"
     choma "^1.2.1"
@@ -37,20 +37,20 @@
     mocha-helpers "^5.0.0"
 
 "@faltest/remote@^5.0.0", "@faltest/remote@file:../../packages/remote":
-  version "5.0.3"
+  version "5.0.4"
   dependencies:
     "@faltest/utils" "^3.0.0"
-    chromedriver "89.0.0"
+    chromedriver "90.0.0"
     execa "^5.0.0"
     fkill "^7.0.0"
-    geckodriver "1.22.2"
+    geckodriver "1.22.3"
     get-port "^5.0.0"
     ps-list "^6.3.0"
     webdriverio "5.18.5"
     yn "^4.0.0"
 
 "@faltest/utils@^3.0.0", "@faltest/utils@file:../../packages/utils":
-  version "3.0.0"
+  version "3.0.1"
   dependencies:
     callsites "^3.1.0"
     debug "^4.1.1"
@@ -443,10 +443,10 @@ chownr@^2.0.0:
   resolved "https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
-chromedriver@89.0.0:
-  version "89.0.0"
-  resolved "https://registry.npmjs.org/chromedriver/-/chromedriver-89.0.0.tgz#a6f27aa306400651a20dc04976fe5b2c4e65d61a"
-  integrity sha512-+DVYp3+m6tZUYTMl9fEgCZIDk9YBTcHws82nIV1JYwusu51zRITA0oeNzuPyFhuK7ageFnnKCDviH2BL5I4M0w==
+chromedriver@90.0.0:
+  version "90.0.0"
+  resolved "https://registry.npmjs.org/chromedriver/-/chromedriver-90.0.0.tgz#1b18960a31a12884981bdc270b43c4356ce7a65a"
+  integrity sha512-k+GMmNb7cmuCCctQvUIeNxDGSq8DJauO+UKQS2qLT8aA36CPEcv8rpFepf6lRkNaIlfwdCUt/0B5bZDw3wY2yw==
   dependencies:
     "@testim/chrome-version" "^1.0.7"
     axios "^0.21.1"
@@ -901,10 +901,10 @@ fsevents@~2.1.2:
   resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.1.3.tgz#fb738703ae8d2f9fe900c33836ddebee8b97f23e"
   integrity sha512-Auw9a4AxqWpa9GUfj370BMPzzyncfBABW8Mab7BGWBYDj4Isgq+cDKtx0i6u9jcX9pQDnswsaaOTgTmA5pEjuQ==
 
-geckodriver@1.22.2:
-  version "1.22.2"
-  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-1.22.2.tgz#e0904bed50a1d2abaa24597d4ae43eb6662f9d72"
-  integrity sha512-xcf1OLfHqNX4+wQhj4weu2gtiwtPnV8yEEKvLkC8GuFtUc5WjOGodV/2pHiYJjCSJRQfsmIgY5Xs1zaJf/OGFA==
+geckodriver@1.22.3:
+  version "1.22.3"
+  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-1.22.3.tgz#324b3102944e8928e67bde61ca129afac417dece"
+  integrity sha512-HJvImEC5m/2J7aIn+AdiZml1yTOSFZAb8h8lmZBSUgGSCPdNTd0/6YxBVBsvzpaTuaDQHbMUr+8ikaFKF+Sj/A==
   dependencies:
     adm-zip "0.5.3"
     bluebird "3.7.2"
