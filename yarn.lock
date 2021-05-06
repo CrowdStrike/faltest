@@ -388,6 +388,16 @@ ajv@^7.0.2:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+ajv@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.2.0.tgz#c89d3380a784ce81b2085f48811c4c101df4c602"
+  integrity sha512-WSNGFuyWd//XO8n/m/EaOlNLtO0yL8EXT/74LqT4khdhpZjP7lkj/kT5uwRmGitKEVp/Oj7ZUHeGfPtgHhQ5CA==
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    json-schema-traverse "^1.0.0"
+    require-from-string "^2.0.2"
+    uri-js "^4.2.2"
+
 ansi-colors@3.2.3:
   version "3.2.3"
   resolved "https://registry.npmjs.org/ansi-colors/-/ansi-colors-3.2.3.tgz#57d35b8686e851e2cc04c403f1c00203976a1813"
@@ -1549,13 +1559,14 @@ eslint-plugin-es@^3.0.0:
     eslint-utils "^2.0.0"
     regexpp "^3.0.0"
 
-eslint-plugin-json-files@0.8.1:
-  version "0.8.1"
-  resolved "https://registry.npmjs.org/eslint-plugin-json-files/-/eslint-plugin-json-files-0.8.1.tgz#cdcdf566cc5f81b7a7fd79ceda61564ce635d2ab"
-  integrity sha512-4uhEh2q6bow8XE3XjRTK9cg9nio0x91WXmjDiLV5ip0aN6XO0aGaUk7BUcS2AwhLMbsZOc/V93G5hhab955ftg==
+eslint-plugin-json-files@0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-json-files/-/eslint-plugin-json-files-0.9.0.tgz#cc24ea6f54f568775680592086ad8db4d5332e6a"
+  integrity sha512-Y6wv9HPtS3j9coSDAzMKUiJg5wxgwNP4/Et4fqLWrpBB8CR5h6BT5YVPZ8qEnpWcnWTnn+YM9vmM6yYf7mUzlw==
   dependencies:
+    ajv "^8.2.0"
     requireindex "^1.2.0"
-    semver "^6.0.0"
+    semver "^7.0.0"
     sort-package-json "^1.22.1"
 
 eslint-plugin-mocha@^8.0.0:
@@ -4597,7 +4608,7 @@ semver@7.3.4, semver@^7.1.1, semver@^7.2.1, semver@^7.3.2:
   dependencies:
     lru-cache "^6.0.0"
 
-semver@7.3.5, semver@^7.3.4:
+semver@7.3.5, semver@^7.0.0, semver@^7.3.4:
   version "7.3.5"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.5.tgz#0b621c879348d8998e4b0e4be94b3f12e6018ef7"
   integrity sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==
