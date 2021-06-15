@@ -48,6 +48,6 @@
     "sinon-chai": "^3.5.0",
     "stoppable": "^1.1.0",
     "tmp": "0.2.1",
-    "yargs-help-output": "^1.0.4"
+    "yargs-help-output": "^2.0.0"
   }
 }
