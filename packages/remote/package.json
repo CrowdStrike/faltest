@@ -1,6 +1,6 @@
 {
   "name": "@faltest/remote",
-  "version": "5.0.5",
+  "version": "6.0.0",
   "description": "A wrapper for the WebdriverIO remote call",
   "main": "src",
   "files": [
@@ -27,7 +27,7 @@
     "node": ">=12.13"
   },
   "dependencies": {
-    "@faltest/utils": "^3.0.0",
+    "@faltest/utils": "^4.0.0",
     "chromedriver": "91.0.1",
     "execa": "^5.0.0",
     "fkill": "^7.1.0",

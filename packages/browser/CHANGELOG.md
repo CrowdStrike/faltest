@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@3.0.1...@faltest/browser@4.0.0) (2021-06-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump node 12
+
+### Features
+
+* bump node 12 ([74a3fd0](https://github.com/CrowdStrike/faltest/commit/74a3fd06f787685cf543d5725f0b45ae4215fcf5))
+
+
+### Bug Fixes
+
+* **deps:** update dependency verror-extra to v3 ([53519ef](https://github.com/CrowdStrike/faltest/commit/53519ef4ef1b5f5e2c3aa5154a7ef04afd871fa4))
+
 ### [3.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@3.0.0...@faltest/browser@3.0.1) (2021-06-15)
 
 ## [3.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@2.1.1...@faltest/browser@3.0.0) (2021-01-05)
