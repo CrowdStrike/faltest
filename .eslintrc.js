@@ -12,6 +12,11 @@ module.exports = {
       ],
     },
     {
+      // not sure why this is required
+      parserOptions: {
+        ecmaVersion: 2020,
+      },
+
       files: [
         '**/*.js',
         '**/*.json',
