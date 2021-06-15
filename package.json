@@ -36,7 +36,7 @@
     "eslint-plugin-mocha": "^9.0.0",
     "eslint-plugin-node": "^11.0.0",
     "execa": "^5.0.0",
-    "mocha": "^8.2.1",
+    "mocha": "^9.0.0",
     "mocha-helpers": "^6.0.0",
     "monorepo-next": "^5.0.0",
     "p-all": "^3.0.0",
