@@ -6,7 +6,7 @@
     "start": "faltest tests/**/*-test.js"
   },
   "engines": {
-    "node": ">=10.12"
+    "node": ">=12.13"
   },
   "devDependencies": {
     "@faltest/cli": "^3.0.0",
