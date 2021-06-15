@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@5.0.1...@faltest/mocha@5.0.2) (2021-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency mocha-helpers to ^5.1.0 ([26c4aa7](https://github.com/CrowdStrike/faltest/commit/26c4aa7b002ec57edae27141520ee774ab3e39f7))
+
 ### [5.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@5.0.0...@faltest/mocha@5.0.1) (2021-04-16)
 
 ## [5.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@4.1.0...@faltest/mocha@5.0.0) (2021-01-05)

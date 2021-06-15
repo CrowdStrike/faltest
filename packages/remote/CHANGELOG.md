@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@5.0.4...@faltest/remote@5.0.5) (2021-06-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fkill to ^7.1.0 ([17408ff](https://github.com/CrowdStrike/faltest/commit/17408ffdf36a4c9e025d8030e09a03813c8a56d7))
+
 ### [5.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@5.0.3...@faltest/remote@5.0.4) (2021-04-16)
 
 

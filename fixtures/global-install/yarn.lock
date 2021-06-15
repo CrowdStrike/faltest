@@ -3,13 +3,13 @@
 
 
 "@faltest/browser@^3.0.0", "@faltest/browser@file:../../packages/browser":
-  version "3.0.0"
+  version "3.0.1"
   dependencies:
     "@faltest/utils" "^3.0.0"
     verror-extra "^2.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "3.0.0"
+  version "3.0.1"
   dependencies:
     "@faltest/mocha" "^5.0.0"
     "@faltest/remote" "^5.0.0"
@@ -20,7 +20,7 @@
     yn "^4.0.0"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "5.0.1"
+  version "5.0.2"
   dependencies:
     "@faltest/remote" "^5.0.0"
     "@faltest/utils" "^3.0.0"
@@ -28,7 +28,7 @@
     "@faltest/browser" "^3.0.0"
 
 "@faltest/mocha@^5.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "5.0.1"
+  version "5.0.2"
   dependencies:
     "@faltest/utils" "^3.0.0"
     choma "^1.2.1"
@@ -37,7 +37,7 @@
     mocha-helpers "^5.1.0"
 
 "@faltest/remote@^5.0.0", "@faltest/remote@file:../../packages/remote":
-  version "5.0.4"
+  version "5.0.5"
   dependencies:
     "@faltest/utils" "^3.0.0"
     chromedriver "90.0.0"
@@ -50,7 +50,7 @@
     yn "^4.0.0"
 
 "@faltest/utils@^3.0.0", "@faltest/utils@file:../../packages/utils":
-  version "3.1.0"
+  version "3.1.1"
   dependencies:
     callsites "^3.1.0"
     debug "^4.1.1"
