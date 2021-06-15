@@ -5,7 +5,6 @@ const { expect } = require('../../../../helpers/chai');
 const { event: { emit, on } } = require('../../src');
 const sinon = require('sinon');
 const EventEmitter = require('events');
-const pDefer = require('p-defer');
 
 describe(function() {
   describe(emit, function() {
@@ -14,6 +13,8 @@ describe(function() {
       let args = ['bar', 'baz'];
 
       let deferredPromises = [];
+
+      const { default: pDefer } = await import('p-defer');
 
       for (let i = 0; i < 2; i++) {
         deferredPromises.push(pDefer());
@@ -57,6 +58,8 @@ describe(function() {
       let args = ['bar', 'baz'];
 
       let deferredPromises = [];
+
+      const { default: pDefer } = await import('p-defer');
 
       for (let i = 0; i < 2; i++) {
         deferredPromises.push(pDefer());
