@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@faltest/browser": "^3.0.0",
-    "verror-extra": "^2.0.0"
+    "verror-extra": "^3.0.0"
   },
   "devDependencies": {
     "mocha": "^8.2.1",
