@@ -7,7 +7,6 @@
 
 const execa = require('execa');
 const path = require('path');
-const pAll = require('p-all');
 
 const [packagePrefix, scriptName, ...args] = process.argv.slice(2);
 
@@ -32,6 +31,8 @@ const root = path.resolve(__dirname, '..');
       stdio: 'inherit',
     });
   });
+
+  const { default: pAll } = await import('p-all');
 
   await pAll(promises, {
     concurrency: 1,
