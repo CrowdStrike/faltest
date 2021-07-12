@@ -29,7 +29,7 @@
   "dependencies": {
     "@faltest/utils": "^4.0.0",
     "choma": "^1.2.1",
-    "filenamify": "^4.1.0",
+    "filenamify": "^4.3.0",
     "glob": "^7.1.4",
     "mocha-helpers": "^6.0.0"
   },
