@@ -17,27 +17,48 @@ function areAllFlagsPresent(names, total) {
   });
 }
 
-function flaggedTest(total, isDeactivated) {
+function infoFor(stringOrObjectOrCallback) {
+  let name;
+  let flags = [];
+  if (typeof stringOrObjectOrCallback === 'string') {
+    name = stringOrObjectOrCallback;
+  } else {
+    name = stringOrObjectOrCallback.name;
+    if (stringOrObjectOrCallback.flags) {
+      flags = stringOrObjectOrCallback.flags;
+    }
+  }
+
+  return { name, flags };
+}
+
+function formatName(name, flags, handler) {
+  if (flags.length) {
+    name = formatTitle(name);
+    name += `${handler.titleSeparator || titleSeparator}flags: ${flags.join(', ')}`;
+  }
+
+  return name;
+}
+
+
+function isSkipped({ flags, total, isDeactivated }) {
+  return !isDeactivated && flags.length && !areAllFlagsPresent(flags, total);
+}
+
+function flaggedIt(total, isDeactivated) {
   return mocha => {
-    return function flaggedTest(stringOrObject, callback) {
-      let name;
-      let flags = [];
-      if (typeof stringOrObject === 'string') {
-        name = stringOrObject;
-      } else {
-        name = stringOrObject.name;
-        if (stringOrObject.flags) {
-          flags = stringOrObject.flags;
-        }
+    return function flaggedIt(stringOrObject, callback) {
+      let { name, flags } = infoFor(stringOrObject);
+
+      if (!isDeactivated) {
+        name = formatTitle(name);
       }
 
-      if (!isDeactivated && flags.length) {
-        name = formatTitle(name);
-        name += `${mocha.it.titleSeparator || titleSeparator}flags: ${flags.join(', ')}`;
-      }
+      name = formatName(name, flags, mocha.it);
 
       mocha.it(name, async function () {
-        if (!isDeactivated && flags.length && !areAllFlagsPresent(flags, total)) {
+        if (isSkipped({ flags, total, isDeactivated })) {
           this.skip();
           return;
         }
@@ -48,14 +69,98 @@ function flaggedTest(total, isDeactivated) {
   };
 }
 
-function create(mocha, flags, isDeactivated) {
-  let _flaggedTest = flaggedTest(flags, isDeactivated);
+function flaggedDescribe(total, isDeactivated) {
+  return mocha => {
+    return function flaggedDescribe(stringOrObjectOrCallback, callback) {
+      let { name, flags } = infoFor(stringOrObjectOrCallback);
+
+      if (!isDeactivated) {
+        name = formatName(name, flags, mocha.describe);
+      }
+
+      if (!callback) {
+        callback = stringOrObjectOrCallback;
+      }
+
+      let describeArgs = [];
+
+      if (name) {
+        describeArgs.push(name);
+      }
+
+      function anonymousDescribe() {
+        function before(beforeCallback) {
+          return mocha.before(function (...args) {
+            if (isSkipped({ flags, total, isDeactivated })) {
+              this.skip();
+              return;
+            }
+
+            return beforeCallback.apply(this, args);
+          });
+        }
+
+        function after(afterCallback) {
+          return mocha.after(function (...args) {
+            if (isSkipped({ flags, total, isDeactivated })) {
+              this.skip();
+              return;
+            }
+
+            return afterCallback.apply(this, args);
+          });
+        }
+
+        function beforeEach(beforeEachCallback) {
+          return mocha.beforeEach(function (...args) {
+            if (isSkipped({ flags, total, isDeactivated })) {
+              this.skip();
+              return;
+            }
+
+            return beforeEachCallback.apply(this, args);
+          });
+        }
+
+        function afterEach(afterEachCallback) {
+          return mocha.afterEach(function (...args) {
+            if (isSkipped({ flags, total, isDeactivated })) {
+              this.skip();
+              return;
+            }
+
+            return afterEachCallback.apply(this, args);
+          });
+        }
+
+        callback.apply(this, [{ beforeEach, afterEach, before, after }]);
+
+      }
+
+      describeArgs.push(anonymousDescribe);
+
+      mocha.describe(...describeArgs);
+    };
+  };
+}
+
+function createIt(mocha, flags, isDeactivated) {
+  let _flaggedTest = flaggedIt(flags, isDeactivated);
 
   let _it = wrap(mocha, 'it', _flaggedTest);
 
   return _it;
 }
 
+function createDescribe(mocha, flags, isDeactivated) {
+  let _flaggedDescribe = flaggedDescribe(flags, isDeactivated);
+
+  let _describe = wrap(mocha, 'describe', _flaggedDescribe);
+
+  return _describe;
+}
+
 module.exports = {
-  create,
+  createIt,
+  createDescribe,
 };
