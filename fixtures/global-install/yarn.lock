@@ -37,13 +37,13 @@
     mocha-helpers "^6.0.0"
 
 "@faltest/remote@^6.0.0", "@faltest/remote@file:../../packages/remote":
-  version "6.0.0"
+  version "6.0.1"
   dependencies:
     "@faltest/utils" "^4.0.0"
     chromedriver "91.0.1"
     execa "^5.0.0"
     fkill "^7.1.0"
-    geckodriver "2.0.0"
+    geckodriver "2.0.1"
     get-port "^5.0.0"
     ps-list "^6.3.0"
     webdriverio "5.18.5"
@@ -902,10 +902,10 @@ fsevents@~2.3.1:
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
 
-geckodriver@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-2.0.0.tgz#b30e8dd0ebde8ceaaef8101fc1855311d7d4973a"
-  integrity sha512-qcL58vKCwaUufE9y2viDydvvynxUzeITc0CblefAo0jWdxNMbQmY6wVt6MKJuBHOQ71QRer5iq9CSRZHppuytg==
+geckodriver@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-2.0.1.tgz#2432e9d621c8db9d649c25a1f34799e55208fb55"
+  integrity sha512-xSaRWJuWDArekuaT2Ck/vsIXPy6DGb8NS2e6InRSZeeVBX+0XM8EmLshhMbR9xm6hiwlxXUX4LAT2LnJJSUFwg==
   dependencies:
     adm-zip "0.5.5"
     bluebird "3.7.2"
