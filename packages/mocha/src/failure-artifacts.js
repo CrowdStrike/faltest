@@ -5,10 +5,9 @@ const fs = require('fs');
 const { promisify } = require('util');
 const writeFile = promisify(fs.writeFile);
 const mkdir = promisify(fs.mkdir);
-const filenamify = require('filenamify');
 const debug = require('./debug');
 
-function buildTitle(test) {
+async function buildTitle(test) {
   let parts = [];
 
   while (test) {
@@ -20,6 +19,8 @@ function buildTitle(test) {
   }
 
   let title = parts.join(' ');
+
+  const { default: filenamify } = await import('filenamify');
 
   // Tests with / in the name are bad.
   title = filenamify(title);
@@ -35,7 +36,7 @@ async function failureArtifacts(outputDir) {
     return;
   }
 
-  let title = buildTitle(this.test);
+  let title = await buildTitle(this.test);
 
   await mkdir(outputDir, { recursive: true });
 
