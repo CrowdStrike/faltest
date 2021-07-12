@@ -7,16 +7,25 @@ const { wrap } = require('./mocha');
 
 function roles(getRole, getFilePathTitle) {
   return mocha => {
-    return function roles(tags, callback) {
-      // must be instanced and not inline
-      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec#Finding_successive_matches
-      let regex = /(?:^| )#([^ ]+)/g;
+    return function roles(...args) {
+      let callback = args.pop();
+
+      let roles = [];
+      if (args.length > 1) { // roles as multiple arguments
+        roles = args;
+      } else if (typeof args[0] === 'string' || args[0] instanceof String) { // roles as concatenated string
+        // must be instanced and not inline
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec#Finding_successive_matches
+        let regex = /(?:^| )#([^ ]+)/g;
+        // eslint-disable-next-line no-cond-assign
+        for (let matches; matches = regex.exec(args[0]);) {
+          roles.push(matches[1]);
+        }
+      }
 
       function loopRoles() {
         // eslint-disable-next-line no-cond-assign
-        for (let matches; matches = regex.exec(tags);) {
-          let role = matches[1];
-
+        for (let role of roles) {
           mocha.describe(`#${role}`, function() {
             global.before(function() {
               this.role = getRole(role);
