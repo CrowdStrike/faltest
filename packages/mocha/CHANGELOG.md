@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@6.0.1...@faltest/mocha@6.0.2) (2021-07-12)
+
+
+### Bug Fixes
+
+* fix import of filenamify ([914e35c](https://github.com/CrowdStrike/faltest/commit/914e35c6f7b8effa6fe10d5736dbf756c2e363ee))
+* **deps:** update dependency filenamify to v5 ([611c1bb](https://github.com/CrowdStrike/faltest/commit/611c1bb9ca8c72519b771c2d9dca88e35e8a4805))
+
 ### [6.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@6.0.0...@faltest/mocha@6.0.1) (2021-07-12)
 
 ## [6.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@5.0.2...@faltest/mocha@6.0.0) (2021-06-15)
