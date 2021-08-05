@@ -31,7 +31,7 @@
     "chromedriver": "92.0.1",
     "execa": "^5.0.0",
     "fkill": "^7.1.0",
-    "geckodriver": "2.0.1",
+    "geckodriver": "2.0.2",
     "get-port": "^5.0.0",
     "ps-list": "^6.3.0",
     "webdriverio": "5.18.5",
