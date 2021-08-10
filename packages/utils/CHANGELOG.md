@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@4.0.0...@faltest/utils@4.0.1) (2021-08-10)
+
+
+### Bug Fixes
+
+* fix callsites import ([ad0067c](https://github.com/CrowdStrike/faltest/commit/ad0067c3af772d0d4615aadfe136b952115cf8d4))
+* **deps:** update dependency callsites to v4 ([25fb697](https://github.com/CrowdStrike/faltest/commit/25fb69728b2516529bb85e0b9eb01b098c340286))
+
 ## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@3.1.1...@faltest/utils@4.0.0) (2021-06-15)
 
 
