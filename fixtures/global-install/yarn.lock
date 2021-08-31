@@ -37,10 +37,10 @@
     mocha-helpers "^6.0.0"
 
 "@faltest/remote@^6.0.0", "@faltest/remote@file:../../packages/remote":
-  version "6.0.5"
+  version "6.0.6"
   dependencies:
     "@faltest/utils" "^4.0.0"
-    chromedriver "92.0.1"
+    chromedriver "92.0.2"
     execa "^5.0.0"
     fkill "^7.1.0"
     geckodriver "2.0.3"
@@ -490,10 +490,10 @@ chownr@^2.0.0:
   resolved "https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
-chromedriver@92.0.1:
-  version "92.0.1"
-  resolved "https://registry.npmjs.org/chromedriver/-/chromedriver-92.0.1.tgz#3e28b7e0c9fb94d693cf74d51af0c29d57f18dca"
-  integrity sha512-LptlDVCs1GgyFNVbRoHzzy948JDVzTgGiVPXjNj385qXKQP3hjAVBIgyvb/Hco0xSEW8fjwJfsm1eQRmu6t4pQ==
+chromedriver@92.0.2:
+  version "92.0.2"
+  resolved "https://registry.npmjs.org/chromedriver/-/chromedriver-92.0.2.tgz#18816e741722e37cf528697fa7012583d056cd2d"
+  integrity sha512-WMBQju3eJ80gdA+JggWpuGwob5dGpuFXaab8Bxs9oN3W1WuxzRShQ4dkwvtXm4lYyBIjoNbETNk0JvsqRe5mzg==
   dependencies:
     "@testim/chrome-version" "^1.0.7"
     axios "^0.21.1"
