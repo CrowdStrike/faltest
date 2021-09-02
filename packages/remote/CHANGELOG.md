@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@6.0.6...@faltest/remote@6.0.7) (2021-09-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency geckodriver to v2.0.4 ([17f557e](https://github.com/CrowdStrike/faltest/commit/17f557e7f9d4d16024e782b6f709b01e703b3fac))
+
 ### [6.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@6.0.5...@faltest/remote@6.0.6) (2021-08-31)
 
 
