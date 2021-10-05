@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.10](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@6.0.9...@faltest/remote@6.0.10) (2021-10-05)
+
+
+### Bug Fixes
+
+* support get-port v6 ([cec298c](https://github.com/CrowdStrike/faltest/commit/cec298cd24d0464147acd169951a5358619c7018))
+* **deps:** update dependency get-port to v6 ([c00e812](https://github.com/CrowdStrike/faltest/commit/c00e812f844a936bbfb781039129830041828d88))
+
 ### [6.0.9](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@6.0.8...@faltest/remote@6.0.9) (2021-09-27)
 
 
