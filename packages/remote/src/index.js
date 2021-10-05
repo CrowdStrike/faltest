@@ -8,7 +8,6 @@ require('@faltest/utils/src/require-before-webdriverio');
 const { remote } = require('webdriverio');
 const psList = require('ps-list');
 const fkill = require('fkill');
-const getPort = require('get-port');
 const debug = require('./debug');
 const log = require('./log');
 const EventEmitter = require('events');
@@ -107,6 +106,7 @@ async function killOrphans() {
 
 async function getNewPort(port) {
   if (!port || port === '0') {
+    const { default: getPort } = await import('get-port');
     port = (await getPort()).toString();
     debug(`using random open port ${port}`);
   } else {
