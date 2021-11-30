@@ -1,6 +1,6 @@
 {
   "name": "@faltest/mocha",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "description": "A test runner for the @faltest/lifecycle project",
   "main": "src",
   "files": [

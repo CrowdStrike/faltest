@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.12](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@6.0.11...@faltest/remote@6.0.12) (2021-11-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chromedriver to v96 ([de0c7d0](https://github.com/CrowdStrike/faltest/commit/de0c7d0a6134ddeac8c862956dfd14672c99f970))
+
 ### [6.0.11](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@6.0.10...@faltest/remote@6.0.11) (2021-10-25)
 
 
