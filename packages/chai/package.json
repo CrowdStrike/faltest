@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/CrowdStrike/faltest/issues"
   },
-  "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/chai#readme",
+  "homepage": "https://github.com/CrowdStrike/faltest/blob/main/packages/chai#readme",
   "engines": {
     "node": ">=12.13"
   },

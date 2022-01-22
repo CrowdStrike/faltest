@@ -5,10 +5,10 @@
     "packages/*"
   ],
   "scripts": {
-    "lint:git": "commitlint",
+    "lint:git": "commitlint --default-branch main",
     "lint:js": "eslint . --ext js,json",
     "lint:md": "remark -f doc CONTRIBUTING.md README.md packages/*/README.md examples/*/README.md packages/lint/doc",
-    "release": "next release --scripts.precommit \"FALTEST_PRINT_VERSION=false yargs-help-output README.md --npm-script-name start && git add README.md\" --scripts.postbump \"\\\"$PWD/scripts/postbump.js\\\"\" --no-bump-in-range-dependencies",
+    "release": "next release --default-branch main --scripts.precommit \"FALTEST_PRINT_VERSION=false yargs-help-output README.md --npm-script-name start && git add README.md\" --scripts.postbump \"\\\"$PWD/scripts/postbump.js\\\"\" --no-bump-in-range-dependencies",
     "start": "faltest",
     "test": "./scripts/run.js packages test",
     "test:acceptance": "mocha --recursive"
@@ -38,7 +38,7 @@
     "execa": "^5.0.0",
     "mocha": "^9.0.0",
     "mocha-helpers": "^6.0.0",
-    "monorepo-next": "^7.0.0",
+    "monorepo-next": "^7.2.0",
     "p-all": "^4.0.0",
     "remark-cli": "^10.0.0",
     "remark-preset-lint-crowdstrike": "^2.0.0",

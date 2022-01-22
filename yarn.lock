@@ -1297,7 +1297,16 @@ conventional-changelog-config-spec@2.1.0:
   resolved "https://registry.npmjs.org/conventional-changelog-config-spec/-/conventional-changelog-config-spec-2.1.0.tgz#874a635287ef8b581fd8558532bf655d4fb59f2d"
   integrity sha512-IpVePh16EbbB02V+UA+HQnnPIohgXvJRxHcS5+Uwk4AT5LjzCZJm5sp/yqs5C6KZJ1jMsV4paEV13BN1pvDuxQ==
 
-conventional-changelog-conventionalcommits@4.5.0, conventional-changelog-conventionalcommits@^4.3.1, conventional-changelog-conventionalcommits@^4.5.0:
+conventional-changelog-conventionalcommits@4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/conventional-changelog-conventionalcommits/-/conventional-changelog-conventionalcommits-4.6.1.tgz#f4c0921937050674e578dc7875f908351ccf4014"
+  integrity sha512-lzWJpPZhbM1R0PIzkwzGBCnAkH5RKJzJfFQZcl/D+2lsJxAwGnDKBqn/F4C1RD31GJNn8NuKWQzAZDAVXPp2Mw==
+  dependencies:
+    compare-func "^2.0.0"
+    lodash "^4.17.15"
+    q "^1.5.1"
+
+conventional-changelog-conventionalcommits@^4.3.1, conventional-changelog-conventionalcommits@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/conventional-changelog-conventionalcommits/-/conventional-changelog-conventionalcommits-4.5.0.tgz#a02e0b06d11d342fdc0f00c91d78265ed0bc0a62"
   integrity sha512-buge9xDvjjOxJlyxUnar/+6i/aVEVGA7EEh4OafBCXPlLUQPGbRUBhBUveWRxzvR8TEjhKEP4BdepnpG2FSZXw==
@@ -1388,6 +1397,23 @@ conventional-changelog@3.1.24:
   version "3.1.24"
   resolved "https://registry.npmjs.org/conventional-changelog/-/conventional-changelog-3.1.24.tgz#ebd180b0fd1b2e1f0095c4b04fd088698348a464"
   integrity sha512-ed6k8PO00UVvhExYohroVPXcOJ/K1N0/drJHx/faTH37OIZthlecuLIRX/T6uOp682CAoVoFpu+sSEaeuH6Asg==
+  dependencies:
+    conventional-changelog-angular "^5.0.12"
+    conventional-changelog-atom "^2.0.8"
+    conventional-changelog-codemirror "^2.0.8"
+    conventional-changelog-conventionalcommits "^4.5.0"
+    conventional-changelog-core "^4.2.1"
+    conventional-changelog-ember "^2.0.9"
+    conventional-changelog-eslint "^3.0.9"
+    conventional-changelog-express "^2.0.6"
+    conventional-changelog-jquery "^3.0.11"
+    conventional-changelog-jshint "^2.0.9"
+    conventional-changelog-preset-loader "^2.3.4"
+
+conventional-changelog@3.1.25:
+  version "3.1.25"
+  resolved "https://registry.yarnpkg.com/conventional-changelog/-/conventional-changelog-3.1.25.tgz#3e227a37d15684f5aa1fb52222a6e9e2536ccaff"
+  integrity sha512-ryhi3fd1mKf3fSjbLXOfK2D06YwKNic1nC9mWqybBHdObPd8KJ2vjaXZfYj1U23t+V8T8n0d7gwnc9XbIdFbyQ==
   dependencies:
     conventional-changelog-angular "^5.0.12"
     conventional-changelog-atom "^2.0.8"
@@ -3867,12 +3893,12 @@ modify-values@^1.0.0:
   resolved "https://registry.npmjs.org/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-monorepo-next@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/monorepo-next/-/monorepo-next-7.0.0.tgz#4405281791970bdc73d23bed819486cd2e91bc39"
-  integrity sha512-bDTLDRr/QZh/5f4qEm8pIz7sxG3A3X5Elb/lxE5T8XZjb4Gd36IP6FC1Br/MaCbwOLF8oI06mUhbFA6/tUUCvA==
+monorepo-next@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/monorepo-next/-/monorepo-next-7.2.0.tgz#d9697ae966c840b44d97802ea4149a900f1583df"
+  integrity sha512-x4ipp8phpUiAqSV9pGMXJCYnDNrKN+xVbTuDURHn9ATT2QMTl5EeFIkIdKP/4OEb+053SnSdPr7il0K4IguudQ==
   dependencies:
-    conventional-changelog "3.1.24"
+    conventional-changelog "3.1.25"
     conventional-recommended-bump "6.1.0"
     debug "^4.3.1"
     execa "^5.0.0"
@@ -3880,9 +3906,9 @@ monorepo-next@^7.0.0:
     inquirer "^8.0.0"
     minimatch "^3.0.4"
     npm-packlist "^3.0.0"
-    rfc6902 "^4.0.2"
+    rfc6902 "^5.0.0"
     semver "7.3.5"
-    standard-version "9.3.1"
+    standard-version "9.3.2"
     tmp "0.2.1"
     yargs "^17.0.0"
 
@@ -5136,10 +5162,10 @@ reusify@^1.0.4:
   resolved "https://registry.npmjs.org/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
-rfc6902@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/rfc6902/-/rfc6902-4.0.2.tgz#ce99d3562b9e3287d403462e6bcc81eead8fcea0"
-  integrity sha512-MJOC4iDSv3Qn5/QvhPbrNoRongti6moXSShcRmtbNqOk0WPxlviEdMV4bb9PaULhSxLUXzWd4AjAMKQ3j3y54w==
+rfc6902@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/rfc6902/-/rfc6902-5.0.0.tgz#cb53ac1cb8a700edc1ddc6c19afbb93422f9e385"
+  integrity sha512-6d0Q7DgN+RWHhvY/jb7QWG6ol+XreFqQn4NzvHB8CSALA70fRLRmbJaMvxlFf/JIzfkiNWq0lQF0l5yWb4yuLA==
 
 rgb2hex@^0.1.0:
   version "0.1.10"
@@ -5414,15 +5440,15 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
-standard-version@9.3.1:
-  version "9.3.1"
-  resolved "https://registry.yarnpkg.com/standard-version/-/standard-version-9.3.1.tgz#786c16c318847f58a31a2434f97e8db33a635853"
-  integrity sha512-5qMxXw/FxLouC5nANyx/5RY1kiorJx9BppUso8gN07MG64q2uLRmrPb4KfXp3Ql4s/gxjZwZ89e0FwxeLubGww==
+standard-version@9.3.2:
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/standard-version/-/standard-version-9.3.2.tgz#28db8c1be66fd2d736f28f7c5de7619e64cd6dab"
+  integrity sha512-u1rfKP4o4ew7Yjbfycv80aNMN2feTiqseAhUhrrx2XtdQGmu7gucpziXe68Z4YfHVqlxVEzo4aUA0Iu3VQOTgQ==
   dependencies:
     chalk "^2.4.2"
     conventional-changelog "3.1.24"
     conventional-changelog-config-spec "2.1.0"
-    conventional-changelog-conventionalcommits "4.5.0"
+    conventional-changelog-conventionalcommits "4.6.1"
     conventional-recommended-bump "6.1.0"
     detect-indent "^6.0.0"
     detect-newline "^3.1.0"
