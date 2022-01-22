@@ -116,8 +116,8 @@ DETECT_CHROMEDRIVER_VERSION=true npm install
 
 ## Real-world Examples
 
-*   [emberclear](https://github.com/NullVoxPopuli/emberclear/blob/master/packages/smoke-tests/tests/smoke-test.js)
-*   [ember-aframe-shim](https://github.com/ember-vr/ember-aframe-shim/blob/master/faltest/smoke-test.js)
+*   [emberclear](https://github.com/NullVoxPopuli/emberclear/blob/75d4f876ef/client/web/smoke-tests/tests/smoke-test.js)
+*   [ember-aframe-shim](https://github.com/ember-vr/ember-aframe-shim/blob/a6c88e3465/faltest/smoke-test.js)
 
 ## Contributing
 

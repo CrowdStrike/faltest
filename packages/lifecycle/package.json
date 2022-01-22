@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/CrowdStrike/faltest/issues"
   },
-  "homepage": "https://github.com/CrowdStrike/faltest/blob/master/packages/lifecycle#readme",
+  "homepage": "https://github.com/CrowdStrike/faltest/blob/main/packages/lifecycle#readme",
   "engines": {
     "node": ">=12.13"
   },
