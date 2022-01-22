@@ -3900,7 +3900,7 @@ modify-values@^1.0.0:
   resolved "https://registry.npmjs.org/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-monorepo-next@^7.2.0:
+monorepo-next@^7.1.2:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/monorepo-next/-/monorepo-next-7.2.0.tgz#d9697ae966c840b44d97802ea4149a900f1583df"
   integrity sha512-x4ipp8phpUiAqSV9pGMXJCYnDNrKN+xVbTuDURHn9ATT2QMTl5EeFIkIdKP/4OEb+053SnSdPr7il0K4IguudQ==
