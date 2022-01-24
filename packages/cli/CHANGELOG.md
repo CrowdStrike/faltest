@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@4.0.0...@faltest/cli@4.0.1) (2022-01-24)
+
 ## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@3.0.1...@faltest/cli@4.0.0) (2021-06-15)
 
 

@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@4.0.1...@faltest/chai@4.0.2) (2022-01-24)
+
 ### [4.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@4.0.0...@faltest/chai@4.0.1) (2021-11-30)
 
 ## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@3.0.2...@faltest/chai@4.0.0) (2021-06-15)

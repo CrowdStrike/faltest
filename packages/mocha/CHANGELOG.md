@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@6.0.3...@faltest/mocha@6.0.4) (2022-01-24)
+
 ### [6.0.3](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@6.0.2...@faltest/mocha@6.0.3) (2021-11-30)
 
 ### [6.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@6.0.1...@faltest/mocha@6.0.2) (2021-07-12)
