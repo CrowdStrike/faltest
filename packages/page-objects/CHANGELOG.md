@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.3](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@5.0.2...@faltest/page-objects@5.0.3) (2022-01-31)
+
 ### [5.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@5.0.1...@faltest/page-objects@5.0.2) (2022-01-24)
 
 ### [5.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@5.0.0...@faltest/page-objects@5.0.1) (2021-11-30)
