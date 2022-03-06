@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@5.0.3...@faltest/page-objects@5.1.0) (2022-03-06)
+
+
+### Features
+
+* add `selectByVisibleText` ([45efd6c](https://github.com/CrowdStrike/faltest/commit/45efd6c2c7d7443c54ed6a4d868d7ba96f7c0af1))
+
 ### [5.0.3](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@5.0.2...@faltest/page-objects@5.0.3) (2022-01-31)
 
 ### [5.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@5.0.1...@faltest/page-objects@5.0.2) (2022-01-24)

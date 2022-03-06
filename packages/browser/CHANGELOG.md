@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@4.0.1...@faltest/browser@4.1.0) (2022-03-06)
+
+
+### Features
+
+* add `selectByVisibleText` ([45efd6c](https://github.com/CrowdStrike/faltest/commit/45efd6c2c7d7443c54ed6a4d868d7ba96f7c0af1))
+
 ### [4.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@4.0.0...@faltest/browser@4.0.1) (2022-01-24)
 
 ## [4.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@3.0.1...@faltest/browser@4.0.0) (2021-06-15)
