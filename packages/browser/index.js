@@ -31,6 +31,7 @@ const elementFunctionsToPassThrough = [
   'scrollIntoView',
   'getAttribute',
   'isDisplayed',
+  'selectByVisibleText',
 ];
 
 /**

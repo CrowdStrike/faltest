@@ -15,6 +15,7 @@ describe(function() {
     keepBrowserOpen: true,
     overrides: {
       waitforTimeout: 0,
+      browser: 'firefox',
     },
   });
 
@@ -165,5 +166,26 @@ describe(function() {
 
     await expect(this.browser.waitForText('.foo', 'baz', true))
       .to.eventually.be.fulfilled;
+  });
+
+  it('selectByVisibleText', async function() {
+    await this.writeFixture('index.html', `
+      <select id="selectbox">
+        <option value="someValue0">uno</option>
+        <option value="someValue1">dos</option>
+      </select>
+    `);
+
+    await this.open('index.html');
+
+    // eslint-disable-next-line faltest/use-chai-methods
+    await expect(this.browser.getValue('#selectbox'))
+      .to.eventually.equal('someValue0');
+
+    await this.browser.selectByVisibleText('#selectbox', 'dos');
+
+    // eslint-disable-next-line faltest/use-chai-methods
+    await expect(this.browser.getValue('#selectbox'))
+      .to.eventually.equal('someValue1');
   });
 });
