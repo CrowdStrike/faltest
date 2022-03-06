@@ -19,6 +19,7 @@ describe(function() {
     keepBrowserOpen: true,
     overrides: {
       waitforTimeout: 0,
+      browser: 'firefox',
     },
   });
 
@@ -218,5 +219,30 @@ describe(function() {
 
     await expect(this.page.foo.getAttribute('class'))
       .to.eventually.equal('foo');
+  });
+
+  it(Element.prototype.selectByVisibleText, async function() {
+    await this.writeFixture('index.html', `
+      <select id="selectbox">
+        <option value="someValue0">uno</option>
+        <option value="someValue1">dos</option>
+      </select>
+    `);
+
+    this.page = this.createPage(class extends BasePageObject {
+      get foo() {
+        return this._create('#selectbox');
+      }
+    });
+
+    await this.open('index.html');
+
+    await expect(this.page.foo)
+      .value.to.eventually.equal('someValue0');
+
+    await this.page.foo.selectByVisibleText('dos');
+
+    await expect(this.page.foo)
+      .value.to.eventually.equal('someValue1');
   });
 });

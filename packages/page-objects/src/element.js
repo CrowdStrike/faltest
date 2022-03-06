@@ -70,6 +70,10 @@ class Element extends BaseElement {
   async getAttribute() {
     return await this._browser.getAttribute(this._selector, ...arguments);
   }
+
+  async selectByVisibleText() {
+    await this._browser.selectByVisibleText(this._selector, ...arguments);
+  }
 }
 
 module.exports = Element;
