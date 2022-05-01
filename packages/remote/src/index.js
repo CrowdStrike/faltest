@@ -6,6 +6,7 @@ const {
 } = require('./cp');
 require('@faltest/utils/src/require-before-webdriverio');
 const { remote } = require('webdriverio');
+const path = require('path');
 const psList = require('ps-list');
 const fkill = require('fkill');
 const debug = require('./debug');
@@ -20,6 +21,9 @@ const {
 
 // We aren't using `@wdio/cli` (wdio testrunner)
 process.env.SUPPRESS_NO_CONFIG_WARNING = 'true';
+
+let configDir = process.env.FALTEST_CONFIG_DIR || process.cwd();
+
 
 let port;
 
@@ -164,7 +168,7 @@ async function spawnWebDriver(name, args) {
   if (process.platform === 'win32') {
     let { emit } = webDriver;
 
-    webDriver.emit = function(eventName, exitCode) {
+    webDriver.emit = function (eventName, exitCode) {
       if (eventName === 'exit' && exitCode === 1) {
         return true;
       }
@@ -178,6 +182,18 @@ async function spawnWebDriver(name, args) {
   delete webDriver.catch;
 
   return webDriver;
+}
+
+function loadConfig() {
+  try {
+    return require(path.resolve(configDir, '.faltestrc.js'));
+  } catch (err) {
+    if (err.code !== 'MODULE_NOT_FOUND') {
+      throw err;
+    }
+
+    return {};
+  }
 }
 
 function startWebDriver(options = {}) {
@@ -233,12 +249,20 @@ function stopWebDriver(webDriver) {
   });
 }
 
-async function getCapabilities({
-  customizeCapabilities = (browserName, capabilities) => capabilities,
-  overrides: {
-    browser: _browser = getDefaults().browser,
-  } = {},
-}) {
+async function getCapabilities(options) {
+  let {
+    browserArgs = [],
+    customizeCapabilities = (browserName, capabilities) => capabilities,
+    overrides: {
+      browser: _browser = getDefaults().browser,
+    } = {},
+  } = options;
+
+  let faltestConfig = loadConfig();
+
+  let argsFromConfig = (((faltestConfig.options || {}).browsers || {})[_browser] || {}).args || [];
+
+
   let capabilities = {
     browserName: _browser,
   };
@@ -249,7 +273,7 @@ async function getCapabilities({
 
   switch (_browser) {
     case 'chrome': {
-      let args = [];
+      let args = [...browserArgs, ...argsFromConfig];
       if (headless) {
         args.push('--headless');
       }
@@ -260,7 +284,7 @@ async function getCapabilities({
       break;
     }
     case 'firefox': {
-      let args = [];
+      let args = [...browserArgs, ...argsFromConfig];
       if (headless) {
         args.push('-headless');
       }
