@@ -6,6 +6,10 @@ const glob = promisify(require('glob'));
 const { buildGrep } = require('./tag');
 const failureArtifacts = require('./failure-artifacts');
 const debug = require('./debug');
+const {
+  createIt: createFlaggedIt,
+  createDescribe: createFlaggedDescribe,
+} = require('./flag');
 
 const { Runner } = Mocha;
 const { constants } = Runner;
@@ -157,5 +161,7 @@ async function runTests(options) {
 module.exports = {
   runTests,
   createRolesHelper: require('./role').create,
-  createFlaggedTest: require('./flag').create,
+  createFlaggedTest: createFlaggedIt,
+  createFlaggedIt,
+  createFlaggedDescribe,
 };
