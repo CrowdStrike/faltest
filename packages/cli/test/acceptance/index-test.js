@@ -4,7 +4,6 @@ const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const path = require('path');
 const execa = require('execa');
-const semver = require('semver');
 
 const cwd = path.resolve(__dirname, '../..');
 const env = {
@@ -120,13 +119,6 @@ describe(function() {
         cwd,
         env,
       });
-
-      if (semver.lt(process.version.substr(1), '12.0.0')) {
-        let lessThanNode12Message = `Node worker_threads not available. Trying to fall back to tiny-worker polyfill...
-`;
-
-        stdout = stdout.substr(lessThanNode12Message.length);
-      }
 
       for (let _stdout of [
         stdout.substr(0, stdout.length / 2),

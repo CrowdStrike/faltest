@@ -41,7 +41,6 @@
     "yn": "^4.0.0"
   },
   "devDependencies": {
-    "execa": "^5.0.0",
-    "semver": "^7.3.4"
+    "execa": "^5.0.0"
   }
 }
