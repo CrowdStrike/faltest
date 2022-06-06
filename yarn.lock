@@ -4523,6 +4523,11 @@ proxy-from-env@^1.1.0:
   resolved "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
   integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
+ps-list@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/ps-list/-/ps-list-7.0.0.tgz#fd740a839786605d257117b899031db9b34b8b4b"
+  integrity sha512-ZDhdxqb+kE895BAvqIdGnWwfvB43h7KHMIcJC0hw7xLbbiJoprS+bqZxuGZ0jWdDxZEvB3jpnfgJyOn3lmsH+Q==
+
 ps-list@^6.3.0:
   version "6.3.0"
   resolved "https://registry.npmjs.org/ps-list/-/ps-list-6.3.0.tgz#a2b775c2db7d547a28fbaa3a05e4c281771259be"
