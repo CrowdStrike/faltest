@@ -18,7 +18,7 @@
     "url": "git+ssh://git@github.com/CrowdStrike/faltest.git"
   },
   "engines": {
-    "node": ">=12.13"
+    "node": ">=14.15"
   },
   "devDependencies": {
     "@crowdstrike/commitlint": "^5.0.0",
