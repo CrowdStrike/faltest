@@ -60,6 +60,7 @@ module.exports = {
         'mocha/no-pending-tests': 'off',
         'mocha/no-exclusive-tests': 'error',
         'mocha/no-skipped-tests': 'error',
+        'mocha/no-empty-description': 'off',
 
         'faltest/chai-webdriver-eventually': 'error',
         'faltest/mocha-roles-only': 'error',
