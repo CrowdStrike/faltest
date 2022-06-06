@@ -31,7 +31,7 @@
     "verror-extra": "^3.0.0"
   },
   "devDependencies": {
-    "mocha": "^9.0.0",
+    "mocha": "^10.0.0",
     "tmp": "0.2.1"
   }
 }

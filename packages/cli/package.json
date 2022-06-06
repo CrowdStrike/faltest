@@ -35,7 +35,7 @@
     "@faltest/mocha": "^6.0.0",
     "@faltest/remote": "^6.0.0",
     "@faltest/utils": "^4.0.0",
-    "mocha": "^9.0.0",
+    "mocha": "^10.0.0",
     "threads": "^1.6.1",
     "yargs": "^17.0.0",
     "yn": "^4.0.0"
