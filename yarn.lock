@@ -1904,13 +1904,13 @@ eslint-plugin-json-files@^1.1.0:
     semver "^7.0.0"
     sort-package-json "^1.22.1"
 
-eslint-plugin-mocha@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-mocha/-/eslint-plugin-mocha-9.0.0.tgz#b4457d066941eecb070dc06ed301c527d9c61b60"
-  integrity sha512-d7knAcQj1jPCzZf3caeBIn3BnW6ikcvfz0kSqQpwPYcVGLoJV5sz0l0OJB2LR8I7dvTDbqq1oV6ylhSgzA10zg==
+eslint-plugin-mocha@^10.0.0:
+  version "10.0.5"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-mocha/-/eslint-plugin-mocha-10.0.5.tgz#c3b1e9f59c01063566d8e64b64226533376ffccd"
+  integrity sha512-H5xuD5NStlpaKLqUWYC5BsMx8fHgrIYsdloFbONUTc2vgVNiJcWdKoX29Tt0BO75QgAltplPLIziByMozGGixA==
   dependencies:
     eslint-utils "^3.0.0"
-    ramda "^0.27.1"
+    rambda "^7.1.0"
 
 eslint-plugin-node@^11.0.0:
   version "11.1.0"
@@ -4571,10 +4571,10 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-ramda@^0.27.1:
-  version "0.27.1"
-  resolved "https://registry.npmjs.org/ramda/-/ramda-0.27.1.tgz#66fc2df3ef873874ffc2da6aa8984658abacf5c9"
-  integrity sha512-PgIdVpn5y5Yns8vqb8FzBUEYn98V3xcPgawAkkgj0YJ0qDsnHCiNmZYfOGMgOvoB0eWFLpYbhxUR3mxfDIMvpw==
+rambda@^7.1.0:
+  version "7.1.4"
+  resolved "https://registry.yarnpkg.com/rambda/-/rambda-7.1.4.tgz#7faa9665a54c5d81773975532a942b3113bb4a56"
+  integrity sha512-bPK8sSiVHIC7CqdWga8R+hRi5hfc4hK6S01lZW4KrLwSNryQoKaCOJA9GNiF20J7Nbe1vejRfR37/ASQXFL5EA==
 
 randombytes@^2.1.0:
   version "2.1.0"
