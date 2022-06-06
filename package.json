@@ -11,7 +11,7 @@
     "release": "next release --default-branch main --scripts.precommit \"FALTEST_PRINT_VERSION=false yargs-help-output README.md --npm-script-name start && git add README.md\" --scripts.postbump \"\\\"$PWD/scripts/postbump.js\\\"\" --no-bump-in-range-dependencies",
     "start": "faltest",
     "test": "./scripts/run.js packages test",
-    "test:acceptance": "mocha --recursive"
+    "test:acceptance": "mocha"
   },
   "repository": {
     "type": "git",
