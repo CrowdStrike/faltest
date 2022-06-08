@@ -15,15 +15,19 @@ function defaults(file, options) {
 function spawn(file, args, options) {
   debug(file, args);
 
-  return execa(file, args, defaults(file, options));
+  let cp = execa(file, args, defaults(file, options));
+
+  cp.stdout.on('data', data => {
+    debug(data.toString());
+  });
+
+  return cp;
 }
 
 async function spawnAwait(file, args, options) {
-  let result = (await spawn(file, args, options)).stdout;
+  let { stdout } = await spawn(file, args, options);
 
-  debug(result);
-
-  return result;
+  return stdout;
 }
 
 module.exports = {
