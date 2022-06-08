@@ -9,6 +9,8 @@ const EventEmitter = require('events');
 const {
   killOrphans,
   startWebDriver,
+  spawnWebDriver,
+  startBrowser,
   stopWebDriver,
   stopBrowser,
 } = remote;
@@ -72,6 +74,40 @@ describe(function() {
       expect(killOrphans).to.not.be.called;
 
       expect(webDriver.eventNames()).to.deep.equal([]);
+    });
+
+    it('throws if unexpected name', async function() {
+      process.env.WEBDRIVER_DISABLE_CLEANUP = true;
+
+      let promise = startWebDriver({
+        overrides: {
+          browser: 'unknown',
+        },
+      });
+
+      await expect(promise).to.eventually.be.rejectedWith('Browser "unknown" not implemented.');
+    });
+  });
+
+  describe(spawnWebDriver, function() {
+    it('throws if unexpected name', async function() {
+      sinon.stub(remote, 'spawn');
+
+      let promise = spawnWebDriver('unknown');
+
+      await expect(promise).to.eventually.be.rejectedWith('Driver "unknown" not implemented.');
+    });
+  });
+
+  describe(startBrowser, function() {
+    it('throws if unexpected name', async function() {
+      let promise = startBrowser({
+        overrides: {
+          browser: 'unknown',
+        },
+      });
+
+      await expect(promise).to.eventually.be.rejectedWith('Browser "unknown" not implemented.');
     });
   });
 
