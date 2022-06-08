@@ -21,6 +21,9 @@ const {
 // We aren't using `@wdio/cli` (wdio testrunner)
 process.env.SUPPRESS_NO_CONFIG_WARNING = 'true';
 
+const ChromeDriverName = 'chromedriver';
+const FirefoxDriverName = 'geckodriver';
+
 let port;
 
 const webDriverRegex = /^(chromedriver(?:\.exe)?|geckodriver)$/;
@@ -147,11 +150,11 @@ async function spawnWebDriver(name, args) {
   }
 
   switch (name) {
-    case 'chromedriver':
+    case ChromeDriverName:
       await waitForText('ChromeDriver was started successfully.');
 
       break;
-    case 'geckodriver':
+    case FirefoxDriverName:
       await waitForText('Listening on 127.0.0.1');
 
       break;
@@ -196,11 +199,11 @@ function startWebDriver(options = {}) {
 
     switch (_browser) {
       case 'chrome':
-        driverName = 'chromedriver';
+        driverName = ChromeDriverName;
         driverArgs = [`--port=${port}`];
         break;
       case 'firefox':
-        driverName = 'geckodriver';
+        driverName = FirefoxDriverName;
         driverArgs = ['--port', port];
         break;
     }
