@@ -124,9 +124,9 @@ async function _getNewPort(_port) {
 }
 
 async function spawnWebDriver(name, args) {
-  await spawn(name, ['--version']);
+  await module.exports.spawn(name, ['--version']);
 
-  let webDriver = spawn(name, args, {
+  let webDriver = module.exports.spawn(name, args, {
     stdio: ['ignore', 'pipe', 'ignore'],
   });
 
@@ -153,6 +153,8 @@ async function spawnWebDriver(name, args) {
       await waitForText('Listening on 127.0.0.1');
 
       break;
+    default:
+      throw new Error(`Driver "${name}" not implemented.`);
   }
 
   // There's a flaw with the logic in https://github.com/IndigoUnited/node-cross-spawn/issues/16.
@@ -201,6 +203,8 @@ function startWebDriver(options = {}) {
         driverName = FirefoxDriverName;
         driverArgs = ['--port', port];
         break;
+      default:
+        throw new Error(`Browser "${_browser}" not implemented.`);
     }
 
     let webDriver = await module.exports.spawnWebDriver(driverName, driverArgs);
@@ -268,6 +272,8 @@ async function getCapabilities({
       capabilities['moz:firefoxOptions'] = browserCapabilities;
       break;
     }
+    default:
+      throw new Error(`Browser "${_browser}" not implemented.`);
   }
 
   await customizeCapabilities(_browser, browserCapabilities);
@@ -354,3 +360,4 @@ module.exports.resizeBrowser = resizeBrowser;
 module.exports.events = events;
 module.exports._getNewPort = _getNewPort;
 module.exports.spawnWebDriver = spawnWebDriver;
+module.exports.spawn = spawn;
