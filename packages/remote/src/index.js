@@ -1,9 +1,6 @@
 'use strict';
 
-const {
-  spawn,
-  spawnAwait,
-} = require('./cp');
+const { spawn } = require('./cp');
 require('@faltest/utils/src/require-before-webdriverio');
 const { remote } = require('webdriverio');
 const psList = require('ps-list');
@@ -124,13 +121,11 @@ async function _getNewPort(_port) {
 }
 
 async function spawnWebDriver(name, args) {
-  await spawnAwait(name, ['--version']);
+  await spawn(name, ['--version']);
 
   let webDriver = spawn(name, args, {
     stdio: ['ignore', 'pipe', 'ignore'],
   });
-
-  // webDriver.stdout.pipe(process.stdout);
 
   async function waitForText(text) {
     await new Promise(resolve => {

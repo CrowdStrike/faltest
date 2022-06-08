@@ -24,13 +24,6 @@ function spawn(file, args, options) {
   return cp;
 }
 
-async function spawnAwait(file, args, options) {
-  let { stdout } = await spawn(file, args, options);
-
-  return stdout;
-}
-
 module.exports = {
   spawn,
-  spawnAwait,
 };
