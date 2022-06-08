@@ -12,7 +12,7 @@
     "src"
   ],
   "scripts": {
-    "test": "mocha \"test/!(fixtures)/**/*-test.js\""
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

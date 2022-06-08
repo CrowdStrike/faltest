@@ -3,7 +3,7 @@
   "name": "lifecycle-only",
   "version": "2.0.0",
   "scripts": {
-    "start": "mocha tests/**/*-test.js --exit"
+    "start": "mocha"
   },
   "engines": {
     "node": ">=14.15"
