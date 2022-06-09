@@ -52,6 +52,28 @@ function getDefaults() {
   };
 }
 
+function browserSwitch(name, {
+  chrome,
+  firefox,
+}) {
+  switch (name) {
+    case 'chrome': return chrome();
+    case 'firefox': return firefox();
+    default: throw new Error(`Browser "${name}" not implemented.`);
+  }
+}
+
+function driverSwitch(name, {
+  chrome,
+  firefox,
+}) {
+  switch (name) {
+    case ChromeDriverName: return chrome();
+    case FirefoxDriverName: return firefox();
+    default: throw new Error(`Driver "${name}" not implemented.`);
+  }
+}
+
 let events = new EventEmitter();
 
 async function killOrphans() {
@@ -144,18 +166,14 @@ async function spawnWebDriver(name, args) {
     });
   }
 
-  switch (name) {
-    case ChromeDriverName:
+  await driverSwitch(name, {
+    async chrome() {
       await waitForText('ChromeDriver was started successfully.');
-
-      break;
-    case FirefoxDriverName:
+    },
+    async firefox() {
       await waitForText('Listening on 127.0.0.1');
-
-      break;
-    default:
-      throw new Error(`Driver "${name}" not implemented.`);
-  }
+    },
+  });
 
   // There's a flaw with the logic in https://github.com/IndigoUnited/node-cross-spawn/issues/16.
   // If you mark `shell: true`, then it skips validating that the file exists.
@@ -194,18 +212,16 @@ function startWebDriver(options = {}) {
     let driverName;
     let driverArgs;
 
-    switch (_browser) {
-      case 'chrome':
+    browserSwitch(_browser, {
+      chrome() {
         driverName = ChromeDriverName;
         driverArgs = [`--port=${port}`];
-        break;
-      case 'firefox':
+      },
+      firefox() {
         driverName = FirefoxDriverName;
         driverArgs = ['--port', port];
-        break;
-      default:
-        throw new Error(`Browser "${_browser}" not implemented.`);
-    }
+      },
+    });
 
     let webDriver = await module.exports.spawnWebDriver(driverName, driverArgs);
 
@@ -249,8 +265,8 @@ async function getCapabilities({
 
   let browserCapabilities;
 
-  switch (_browser) {
-    case 'chrome': {
+  browserSwitch(_browser, {
+    chrome() {
       let args = [];
       if (headless) {
         args.push('--headless');
@@ -259,9 +275,8 @@ async function getCapabilities({
         args,
       };
       capabilities['goog:chromeOptions'] = browserCapabilities;
-      break;
-    }
-    case 'firefox': {
+    },
+    firefox() {
       let args = [];
       if (headless) {
         args.push('-headless');
@@ -270,11 +285,8 @@ async function getCapabilities({
         args,
       };
       capabilities['moz:firefoxOptions'] = browserCapabilities;
-      break;
-    }
-    default:
-      throw new Error(`Browser "${_browser}" not implemented.`);
-  }
+    },
+  });
 
   await customizeCapabilities(_browser, browserCapabilities);
 
