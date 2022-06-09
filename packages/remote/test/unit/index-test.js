@@ -1,6 +1,6 @@
 'use strict';
 
-const { describe } = require('../../../../helpers/mocha');
+const { describe, setUpObjectReset } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const sinon = require('sinon');
 const remote = require('../../src');
@@ -43,24 +43,7 @@ describe(function() {
   });
 
   describe(startWebDriver, function() {
-    let revertProcessEnv;
-
-    beforeEach(function() {
-      if ('WEBDRIVER_DISABLE_CLEANUP' in process.env) {
-        let WEBDRIVER_DISABLE_CLEANUP = process.env.WEBDRIVER_DISABLE_CLEANUP;
-        revertProcessEnv = () => {
-          process.env.WEBDRIVER_DISABLE_CLEANUP = WEBDRIVER_DISABLE_CLEANUP;
-        };
-      } else {
-        revertProcessEnv = () => {
-          delete process.env.WEBDRIVER_DISABLE_CLEANUP;
-        };
-      }
-    });
-
-    afterEach(function() {
-      revertProcessEnv();
-    });
+    setUpObjectReset(process.env);
 
     it('cleans up browsers', async function() {
       let killOrphans = sinon.stub(remote, 'killOrphans');
