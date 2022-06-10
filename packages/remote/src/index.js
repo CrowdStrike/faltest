@@ -93,7 +93,9 @@ async function killOrphans() {
     if (isAboutToBeOrphaned) {
       return true;
     }
-    let isAlreadyOrphaned = browserCmdRegex.test(cmd) && ppid === 1;
+    // This kills any other webdriver browsers that may be in use.
+    // Checking the ppid is inconsistent across OSes.
+    let isAlreadyOrphaned = browserCmdRegex.test(cmd);
     if (isAlreadyOrphaned) {
       return true;
     }
