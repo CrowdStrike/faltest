@@ -13,10 +13,13 @@ const {
   defaults,
   event: { emit },
 } = require('@faltest/utils');
+const os = require('os');
 // const config = require('config');
 
 // We aren't using `@wdio/cli` (wdio testrunner)
 process.env.SUPPRESS_NO_CONFIG_WARNING = 'true';
+
+const platform = os.platform();
 
 const ChromeDriverName = 'chromedriver';
 const FirefoxDriverName = 'geckodriver';
@@ -25,10 +28,12 @@ let port;
 
 const webDriverRegex = /^(chromedriver(?:\.exe)?|geckodriver)$/;
 const browserNameRegex = (() => {
-  let linux = 'chrome';
-  let mac = 'Google Chrome|firefox-bin';
-  let win = 'chrome\\.exe';
-  return new RegExp(`^(${linux}|${mac}|${win})$`);
+  switch (platform) {
+    case 'linux': return /^(chrome)$/;
+    case 'darwin': return /^(Google Chrome|firefox-bin)$/;
+    case 'win32': return /^(chrome\.exe)$/;
+    default: throw new Error(`Platform "${platform}" not supported`);
+  }
 })();
 const browserCmdRegex = (() => {
   let chrome = '--enable-automation';
