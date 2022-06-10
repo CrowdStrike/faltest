@@ -22,7 +22,7 @@ describe(function() {
 
   describe(getCwd('custom-cli'), function() {
     it('yarn start', async function() {
-      this.timeout(30e3);
+      this.timeout(60e3);
 
       let output = await this.run();
 
@@ -31,7 +31,7 @@ describe(function() {
   });
 
   describe(getCwd('full-suite'), function() {
-    this.timeout(30e3);
+    this.timeout(60e3);
 
     it('yarn start --target fixtures --env dev --tag user --tag smoke', async function() {
       let output = await this.run();
