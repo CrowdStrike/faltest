@@ -29,7 +29,7 @@ let port;
 const webDriverRegex = /^(chromedriver(?:\.exe)?|geckodriver)$/;
 const browserNameRegex = (() => {
   switch (platform) {
-    case 'linux': return /^(chrome)$/;
+    case 'linux': return /^(chrome|firefox)$/;
     case 'darwin': return /^(Google Chrome|firefox-bin)$/;
     case 'win32': return /^(chrome\.exe)$/;
     default: throw new Error(`Platform "${platform}" not supported`);
