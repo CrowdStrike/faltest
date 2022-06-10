@@ -7,20 +7,16 @@ const path = require('path');
 
 const examplesPath = path.resolve(__dirname, '../examples');
 
-function getCwd(example) {
-  return path.join(examplesPath, example);
-}
-
 describe(function() {
   before(function() {
     this.run = async function run() {
       return await _run(this.test.title, {
-        cwd: this.test.parent.title,
+        cwd: path.join(examplesPath, this.test.parent.title),
       });
     };
   });
 
-  describe(getCwd('custom-cli'), function() {
+  describe('custom-cli', function() {
     it('yarn start', async function() {
       this.timeout(60e3);
 
@@ -30,7 +26,7 @@ describe(function() {
     });
   });
 
-  describe(getCwd('full-suite'), function() {
+  describe('full-suite', function() {
     this.timeout(60e3);
 
     it('yarn start --target fixtures --env dev --tag user --tag smoke', async function() {
@@ -55,7 +51,7 @@ describe(function() {
     });
   });
 
-  describe(getCwd('lifecycle-only'), function() {
+  describe('lifecycle-only', function() {
     it('yarn start', async function() {
       this.timeout(30e3);
 
@@ -65,7 +61,7 @@ describe(function() {
     });
   });
 
-  describe(getCwd('multiple-browsers'), function() {
+  describe('multiple-browsers', function() {
     it('yarn start', async function() {
       this.timeout(30e3);
 
@@ -75,7 +71,7 @@ describe(function() {
     });
   });
 
-  describe(getCwd('runner-only'), function() {
+  describe('runner-only', function() {
     it('yarn start', async function() {
       this.timeout(30e3);
 
