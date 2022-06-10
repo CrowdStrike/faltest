@@ -8,6 +8,8 @@ const exec = promisify(require('child_process').exec);
 const { startWebDriver } = require('../../../remote/src');
 
 describe(function() {
+  this.timeout(5e3);
+
   it('works', async function() {
     let webDriver = await startWebDriver({
       overrides: {
