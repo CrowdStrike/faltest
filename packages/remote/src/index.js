@@ -26,12 +26,12 @@ const FirefoxDriverName = 'geckodriver';
 
 let port;
 
-const webDriverRegex = /^(chromedriver(?:\.exe)?|geckodriver)$/;
+const webDriverRegex = /^(chromedriver(?:\.exe)?|geckodriver(?:\.exe)?)$/;
 const browserNameRegex = (() => {
   switch (platform) {
     case 'linux': return /^(chrome|firefox)$/;
     case 'darwin': return /^(Google Chrome|firefox-bin)$/;
-    case 'win32': return /^(chrome\.exe)$/;
+    case 'win32': return /^(chrome\.exe|firefox\.exe)$/;
     default: throw new Error(`Platform "${platform}" not supported`);
   }
 })();
