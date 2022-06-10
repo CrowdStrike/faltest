@@ -82,6 +82,10 @@ describe(function() {
     it('firefox', async function() {
       await test(this.test.title);
     });
+
+    it('edge', async function() {
+      await test(this.test.title);
+    });
   });
 
   describe('can alter capabilities', function() {
@@ -105,6 +109,10 @@ describe(function() {
     it('firefox', async function() {
       await test(this.test.title);
     });
+
+    it('edge', async function() {
+      await test(this.test.title);
+    });
   });
 
   describe(killOrphans, function() {
@@ -112,11 +120,13 @@ describe(function() {
       let webDrivers = await Promise.all([
         startWebDriver({ browser: 'chrome' }),
         startWebDriver({ browser: 'firefox' }),
+        startWebDriver({ browser: 'edge' }),
       ]);
 
       let [
         chromePromise,
         firefoxPromise,
+        edgePromise,
       ] = webDrivers.map(waitForWebDriverExit);
 
       await killOrphans();
@@ -124,6 +134,7 @@ describe(function() {
       await Promise.all([
         expect(chromePromise, 'chrome is cleaned up').to.eventually.be.fulfilled,
         expect(firefoxPromise, 'firefox is cleaned up').to.eventually.be.fulfilled,
+        expect(edgePromise, 'edge is cleaned up').to.eventually.be.fulfilled,
       ]);
     });
 
@@ -150,6 +161,10 @@ describe(function() {
       });
 
       it('firefox', async function() {
+        await test(this.test.title);
+      });
+
+      it('edge', async function() {
         await test(this.test.title);
       });
     });
