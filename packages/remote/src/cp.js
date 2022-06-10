@@ -2,12 +2,13 @@
 
 const debug = require('./debug');
 const execa = require('execa');
-const path = require('path');
 
 function defaults(file, options) {
   return {
     preferLocal: true,
-    localDir: path.dirname(require.resolve(file)),
+    // This line was giving us `Error: Cannot find module 'msedgedriver'`,
+    // and I'm not sure why it was necessary in the first place.
+    // localDir: path.dirname(require.resolve(file)),
     ...options,
   };
 }

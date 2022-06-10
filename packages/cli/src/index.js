@@ -28,7 +28,7 @@ function initCli({
         type: 'string',
         default: defaults.browser,
         description: 'Type of browser to run',
-        choices: ['chrome', 'firefox'],
+        choices: ['chrome', 'firefox', 'edge'],
       },
       'browsers': {
         type: 'integer',

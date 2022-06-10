@@ -23,22 +23,24 @@ const platform = os.platform();
 
 const ChromeDriverName = 'chromedriver';
 const FirefoxDriverName = 'geckodriver';
+const EdgeDriverName = 'msedgedriver';
 
 let port;
 
-const webDriverRegex = /^(chromedriver(?:\.exe)?|geckodriver(?:\.exe)?)$/;
+const webDriverRegex = /^(chromedriver(?:\.exe)?|geckodriver(?:\.exe)?|msedgedriver(?:\.exe)?)$/;
 const browserNameRegex = (() => {
   switch (platform) {
-    case 'linux': return /^(chrome|firefox)$/;
-    case 'darwin': return /^(Google Chrome|firefox-bin)$/;
-    case 'win32': return /^(chrome\.exe|firefox\.exe)$/;
+    case 'linux': return /^(chrome|firefox|msedge)$/;
+    case 'darwin': return /^(Google Chrome|firefox-bin|Microsoft Edge)$/;
+    case 'win32': return /^(chrome\.exe|firefox\.exe|msedge\.exe)$/;
     default: throw new Error(`Platform "${platform}" not supported`);
   }
 })();
 const browserCmdRegex = (() => {
   let chrome = '--enable-automation';
   let firefox = '-marionette';
-  return new RegExp(`(${chrome}|${firefox})`);
+  let edge = chrome;
+  return new RegExp(`(${chrome}|${firefox}|${edge})`);
 })();
 
 function getDefaults() {
@@ -60,10 +62,12 @@ function getDefaults() {
 function browserSwitch(name, {
   chrome,
   firefox,
+  edge,
 }) {
   switch (name) {
     case 'chrome': return chrome();
     case 'firefox': return firefox();
+    case 'edge': return edge();
     default: throw new Error(`Browser "${name}" not implemented.`);
   }
 }
@@ -71,10 +75,12 @@ function browserSwitch(name, {
 function driverSwitch(name, {
   chrome,
   firefox,
+  edge,
 }) {
   switch (name) {
     case ChromeDriverName: return chrome();
     case FirefoxDriverName: return firefox();
+    case EdgeDriverName: return edge();
     default: throw new Error(`Driver "${name}" not implemented.`);
   }
 }
@@ -180,6 +186,9 @@ async function spawnWebDriver(name, args) {
     async firefox() {
       await waitForText('Listening on 127.0.0.1');
     },
+    async edge() {
+      await waitForText('Microsoft Edge WebDriver was started successfully.');
+    },
   });
 
   // There's a flaw with the logic in https://github.com/IndigoUnited/node-cross-spawn/issues/16.
@@ -227,6 +236,10 @@ function startWebDriver(options = {}) {
       firefox() {
         driverName = FirefoxDriverName;
         driverArgs = ['--port', port];
+      },
+      edge() {
+        driverName = EdgeDriverName;
+        driverArgs = [`--port=${port}`];
       },
     });
 
@@ -292,6 +305,18 @@ async function getCapabilities({
         args,
       };
       capabilities['moz:firefoxOptions'] = browserCapabilities;
+    },
+    edge() {
+      let args = [];
+      if (headless) {
+        args.push('--headless');
+      }
+      browserCapabilities = {
+        args,
+      };
+      capabilities['ms:edgeOptions'] = browserCapabilities;
+
+      capabilities.browserName = 'MicrosoftEdge';
     },
   });
 
