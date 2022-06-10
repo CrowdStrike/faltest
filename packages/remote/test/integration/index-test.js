@@ -76,11 +76,11 @@ describe(function() {
     }
 
     it('chrome', async function() {
-      await test(this.test.name);
+      await test(this.test.title);
     });
 
     it('firefox', async function() {
-      await test(this.test.name);
+      await test(this.test.title);
     });
   });
 
@@ -99,11 +99,11 @@ describe(function() {
     }
 
     it('chrome', async function() {
-      await test(this.test.name);
+      await test(this.test.title);
     });
 
     it('firefox', async function() {
-      await test(this.test.name);
+      await test(this.test.title);
     });
   });
 
@@ -146,11 +146,11 @@ describe(function() {
       }
 
       it('chrome', async function() {
-        await test(this.test.name);
+        await test(this.test.title);
       });
 
       it('firefox', async function() {
-        await test(this.test.name);
+        await test(this.test.title);
       });
     });
   });
