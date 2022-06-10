@@ -90,6 +90,7 @@ jobs:
     - run: yarn test:acceptance
       env:
         DISPLAY: :99.0
+        WEBDRIVER_BROWSER: firefox
 
     - if: failure()
       uses: actions/upload-artifact@v3
