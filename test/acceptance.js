@@ -12,7 +12,7 @@ describe(function() {
   });
 
   it('faltest --retries 1 fixtures/retries-test.js', async function() {
-    this.timeout(60e3);
+    this.timeout(1.5 * 60e3);
 
     let output = await this.run();
 
