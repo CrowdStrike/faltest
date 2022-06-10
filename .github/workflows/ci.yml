@@ -63,6 +63,8 @@ jobs:
     - uses: browser-actions/setup-edge@latest
 
     - run: yarn install --frozen-lockfile
+      env:
+        EDGEDRIVER_DOWNLOAD_ON_INSTALL: true
     - run: yarn test
       env:
         WEBDRIVER_HEADLESS: true
