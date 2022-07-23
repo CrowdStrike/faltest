@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@6.0.22...@faltest/remote@7.0.0) (2022-07-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump to node 14
+
+### Features
+
+* bump to node 14 ([0ac77c3](https://github.com/CrowdStrike/faltest/commit/0ac77c3b980a3c6835b77c9557e511ba13fc1b59))
+* pipe output in spawn too ([5c638d2](https://github.com/CrowdStrike/faltest/commit/5c638d242b5383653b895b7859c808334ff911b8))
+* throw on missing browser and driver ([f108012](https://github.com/CrowdStrike/faltest/commit/f108012c3bf1c42bfc7e5596540581ad537264d6))
+
+
+### Bug Fixes
+
+* **deps:** update dependency chromedriver to v103 ([1d86b13](https://github.com/CrowdStrike/faltest/commit/1d86b13d70394974b86c6d530da970e12e2aa32c))
+* **deps:** update dependency geckodriver to v3.0.2 ([bc05d05](https://github.com/CrowdStrike/faltest/commit/bc05d05931fac88ca8c76760169895f76b4d1085))
+* find firefox bin in linux ([14c3c2f](https://github.com/CrowdStrike/faltest/commit/14c3c2f2fa90973ae767042223110d24a9eb84fa))
+* kill all remaining webdriver browsers ([737fdb3](https://github.com/CrowdStrike/faltest/commit/737fdb3247dd77276536dfeb35012bf5765591ac))
+* only search one platform at a time ([981008d](https://github.com/CrowdStrike/faltest/commit/981008d3b0a4b6c1d8aa253e52cd6f362751a473))
+* support more firefox windows signatures ([727ae12](https://github.com/CrowdStrike/faltest/commit/727ae1209e550c90113829ba39be4d61c9361e14))
+* **deps:** update dependency chromedriver to v102 ([a54f574](https://github.com/CrowdStrike/faltest/commit/a54f574de1f483884e6c5bb293c823a01b9d47fa))
+
 ### [6.0.22](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@6.0.21...@faltest/remote@6.0.22) (2022-05-25)
 
 

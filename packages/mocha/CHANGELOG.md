@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@6.0.5...@faltest/mocha@7.0.0) (2022-07-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump to node 14
+
+### Features
+
+* bump to node 14 ([0ac77c3](https://github.com/CrowdStrike/faltest/commit/0ac77c3b980a3c6835b77c9557e511ba13fc1b59))
+
+
+### Bug Fixes
+
+* update glob to 7.2.3 ([4110c70](https://github.com/CrowdStrike/faltest/commit/4110c70f074f83db45d55743a88752e12a04d128))
+
 ### [6.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@6.0.4...@faltest/mocha@6.0.5) (2022-01-31)
 
 ### [6.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@6.0.3...@faltest/mocha@6.0.4) (2022-01-24)

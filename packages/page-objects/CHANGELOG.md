@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@5.1.0...@faltest/page-objects@6.0.0) (2022-07-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump to node 14
+
+### Features
+
+* bump to node 14 ([0ac77c3](https://github.com/CrowdStrike/faltest/commit/0ac77c3b980a3c6835b77c9557e511ba13fc1b59))
+
 ## [5.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@5.0.3...@faltest/page-objects@5.1.0) (2022-03-06)
 
 

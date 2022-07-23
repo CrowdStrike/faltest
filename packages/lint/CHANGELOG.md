@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/CrowdStrike/faltest/compare/eslint-plugin-faltest@3.0.2...eslint-plugin-faltest@4.0.0) (2022-07-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump to node 14
+
+### Features
+
+* bump to node 14 ([0ac77c3](https://github.com/CrowdStrike/faltest/commit/0ac77c3b980a3c6835b77c9557e511ba13fc1b59))
+
 ### [3.0.2](https://github.com/CrowdStrike/faltest/compare/eslint-plugin-faltest@3.0.1...eslint-plugin-faltest@3.0.2) (2022-01-24)
 
 ### [3.0.1](https://github.com/CrowdStrike/faltest/compare/eslint-plugin-faltest@3.0.0...eslint-plugin-faltest@3.0.1) (2021-10-25)

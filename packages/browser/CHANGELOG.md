@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@4.1.0...@faltest/browser@5.0.0) (2022-07-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump to node 14
+
+### Features
+
+* bump to node 14 ([0ac77c3](https://github.com/CrowdStrike/faltest/commit/0ac77c3b980a3c6835b77c9557e511ba13fc1b59))
+
 ## [4.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@4.0.1...@faltest/browser@4.1.0) (2022-03-06)
 
 
