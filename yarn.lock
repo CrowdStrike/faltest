@@ -4479,10 +4479,9 @@ ms@2.1.3, ms@^2.0.0, ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-msedgedriver@91.0.0:
+msedgedriver@CrowdStrike/node-chromedriver#get_latest_version_fix:
   version "91.0.0"
-  resolved "https://registry.npmjs.org/msedgedriver/-/msedgedriver-91.0.0.tgz#44ad8b6c695fa3e3a81d05b2f2d26691dc1174b9"
-  integrity sha512-ac8ny/UuStK6A8MNUdJjdqHEtY5cb3CbIsj7gOWduT4E4ALsMuMGYsTfjHaGNdHZPrZ+Wo56tTDC7I5OZxI23g==
+  resolved "https://codeload.github.com/CrowdStrike/node-chromedriver/tar.gz/5e76a7ea2db4aa246c4b3d3492b3b10d9a600f2d"
   dependencies:
     del "^4.1.1"
     extract-zip "^1.6.7"
