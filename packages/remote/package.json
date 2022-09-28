@@ -33,6 +33,7 @@
     "fkill": "^7.1.0",
     "geckodriver": "3.0.2",
     "get-port": "^6.0.0",
+    "microsoft-edgedriver": "^1.0.0",
     "ps-list": "^6.3.0",
     "webdriverio": "5.18.5",
     "yn": "^4.0.0"
