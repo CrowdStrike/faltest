@@ -9,7 +9,7 @@
     verror-extra "^3.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "5.0.0"
+  version "5.1.0"
   dependencies:
     "@faltest/mocha" "^7.0.0"
     "@faltest/remote" "^7.0.0"
@@ -20,7 +20,7 @@
     yn "^4.0.0"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "7.0.0"
+  version "7.0.1"
   dependencies:
     "@faltest/remote" "^7.0.0"
     "@faltest/utils" "^5.0.0"
@@ -28,7 +28,7 @@
     "@faltest/browser" "^5.0.0"
 
 "@faltest/mocha@^7.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "7.0.0"
+  version "7.0.1"
   dependencies:
     "@faltest/utils" "^5.0.0"
     choma "^1.2.1"
@@ -37,20 +37,21 @@
     mocha-helpers "^6.0.0"
 
 "@faltest/remote@^7.0.0", "@faltest/remote@file:../../packages/remote":
-  version "7.0.0"
+  version "7.1.0"
   dependencies:
     "@faltest/utils" "^5.0.0"
-    chromedriver "103.0.0"
+    chromedriver "105.0.1"
     execa "^5.0.0"
     fkill "^7.1.0"
     geckodriver "3.0.2"
     get-port "^6.0.0"
+    microsoft-edgedriver "^1.0.0"
     ps-list "^6.3.0"
     webdriverio "5.18.5"
     yn "^4.0.0"
 
 "@faltest/utils@^5.0.0", "@faltest/utils@file:../../packages/utils":
-  version "5.0.0"
+  version "5.0.1"
   dependencies:
     callsites "^4.0.0"
     debug "^4.1.1"
@@ -88,10 +89,10 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@testim/chrome-version@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.npmjs.org/@testim/chrome-version/-/chrome-version-1.1.2.tgz#092005c5b77bd3bb6576a4677110a11485e11864"
-  integrity sha512-1c4ZOETSRpI0iBfIFUqU4KqwBAB2lHUAlBjZz/YqOHqwM9dTTzjV6Km0ZkiEiSCx/tLr1BtESIKyWWMww+RUqw==
+"@testim/chrome-version@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.npmjs.org/@testim/chrome-version/-/chrome-version-1.1.3.tgz#fbb68696899d7b8c1b9b891eded9c04fe2cd5529"
+  integrity sha512-g697J3WxV/Zytemz8aTuKjTGYtta9+02kva3C1xc7KXB8GdbfE1akGJIsZLyY/FSh2QrnE+fiB7vmWU3XNcb6A==
 
 "@types/cacheable-request@^6.0.1":
   version "6.0.2"
@@ -526,16 +527,16 @@ chownr@^2.0.0:
   resolved "https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
-chromedriver@103.0.0:
-  version "103.0.0"
-  resolved "https://registry.yarnpkg.com/chromedriver/-/chromedriver-103.0.0.tgz#2ef086d62076e3ff6df6cfb84895d11d2c18d9cf"
-  integrity sha512-7BHf6HWt0PeOHCzWO8qlnD13sARzr5AKTtG8Csn+czsuAsajwPxdLNtry5GPh8HYFyl+i0M+yg3bT43AGfgU9w==
+chromedriver@105.0.1:
+  version "105.0.1"
+  resolved "https://registry.npmjs.org/chromedriver/-/chromedriver-105.0.1.tgz#325cf05aca200328176438991d236ddb6c61711b"
+  integrity sha512-QqylH9mvl4Ybq3mmHsym7jeq/LhEi2sPtD8ffd9ixiDFdPRlh2F4vzrzK+myj1MiXb0TYJK7+OCcMEmsB3Sm/Q==
   dependencies:
-    "@testim/chrome-version" "^1.1.2"
+    "@testim/chrome-version" "^1.1.3"
     axios "^0.27.2"
-    del "^6.0.0"
+    del "^6.1.1"
     extract-zip "^2.0.1"
-    https-proxy-agent "^5.0.0"
+    https-proxy-agent "^5.0.1"
     proxy-from-env "^1.1.0"
     tcp-port-used "^1.0.1"
 
@@ -701,10 +702,10 @@ defer-to-connect@^2.0.0:
   resolved "https://registry.yarnpkg.com/defer-to-connect/-/defer-to-connect-2.0.1.tgz#8016bdb4143e4632b77a3449c6236277de520587"
   integrity sha512-4tvttepXG1VaYGrRibk5EwJd1t4udunSOVMdLSAL6mId1ix438oPwPZMALY41FCijukO1L0twNcGsdzS7dHgDg==
 
-del@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npmjs.org/del/-/del-6.0.0.tgz#0b40d0332cea743f1614f818be4feb717714c952"
-  integrity sha512-1shh9DQ23L16oXSZKB2JxpL7iMy2E0S9d517ptA1P8iw0alkPtQcrKH7ru31rYtKwF499HkTu+DRzq3TCKDFRQ==
+del@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.npmjs.org/del/-/del-6.1.1.tgz#3b70314f1ec0aa325c6b14eb36b95786671edb7a"
+  integrity sha512-ua8BhapfP0JUJKC/zV9yHHDW/rDoDxP4Zhn3AkA6/xT6gY7jYXJiaeyBZznYVujhZZET+UgcbZiQ7sN3WqcImg==
   dependencies:
     globby "^11.0.1"
     graceful-fs "^4.2.4"
@@ -1062,7 +1063,7 @@ globby@^11.0.1:
     merge2 "^1.3.0"
     slash "^3.0.0"
 
-got@11.8.5:
+got@11.8.5, got@^11.8.5:
   version "11.8.5"
   resolved "https://registry.yarnpkg.com/got/-/got-11.8.5.tgz#ce77d045136de56e8f024bebb82ea349bc730046"
   integrity sha512-o0Je4NvQObAuZPHLFoRSkdG2lTgtcynqymzg2Vupdx6PorhaT5MCbIyXG6d4D94kk8ZG57QeosgdiqfJWhEhlQ==
@@ -1144,10 +1145,18 @@ http2-wrapper@^1.0.0-beta.5.2:
     quick-lru "^5.1.1"
     resolve-alpn "^1.0.0"
 
-https-proxy-agent@5.0.0, https-proxy-agent@^5.0.0:
+https-proxy-agent@5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-5.0.0.tgz#e2a90542abb68a762e0a0850f6c9edadfd8506b2"
   integrity sha512-EkYm5BcKUGiduxzSt3Eppko+PiNWNEpa4ySk9vTC6wDsQJW9rHSa+UhGNJoRYp7bz6Ht1eaRIa6QaJqO5rCFbA==
+  dependencies:
+    agent-base "6"
+    debug "4"
+
+https-proxy-agent@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz#c59ef224a04fe8b754f3db0063a25ea30d0005d6"
+  integrity sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==
   dependencies:
     agent-base "6"
     debug "4"
@@ -1449,6 +1458,15 @@ micromatch@^4.0.2:
   dependencies:
     braces "^3.0.1"
     picomatch "^2.0.5"
+
+microsoft-edgedriver@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/microsoft-edgedriver/-/microsoft-edgedriver-1.0.0.tgz#5a2ad5daa111e216fb05b05e2b5944a857f5dc14"
+  integrity sha512-fXXp06VABwznmLtbeii+Sy5QYqxixtXDp9Z2BTLKg+00c7D4iggGH6DepNm1pu2Pg1irFP0vozJRDnazf/JdiQ==
+  dependencies:
+    execa "^5.0.0"
+    extract-zip "^2.0.1"
+    got "^11.8.5"
 
 mime-db@1.45.0:
   version "1.45.0"

@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@7.0.1...@faltest/remote@7.1.0) (2022-09-28)
+
+
+### Features
+
+* edge support ([8120a0e](https://github.com/CrowdStrike/faltest/commit/8120a0ed5bc9ec357131b8f79124ad23bf3b0eaf))
+* msedgedriver install ([44101fd](https://github.com/CrowdStrike/faltest/commit/44101fd116a0e5ed0b8b7bf665579562ff1bf2b8))
+
+
+### Bug Fixes
+
+* **deps:** update dependency chromedriver to v104 ([024a206](https://github.com/CrowdStrike/faltest/commit/024a206dbeefcd63737a5cb409684f226c347cbf))
+* **deps:** update dependency chromedriver to v105 ([f6a163d](https://github.com/CrowdStrike/faltest/commit/f6a163d85f556715c1ec6798cf706ac06b935292))
+* **deps:** update dependency chromedriver to v105.0.1 ([0714398](https://github.com/CrowdStrike/faltest/commit/0714398b2fc2ff4092c931f244931c7a76ba3afd))
+
 ## [7.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@6.0.22...@faltest/remote@7.0.0) (2022-07-23)
 
 

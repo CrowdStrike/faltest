@@ -30,7 +30,7 @@ Options:
   --help                          Show help                            [boolean]
   --version                       Show version number                  [boolean]
   --browser                       Type of browser to run
-                     [string] [choices: "chrome", "firefox"] [default: "chrome"]
+             [string] [choices: "chrome", "firefox", "edge"] [default: "chrome"]
   --browsers                      Number of browsers to run         [default: 1]
   --port                          Port for WebDriver     [string] [default: "0"]
   --headless                      Run browser in headless mode

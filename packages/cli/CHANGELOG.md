@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@5.0.2...@faltest/cli@5.1.0) (2022-09-28)
+
+
+### Features
+
+* edge support ([8120a0e](https://github.com/CrowdStrike/faltest/commit/8120a0ed5bc9ec357131b8f79124ad23bf3b0eaf))
+
 ## [5.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@4.0.1...@faltest/cli@5.0.0) (2022-07-23)
 
 
