@@ -108,10 +108,11 @@ Using the options `--failure-artifacts` and `--failure-artifacts-output-dir`, yo
 
 ## Browser Versions
 
-To override the [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) version to match your [Chrome](https://www.google.com/chrome) version, follow the guide [here](https://github.com/giggio/node-chromedriver#versioning) or [here](https://github.com/giggio/node-chromedriver#detect-chromedriver-version). For example:
+To override the [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) and [EdgeDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) version to match your [Chrome](https://www.google.com/chrome) and [Edge](https://www.microsoft.com/en-us/edge) version, follow the guide [here](https://github.com/giggio/node-chromedriver#versioning) or [here](https://github.com/giggio/node-chromedriver#detect-chromedriver-version) or [here](https://github.com/CrowdStrike/microsoft-edgedriver#readme).
+For example:
 
 ```
-DETECT_CHROMEDRIVER_VERSION=true npm install
+DETECT_CHROMEDRIVER_VERSION=true DETECT_EDGEDRIVER_VERSION=true npm install
 ```
 
 ## Real-world Examples
