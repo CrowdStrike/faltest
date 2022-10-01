@@ -6,9 +6,11 @@ const execa = require('execa');
 function defaults(file, options) {
   return {
     preferLocal: true,
+
     // This line was giving us `Error: Cannot find module 'msedgedriver'`,
     // and I'm not sure why it was necessary in the first place.
     // localDir: path.dirname(require.resolve(file)),
+
     ...options,
   };
 }
