@@ -3,13 +3,13 @@
 
 
 "@faltest/browser@^5.0.0", "@faltest/browser@file:../../packages/browser":
-  version "5.0.0"
+  version "5.0.1"
   dependencies:
     "@faltest/utils" "^5.0.0"
     verror-extra "^3.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "5.1.1"
+  version "5.1.2"
   dependencies:
     "@faltest/mocha" "^7.0.0"
     "@faltest/remote" "^7.0.0"
@@ -20,7 +20,7 @@
     yn "^4.0.0"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "7.0.1"
+  version "7.0.2"
   dependencies:
     "@faltest/remote" "^7.0.0"
     "@faltest/utils" "^5.0.0"
@@ -28,7 +28,7 @@
     "@faltest/browser" "^5.0.0"
 
 "@faltest/mocha@^7.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "7.0.1"
+  version "7.0.2"
   dependencies:
     "@faltest/utils" "^5.0.0"
     choma "^1.2.1"
@@ -37,7 +37,7 @@
     mocha-helpers "^6.0.0"
 
 "@faltest/remote@^7.0.0", "@faltest/remote@file:../../packages/remote":
-  version "7.1.4"
+  version "7.1.5"
   dependencies:
     "@faltest/utils" "^5.0.0"
     chromedriver "106.0.1"
@@ -45,13 +45,13 @@
     fkill "^7.1.0"
     geckodriver "3.0.2"
     get-port "^6.0.0"
-    microsoft-edgedriver "^1.4.0"
+    microsoft-edgedriver "^1.4.1"
     ps-list "^6.3.0"
     webdriverio "5.18.5"
     yn "^4.0.0"
 
 "@faltest/utils@^5.0.0", "@faltest/utils@file:../../packages/utils":
-  version "5.0.1"
+  version "5.0.2"
   dependencies:
     callsites "^4.0.0"
     debug "^4.1.1"
@@ -1488,10 +1488,10 @@ micromatch@^4.0.2:
     braces "^3.0.1"
     picomatch "^2.0.5"
 
-microsoft-edgedriver@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/microsoft-edgedriver/-/microsoft-edgedriver-1.4.0.tgz#dd1382e9f6ebe432e54805d2cb6e3c4b0bba2fee"
-  integrity sha512-OQpHsjCw+52xpurWezsZ/cE/Ny9ppiOXiwS0sF03CN2GPeJwnbfvAKVD/ZfDrMaPzurFqPrOYpqb8IjfDW3ZEg==
+microsoft-edgedriver@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.npmjs.org/microsoft-edgedriver/-/microsoft-edgedriver-1.4.1.tgz#0a4723f6d20e5d110714c0f60d41c9be66e25c05"
+  integrity sha512-+EWCy0bont9VO58ZdzjH5fn1jYsguO1xrVTf2Eif7P3bosn1JY56cuUJAMNjTPUa1ZOVyHB/gMO3ge3mgEIeIw==
   dependencies:
     execa "^5.0.0"
     extract-zip "^2.0.1"

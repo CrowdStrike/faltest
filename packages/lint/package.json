@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-faltest",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "ESLint rules for FalTest",
   "main": "src",
   "files": [

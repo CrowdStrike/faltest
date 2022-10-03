@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.5](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@7.1.4...@faltest/remote@7.1.5) (2022-10-03)
+
+
+### Bug Fixes
+
+* update microsoft-edgedriver ([b73cf7f](https://github.com/CrowdStrike/faltest/commit/b73cf7f627f007a3adedc6e6315de59ef7a4c8fb))
+
 ### [7.1.4](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@7.1.1...@faltest/remote@7.1.4) (2022-09-30)
 
 
