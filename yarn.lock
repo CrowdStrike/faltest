@@ -4103,10 +4103,10 @@ micromatch@^4.0.2:
     braces "^3.0.1"
     picomatch "^2.0.5"
 
-microsoft-edgedriver@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.npmjs.org/microsoft-edgedriver/-/microsoft-edgedriver-1.4.0.tgz#dd1382e9f6ebe432e54805d2cb6e3c4b0bba2fee"
-  integrity sha512-OQpHsjCw+52xpurWezsZ/cE/Ny9ppiOXiwS0sF03CN2GPeJwnbfvAKVD/ZfDrMaPzurFqPrOYpqb8IjfDW3ZEg==
+microsoft-edgedriver@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.npmjs.org/microsoft-edgedriver/-/microsoft-edgedriver-1.4.1.tgz#0a4723f6d20e5d110714c0f60d41c9be66e25c05"
+  integrity sha512-+EWCy0bont9VO58ZdzjH5fn1jYsguO1xrVTf2Eif7P3bosn1JY56cuUJAMNjTPUa1ZOVyHB/gMO3ge3mgEIeIw==
   dependencies:
     execa "^5.0.0"
     extract-zip "^2.0.1"
