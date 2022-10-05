@@ -2444,6 +2444,11 @@ finalhandler@1.1.2:
     statuses "~1.5.0"
     unpipe "~1.0.0"
 
+find-edge-version@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/find-edge-version/-/find-edge-version-0.1.1.tgz#10f9f44db2040a8af969e57bcb463a228431b232"
+  integrity sha512-2OQrHc1Wlg+BIJrRez3+ufcFLpuxukUqZI/o9QlGRFbdRCh7k+IhT0L9ZUh52+beg/rg77wv4cjLnmMkJMbkuQ==
+
 find-up@3.0.0, find-up@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/find-up/-/find-up-3.0.0.tgz#49169f1d7993430646da61ecc5ae355c21c97b73"
@@ -4103,13 +4108,14 @@ micromatch@^4.0.2:
     braces "^3.0.1"
     picomatch "^2.0.5"
 
-microsoft-edgedriver@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.npmjs.org/microsoft-edgedriver/-/microsoft-edgedriver-1.4.1.tgz#0a4723f6d20e5d110714c0f60d41c9be66e25c05"
-  integrity sha512-+EWCy0bont9VO58ZdzjH5fn1jYsguO1xrVTf2Eif7P3bosn1JY56cuUJAMNjTPUa1ZOVyHB/gMO3ge3mgEIeIw==
+microsoft-edgedriver@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/microsoft-edgedriver/-/microsoft-edgedriver-1.5.0.tgz#25cdc01c58b71c0c00d00a18924f96d0ae891528"
+  integrity sha512-ouGrwWKKLtN+qO8g3uZsefk4HF5vhkeXxJx5RdqYOaCJesQEPofMQUe5BTAJ+RLxFqrYXBERix6eWH1w4NFuvg==
   dependencies:
     execa "^5.0.0"
     extract-zip "^2.0.1"
+    find-edge-version "0.1.1"
     fs-extra "^10.1.0"
     got "^11.8.5"
     tmp "0.2.1"
