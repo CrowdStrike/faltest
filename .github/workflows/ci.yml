@@ -61,7 +61,7 @@ jobs:
 
     # - run: curl -O https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_102.0.1245.39-1_amd64.deb
     # - run: sudo apt install ./microsoft-edge-stable_102.0.1245.39-1_amd64.deb
-    - uses: browser-actions/setup-edge@latest
+    # - uses: browser-actions/setup-edge@latest
 
     - run: yarn install --frozen-lockfile
     - run: yarn test
