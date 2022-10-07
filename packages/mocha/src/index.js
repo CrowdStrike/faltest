@@ -53,6 +53,10 @@ async function runMocha(mocha, options) {
     });
 
     runner.on(constants.EVENT_TEST_RETRY, (test, err) => {
+      handlePromises(() => {
+        return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+      });
+
       debug(`Retrying failed test "${test.title}": ${err}`);
     });
 

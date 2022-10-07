@@ -180,8 +180,8 @@ describe(function() {
 
         let extensions = ['png', 'html', 'browser.txt', 'driver.txt'];
 
-        let getFilePath = (title, ext) => {
-          return path.join(this.outputDir, `${title}.${ext}`);
+        let getFilePath = (title, attempt, ext) => {
+          return path.join(this.outputDir, `${title}.${attempt}.${ext}`);
         };
 
         let { runTests } = this;
@@ -193,9 +193,14 @@ describe(function() {
               ...options,
             });
           },
-          assertFilesExist(title) {
+          assertFilesExist(title, attempt = 1) {
             for (let ext of extensions) {
-              expect(getFilePath(title, ext)).to.be.a.file();
+              expect(getFilePath(title, attempt, ext)).to.be.a.file();
+            }
+          },
+          assertFilesDontExist(title, attempt = 1) {
+            for (let ext of extensions) {
+              expect(getFilePath(title, attempt, ext)).to.not.be.a.path();
             }
           },
           assertEmptyDir() {
@@ -304,6 +309,28 @@ describe(function() {
 
         expect(stats.tests).to.equal(1);
         expect(stats.failures).to.equal(1);
+      });
+
+      it('handles retries', async function() {
+        let retries = 2;
+
+        let stats = await this.runTests({
+          filter: 'it retries$',
+          retries,
+        });
+
+        let title = 'failure artifacts it retries';
+
+        for (let attempt = 1; attempt <= retries; attempt++) {
+          this.assertFilesExist(title, attempt);
+        }
+
+        for (let attempt of [0, retries + 1]) {
+          this.assertFilesDontExist(title, attempt);
+        }
+
+        expect(stats.tests).to.equal(1);
+        expect(stats.failures).to.equal(0);
       });
     });
 
