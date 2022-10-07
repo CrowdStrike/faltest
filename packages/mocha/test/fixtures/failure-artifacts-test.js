@@ -64,6 +64,10 @@ describe('failure artifacts', function() {
         assert.ok(true);
       });
     });
+
+    it('retries', function() {
+      assert.ok(this.test.currentRetry() == 2);
+    });
   });
 
   describe('beforeEach', function() {

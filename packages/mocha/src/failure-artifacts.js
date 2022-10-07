@@ -8,6 +8,8 @@ const mkdir = promisify(fs.mkdir);
 const debug = require('./debug');
 
 async function buildTitle(test) {
+  let attempt = test.currentRetry() + 1;
+
   let parts = [];
 
   while (test) {
@@ -25,7 +27,7 @@ async function buildTitle(test) {
   // Tests with / in the name are bad.
   title = filenamify(title);
 
-  return title;
+  return `${title}.${attempt}`;
 }
 
 async function failureArtifacts(outputDir) {
