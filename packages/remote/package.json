@@ -31,7 +31,7 @@
     "chromedriver": "106.0.1",
     "execa": "^5.0.0",
     "fkill": "^7.1.0",
-    "geckodriver": "3.0.2",
+    "geckodriver": "3.1.0",
     "get-port": "^6.0.0",
     "microsoft-edgedriver": "^1.5.0",
     "ps-list": "^6.3.0",
