@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "mocha": "^10.0.0",
-    "sinon": "^14.0.0",
+    "sinon": "^15.0.0",
     "tmp": "0.2.1"
   },
   "volta": {
