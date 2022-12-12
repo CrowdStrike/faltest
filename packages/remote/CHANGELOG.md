@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.7](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@7.1.6...@faltest/remote@7.1.7) (2022-12-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chromedriver to v107 ([93c8b22](https://github.com/CrowdStrike/faltest/commit/93c8b22f8d029add95f8922e2cf112ae9272b7b1))
+* **deps:** update dependency chromedriver to v107.0.1 ([5b01766](https://github.com/CrowdStrike/faltest/commit/5b01766a3b61b0babe9228fff13e345b06d0ac7a))
+* **deps:** update dependency chromedriver to v107.0.3 ([2cd052c](https://github.com/CrowdStrike/faltest/commit/2cd052c4f20b133a8b2fec777344162ca16e6120))
+* **deps:** update dependency chromedriver to v108 ([abd1919](https://github.com/CrowdStrike/faltest/commit/abd191924e56f567985f8e1eb5b014bec0ef9d91))
+* **deps:** update dependency geckodriver to v3.1.0 ([70d44f3](https://github.com/CrowdStrike/faltest/commit/70d44f388100317e278ca455c545be3b21394135))
+* **deps:** update dependency geckodriver to v3.2.0 ([b9ce0cf](https://github.com/CrowdStrike/faltest/commit/b9ce0cfc639bb542450e006b5462214e461ab410))
+
 ### [7.1.6](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@7.1.5...@faltest/remote@7.1.6) (2022-10-06)
 
 
