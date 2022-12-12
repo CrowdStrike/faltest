@@ -28,12 +28,12 @@
   },
   "dependencies": {
     "@faltest/utils": "^5.0.0",
+    "browser-webdriver-downloader": "^1.5.1",
     "chromedriver": "108.0.0",
     "execa": "^5.0.0",
     "fkill": "^7.1.0",
     "geckodriver": "3.2.0",
     "get-port": "^6.0.0",
-    "microsoft-edgedriver": "^1.5.0",
     "ps-list": "^6.3.0",
     "webdriverio": "5.18.5",
     "yn": "^4.0.0"
