@@ -30,7 +30,7 @@
     "@faltest/utils": "^5.0.0",
     "choma": "^1.2.1",
     "filenamify": "^5.0.0",
-    "glob": "^7.2.3",
+    "glob": "^8.0.0",
     "mocha-helpers": "^6.0.0"
   },
   "peerDependencies": {
