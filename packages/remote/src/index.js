@@ -3,7 +3,6 @@
 const { spawn } = require('./cp');
 require('@faltest/utils/src/require-before-webdriverio');
 const { remote } = require('webdriverio');
-const fkill = require('fkill');
 const debug = require('./debug');
 const log = require('./log');
 const EventEmitter = require('events');
@@ -90,6 +89,12 @@ async function psList() {
   const { default: psList } = await import('ps-list');
 
   return psList.apply(this, arguments);
+}
+
+async function fkill() {
+  const { default: fkill } = await import('fkill');
+
+  return fkill.apply(this, arguments);
 }
 
 async function killOrphans() {

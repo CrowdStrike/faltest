@@ -2,7 +2,6 @@
 
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
-const fkill = require('fkill');
 const {
   killOrphans,
   getNewPort,
@@ -66,6 +65,8 @@ describe(function() {
       let browser = await startBrowser({ browser: _browser });
 
       let browserPromise = waitForBrowserExit(browser);
+
+      const { default: fkill } = await import('fkill');
 
       await fkill(webDriver.pid);
 
