@@ -21,7 +21,7 @@
     "node": ">=14.15"
   },
   "resolutions": {
-    "minimatch": "5.1.0"
+    "minimatch": "4.2.0"
   },
   "devDependencies": {
     "@crowdstrike/commitlint": "^5.0.0",
