@@ -6,6 +6,7 @@ const glob = promisify(require('glob'));
 const { buildGrep } = require('./tag');
 const failureArtifacts = require('./failure-artifacts');
 const debug = require('./debug');
+const path = require('path');
 
 const { Runner } = Mocha;
 const { constants } = Runner;
@@ -120,7 +121,7 @@ async function runTests(options) {
   let mocha = new Mocha(mochaOpts);
 
   for (let testsGlob of globs) {
-    let files = await glob(testsGlob);
+    let files = await glob(testsGlob.split(path.sep).join(path.posix.sep));
 
     for (let file of files) {
       mocha.addFile(file);
