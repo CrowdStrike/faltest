@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.8](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@7.1.7...@faltest/remote@7.1.8) (2022-12-27)
+
+
+### Bug Fixes
+
+* support ESM ([9bac497](https://github.com/CrowdStrike/faltest/commit/9bac49781c0b06558a6991086fd6a3ddb95b5631))
+* **deps:** update dependency fkill to v8 ([6987bec](https://github.com/CrowdStrike/faltest/commit/6987bec8640411bbc649c6599a5898624e3ae09e))
+* update ps-list v8 ([b18d8f5](https://github.com/CrowdStrike/faltest/commit/b18d8f5b315666791c5dac314dd3fb3b549e8b86))
+
 ### [7.1.7](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@7.1.6...@faltest/remote@7.1.7) (2022-12-12)
 
 
