@@ -188,10 +188,9 @@ describe(function() {
             });
           },
           assertFilesExist(title) {
-            expect(path.join(this.outputDir, `${title}.png`)).to.be.a.file();
-            expect(path.join(this.outputDir, `${title}.html`)).to.be.a.file();
-            expect(path.join(this.outputDir, `${title}.browser.txt`)).to.be.a.file();
-            expect(path.join(this.outputDir, `${title}.driver.txt`)).to.be.a.file();
+            for (let ext of ['png', 'html', 'browser.txt', 'driver.txt']) {
+              expect(path.join(this.outputDir, `${title}.${ext}`)).to.be.a.file();
+            }
           },
           assertEmptyDir() {
             expect(this.outputDir).to.be.a.directory().and.empty;
