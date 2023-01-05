@@ -178,6 +178,12 @@ describe(function() {
       before(function() {
         globs = [path.join(fixturesPath, 'failure-artifacts-test.js')];
 
+        let extensions = ['png', 'html', 'browser.txt', 'driver.txt'];
+
+        let getFilePath = (title, ext) => {
+          return path.join(this.outputDir, `${title}.${ext}`);
+        };
+
         let { runTests } = this;
         Object.assign(this, {
           async runTests(options) {
@@ -188,8 +194,8 @@ describe(function() {
             });
           },
           assertFilesExist(title) {
-            for (let ext of ['png', 'html', 'browser.txt', 'driver.txt']) {
-              expect(path.join(this.outputDir, `${title}.${ext}`)).to.be.a.file();
+            for (let ext of extensions) {
+              expect(getFilePath(title, ext)).to.be.a.file();
             }
           },
           assertEmptyDir() {
