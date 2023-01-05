@@ -179,13 +179,15 @@ describe(function() {
         globs = [path.join(fixturesPath, 'failure-artifacts-test.js')];
 
         let { runTests } = this;
-        this.runTests = async options => {
-          return await runTests({
-            failureArtifacts: true,
-            failureArtifactsOutputDir: this.outputDir,
-            ...options,
-          });
-        };
+        Object.assign(this, {
+          async runTests(options) {
+            return await runTests({
+              failureArtifacts: true,
+              failureArtifactsOutputDir: this.outputDir,
+              ...options,
+            });
+          },
+        });
       });
 
       beforeEach(async function() {
