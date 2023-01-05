@@ -187,6 +187,15 @@ describe(function() {
               ...options,
             });
           },
+          assertFilesExist(title) {
+            expect(path.join(this.outputDir, `${title}.png`)).to.be.a.file();
+            expect(path.join(this.outputDir, `${title}.html`)).to.be.a.file();
+            expect(path.join(this.outputDir, `${title}.browser.txt`)).to.be.a.file();
+            expect(path.join(this.outputDir, `${title}.driver.txt`)).to.be.a.file();
+          },
+          assertEmptyDir() {
+            expect(this.outputDir).to.be.a.directory().and.empty;
+          },
         });
       });
 
@@ -199,10 +208,7 @@ describe(function() {
           filter: 'it failure$',
         });
 
-        expect(path.join(this.outputDir, 'failure artifacts it failure.png')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it failure.html')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it failure.browser.txt')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it failure.driver.txt')).to.be.a.file();
+        this.assertFilesExist('failure artifacts it failure');
 
         expect(stats.tests).to.equal(1);
         expect(stats.failures).to.equal(1);
@@ -213,7 +219,7 @@ describe(function() {
           filter: 'it success$',
         });
 
-        expect(this.outputDir).to.be.a.directory().and.empty;
+        this.assertEmptyDir();
 
         expect(stats.tests).to.equal(1);
         expect(stats.passes).to.equal(1);
@@ -226,7 +232,7 @@ describe(function() {
 
         await expect(promise).to.eventually.be.rejectedWith('test takeScreenshot error');
 
-        expect(this.outputDir).to.be.a.directory().and.empty;
+        this.assertEmptyDir();
       });
 
       it('prevents "stale element reference" errors', async function() {
@@ -234,10 +240,7 @@ describe(function() {
           filter: 'it prevent stale ',
         });
 
-        expect(path.join(this.outputDir, 'failure artifacts it prevent stale failure.png')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it prevent stale failure.html')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it prevent stale failure.browser.txt')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts it prevent stale failure.driver.txt')).to.be.a.file();
+        this.assertFilesExist('failure artifacts it prevent stale failure');
 
         expect(stats.tests).to.equal(2);
         expect(stats.failures).to.equal(1);
@@ -248,10 +251,7 @@ describe(function() {
           filter: 'beforeEach failure$',
         });
 
-        expect(path.join(this.outputDir, 'failure artifacts beforeEach !before each! hook for !failure.png')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts beforeEach !before each! hook for !failure.html')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts beforeEach !before each! hook for !failure.browser.txt')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts beforeEach !before each! hook for !failure.driver.txt')).to.be.a.file();
+        this.assertFilesExist('failure artifacts beforeEach !before each! hook for !failure');
 
         expect(stats.tests).to.equal(0);
         expect(stats.failures).to.equal(1);
@@ -262,10 +262,7 @@ describe(function() {
           filter: 'before with browser failure$',
         });
 
-        expect(path.join(this.outputDir, 'failure artifacts before with browser !before all! hook for !failure.png')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts before with browser !before all! hook for !failure.html')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts before with browser !before all! hook for !failure.browser.txt')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts before with browser !before all! hook for !failure.driver.txt')).to.be.a.file();
+        this.assertFilesExist('failure artifacts before with browser !before all! hook for !failure');
 
         expect(stats.tests).to.equal(0);
         expect(stats.failures).to.equal(1);
@@ -276,7 +273,7 @@ describe(function() {
           filter: 'before without browser failure$',
         });
 
-        expect(this.outputDir).to.be.a.directory().and.empty;
+        this.assertEmptyDir();
 
         expect(stats.tests).to.equal(0);
         expect(stats.failures).to.equal(1);
@@ -287,10 +284,7 @@ describe(function() {
           filter: 'afterEach failure$',
         });
 
-        expect(path.join(this.outputDir, 'failure artifacts afterEach !after each! hook for !failure.png')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts afterEach !after each! hook for !failure.html')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts afterEach !after each! hook for !failure.browser.txt')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts afterEach !after each! hook for !failure.driver.txt')).to.be.a.file();
+        this.assertFilesExist('failure artifacts afterEach !after each! hook for !failure');
 
         expect(stats.tests).to.equal(1);
         expect(stats.failures).to.equal(1);
@@ -301,10 +295,7 @@ describe(function() {
           filter: 'after failure$',
         });
 
-        expect(path.join(this.outputDir, 'failure artifacts after !after all! hook for !failure.png')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts after !after all! hook for !failure.html')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts after !after all! hook for !failure.browser.txt')).to.be.a.file();
-        expect(path.join(this.outputDir, 'failure artifacts after !after all! hook for !failure.driver.txt')).to.be.a.file();
+        this.assertFilesExist('failure artifacts after !after all! hook for !failure');
 
         expect(stats.tests).to.equal(1);
         expect(stats.failures).to.equal(1);
