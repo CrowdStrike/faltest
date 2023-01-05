@@ -3,10 +3,10 @@
 
 
 "@faltest/browser@^5.0.0", "@faltest/browser@file:../../packages/browser":
-  version "5.0.1"
+  version "5.0.2"
   dependencies:
     "@faltest/utils" "^5.0.0"
-    verror-extra "^3.0.0"
+    verror-extra "^4.0.0"
 
 "@faltest/cli@file:../../packages/cli":
   version "5.1.2"
@@ -2102,10 +2102,10 @@ uuid@^3.3.2:
   resolved "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-verror-extra@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/verror-extra/-/verror-extra-3.0.1.tgz#62fffd0e49e6291bb7c5b009771b45070036afaf"
-  integrity sha512-X4ekWYyIA8JQQ3N0VcQXucFywOdgZCcTTGHL5oUEswGOzfxYhso09DWfTCt9/ou1bc/GQZPS5eEJ5PEsx+8UwA==
+verror-extra@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/verror-extra/-/verror-extra-4.0.0.tgz#de2b71444ade1240462e8cac7f51d5420b4da012"
+  integrity sha512-wAVZrjlJGTZM3mmrcYK6sgX9AsH27yWKkbOZMLxEZ4L5JICu/YsImHJ97TB689zdHyZsg/mXAuEx0OE+QZ51nw==
   dependencies:
     verror "^1.10.0"
 

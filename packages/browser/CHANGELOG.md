@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@5.0.1...@faltest/browser@5.0.2) (2023-01-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency verror-extra to v4 ([330c8c6](https://github.com/CrowdStrike/faltest/commit/330c8c6b1aa6d84a68f2a8b449aba80dd4d210e5))
+
 ### [5.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@5.0.0...@faltest/browser@5.0.1) (2022-10-03)
 
 ## [5.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/browser@4.1.0...@faltest/browser@5.0.0) (2022-07-23)
