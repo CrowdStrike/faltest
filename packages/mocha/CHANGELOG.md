@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.0.4...@faltest/mocha@7.1.0) (2023-01-05)
+
+
+### Features
+
+* add attempt count to failure artifacts ([e2fc0d7](https://github.com/CrowdStrike/faltest/commit/e2fc0d7566efb17e5641e330c284ae9e11e1765f))
+
 ### [7.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.0.3...@faltest/mocha@7.0.4) (2022-12-27)
 
 
