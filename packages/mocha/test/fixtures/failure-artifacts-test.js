@@ -66,7 +66,7 @@ describe('failure artifacts', function() {
     });
 
     it('retries', function() {
-      assert.ok(this.test.currentRetry() == 2);
+      assert.ok(this.test.currentRetry() === 2);
     });
   });
 
