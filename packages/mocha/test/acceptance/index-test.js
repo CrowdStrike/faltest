@@ -7,6 +7,7 @@ const { runTests: _runTests } = require('../../src');
 const { promisify } = require('util');
 const createTmpDir = promisify(require('tmp').dir);
 const failureArtifacts = require('../../src/failure-artifacts');
+const sinon = require('sinon');
 
 const fixturesPath = path.resolve(__dirname, '../fixtures');
 
@@ -172,28 +173,24 @@ describe(function() {
 
         let extensions = ['png', 'html', 'browser.txt', 'driver.txt'];
 
-        let getFilePath = (title, attempt, ext) => {
-          return path.join(this.outputDir, `${title}.${attempt}.${ext}`);
+        let getFileNames = (title, attempt = 1) => {
+          return extensions.map(ext => `failure artifacts ${title}.${attempt}.${ext}`);
         };
 
         let { runTests } = this;
         Object.assign(this, {
-          async runTests(options) {
-            return await runTests({
+          runTests: async options => {
+            return await runTests.call(this, {
               failureArtifacts: true,
               failureArtifactsOutputDir: this.outputDir,
               ...options,
             });
           },
-          assertFilesExist(title, attempt = 1) {
-            for (let ext of extensions) {
-              expect(getFilePath(title, attempt, ext)).to.be.a.file();
-            }
+          assertFilesExist(title, attempt) {
+            expect(this.outputDir).to.be.a.directory().and.include.files(getFileNames(title, attempt));
           },
-          assertFilesDontExist(title, attempt = 1) {
-            for (let ext of extensions) {
-              expect(getFilePath(title, attempt, ext)).to.not.be.a.path();
-            }
+          assertFilesDontExist(title, attempt) {
+            expect(this.outputDir).to.be.a.directory().and.not.have.contents(getFileNames(title, attempt));
           },
           assertEmptyDir() {
             expect(this.outputDir).to.be.a.directory().and.empty;
@@ -210,10 +207,12 @@ describe(function() {
           filter: 'it failure$',
         });
 
-        this.assertFilesExist('failure artifacts it failure');
+        expect(stats).matches(sinon.match({
+          tests: 1,
+          failures: 1,
+        }));
 
-        expect(stats.tests).to.equal(1);
-        expect(stats.failures).to.equal(1);
+        this.assertFilesExist('it failure');
       });
 
       it('doesn\'t make artifacts on test success', async function() {
@@ -221,10 +220,12 @@ describe(function() {
           filter: 'it success$',
         });
 
-        this.assertEmptyDir();
+        expect(stats).matches(sinon.match({
+          tests: 1,
+          passes: 1,
+        }));
 
-        expect(stats.tests).to.equal(1);
-        expect(stats.passes).to.equal(1);
+        this.assertEmptyDir();
       });
 
       it(`handles errors in ${failureArtifacts.name}`, async function() {
@@ -242,10 +243,12 @@ describe(function() {
           filter: 'it prevent stale ',
         });
 
-        this.assertFilesExist('failure artifacts it prevent stale failure');
+        expect(stats).matches(sinon.match({
+          tests: 2,
+          failures: 1,
+        }));
 
-        expect(stats.tests).to.equal(2);
-        expect(stats.failures).to.equal(1);
+        this.assertFilesExist('it prevent stale failure');
       });
 
       it('handles errors in beforeEach', async function() {
@@ -253,10 +256,12 @@ describe(function() {
           filter: 'beforeEach failure$',
         });
 
-        this.assertFilesExist('failure artifacts beforeEach !before each! hook for !failure');
+        expect(stats).matches(sinon.match({
+          tests: 0,
+          failures: 1,
+        }));
 
-        expect(stats.tests).to.equal(0);
-        expect(stats.failures).to.equal(1);
+        this.assertFilesExist('beforeEach !before each! hook for !failure');
       });
 
       it('handles errors in before', async function() {
@@ -264,10 +269,12 @@ describe(function() {
           filter: 'before with browser failure$',
         });
 
-        this.assertFilesExist('failure artifacts before with browser !before all! hook for !failure');
+        expect(stats).matches(sinon.match({
+          tests: 0,
+          failures: 1,
+        }));
 
-        expect(stats.tests).to.equal(0);
-        expect(stats.failures).to.equal(1);
+        this.assertFilesExist('before with browser !before all! hook for !failure');
       });
 
       it('doesn\'t make artifacts if no browser', async function() {
@@ -275,10 +282,12 @@ describe(function() {
           filter: 'before without browser failure$',
         });
 
-        this.assertEmptyDir();
+        expect(stats).matches(sinon.match({
+          tests: 0,
+          failures: 1,
+        }));
 
-        expect(stats.tests).to.equal(0);
-        expect(stats.failures).to.equal(1);
+        this.assertEmptyDir();
       });
 
       it('handles errors in afterEach', async function() {
@@ -286,10 +295,12 @@ describe(function() {
           filter: 'afterEach failure$',
         });
 
-        this.assertFilesExist('failure artifacts afterEach !after each! hook for !failure');
+        expect(stats).matches(sinon.match({
+          tests: 1,
+          failures: 1,
+        }));
 
-        expect(stats.tests).to.equal(1);
-        expect(stats.failures).to.equal(1);
+        this.assertFilesExist('afterEach !after each! hook for !failure');
       });
 
       it('handles errors in after', async function() {
@@ -297,10 +308,12 @@ describe(function() {
           filter: 'after failure$',
         });
 
-        this.assertFilesExist('failure artifacts after !after all! hook for !failure');
+        expect(stats).matches(sinon.match({
+          tests: 1,
+          failures: 1,
+        }));
 
-        expect(stats.tests).to.equal(1);
-        expect(stats.failures).to.equal(1);
+        this.assertFilesExist('after !after all! hook for !failure');
       });
 
       it('handles retries', async function() {
@@ -311,7 +324,12 @@ describe(function() {
           retries,
         });
 
-        let title = 'failure artifacts it retries';
+        expect(stats).matches(sinon.match({
+          tests: 1,
+          failures: 0,
+        }));
+
+        let title = 'it retries';
 
         for (let attempt = 1; attempt <= retries; attempt++) {
           this.assertFilesExist(title, attempt);
@@ -320,9 +338,6 @@ describe(function() {
         for (let attempt of [0, retries + 1]) {
           this.assertFilesDontExist(title, attempt);
         }
-
-        expect(stats.tests).to.equal(1);
-        expect(stats.failures).to.equal(0);
       });
     });
 
