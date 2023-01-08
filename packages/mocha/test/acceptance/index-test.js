@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const path = require('path');
-const clearModule = require('clear-module');
 const { runTests: _runTests } = require('../../src');
 const { promisify } = require('util');
 const createTmpDir = promisify(require('tmp').dir);
@@ -25,13 +24,6 @@ describe(function() {
           ...options,
         });
       };
-    });
-
-    afterEach(function() {
-      // unfortunately, mocha caches previously run files,
-      // even though it is a new instance...
-      // https://github.com/mochajs/mocha/blob/v6.2.0/lib/mocha.js#L334
-      clearModule.all();
     });
 
     describe('tags', function() {
