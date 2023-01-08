@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.1.0...@faltest/mocha@7.1.1) (2023-01-08)
+
+
+### Bug Fixes
+
+* call mocha.dispose when done ([770fa70](https://github.com/CrowdStrike/faltest/commit/770fa70d21b4125bc583b81c2b22bb72691d765b))
+
 ## [7.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.0.4...@faltest/mocha@7.1.0) (2023-01-05)
 
 
