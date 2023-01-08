@@ -154,6 +154,12 @@ async function runTests(options) {
     runner = await runMocha(mocha, options);
   } finally {
     Object.assign(Runner.prototype, prototype);
+
+    try {
+      mocha.dispose();
+    } catch (err) {
+      debug(err);
+    }
   }
 
   return runner.stats;
