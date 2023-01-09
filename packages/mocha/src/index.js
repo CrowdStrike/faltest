@@ -17,6 +17,26 @@ async function runMocha(mocha, options) {
   let promises = [];
   let errors = [];
 
+  function handlePromises(callback) {
+    let perTestPromises = [];
+
+    if (options.failureArtifacts) {
+      let promise = callback();
+
+      perTestPromises.push(promise);
+
+      // Mocha inspects the Promise rejection queue on exit or something.
+      // We can't leave any rejecting promises for later.
+      promise = promise.catch(err => errors.push(err));
+
+      promises.push(promise);
+    }
+
+    // Prevent "stale element reference: element is not attached to the page document"
+    // or "Error: connect ECONNREFUSED 127.0.0.1:61188"
+    global.promisesToFlushBetweenTests = perTestPromises;
+  }
+
   await new Promise(resolve => {
     // `mocha.run` is synchronous if no tests were found,
     // otherwise, it's asynchronous...
@@ -25,26 +45,6 @@ async function runMocha(mocha, options) {
     runner.on(constants.EVENT_TEST_BEGIN, () => {
       global.promisesToFlushBetweenTests = [];
     });
-
-    function handlePromises(callback) {
-      let perTestPromises = [];
-
-      if (options.failureArtifacts) {
-        let promise = callback();
-
-        perTestPromises.push(promise);
-
-        // Mocha inspects the Promise rejection queue on exit or something.
-        // We can't leave any rejecting promises for later.
-        promise = promise.catch(err => errors.push(err));
-
-        promises.push(promise);
-      }
-
-      // Prevent "stale element reference: element is not attached to the page document"
-      // or "Error: connect ECONNREFUSED 127.0.0.1:61188"
-      global.promisesToFlushBetweenTests = perTestPromises;
-    }
 
     runner.on(constants.EVENT_TEST_FAIL, test => {
       handlePromises(() => {
