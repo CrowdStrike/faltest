@@ -324,6 +324,7 @@ describe(function() {
           Object.assign(this, {
             runTests: async ({
               filter,
+              title,
             }) => {
               let stats = await runTests.call(this, {
                 filter,
@@ -334,6 +335,14 @@ describe(function() {
                 tests: 1,
                 failures: 0,
               }));
+
+              for (let attempt = 1; attempt <= retries; attempt++) {
+                this.assertFilesExist(title, attempt);
+              }
+
+              for (let attempt of [0, retries + 1]) {
+                this.assertFilesDontExist(title, attempt);
+              }
             },
           });
         });
@@ -341,40 +350,35 @@ describe(function() {
         it('before', async function() {
           await this.runTests({
             filter: 'before with browser retries failure$',
+            title: 'before with browser retries !before all! hook for !failure',
           });
         });
 
         it('beforeEach', async function() {
           await this.runTests({
             filter: 'beforeEach retries failure$',
+            title: 'beforeEach retries !before each! hook for !failure',
           });
         });
 
         it('it', async function() {
-          let title = 'it retries';
-
           await this.runTests({
             filter: 'it retries$',
+            title: 'it retries',
           });
-
-          for (let attempt = 1; attempt <= retries; attempt++) {
-            this.assertFilesExist(title, attempt);
-          }
-
-          for (let attempt of [0, retries + 1]) {
-            this.assertFilesDontExist(title, attempt);
-          }
         });
 
         it('afterEach', async function() {
           await this.runTests({
             filter: 'afterEach retries failure$',
+            title: 'afterEach retries !after each! hook for !failure',
           });
         });
 
         it('after', async function() {
           await this.runTests({
             filter: 'after retries failure$',
+            title: 'after retries !after all! hook for !failure',
           });
         });
       });

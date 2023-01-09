@@ -37,7 +37,7 @@
     "eslint-plugin-node": "^11.0.0",
     "execa": "^5.0.0",
     "mocha": "^10.0.0",
-    "mocha-helpers": "^6.0.0",
+    "mocha-helpers": "^6.3.0",
     "monorepo-next": "^9.0.0",
     "p-all": "^4.0.0",
     "remark-cli": "^11.0.0",
