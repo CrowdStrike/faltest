@@ -7,6 +7,7 @@ const { buildGrep } = require('./tag');
 const failureArtifacts = require('./failure-artifacts');
 const debug = require('./debug');
 const path = require('path');
+const { events } = require('mocha-helpers');
 
 const { Runner } = Mocha;
 const { constants } = Runner;
@@ -54,6 +55,11 @@ async function runMocha(mocha, options) {
 
     debug(`Retrying failed test "${test.title}": ${err}`);
   }
+  async function retryAsync(test, err) {
+    await failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+
+    debug(`Retrying failed test "${test.title}": ${err}`);
+  }
 
   function pass(test) {
     handlePromises(() => {
@@ -63,6 +69,8 @@ async function runMocha(mocha, options) {
 
   try {
     await new Promise((resolve, reject) => {
+      events.on(constants.EVENT_TEST_RETRY, retryAsync);
+
       try {
       // `mocha.run` is synchronous if no tests were found,
       // otherwise, it's asynchronous...
@@ -77,6 +85,8 @@ async function runMocha(mocha, options) {
       }
     });
   } finally {
+    events.off(constants.EVENT_TEST_RETRY, retryAsync);
+
     if (runner) {
       runner.off(constants.EVENT_TEST_BEGIN, begin);
       runner.off(constants.EVENT_TEST_FAIL, fail);
