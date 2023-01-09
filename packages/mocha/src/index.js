@@ -37,39 +37,53 @@ async function runMocha(mocha, options) {
     global.promisesToFlushBetweenTests = perTestPromises;
   }
 
-  await new Promise((resolve, reject) => {
-    try {
-    // `mocha.run` is synchronous if no tests were found,
-    // otherwise, it's asynchronous...
-      runner = mocha.run(resolve);
+  function begin() {
+    global.promisesToFlushBetweenTests = [];
+  }
 
-      runner.on(constants.EVENT_TEST_BEGIN, () => {
-        global.promisesToFlushBetweenTests = [];
-      });
+  function fail(test) {
+    handlePromises(() => {
+      return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+    });
+  }
 
-      runner.on(constants.EVENT_TEST_FAIL, test => {
-        handlePromises(() => {
-          return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
-        });
-      });
+  function retry(test, err) {
+    handlePromises(() => {
+      return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+    });
 
-      runner.on(constants.EVENT_TEST_RETRY, (test, err) => {
-        handlePromises(() => {
-          return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
-        });
+    debug(`Retrying failed test "${test.title}": ${err}`);
+  }
 
-        debug(`Retrying failed test "${test.title}": ${err}`);
-      });
+  function pass(test) {
+    handlePromises(() => {
+      return failureArtifacts.flush.call(test.ctx);
+    });
+  }
 
-      runner.on(constants.EVENT_TEST_PASS, (test) => {
-        handlePromises(() => {
-          return failureArtifacts.flush.call(test.ctx);
-        });
-      });
-    } catch (err) {
-      reject(err);
+  try {
+    await new Promise((resolve, reject) => {
+      try {
+      // `mocha.run` is synchronous if no tests were found,
+      // otherwise, it's asynchronous...
+        runner = mocha.run(resolve);
+
+        runner.on(constants.EVENT_TEST_BEGIN, begin);
+        runner.on(constants.EVENT_TEST_FAIL, fail);
+        runner.on(constants.EVENT_TEST_RETRY, retry);
+        runner.on(constants.EVENT_TEST_PASS, pass);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  } finally {
+    if (runner) {
+      runner.off(constants.EVENT_TEST_BEGIN, begin);
+      runner.off(constants.EVENT_TEST_FAIL, fail);
+      runner.off(constants.EVENT_TEST_RETRY, retry);
+      runner.off(constants.EVENT_TEST_PASS, pass);
     }
-  });
+  }
 
   await Promise.all(promises);
 
