@@ -37,34 +37,38 @@ async function runMocha(mocha, options) {
     global.promisesToFlushBetweenTests = perTestPromises;
   }
 
-  await new Promise(resolve => {
+  await new Promise((resolve, reject) => {
+    try {
     // `mocha.run` is synchronous if no tests were found,
     // otherwise, it's asynchronous...
-    runner = mocha.run(resolve);
+      runner = mocha.run(resolve);
 
-    runner.on(constants.EVENT_TEST_BEGIN, () => {
-      global.promisesToFlushBetweenTests = [];
-    });
-
-    runner.on(constants.EVENT_TEST_FAIL, test => {
-      handlePromises(() => {
-        return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
-      });
-    });
-
-    runner.on(constants.EVENT_TEST_RETRY, (test, err) => {
-      handlePromises(() => {
-        return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+      runner.on(constants.EVENT_TEST_BEGIN, () => {
+        global.promisesToFlushBetweenTests = [];
       });
 
-      debug(`Retrying failed test "${test.title}": ${err}`);
-    });
-
-    runner.on(constants.EVENT_TEST_PASS, (test) => {
-      handlePromises(() => {
-        return failureArtifacts.flush.call(test.ctx);
+      runner.on(constants.EVENT_TEST_FAIL, test => {
+        handlePromises(() => {
+          return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+        });
       });
-    });
+
+      runner.on(constants.EVENT_TEST_RETRY, (test, err) => {
+        handlePromises(() => {
+          return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+        });
+
+        debug(`Retrying failed test "${test.title}": ${err}`);
+      });
+
+      runner.on(constants.EVENT_TEST_PASS, (test) => {
+        handlePromises(() => {
+          return failureArtifacts.flush.call(test.ctx);
+        });
+      });
+    } catch (err) {
+      reject(err);
+    }
   });
 
   await Promise.all(promises);
