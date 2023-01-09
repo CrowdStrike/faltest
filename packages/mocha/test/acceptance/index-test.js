@@ -316,28 +316,67 @@ describe(function() {
         this.assertFilesExist('after without mocha-helpers !after all! hook for !failure');
       });
 
-      it('handles retries', async function() {
-        let retries = 2;
+      describe('retries', function() {
+        const retries = 2;
 
-        let stats = await this.runTests({
-          filter: 'it retries$',
-          retries,
+        before(function() {
+          let { runTests } = this;
+          Object.assign(this, {
+            runTests: async ({
+              filter,
+            }) => {
+              let stats = await runTests.call(this, {
+                filter,
+                retries,
+              });
+
+              expect(stats).matches(sinon.match({
+                tests: 1,
+                failures: 0,
+              }));
+            },
+          });
         });
 
-        expect(stats).matches(sinon.match({
-          tests: 1,
-          failures: 0,
-        }));
+        it('before', async function() {
+          await this.runTests({
+            filter: 'before with browser retries failure$',
+          });
+        });
 
-        let title = 'it retries';
+        it('beforeEach', async function() {
+          await this.runTests({
+            filter: 'beforeEach retries failure$',
+          });
+        });
 
-        for (let attempt = 1; attempt <= retries; attempt++) {
-          this.assertFilesExist(title, attempt);
-        }
+        it('it', async function() {
+          let title = 'it retries';
 
-        for (let attempt of [0, retries + 1]) {
-          this.assertFilesDontExist(title, attempt);
-        }
+          await this.runTests({
+            filter: 'it retries$',
+          });
+
+          for (let attempt = 1; attempt <= retries; attempt++) {
+            this.assertFilesExist(title, attempt);
+          }
+
+          for (let attempt of [0, retries + 1]) {
+            this.assertFilesDontExist(title, attempt);
+          }
+        });
+
+        it('afterEach', async function() {
+          await this.runTests({
+            filter: 'afterEach retries failure$',
+          });
+        });
+
+        it('after', async function() {
+          await this.runTests({
+            filter: 'after retries failure$',
+          });
+        });
       });
     });
 

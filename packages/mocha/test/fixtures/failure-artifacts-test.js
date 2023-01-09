@@ -7,6 +7,14 @@ const failureArtifacts = require('../../src/failure-artifacts');
 const sinon = require('sinon');
 const Server = require('../../../../helpers/server');
 
+const customMocha = (module => {
+  require('mocha-helpers')(module, {
+    retryHooks: true,
+  });
+
+  return module.exports;
+})({ exports: {} });
+
 describe('failure artifacts', function() {
   afterEach(function() {
     sinon.restore();
@@ -80,6 +88,14 @@ describe('failure artifacts', function() {
 
       it('failure', function() {});
     });
+
+    describe('retries', function () {
+      customMocha.beforeEach(function() {
+        assert.ok(this.test.currentRetry() === 2);
+      });
+
+      it('failure', function() {});
+    });
   });
 
   describe('before', function() {
@@ -92,6 +108,14 @@ describe('failure artifacts', function() {
       describe('without mocha-helpers', function () {
         before(function() {
           assert.ok(false);
+        });
+
+        it('failure', function() {});
+      });
+
+      describe('retries', function () {
+        customMocha.before(function() {
+          assert.ok(this.test.currentRetry() === 2);
         });
 
         it('failure', function() {});
@@ -119,6 +143,14 @@ describe('failure artifacts', function() {
 
       it('failure', function() {});
     });
+
+    describe('retries', function () {
+      customMocha.afterEach(function() {
+        assert.ok(this.test.currentRetry() === 2);
+      });
+
+      it('failure', function() {});
+    });
   });
 
   describe('after', function() {
@@ -127,6 +159,14 @@ describe('failure artifacts', function() {
     describe('without mocha-helpers', function () {
       after(function() {
         assert.ok(false);
+      });
+
+      it('failure', function() {});
+    });
+
+    describe('retries', function () {
+      customMocha.after(function() {
+        assert.ok(this.test.currentRetry() === 2);
       });
 
       it('failure', function() {});
