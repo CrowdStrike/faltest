@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.1.1...@faltest/mocha@7.1.2) (2023-01-09)
+
+
+### Bug Fixes
+
+* add mocha error handling ([dc01ec6](https://github.com/CrowdStrike/faltest/commit/dc01ec6ff8032ecd35983e508a6dd7b74e8fbff5))
+
 ### [7.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.1.0...@faltest/mocha@7.1.1) (2023-01-08)
 
 
