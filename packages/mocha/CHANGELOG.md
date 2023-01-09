@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.4](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.1.3...@faltest/mocha@7.1.4) (2023-01-09)
+
+
+### Bug Fixes
+
+* failure artifacts now work in lifecycle hooks when using mocha-helpers ([2b2c7f0](https://github.com/CrowdStrike/faltest/commit/2b2c7f0413e722eb53e1b4f73386198ea1a9312f))
+
 ### [7.1.3](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.1.2...@faltest/mocha@7.1.3) (2023-01-09)
 
 
