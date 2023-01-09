@@ -4392,9 +4392,9 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-mocha-helpers@^6.3.0:
+mocha-helpers@^6.2.4:
   version "6.3.0"
-  resolved "https://registry.npmjs.org/mocha-helpers/-/mocha-helpers-6.3.0.tgz#861f5e1c249018d213ff72553814a94e95f71d04"
+  resolved "https://registry.yarnpkg.com/mocha-helpers/-/mocha-helpers-6.3.0.tgz#861f5e1c249018d213ff72553814a94e95f71d04"
   integrity sha512-pei2Mct0okI5E+Elsok21zsxzsBKL59pAyKDknTMO+/6ALDJQgGQNzrDeoQuv6LTA91AF+uBb5EB+NW+KbdI4w==
   dependencies:
     callsites "^3.0.0"
