@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.3](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.1.2...@faltest/mocha@7.1.3) (2023-01-09)
+
+
+### Bug Fixes
+
+* unregister event listeners ([4ea500a](https://github.com/CrowdStrike/faltest/commit/4ea500a3342d425090a304cbe0276c42e951d52c))
+
 ### [7.1.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.1.1...@faltest/mocha@7.1.2) (2023-01-09)
 
 
