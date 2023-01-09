@@ -73,11 +73,13 @@ describe('failure artifacts', function() {
   describe('beforeEach', function() {
     setUpWebDriver.call(this);
 
-    beforeEach(function() {
-      assert.ok(false);
-    });
+    describe('without mocha-helpers', function () {
+      beforeEach(function() {
+        assert.ok(false);
+      });
 
-    it('failure', function() {});
+      it('failure', function() {});
+    });
   });
 
   describe('before', function() {
@@ -87,11 +89,13 @@ describe('failure artifacts', function() {
         keepBrowserOpen: true,
       });
 
-      before(function() {
-        assert.ok(false);
-      });
+      describe('without mocha-helpers', function () {
+        before(function() {
+          assert.ok(false);
+        });
 
-      it('failure', function() {});
+        it('failure', function() {});
+      });
     });
 
     describe('without browser', function() {
@@ -108,24 +112,24 @@ describe('failure artifacts', function() {
   describe('afterEach', function() {
     setUpWebDriver.call(this);
 
-    afterEach(function() {
-      assert.ok(false);
-    });
+    describe('without mocha-helpers', function () {
+      afterEach(function() {
+        assert.ok(false);
+      });
 
-    it('failure', function() {
-      assert.ok(true);
+      it('failure', function() {});
     });
   });
 
   describe('after', function() {
     setUpWebDriver.call(this);
 
-    after(function() {
-      assert.ok(false);
-    });
+    describe('without mocha-helpers', function () {
+      after(function() {
+        assert.ok(false);
+      });
 
-    it('failure', function() {
-      assert.ok(true);
+      it('failure', function() {});
     });
   });
 });

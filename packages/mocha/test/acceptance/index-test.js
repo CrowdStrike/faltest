@@ -253,7 +253,7 @@ describe(function() {
 
       it('handles errors in beforeEach', async function() {
         let stats = await this.runTests({
-          filter: 'beforeEach failure$',
+          filter: 'beforeEach without mocha-helpers failure$',
         });
 
         expect(stats).matches(sinon.match({
@@ -261,12 +261,12 @@ describe(function() {
           failures: 1,
         }));
 
-        this.assertFilesExist('beforeEach !before each! hook for !failure');
+        this.assertFilesExist('beforeEach without mocha-helpers !before each! hook for !failure');
       });
 
       it('handles errors in before', async function() {
         let stats = await this.runTests({
-          filter: 'before with browser failure$',
+          filter: 'before with browser without mocha-helpers failure$',
         });
 
         expect(stats).matches(sinon.match({
@@ -274,7 +274,7 @@ describe(function() {
           failures: 1,
         }));
 
-        this.assertFilesExist('before with browser !before all! hook for !failure');
+        this.assertFilesExist('before with browser without mocha-helpers !before all! hook for !failure');
       });
 
       it('doesn\'t make artifacts if no browser', async function() {
@@ -292,7 +292,7 @@ describe(function() {
 
       it('handles errors in afterEach', async function() {
         let stats = await this.runTests({
-          filter: 'afterEach failure$',
+          filter: 'afterEach without mocha-helpers failure$',
         });
 
         expect(stats).matches(sinon.match({
@@ -300,12 +300,12 @@ describe(function() {
           failures: 1,
         }));
 
-        this.assertFilesExist('afterEach !after each! hook for !failure');
+        this.assertFilesExist('afterEach without mocha-helpers !after each! hook for !failure');
       });
 
       it('handles errors in after', async function() {
         let stats = await this.runTests({
-          filter: 'after failure$',
+          filter: 'after without mocha-helpers failure$',
         });
 
         expect(stats).matches(sinon.match({
@@ -313,7 +313,7 @@ describe(function() {
           failures: 1,
         }));
 
-        this.assertFilesExist('after !after all! hook for !failure');
+        this.assertFilesExist('after without mocha-helpers !after all! hook for !failure');
       });
 
       it('handles retries', async function() {
