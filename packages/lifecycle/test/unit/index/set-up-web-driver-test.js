@@ -16,7 +16,6 @@ const {
   browserOverride,
   events,
 } = require('../../../src');
-const { event: { emit, on } } = require('../../../../utils');
 
 describe(setUpWebDriver, function() {
   let webDriverInstance;
@@ -155,25 +154,25 @@ describe(setUpWebDriver, function() {
     onAfterBegin = onAfterBegin.withArgs(event);
     onAfterEnd = onAfterEnd.withArgs(event);
 
-    on(events, 'start-web-driver', onStartWebDriver);
-    on(events, 'stop-web-driver', onStopWebDriver);
-    on(events, 'start-browser', onStartBrowser);
-    on(events, 'start-browsers', onStartBrowsers);
-    on(events, 'stop-browser', onStopBrowser);
-    on(events, 'stop-browsers', onStopBrowsers);
-    on(events, 'init-context', onInitContext);
-    on(events, 'init-session', onInitSession);
+    events.on('start-web-driver', onStartWebDriver);
+    events.on('stop-web-driver', onStopWebDriver);
+    events.on('start-browser', onStartBrowser);
+    events.on('start-browsers', onStartBrowsers);
+    events.on('stop-browser', onStopBrowser);
+    events.on('stop-browsers', onStopBrowsers);
+    events.on('init-context', onInitContext);
+    events.on('init-session', onInitSession);
 
-    on(events, 'before-begin', onBeforeBegin);
-    on(events, 'before-end', onBeforeEnd);
-    on(events, 'before-each-begin', onBeforeEachBegin);
-    on(events, 'before-each-end', onBeforeEachEnd);
-    on(events, 'after-each-begin', onAfterEachBegin);
-    on(events, 'after-each-end', onAfterEachEnd);
-    on(events, 'after-begin', onAfterBegin);
-    on(events, 'after-end', onAfterEnd);
+    events.on('before-begin', onBeforeBegin);
+    events.on('before-end', onBeforeEnd);
+    events.on('before-each-begin', onBeforeEachBegin);
+    events.on('before-each-end', onBeforeEachEnd);
+    events.on('after-each-begin', onAfterEachBegin);
+    events.on('after-each-end', onAfterEachEnd);
+    events.on('after-begin', onAfterBegin);
+    events.on('after-end', onAfterEnd);
 
-    on(events, 'reset-internal-state', onResetInternalState);
+    events.on('reset-internal-state', onResetInternalState);
 
     resetInternalState();
   });
@@ -2798,7 +2797,7 @@ describe(setUpWebDriver, function() {
   });
 
   it('resets internal state on kill orphans', async function() {
-    await emit(webDriver.events, 'kill-orphans-end');
+    await webDriver.events.emit('kill-orphans-end');
 
     expect(onResetInternalState).to.have.callCount(1);
   });

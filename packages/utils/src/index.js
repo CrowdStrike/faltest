@@ -6,5 +6,4 @@ module.exports = {
   log: require('./log'),
   waitForDownload: require('./wait-for-download'),
   password: require('./password'),
-  event: require('./event'),
 };

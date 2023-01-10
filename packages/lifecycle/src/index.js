@@ -3,13 +3,9 @@
 const webDriver = require('@faltest/remote');
 const Browser = require('@faltest/browser');
 const log = require('./log');
-const EventEmitter = require('events');
+const EventEmitter = require('events-async');
 const {
   defaults,
-  event: {
-    emit: _emit,
-    on,
-  },
 } = require('@faltest/utils');
 
 const shareWebdriver = process.env.WEBDRIVER_SHARE_WEBDRIVER === 'true';
@@ -30,16 +26,14 @@ if (!keepBrowserOpen && shareSession) {
 
 let events = new EventEmitter();
 
-const emit = _emit.bind(null, events);
-
 async function lifecycleEvent(name, context, options) {
-  await emit(name, { context, options });
+  await events.emit(name, { context, options });
 }
 
 async function startWebDriver(options) {
   let instance = await webDriver.startWebDriver(options);
 
-  await emit('start-web-driver', instance);
+  await events.emit('start-web-driver', instance);
 
   return instance;
 }
@@ -47,7 +41,7 @@ async function startWebDriver(options) {
 async function stopWebDriver(instance) {
   await webDriver.stopWebDriver(instance);
 
-  await emit('stop-web-driver');
+  await events.emit('stop-web-driver');
 }
 
 async function startBrowsers(options) {
@@ -62,10 +56,10 @@ async function startBrowsers(options) {
 
   // This can be removed in a major version.
   if (browsers.length === 1) {
-    await emit('start-browser', browsers[0]);
+    await events.emit('start-browser', browsers[0]);
   }
 
-  await emit('start-browsers', browsers);
+  await events.emit('start-browsers', browsers);
 
   return browsers;
 }
@@ -85,10 +79,10 @@ async function stopBrowsers(browsers) {
 
   // This can be removed in a major version.
   if (browsers.length === 1) {
-    await emit('stop-browser');
+    await events.emit('stop-browser');
   }
 
-  await emit('stop-browsers');
+  await events.emit('stop-browsers');
 
   loggedInRole = null;
 }
@@ -315,11 +309,11 @@ function resetInternalState() {
   overridesUsed = null;
 }
 
-on(webDriver.events, 'kill-orphans-end', async () => {
+webDriver.events.on('kill-orphans-end', async () => {
   // prevent using stored objects with killed processes
   resetInternalState();
 
-  await emit('reset-internal-state');
+  await events.emit('reset-internal-state');
 });
 
 module.exports = {
