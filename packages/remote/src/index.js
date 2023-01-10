@@ -5,11 +5,10 @@ require('@faltest/utils/src/require-before-webdriverio');
 const { remote } = require('webdriverio');
 const debug = require('./debug');
 const log = require('./log');
-const EventEmitter = require('events');
+const EventEmitter = require('events-async');
 const yn = require('yn');
 const {
   defaults,
-  event: { emit },
 } = require('@faltest/utils');
 const os = require('os');
 // const config = require('config');
@@ -98,7 +97,7 @@ async function fkill() {
 }
 
 async function killOrphans() {
-  await emit(events, 'kill-orphans-start');
+  await events.emit('kill-orphans-start');
 
   let processes = await module.exports.psList();
 
@@ -146,7 +145,7 @@ async function killOrphans() {
     await kill(orphan);
   }
 
-  await emit(events, 'kill-orphans-end');
+  await events.emit('kill-orphans-end');
 }
 
 async function getNewPort(port) {

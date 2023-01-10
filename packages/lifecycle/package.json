@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "@faltest/remote": "^7.0.0",
-    "@faltest/utils": "^5.0.0"
+    "@faltest/utils": "^5.0.0",
+    "events-async": "^1.2.1"
   },
   "optionalDependencies": {
     "@faltest/browser": "^5.0.0"
