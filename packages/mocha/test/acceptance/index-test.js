@@ -171,7 +171,7 @@ describe(function() {
       before(function() {
         globs = [path.join(fixturesPath, 'failure-artifacts-test.js')];
 
-        let extensions = ['png', 'html', 'browser.txt', 'driver.txt'];
+        let extensions = ['png', 'html', 'url.txt', 'browser.txt', 'driver.txt'];
 
         let getFileNames = (title, attempt = 1) => {
           return extensions.map(ext => `failure artifacts ${title}.${attempt}.${ext}`);
