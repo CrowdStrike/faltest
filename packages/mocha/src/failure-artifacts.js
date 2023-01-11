@@ -54,6 +54,9 @@ async function failureArtifacts(outputDir) {
   let html = await this.browser._browser.getPageSource();
   await writeArtifact(`${title}.html`, html);
 
+  let url = await this.browser.getUrl();
+  await writeArtifact(`${title}.url.txt`, url);
+
   let logTypes = await this.browser._browser.getLogTypes();
   for (let logType of logTypes) {
     let logs = await this.browser._browser.getLogs(logType);
