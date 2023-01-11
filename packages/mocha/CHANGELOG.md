@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.2.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.1.4...@faltest/mocha@7.2.0) (2023-01-11)
+
+
+### Features
+
+* store the url in a text file for failure artifacts ([8176467](https://github.com/CrowdStrike/faltest/commit/8176467a4cefeaebd48267aabe833add8054e6e9))
+
 ### [7.1.4](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.1.3...@faltest/mocha@7.1.4) (2023-01-09)
 
 
