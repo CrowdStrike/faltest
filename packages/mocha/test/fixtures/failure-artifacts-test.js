@@ -78,6 +78,27 @@ describe('failure artifacts', function() {
         assert.ok(this.test.currentRetry() === 2);
       });
     });
+
+    for (let browser of [
+      'firefox',
+      'edge',
+    ]) {
+      describe(browser, function() {
+        setUpWebDriver.call(this, {
+          overrides: {
+            browser,
+          },
+        });
+
+        it('failure', function() {
+          assert.ok(false);
+        });
+
+        it('success', function() {
+          assert.ok(true);
+        });
+      });
+    }
   });
 
   describe('beforeEach', function() {

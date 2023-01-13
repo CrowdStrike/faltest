@@ -57,23 +57,27 @@ async function failureArtifacts(outputDir) {
   let url = await this.browser.getUrl();
   await writeArtifact(`${title}.url.txt`, url);
 
-  let logTypes = await this.browser._browser.getLogTypes();
-  for (let logType of logTypes) {
-    let logs = await this.browser._browser.getLogs(logType);
-    let logsText = JSON.stringify(logs, null, 2);
-    await writeArtifact(`${title}.${logType}.txt`, logsText);
+  if (this.browser._browser.getLogTypes) {
+    let logTypes = await this.browser._browser.getLogTypes();
+    for (let logType of logTypes) {
+      let logs = await this.browser._browser.getLogs(logType);
+      let logsText = JSON.stringify(logs, null, 2);
+      await writeArtifact(`${title}.${logType}.txt`, logsText);
+    }
   }
 }
 
 async function flush() {
-  let logTypes = await this.browser._browser.getLogTypes();
-  for (let logType of logTypes) {
-    // https://v5.webdriver.io/docs/api/chromium.html#getlogs
-    // "Log buffer is reset after each request."
-    // For the failure logs to be useful, it should only include the failing test,
-    // not the whole test run up until the failure. So we need to clear the logs
-    // between each test.
-    await this.browser._browser.getLogs(logType);
+  if (this.browser._browser.getLogTypes) {
+    let logTypes = await this.browser._browser.getLogTypes();
+    for (let logType of logTypes) {
+      // https://v5.webdriver.io/docs/api/chromium.html#getlogs
+      // "Log buffer is reset after each request."
+      // For the failure logs to be useful, it should only include the failing test,
+      // not the whole test run up until the failure. So we need to clear the logs
+      // between each test.
+      await this.browser._browser.getLogs(logType);
+    }
   }
 }
 
