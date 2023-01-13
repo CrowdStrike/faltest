@@ -48,11 +48,9 @@ async function runMocha(mocha, options) {
     });
   }
 
-  function retry(test, err) {
-    handlePromises(async () => {
-      await failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
-
-      debug(`Retrying failed test "${test.title}": ${err}`);
+  function retry() {
+    handlePromises(() => {
+      return retryAsync(...arguments);
     });
   }
   async function retryAsync(test, err) {
