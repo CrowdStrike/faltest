@@ -21,17 +21,15 @@ async function runMocha(mocha, options) {
   function handlePromises(callback) {
     let perTestPromises = [];
 
-    if (options.failureArtifacts) {
-      let promise = callback();
+    let promise = callback();
 
-      perTestPromises.push(promise);
+    perTestPromises.push(promise);
 
-      // Mocha inspects the Promise rejection queue on exit or something.
-      // We can't leave any rejecting promises for later.
-      promise = promise.catch(err => errors.push(err));
+    // Mocha inspects the Promise rejection queue on exit or something.
+    // We can't leave any rejecting promises for later.
+    promise = promise.catch(err => errors.push(err));
 
-      promises.push(promise);
-    }
+    promises.push(promise);
 
     // Prevent "stale element reference: element is not attached to the page document"
     // or "Error: connect ECONNREFUSED 127.0.0.1:61188"
@@ -48,7 +46,9 @@ async function runMocha(mocha, options) {
     });
   }
   async function failAsync(test) {
-    await failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+    if (options.failureArtifacts) {
+      await failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+    }
   }
 
   function retry() {
@@ -68,7 +68,9 @@ async function runMocha(mocha, options) {
     });
   }
   async function passAsync(test) {
-    await failureArtifacts.flush.call(test.ctx);
+    if (options.failureArtifacts) {
+      await failureArtifacts.flush.call(test.ctx);
+    }
   }
 
   try {
