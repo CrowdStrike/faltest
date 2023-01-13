@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.12](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@7.1.11...@faltest/remote@7.1.12) (2023-01-13)
+
+
+### Bug Fixes
+
+* reset connectionRetryCount back to default ([330b52e](https://github.com/CrowdStrike/faltest/commit/330b52e03db101dd06011a0e497118469f213211))
+
 ### [7.1.11](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@7.1.10...@faltest/remote@7.1.11) (2023-01-13)
 
 ### [7.1.10](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@7.1.9...@faltest/remote@7.1.10) (2023-01-13)
