@@ -314,6 +314,38 @@ describe(function() {
         this.assertFilesExist('after without mocha-helpers !after all! hook for !failure');
       });
 
+      it('works in firefox', async function() {
+        let stats = await this.runTests({
+          filter: 'it firefox ',
+        });
+
+        expect(stats).matches(sinon.match({
+          tests: 2,
+          failures: 1,
+          passes: 1,
+        }));
+
+        this.extensions = ['png', 'html', 'url.txt'];
+
+        this.assertFilesExist('it firefox failure');
+      });
+
+      it('works in edge', async function() {
+        let stats = await this.runTests({
+          filter: 'it edge ',
+        });
+
+        expect(stats).matches(sinon.match({
+          tests: 2,
+          failures: 1,
+          passes: 1,
+        }));
+
+        this.extensions = ['png', 'html', 'url.txt'];
+
+        this.assertFilesExist('it edge failure');
+      });
+
       describe('retries', function() {
         const retries = 2;
 
