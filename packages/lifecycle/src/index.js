@@ -166,6 +166,7 @@ async function setUpWebDriverBefore(options) {
         }
 
         await lifecycleEvent('init-session', this, options);
+        sessionError = false;
       }
     }
   }
