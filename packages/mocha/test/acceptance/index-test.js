@@ -204,7 +204,7 @@ describe(function() {
 
       it('works', async function() {
         let stats = await this.runTests({
-          filter: 'it failure$',
+          filter: 'it chrome failure$',
         });
 
         expect(stats).matches(sinon.match({
@@ -212,12 +212,12 @@ describe(function() {
           failures: 1,
         }));
 
-        this.assertFilesExist('it failure');
+        this.assertFilesExist('it chrome failure');
       });
 
       it('doesn\'t make artifacts on test success', async function() {
         let stats = await this.runTests({
-          filter: 'it success$',
+          filter: 'it chrome success$',
         });
 
         expect(stats).matches(sinon.match({
@@ -230,7 +230,7 @@ describe(function() {
 
       it(`handles errors in ${failureArtifacts.name}`, async function() {
         let promise = this.runTests({
-          filter: `it ${failureArtifacts.name} error failure$`,
+          filter: `it chrome ${failureArtifacts.name} error failure$`,
         });
 
         await expect(promise).to.eventually.be.rejectedWith('test takeScreenshot error');
@@ -240,7 +240,7 @@ describe(function() {
 
       it('prevents "stale element reference" errors', async function() {
         let stats = await this.runTests({
-          filter: 'it prevent stale ',
+          filter: 'it chrome prevent stale ',
         });
 
         expect(stats).matches(sinon.match({
@@ -248,7 +248,7 @@ describe(function() {
           failures: 1,
         }));
 
-        this.assertFilesExist('it prevent stale failure');
+        this.assertFilesExist('it chrome prevent stale failure');
       });
 
       it('handles errors in beforeEach', async function() {
@@ -363,8 +363,8 @@ describe(function() {
 
         it('it', async function() {
           await this.runTests({
-            filter: 'it retries$',
-            title: 'it retries',
+            filter: 'it chrome retries$',
+            title: 'it chrome retries',
           });
         });
 
