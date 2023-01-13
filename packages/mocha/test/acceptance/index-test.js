@@ -171,12 +171,6 @@ describe(function() {
       before(function() {
         globs = [path.join(fixturesPath, 'failure-artifacts-test.js')];
 
-        let extensions = ['png', 'html', 'url.txt', 'browser.txt', 'driver.txt'];
-
-        let getFileNames = (title, attempt = 1) => {
-          return extensions.map(ext => `failure artifacts ${title}.${attempt}.${ext}`);
-        };
-
         let { runTests } = this;
         Object.assign(this, {
           runTests: async options => {
@@ -186,11 +180,15 @@ describe(function() {
               ...options,
             });
           },
+          extensions: ['png', 'html', 'url.txt', 'browser.txt', 'driver.txt'],
+          getFileNames(title, attempt = 1) {
+            return this.extensions.map(ext => `failure artifacts ${title}.${attempt}.${ext}`);
+          },
           assertFilesExist(title, attempt) {
-            expect(this.outputDir).to.be.a.directory().and.include.files(getFileNames(title, attempt));
+            expect(this.outputDir).to.be.a.directory().and.include.files(this.getFileNames(title, attempt));
           },
           assertFilesDontExist(title, attempt) {
-            expect(this.outputDir).to.be.a.directory().and.not.have.contents(getFileNames(title, attempt));
+            expect(this.outputDir).to.be.a.directory().and.not.have.contents(this.getFileNames(title, attempt));
           },
           assertEmptyDir() {
             expect(this.outputDir).to.be.a.directory().and.empty;
