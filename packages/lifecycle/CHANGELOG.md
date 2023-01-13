@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@7.0.3...@faltest/lifecycle@7.0.4) (2023-01-13)
+
+
+### Bug Fixes
+
+* reset sessionError in beforeAll ([096de01](https://github.com/CrowdStrike/faltest/commit/096de016541fcbcf5f803f68567b9f7acc315c51))
+
 ### [7.0.3](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@7.0.2...@faltest/lifecycle@7.0.3) (2022-12-12)
 
 ### [7.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@7.0.1...@faltest/lifecycle@7.0.2) (2022-10-03)

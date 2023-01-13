@@ -20,7 +20,7 @@
     yn "^4.0.0"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "7.0.3"
+  version "7.0.4"
   dependencies:
     "@faltest/remote" "^7.0.0"
     "@faltest/utils" "^5.0.0"
@@ -37,7 +37,7 @@
     mocha-helpers "^6.3.0"
 
 "@faltest/remote@^7.0.0", "@faltest/remote@file:../../packages/remote":
-  version "7.1.9"
+  version "7.1.10"
   dependencies:
     "@faltest/utils" "^5.0.0"
     browser-webdriver-downloader "^1.5.1"
