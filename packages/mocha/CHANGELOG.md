@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.2.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.2.1...@faltest/mocha@7.2.2) (2023-01-13)
+
+
+### Bug Fixes
+
+* fix failure artifacts in edge and firefox ([d26df0d](https://github.com/CrowdStrike/faltest/commit/d26df0d89b1f37fcdf6fc1d593e9be4532bd80e3))
+
 ### [7.2.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.2.0...@faltest/mocha@7.2.1) (2023-01-13)
 
 
