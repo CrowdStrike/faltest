@@ -42,10 +42,13 @@ async function runMocha(mocha, options) {
     global.promisesToFlushBetweenTests = [];
   }
 
-  function fail(test) {
+  function fail() {
     handlePromises(() => {
-      return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+      return failAsync(...arguments);
     });
+  }
+  async function failAsync(test) {
+    await failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
   }
 
   function retry() {
@@ -59,10 +62,13 @@ async function runMocha(mocha, options) {
     debug(`Retrying failed test "${test.title}": ${err}`);
   }
 
-  function pass(test) {
+  function pass() {
     handlePromises(() => {
-      return failureArtifacts.flush.call(test.ctx);
+      return passAsync(...arguments);
     });
+  }
+  async function passAsync(test) {
+    await failureArtifacts.flush.call(test.ctx);
   }
 
   try {
