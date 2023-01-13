@@ -314,8 +314,7 @@ describe(function() {
         this.assertFilesExist('after without mocha-helpers !after all! hook for !failure!');
       });
 
-      // eslint-disable-next-line mocha/no-skipped-tests
-      it.skip('works in firefox', async function() {
+      it('works in firefox', async function() {
         let stats = await this.runTests({
           filter: 'it firefox ',
         });
