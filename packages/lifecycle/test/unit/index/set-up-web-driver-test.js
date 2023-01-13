@@ -2629,6 +2629,40 @@ describe(setUpWebDriver, function() {
 
       assertContext();
     });
+
+    it('handles login failure if retrying beforeAll (mocha-helpers)', async function() {
+      setOptions({
+        shouldLogIn: true,
+      });
+
+      options.logIn = sinon.stub().rejects(new Error('test login error'));
+
+      await expect(beforeTest()).to.eventually.be.rejectedWith('test login error');
+
+      expect(options.logIn).to.have.callCount(1);
+      expect(logOut).to.have.callCount(0);
+
+      expect(onInitSession).to.have.callCount(0);
+
+      assertLifecycleBeforeError();
+
+      assertContext();
+
+      reset();
+
+      options.logIn = logIn;
+
+      await beforeTest();
+
+      expect(options.logIn).to.have.callCount(1);
+      expect(logOut).to.have.callCount(0);
+
+      expect(onInitSession).to.have.callCount(1);
+
+      assertLifecycleBefore();
+
+      assertContext();
+    });
   });
 
   describe('throttle network', function() {
