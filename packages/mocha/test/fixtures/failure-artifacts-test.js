@@ -21,48 +21,8 @@ describe('failure artifacts', function() {
   });
 
   describe('it', function() {
-    setUpWebDriver.call(this);
-
-    it('failure', function() {
-      assert.ok(false);
-    });
-
-    it('success', function() {
-      assert.ok(true);
-    });
-
-    describe(`${failureArtifacts.name} error`, function() {
-      let takeScreenshot;
-
-      beforeEach(function() {
-        takeScreenshot = sinon
-          .stub(this.browser._browser, 'takeScreenshot')
-          .rejects(new Error('test takeScreenshot error'));
-      });
-
-      after(function() {
-        expect(takeScreenshot).to.have.been.called;
-      });
-
-      it('failure', function() {
-        assert.ok(false);
-      });
-    });
-
-    describe('prevent stale', function() {
-      beforeEach(async function() {
-        this.server = new Server();
-
-        let port = await this.server.start();
-
-        await this.browser.url(`http://localhost:${port}`);
-      });
-
-      afterEach(async function() {
-        if (this.server) {
-          await this.server.stop();
-        }
-      });
+    describe('chrome', function() {
+      setUpWebDriver.call(this);
 
       it('failure', function() {
         assert.ok(false);
@@ -71,10 +31,52 @@ describe('failure artifacts', function() {
       it('success', function() {
         assert.ok(true);
       });
-    });
 
-    it('retries', function() {
-      assert.ok(this.test.currentRetry() === 2);
+      describe(`${failureArtifacts.name} error`, function() {
+        let takeScreenshot;
+
+        beforeEach(function() {
+          takeScreenshot = sinon
+            .stub(this.browser._browser, 'takeScreenshot')
+            .rejects(new Error('test takeScreenshot error'));
+        });
+
+        after(function() {
+          expect(takeScreenshot).to.have.been.called;
+        });
+
+        it('failure', function() {
+          assert.ok(false);
+        });
+      });
+
+      describe('prevent stale', function() {
+        beforeEach(async function() {
+          this.server = new Server();
+
+          let port = await this.server.start();
+
+          await this.browser.url(`http://localhost:${port}`);
+        });
+
+        afterEach(async function() {
+          if (this.server) {
+            await this.server.stop();
+          }
+        });
+
+        it('failure', function() {
+          assert.ok(false);
+        });
+
+        it('success', function() {
+          assert.ok(true);
+        });
+      });
+
+      it('retries', function() {
+        assert.ok(this.test.currentRetry() === 2);
+      });
     });
   });
 
