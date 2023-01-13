@@ -358,8 +358,6 @@ function startBrowser(options = {}) {
         // but the connections fail immediately and the timeout isn't even hit
         connectionRetryCount,
       });
-
-      // browser.options.connectionRetryCount = 0;
     } catch (err) {
       debug(`It is possible \`connectionRetryCount=${connectionRetryCount}\` is not high enough.`);
 
