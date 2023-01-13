@@ -49,11 +49,11 @@ async function runMocha(mocha, options) {
   }
 
   function retry(test, err) {
-    handlePromises(() => {
-      return failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
-    });
+    handlePromises(async () => {
+      await failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
 
-    debug(`Retrying failed test "${test.title}": ${err}`);
+      debug(`Retrying failed test "${test.title}": ${err}`);
+    });
   }
   async function retryAsync(test, err) {
     await failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
