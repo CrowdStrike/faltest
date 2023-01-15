@@ -31,7 +31,7 @@
     "choma": "^1.2.1",
     "filenamify": "^5.0.0",
     "glob": "^8.0.0",
-    "mocha-helpers": "^6.3.0"
+    "mocha-helpers": "^7.0.0"
   },
   "peerDependencies": {
     "mocha": ">=6"
