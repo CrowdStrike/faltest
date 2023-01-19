@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.2.3](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.2.2...@faltest/mocha@7.2.3) (2023-01-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency mocha-helpers to v7 ([b31c8f8](https://github.com/CrowdStrike/faltest/commit/b31c8f85319a193de5605ce3b45ab0607db378fd))
+
 ### [7.2.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.2.1...@faltest/mocha@7.2.2) (2023-01-13)
 
 
