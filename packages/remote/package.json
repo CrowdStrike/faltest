@@ -31,7 +31,7 @@
     "browser-webdriver-downloader": "^1.5.1",
     "chromedriver": "109.0.0",
     "events-async": "^1.2.1",
-    "execa": "^5.0.0",
+    "execa": "^6.0.0",
     "fkill": "^8.0.0",
     "geckodriver": "3.2.0",
     "get-port": "^6.0.0",
