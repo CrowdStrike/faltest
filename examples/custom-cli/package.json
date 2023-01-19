@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "custom-cli",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "bin": {
     "my-cli": "bin/index.js"
   },
@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "@faltest/cli": "^5.0.0",
-    "@faltest/lifecycle": "^7.0.0"
+    "@faltest/lifecycle": "^8.0.0"
   }
 }

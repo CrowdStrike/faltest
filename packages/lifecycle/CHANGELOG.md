@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@7.0.4...@faltest/lifecycle@8.0.0) (2023-01-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* use events-async instead of home-grown solution
+
+* use events-async instead of home-grown solution ([95a246b](https://github.com/CrowdStrike/faltest/commit/95a246b3c25f588536b43fb7b394bb4865fc1398))
+
 ### [7.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@7.0.3...@faltest/lifecycle@7.0.4) (2023-01-13)
 
 
