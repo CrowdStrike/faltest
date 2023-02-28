@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@8.0.0...@faltest/lifecycle@8.0.1) (2023-02-28)
+
+
+### Bug Fixes
+
+* call `waitForPromisesToFlushBetweenTests` in `setUpWebDriverBeforeEach` ([c51f96e](https://github.com/CrowdStrike/faltest/commit/c51f96e61da1365a1bfe80108f1811f25644cb66))
+
 ## [8.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@7.0.4...@faltest/lifecycle@8.0.0) (2023-01-19)
 
 
