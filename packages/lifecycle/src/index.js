@@ -171,6 +171,10 @@ async function setUpWebDriverBefore(options) {
 async function setUpWebDriverBeforeEach(options) {
   await lifecycleEvent('before-each-begin', this, options);
 
+  // The one in `setUpWebDriverAfterEach` is not triggered if the error
+  // happened in `beforeEach` instead of `it`.
+  await waitForPromisesToFlushBetweenTests();
+
   if (!options.keepBrowserOpen && sharedBrowsers) {
     await stopBrowsers(sharedBrowsers);
   }
