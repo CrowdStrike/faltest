@@ -225,13 +225,7 @@ async function setUpWebDriverAfterEach(options) {
     }
   }
 
-  if (global.promisesToFlushBetweenTests) {
-    try {
-      await Promise.all(global.promisesToFlushBetweenTests);
-    } catch (err) {
-      // This will be handled by the source.
-    }
-  }
+  await waitForPromisesToFlushBetweenTests();
 
   await lifecycleEvent('after-each-end', this, options);
 }
@@ -315,6 +309,16 @@ webDriver.events.on('kill-orphans-end', async () => {
 
   await events.emit('reset-internal-state');
 });
+
+async function waitForPromisesToFlushBetweenTests() {
+  if (global.promisesToFlushBetweenTests) {
+    try {
+      await Promise.all(global.promisesToFlushBetweenTests);
+    } catch (err) {
+      // This will be handled by the source.
+    }
+  }
+}
 
 module.exports = {
   setUpWebDriver,
