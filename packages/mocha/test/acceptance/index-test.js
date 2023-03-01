@@ -180,7 +180,7 @@ describe(function() {
               ...options,
             });
           },
-          extensions: ['png', 'html', 'url.txt', 'browser.txt', 'driver.txt'],
+          extensions: ['png', 'html', 'url.txt', 'browser.txt', 'driver.txt', 'error.txt'],
           getFileNames(title, attempt = 1) {
             return this.extensions.map(ext => `failure artifacts ${title}.${attempt}.${ext}`);
           },

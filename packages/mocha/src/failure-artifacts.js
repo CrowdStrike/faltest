@@ -30,7 +30,7 @@ async function buildTitle(test) {
   return `${title}.${attempt}`;
 }
 
-async function failureArtifacts(outputDir) {
+async function failureArtifacts(error, outputDir) {
   // If an error occurs in `before` or `beforeEach`,
   // there's a chance the browser has not been initialized yet.
   if (!this.browser) {
@@ -62,6 +62,8 @@ async function failureArtifacts(outputDir) {
     let logsText = JSON.stringify(log, null, 2);
     await writeArtifact(`${title}.${logType}.txt`, logsText);
   }
+
+  await writeArtifact(`${title}.error.txt`, error.toString());
 }
 
 async function flush() {
