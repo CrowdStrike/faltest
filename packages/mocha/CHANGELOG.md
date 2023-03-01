@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.3.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.2.5...@faltest/mocha@7.3.0) (2023-03-01)
+
+
+### Features
+
+* store original test error in failure artifact ([7881728](https://github.com/CrowdStrike/faltest/commit/78817283db472ecf9bcb8a5011ed19e14d51a654))
+
 ### [7.2.5](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.2.4...@faltest/mocha@7.2.5) (2023-03-01)
 
 ### [7.2.4](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.2.3...@faltest/mocha@7.2.4) (2023-01-19)
