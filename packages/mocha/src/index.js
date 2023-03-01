@@ -45,9 +45,9 @@ async function runMocha(mocha, options) {
       return failAsync(...arguments);
     });
   }
-  async function failAsync(test) {
+  async function failAsync(test, err) {
     if (options.failureArtifacts) {
-      await failureArtifacts.call(test.ctx, options.failureArtifactsOutputDir);
+      await failureArtifacts.call(test.ctx, err, options.failureArtifactsOutputDir);
     }
   }
 
@@ -57,7 +57,7 @@ async function runMocha(mocha, options) {
     });
   }
   async function retryAsync(test, err) {
-    await failAsync(test);
+    await failAsync(test, err);
 
     debug(`Retrying failed test "${test.title}": ${err}`);
   }
