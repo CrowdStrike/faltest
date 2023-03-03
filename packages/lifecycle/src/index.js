@@ -125,8 +125,6 @@ async function initContext(options) {
 }
 
 async function setUpWebDriverBefore(options) {
-  await lifecycleEvent('before-begin', this, options);
-
   if (options.shareWebdriver) {
     if (webDriverInstance && (overridesUsed && overridesUsed !== options.overrides)) {
       await stopWebDriver(webDriverInstance);
@@ -164,13 +162,9 @@ async function setUpWebDriverBefore(options) {
       }
     }
   }
-
-  await lifecycleEvent('before-end', this, options);
 }
 
 async function setUpWebDriverBeforeEach(options) {
-  await lifecycleEvent('before-each-begin', this, options);
-
   // The one in `setUpWebDriverAfterEach` is not triggered if the error
   // happened in `beforeEach` instead of `it`.
   await waitForPromisesToFlushBetweenTests();
@@ -215,13 +209,9 @@ async function setUpWebDriverBeforeEach(options) {
       await browser.throttleOn();
     }
   }
-
-  await lifecycleEvent('before-each-end', this, options);
 }
 
 async function setUpWebDriverAfterEach(options) {
-  await lifecycleEvent('after-each-begin', this, options);
-
   if (options.throttleNetwork) {
     for (let browser of sharedBrowsers) {
       // eslint-disable-next-line faltest/no-browser-throttle
@@ -230,16 +220,10 @@ async function setUpWebDriverAfterEach(options) {
   }
 
   await waitForPromisesToFlushBetweenTests();
-
-  await lifecycleEvent('after-each-end', this, options);
 }
 
-async function setUpWebDriverAfter(options) {
-  await lifecycleEvent('after-begin', this, options);
-
+function setUpWebDriverAfter(options) {
   overridesUsed = options.overrides;
-
-  await lifecycleEvent('after-end', this, options);
 }
 
 function browserOverride(browser) {
@@ -285,15 +269,19 @@ function setUpWebDriver(options) {
 
   this.timeout(options.timeout);
 
-  for (let [name, func] of [
-    ['before', setUpWebDriverBefore],
-    ['beforeEach', setUpWebDriverBeforeEach],
-    ['afterEach', setUpWebDriverAfterEach],
-    ['after', setUpWebDriverAfter],
+  for (let [name, func, event] of [
+    ['before', setUpWebDriverBefore, 'before'],
+    ['beforeEach', setUpWebDriverBeforeEach, 'before-each'],
+    ['afterEach', setUpWebDriverAfterEach, 'after-each'],
+    ['after', setUpWebDriverAfter, 'after'],
   ]) {
     options.mocha[name](function() {
       return log(name, async () => {
+        await lifecycleEvent(`${event}-begin`, this, options);
+
         await func.call(this, options);
+
+        await lifecycleEvent(`${event}-end`, this, options);
       });
     });
   }
