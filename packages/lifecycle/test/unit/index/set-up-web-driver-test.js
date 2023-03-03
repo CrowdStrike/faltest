@@ -37,15 +37,6 @@ describe(setUpWebDriver, function() {
   let onInitContext;
   let onInitSession;
 
-  let onBeforeBegin;
-  let onBeforeEnd;
-  let onBeforeEachBegin;
-  let onBeforeEachEnd;
-  let onAfterEachBegin;
-  let onAfterEachEnd;
-  let onAfterBegin;
-  let onAfterEnd;
-
   let onResetInternalState;
   let browserOverrideSpy;
 
@@ -106,15 +97,6 @@ describe(setUpWebDriver, function() {
     onInitContext = sinon.spy();
     onInitSession = sinon.spy();
 
-    onBeforeBegin = sinon.spy();
-    onBeforeEnd = sinon.spy();
-    onBeforeEachBegin = sinon.spy();
-    onBeforeEachEnd = sinon.spy();
-    onAfterEachBegin = sinon.spy();
-    onAfterEachEnd = sinon.spy();
-    onAfterBegin = sinon.spy();
-    onAfterEnd = sinon.spy();
-
     onResetInternalState = sinon.spy();
 
     onStartWebDriver = onStartWebDriver.withArgs(webDriverInstance);
@@ -145,14 +127,6 @@ describe(setUpWebDriver, function() {
 
     onInitContext = onInitContext.withArgs(event);
     onInitSession = onInitSession.withArgs(event);
-    onBeforeBegin = onBeforeBegin.withArgs(event);
-    onBeforeEnd = onBeforeEnd.withArgs(event);
-    onBeforeEachBegin = onBeforeEachBegin.withArgs(event);
-    onBeforeEachEnd = onBeforeEachEnd.withArgs(event);
-    onAfterEachBegin = onAfterEachBegin.withArgs(event);
-    onAfterEachEnd = onAfterEachEnd.withArgs(event);
-    onAfterBegin = onAfterBegin.withArgs(event);
-    onAfterEnd = onAfterEnd.withArgs(event);
 
     events.on('start-web-driver', onStartWebDriver);
     events.on('stop-web-driver', onStopWebDriver);
@@ -162,15 +136,6 @@ describe(setUpWebDriver, function() {
     events.on('stop-browsers', onStopBrowsers);
     events.on('init-context', onInitContext);
     events.on('init-session', onInitSession);
-
-    events.on('before-begin', onBeforeBegin);
-    events.on('before-end', onBeforeEnd);
-    events.on('before-each-begin', onBeforeEachBegin);
-    events.on('before-each-end', onBeforeEachEnd);
-    events.on('after-each-begin', onAfterEachBegin);
-    events.on('after-each-end', onAfterEachEnd);
-    events.on('after-begin', onAfterBegin);
-    events.on('after-end', onAfterEnd);
 
     events.on('reset-internal-state', onResetInternalState);
 
@@ -186,15 +151,6 @@ describe(setUpWebDriver, function() {
     events.removeListener('stop-browsers', onStopBrowsers);
     events.removeListener('init-context', onInitContext);
     events.removeListener('init-session', onInitSession);
-
-    events.removeListener('before-begin', onBeforeBegin);
-    events.removeListener('before-end', onBeforeEnd);
-    events.removeListener('before-each-begin', onBeforeEachBegin);
-    events.removeListener('before-each-end', onBeforeEachEnd);
-    events.removeListener('after-each-begin', onAfterEachBegin);
-    events.removeListener('after-each-end', onAfterEachEnd);
-    events.removeListener('after-begin', onAfterBegin);
-    events.removeListener('after-end', onAfterEnd);
 
     events.removeListener('reset-internal-state', onResetInternalState);
 
@@ -226,66 +182,6 @@ describe(setUpWebDriver, function() {
     await setUpWebDriverAfter.call(context, options);
   }
 
-  function assertLifecycleBefore() {
-    expect(onBeforeBegin).to.have.callCount(1);
-    expect(onBeforeEnd).to.have.callCount(1);
-    expect(onBeforeEachBegin).to.have.callCount(1);
-    expect(onBeforeEachEnd).to.have.callCount(1);
-    expect(onAfterEachBegin).to.have.callCount(1);
-    expect(onAfterEachEnd).to.have.callCount(1);
-    expect(onAfterBegin).to.have.callCount(0);
-    expect(onAfterEnd).to.have.callCount(0);
-
-    expect(onBeforeEnd).to.have.been.calledAfter(onBeforeBegin);
-    expect(onBeforeEachBegin).to.have.been.calledAfter(onBeforeEnd);
-    expect(onBeforeEachEnd).to.have.been.calledAfter(onBeforeEachBegin);
-    expect(onAfterEachBegin).to.have.been.calledAfter(onBeforeEachEnd);
-    expect(onAfterEachEnd).to.have.been.calledAfter(onAfterEachBegin);
-  }
-
-  function assertLifecycleBeforeError() {
-    expect(onBeforeBegin).to.have.callCount(1);
-    expect(onBeforeEnd).to.have.callCount(0);
-    expect(onBeforeEachBegin).to.have.callCount(0);
-    expect(onBeforeEachEnd).to.have.callCount(0);
-    expect(onAfterEachBegin).to.have.callCount(0);
-    expect(onAfterEachEnd).to.have.callCount(0);
-    expect(onAfterBegin).to.have.callCount(0);
-    expect(onAfterEnd).to.have.callCount(0);
-  }
-
-  function assertLifecycleEach() {
-    expect(onBeforeBegin).to.have.callCount(0);
-    expect(onBeforeEnd).to.have.callCount(0);
-    expect(onBeforeEachBegin).to.have.callCount(1);
-    expect(onBeforeEachEnd).to.have.callCount(1);
-    expect(onAfterEachBegin).to.have.callCount(1);
-    expect(onAfterEachEnd).to.have.callCount(1);
-    expect(onAfterBegin).to.have.callCount(0);
-    expect(onAfterEnd).to.have.callCount(0);
-
-    expect(onBeforeEachEnd).to.have.been.calledAfter(onBeforeEachBegin);
-    expect(onAfterEachBegin).to.have.been.calledAfter(onBeforeEachEnd);
-    expect(onAfterEachEnd).to.have.been.calledAfter(onAfterEachBegin);
-  }
-
-  function assertLifecycleAfter() {
-    expect(onBeforeBegin).to.have.callCount(0);
-    expect(onBeforeEnd).to.have.callCount(0);
-    expect(onBeforeEachBegin).to.have.callCount(1);
-    expect(onBeforeEachEnd).to.have.callCount(1);
-    expect(onAfterEachBegin).to.have.callCount(1);
-    expect(onAfterEachEnd).to.have.callCount(1);
-    expect(onAfterBegin).to.have.callCount(1);
-    expect(onAfterEnd).to.have.callCount(1);
-
-    expect(onBeforeEachEnd).to.have.been.calledAfter(onBeforeEachBegin);
-    expect(onAfterEachBegin).to.have.been.calledAfter(onBeforeEachEnd);
-    expect(onAfterEachEnd).to.have.been.calledAfter(onAfterEachBegin);
-    expect(onAfterBegin).to.have.been.calledAfter(onAfterEachEnd);
-    expect(onAfterEnd).to.have.been.calledAfter(onAfterBegin);
-  }
-
   function assertContext() {
     expect(context.browser).to.be.an.instanceof(Browser);
     expect(context.browsers).to.be.an('array');
@@ -311,15 +207,6 @@ describe(setUpWebDriver, function() {
       onStopBrowsers,
       onInitContext,
       onInitSession,
-
-      onBeforeBegin,
-      onBeforeEnd,
-      onBeforeEachBegin,
-      onBeforeEachEnd,
-      onAfterEachBegin,
-      onAfterEachEnd,
-      onAfterBegin,
-      onAfterEnd,
 
       onResetInternalState,
       browserOverrideSpy,
@@ -367,8 +254,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -402,8 +287,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -436,8 +319,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStartWebDriver);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -472,8 +353,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -507,8 +386,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -541,8 +418,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStartWebDriver);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -576,8 +451,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -610,8 +483,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -643,8 +514,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStartWebDriver);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -678,8 +547,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -712,8 +579,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -745,8 +610,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStartWebDriver);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -781,8 +644,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -816,8 +677,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -850,8 +709,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStartWebDriver);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -889,8 +746,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -923,8 +778,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -956,8 +809,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStartWebDriver);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -1002,8 +853,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1033,8 +882,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1063,8 +910,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStopBrowser);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -1095,8 +940,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1126,8 +969,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1156,8 +997,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStopBrowser);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -1191,8 +1030,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1221,8 +1058,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1250,8 +1085,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStopBrowser);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -1281,8 +1114,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1311,8 +1142,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1340,8 +1169,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStopBrowser);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -1376,8 +1203,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1407,8 +1232,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1437,8 +1260,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStopBrowser);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -1472,8 +1293,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1502,8 +1321,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1531,8 +1348,6 @@ describe(setUpWebDriver, function() {
       expect(onStartBrowser).to.have.been.calledAfter(onStopBrowser);
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -1577,8 +1392,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1604,8 +1417,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1630,8 +1441,6 @@ describe(setUpWebDriver, function() {
       expect(onStopWebDriver).to.have.callCount(0);
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -1658,8 +1467,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1685,8 +1492,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1711,8 +1516,6 @@ describe(setUpWebDriver, function() {
       expect(onStopWebDriver).to.have.callCount(0);
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -1746,8 +1549,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1771,8 +1572,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1795,8 +1594,6 @@ describe(setUpWebDriver, function() {
       expect(onStopWebDriver).to.have.callCount(0);
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -1821,8 +1618,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1846,8 +1641,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1870,8 +1663,6 @@ describe(setUpWebDriver, function() {
       expect(onStopWebDriver).to.have.callCount(0);
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -1906,8 +1697,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -1933,8 +1722,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -1959,8 +1746,6 @@ describe(setUpWebDriver, function() {
       expect(onStopWebDriver).to.have.callCount(0);
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -1989,8 +1774,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -2014,8 +1797,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -2038,8 +1819,6 @@ describe(setUpWebDriver, function() {
       expect(onStopWebDriver).to.have.callCount(0);
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -2084,8 +1863,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -2107,8 +1884,6 @@ describe(setUpWebDriver, function() {
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -2129,8 +1904,6 @@ describe(setUpWebDriver, function() {
       expect(onInitSession).to.have.callCount(0);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -2165,8 +1938,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -2192,8 +1963,6 @@ describe(setUpWebDriver, function() {
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -2214,8 +1983,6 @@ describe(setUpWebDriver, function() {
       expect(onInitSession).to.have.callCount(0);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -2249,8 +2016,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -2272,8 +2037,6 @@ describe(setUpWebDriver, function() {
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -2294,8 +2057,6 @@ describe(setUpWebDriver, function() {
       expect(onInitSession).to.have.callCount(0);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -2320,8 +2081,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -2343,8 +2102,6 @@ describe(setUpWebDriver, function() {
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -2365,8 +2122,6 @@ describe(setUpWebDriver, function() {
       expect(onInitSession).to.have.callCount(0);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -2401,8 +2156,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowser);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -2424,8 +2177,6 @@ describe(setUpWebDriver, function() {
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -2446,8 +2197,6 @@ describe(setUpWebDriver, function() {
       expect(onInitSession).to.have.callCount(0);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -2476,8 +2225,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -2499,8 +2246,6 @@ describe(setUpWebDriver, function() {
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -2521,8 +2266,6 @@ describe(setUpWebDriver, function() {
       expect(onInitSession).to.have.callCount(0);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -2596,8 +2339,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.callCount(0);
 
-      assertLifecycleBeforeError();
-
       assertContext();
 
       reset();
@@ -2611,8 +2352,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.callCount(1);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -2623,8 +2362,6 @@ describe(setUpWebDriver, function() {
       expect(logOut).to.have.callCount(0);
 
       expect(onInitSession).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -2643,8 +2380,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.callCount(0);
 
-      assertLifecycleBeforeError();
-
       assertContext();
 
       reset();
@@ -2657,8 +2392,6 @@ describe(setUpWebDriver, function() {
       expect(logOut).to.have.callCount(0);
 
       expect(onInitSession).to.have.callCount(1);
-
-      assertLifecycleBefore();
 
       assertContext();
     });
@@ -2906,8 +2639,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowsers);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -2929,8 +2660,6 @@ describe(setUpWebDriver, function() {
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -2951,8 +2680,6 @@ describe(setUpWebDriver, function() {
       expect(onInitSession).to.have.callCount(0);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -2987,8 +2714,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -3014,8 +2739,6 @@ describe(setUpWebDriver, function() {
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -3036,8 +2759,6 @@ describe(setUpWebDriver, function() {
       expect(onInitSession).to.have.callCount(0);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
@@ -3071,8 +2792,6 @@ describe(setUpWebDriver, function() {
       expect(onInitContext).to.have.been.calledAfter(onStartBrowsers);
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -3094,8 +2813,6 @@ describe(setUpWebDriver, function() {
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -3116,8 +2833,6 @@ describe(setUpWebDriver, function() {
       expect(onInitSession).to.have.callCount(0);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
 
@@ -3142,8 +2857,6 @@ describe(setUpWebDriver, function() {
 
       expect(onInitSession).to.have.been.calledAfter(onInitContext);
 
-      assertLifecycleBefore();
-
       assertContext();
 
       reset();
@@ -3165,8 +2878,6 @@ describe(setUpWebDriver, function() {
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
 
-      assertLifecycleEach();
-
       assertContext();
 
       reset();
@@ -3187,8 +2898,6 @@ describe(setUpWebDriver, function() {
       expect(onInitSession).to.have.callCount(0);
       expect(onStopBrowser).to.have.callCount(0);
       expect(onStopWebDriver).to.have.callCount(0);
-
-      assertLifecycleAfter();
 
       assertContext();
     });
