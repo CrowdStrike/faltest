@@ -165,10 +165,6 @@ async function setUpWebDriverBefore(options) {
 }
 
 async function setUpWebDriverBeforeEach(options) {
-  // The one in `setUpWebDriverAfterEach` is not triggered if the error
-  // happened in `beforeEach` instead of `it`.
-  await waitForPromisesToFlushBetweenTests();
-
   if (!options.keepBrowserOpen && sharedBrowsers) {
     await stopBrowsers(sharedBrowsers);
   }
@@ -218,8 +214,6 @@ async function setUpWebDriverAfterEach(options) {
       await browser.throttleOff();
     }
   }
-
-  await waitForPromisesToFlushBetweenTests();
 }
 
 function setUpWebDriverAfter(options) {
@@ -278,6 +272,12 @@ function setUpWebDriver(options) {
     options.mocha[name](function() {
       return log(name, async () => {
         await lifecycleEvent(`${event}-begin`, this, options);
+
+        // This used to only be in `setUpWebDriverAfterEach`, but it was
+        // not triggered if the error happened in `beforeEach` instead of `it`,
+        // so it needs to be called at the beginning of `setUpWebDriverBeforeEach` too.
+        // Therefore, I don't think it would hurt to do it in all cases.
+        await waitForPromisesToFlushBetweenTests();
 
         await func.call(this, options);
 
