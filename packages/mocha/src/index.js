@@ -78,8 +78,8 @@ async function runMocha(mocha, options) {
       events.on(constants.EVENT_TEST_RETRY, retryAsync);
 
       try {
-      // `mocha.run` is synchronous if no tests were found,
-      // otherwise, it's asynchronous...
+        // `mocha.run` is synchronous if no tests were found,
+        // otherwise, it's asynchronous...
         runner = mocha.run(resolve);
 
         runner.on(constants.EVENT_TEST_BEGIN, begin);
