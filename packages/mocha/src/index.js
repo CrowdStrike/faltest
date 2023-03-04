@@ -75,9 +75,9 @@ async function runMocha(mocha, options) {
 
   try {
     await new Promise((resolve, reject) => {
-      events.on(constants.EVENT_TEST_RETRY, retryAsync);
-
       try {
+        events.on(constants.EVENT_TEST_RETRY, retryAsync);
+
         // `mocha.run` is synchronous if no tests were found,
         // otherwise, it's asynchronous...
         runner = mocha.run(resolve);
