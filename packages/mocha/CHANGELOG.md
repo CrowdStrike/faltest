@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.3.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.3.0...@faltest/mocha@7.3.1) (2023-03-04)
+
+
+### Bug Fixes
+
+* do everything inside the `try` ([e51c552](https://github.com/CrowdStrike/faltest/commit/e51c5520b4a7db028bd2ded67e9f4f31e338478d))
+
 ## [7.3.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.2.5...@faltest/mocha@7.3.0) (2023-03-01)
 
 
