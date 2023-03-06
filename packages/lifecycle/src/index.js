@@ -278,12 +278,6 @@ function setUpWebDriver(options) {
       return log(name, async () => {
         await lifecycleEvent(`${event}-begin`, this, options);
 
-        // This used to only be in `setUpWebDriverAfterEach`, but it was
-        // not triggered if the error happened in `beforeEach` instead of `it`,
-        // so it needs to be called at the beginning of `setUpWebDriverBeforeEach` too.
-        // Therefore, I don't think it would hurt to do it in all cases.
-        await waitForPromisesToFlushBetweenTests();
-
         await func.call(this, options);
 
         await lifecycleEvent(`${event}-end`, this, options);
@@ -306,16 +300,6 @@ webDriver.events.on('kill-orphans-end', async () => {
 
   await events.emit('reset-internal-state');
 });
-
-async function waitForPromisesToFlushBetweenTests() {
-  if (global.promisesToFlushBetweenTests) {
-    try {
-      await Promise.all(global.promisesToFlushBetweenTests);
-    } catch (err) {
-      // This will be handled by the source.
-    }
-  }
-}
 
 module.exports = {
   setUpWebDriver,
