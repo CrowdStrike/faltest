@@ -7,7 +7,7 @@ const { buildGrep } = require('./tag');
 const failureArtifacts = require('./failure-artifacts');
 const debug = require('./debug');
 const path = require('path');
-const { events } = require('mocha-helpers');
+const { events, registerAsyncEvents, unregisterAsyncEvents } = require('mocha-helpers');
 
 const { Runner } = Mocha;
 const { constants } = Runner;
@@ -15,59 +15,19 @@ const { constants } = Runner;
 async function runMocha(mocha, options) {
   let runner;
 
-  let promises = [];
-  let errors = [];
-
-  function handlePromises(callback) {
-    let perTestPromises = [];
-
-    let promise = callback();
-
-    perTestPromises.push(promise);
-
-    // Mocha inspects the Promise rejection queue on exit or something.
-    // We can't leave any rejecting promises for later.
-    promise = promise.catch(err => errors.push(err));
-
-    promises.push(promise);
-
-    // Prevent "stale element reference: element is not attached to the page document"
-    // or "Error: connect ECONNREFUSED 127.0.0.1:61188"
-    global.promisesToFlushBetweenTests = perTestPromises;
-  }
-
-  function begin() {
-    global.promisesToFlushBetweenTests = [];
-  }
-
-  function fail() {
-    handlePromises(() => {
-      return failAsync(...arguments);
-    });
-  }
-  async function failAsync(test, err) {
+  async function fail(test, err) {
     if (options.failureArtifacts) {
       await failureArtifacts.call(test.ctx, err, options.failureArtifactsOutputDir);
     }
   }
 
-  function retry() {
-    handlePromises(() => {
-      return retryAsync(...arguments);
-    });
-  }
-  async function retryAsync(test, err) {
-    await failAsync(test, err);
+  async function retry(test, err) {
+    await fail(test, err);
 
     debug(`Retrying failed test "${test.title}": ${err}`);
   }
 
-  function pass() {
-    handlePromises(() => {
-      return passAsync(...arguments);
-    });
-  }
-  async function passAsync(test) {
+  async function pass(test) {
     if (options.failureArtifacts) {
       await failureArtifacts.flush.call(test.ctx);
     }
@@ -76,35 +36,27 @@ async function runMocha(mocha, options) {
   try {
     await new Promise((resolve, reject) => {
       try {
-        events.on(constants.EVENT_TEST_RETRY, retryAsync);
+        events.on(constants.EVENT_TEST_FAIL, fail);
+        events.on(constants.EVENT_TEST_RETRY, retry);
+        events.on(constants.EVENT_TEST_PASS, pass);
 
         // `mocha.run` is synchronous if no tests were found,
         // otherwise, it's asynchronous...
         runner = mocha.run(resolve);
 
-        runner.on(constants.EVENT_TEST_BEGIN, begin);
-        runner.on(constants.EVENT_TEST_FAIL, fail);
-        runner.on(constants.EVENT_TEST_RETRY, retry);
-        runner.on(constants.EVENT_TEST_PASS, pass);
+        registerAsyncEvents(runner);
       } catch (err) {
         reject(err);
       }
     });
   } finally {
-    events.off(constants.EVENT_TEST_RETRY, retryAsync);
+    events.off(constants.EVENT_TEST_FAIL, fail);
+    events.off(constants.EVENT_TEST_RETRY, retry);
+    events.off(constants.EVENT_TEST_PASS, pass);
 
     if (runner) {
-      runner.off(constants.EVENT_TEST_BEGIN, begin);
-      runner.off(constants.EVENT_TEST_FAIL, fail);
-      runner.off(constants.EVENT_TEST_RETRY, retry);
-      runner.off(constants.EVENT_TEST_PASS, pass);
+      await unregisterAsyncEvents(runner);
     }
-  }
-
-  await Promise.all(promises);
-
-  if (errors.length) {
-    throw errors[0];
   }
 
   return runner;
