@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.2.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@8.1.0...@faltest/lifecycle@8.2.0) (2023-03-06)
+
+
+### Features
+
+* use mocha-helpers as the lifecycle defaults ([2dfdcfa](https://github.com/CrowdStrike/faltest/commit/2dfdcfa5c53c52bfb6ffcc477b2ecc6be5b33448))
+* use the async events implementation in mocha-helpers ([dc8b4f1](https://github.com/CrowdStrike/faltest/commit/dc8b4f15b81c83c0c0041b8027e093057eaa1b84))
+
 ## [8.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@8.0.2...@faltest/lifecycle@8.1.0) (2023-03-04)
 
 

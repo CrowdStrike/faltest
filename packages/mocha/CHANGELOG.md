@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.4.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.3.1...@faltest/mocha@7.4.0) (2023-03-06)
+
+
+### Features
+
+* use the async events implementation in mocha-helpers ([dc8b4f1](https://github.com/CrowdStrike/faltest/commit/dc8b4f15b81c83c0c0041b8027e093057eaa1b84))
+
+
+### Bug Fixes
+
+* update mocha-helpers v7.1.0 ([8bd7034](https://github.com/CrowdStrike/faltest/commit/8bd70344853d0b79e2a079763f3bea14548405ab))
+
 ### [7.3.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@7.3.0...@faltest/mocha@7.3.1) (2023-03-04)
 
 
