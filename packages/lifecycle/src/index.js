@@ -7,6 +7,11 @@ const EventEmitter = require('events-async');
 const {
   defaults,
 } = require('@faltest/utils');
+const install = require('mocha-helpers');
+
+const mocha = {};
+
+install({ exports: mocha });
 
 const shareWebdriver = process.env.WEBDRIVER_SHARE_WEBDRIVER === 'true';
 const keepBrowserOpen = process.env.WEBDRIVER_KEEP_BROWSER_OPEN === 'true';
@@ -256,7 +261,7 @@ function setUpWebDriver(options) {
     throttleNetwork,
     browserOverride,
     overrides: defaultOverrides,
-    mocha: global,
+    mocha,
     timeout: 60e3,
     ...options,
   };
