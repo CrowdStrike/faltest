@@ -29,7 +29,7 @@
   "dependencies": {
     "@faltest/utils": "^6.0.0",
     "browser-webdriver-downloader": "^1.5.1",
-    "chromedriver": "110.0.0",
+    "chromedriver": "111.0.0",
     "events-async": "^1.2.1",
     "execa": "^5.0.0",
     "fkill": "^8.0.0",
