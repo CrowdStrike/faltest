@@ -12,9 +12,9 @@ module.exports = {
       ],
     },
     {
-      // not sure why this is required
       parserOptions: {
-        ecmaVersion: 2020,
+        // eslint bug, not inheriting from eslint-config-crowdstrike correctly
+        ecmaVersion: require('eslint-config-crowdstrike').parserOptions.ecmaVersion,
       },
 
       files: [
