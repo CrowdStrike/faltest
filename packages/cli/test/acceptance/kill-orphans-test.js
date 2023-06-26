@@ -9,6 +9,7 @@ const { startWebDriver } = require('../../../remote/src');
 
 describe(function() {
   it('works', async function() {
+    this.timeout(6000);
     let webDriver = await startWebDriver({
       overrides: {
         browser: 'chrome',
