@@ -364,9 +364,9 @@ function startBrowser(options = {}) {
     }
 
     // eslint-disable-next-line node/no-extraneous-require
-    let { default: webdriver } = require('webdriver');
+    let { DEFAULTS } = require('webdriver');
 
-    browser.options.connectionRetryCount = webdriver.DEFAULTS.connectionRetryCount.default;
+    browser.options.connectionRetryCount = DEFAULTS.connectionRetryCount.default;
 
     await resizeBrowser(browser, overrides.size);
 

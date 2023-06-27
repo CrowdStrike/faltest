@@ -42,7 +42,7 @@ describe(function() {
     return await new Promise(resolve => {
       (function restart() {
         browser.status().then(restart).catch(err => {
-          if (err.code !== 'ECONNREFUSED') {
+          if (err.code !== 'ECONNRESET') {
             throw err;
           }
 
