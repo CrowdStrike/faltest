@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@9.0.6...@faltest/remote@9.0.7) (2023-06-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency get-port to v7 ([21a72fb](https://github.com/CrowdStrike/faltest/commit/21a72fb4e75fedf4e1e38c485e56de890cca0656))
+
 ### [9.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@9.0.5...@faltest/remote@9.0.6) (2023-06-28)
 
 

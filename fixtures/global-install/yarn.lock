@@ -39,7 +39,7 @@
     mocha-helpers "^7.1.0"
 
 "@faltest/remote@^9.0.0", "@faltest/remote@file:../../packages/remote":
-  version "9.0.6"
+  version "9.0.7"
   dependencies:
     "@faltest/utils" "^7.0.0"
     browser-webdriver-downloader "^1.5.1"
@@ -48,7 +48,7 @@
     execa "^5.0.0"
     fkill "^8.0.0"
     geckodriver "4.0.4"
-    get-port "^6.0.0"
+    get-port "^7.0.0"
     ps-list "^8.0.0"
     webdriverio "5.23.0"
     yn "^4.0.0"
@@ -1055,10 +1055,10 @@ get-caller-file@^2.0.5:
   resolved "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
-get-port@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npmjs.org/get-port/-/get-port-6.0.0.tgz#eeac06c17b9d22c2949d4ce5abcc80753afe9be1"
-  integrity sha512-qSVkVF6Eq1GdL/cBNiFuP4nUHMF7OEMTqEjC6alR2N90u8BFOoO0PFhNTX2QtAUoGrz8NnrSWj85TZ8YXZ6LOA==
+get-port@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/get-port/-/get-port-7.0.0.tgz#ffcd83da826146529e307a341d7801cae351daff"
+  integrity sha512-mDHFgApoQd+azgMdwylJrv2DX47ywGq1i5VFJE7fZ0dttNq3iQMfsU4IvEgBHojA3KqEudyu7Vq+oN8kNaNkWw==
 
 get-stream@^5.1.0:
   version "5.2.0"
