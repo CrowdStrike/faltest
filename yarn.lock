@@ -5080,12 +5080,12 @@ os-tmpdir@~1.0.2:
   resolved "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
   integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
 
-p-all@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/p-all/-/p-all-4.0.0.tgz#fd0d57391727646da85cfe9595b9215617982c19"
-  integrity sha512-QXqMc8PpYu0gmNM6VcKP0uYqeI+dtvSNeaDb8ktnNjposr+nftHHCSYbj/S/oUceF6R868jw1XOxkJKUSiHgEQ==
+p-all@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/p-all/-/p-all-5.0.0.tgz#3fcbdf28177a09442fc7f4ec9e252e0eed5ecfc5"
+  integrity sha512-pofqu/1FhCVa+78xNAptCGc9V45exFz2pvBRyIvgXkNM0Rh18Py7j8pQuSjA+zpabI46v9hRjNWmL9EAFcEbpw==
   dependencies:
-    p-map "^5.0.0"
+    p-map "^6.0.0"
 
 p-cancelable@^2.0.0:
   version "2.1.1"
@@ -5148,12 +5148,10 @@ p-map@^4.0.0:
   dependencies:
     aggregate-error "^3.0.0"
 
-p-map@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/p-map/-/p-map-5.0.0.tgz#e042c6e6201aa64183489b6bcadbac0a94a1cfcb"
-  integrity sha512-FeQNuFp/ecZidgaTXc65qXdTGD7mniwgzZNq5czwcJSy6ClETr2v3y4ZQESGe8C1038XhO/fjfKOyiTNH3d0/g==
-  dependencies:
-    aggregate-error "^4.0.0"
+p-map@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/p-map/-/p-map-6.0.0.tgz#4d9c40d3171632f86c47601b709f4b4acd70fed4"
+  integrity sha512-T8BatKGY+k5rU+Q/GTYgrEf2r4xRMevAN5mtXc2aPc4rS1j3s+vWTaO2Wag94neXuCAUAs8cxBL9EeB5EA6diw==
 
 p-try@^1.0.0:
   version "1.0.0"
