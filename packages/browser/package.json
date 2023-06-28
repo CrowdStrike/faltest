@@ -1,6 +1,6 @@
 {
   "name": "@faltest/browser",
-  "version": "5.0.3",
+  "version": "6.0.0",
   "description": "A new browser object for WebdriverIO",
   "main": "index.js",
   "files": [
@@ -27,7 +27,7 @@
     "node": ">=16.13"
   },
   "dependencies": {
-    "@faltest/utils": "^6.0.0",
+    "@faltest/utils": "^7.0.0",
     "verror-extra": "^4.0.0"
   },
   "devDependencies": {

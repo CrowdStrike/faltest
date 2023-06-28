@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@8.0.4...@faltest/remote@9.0.0) (2023-06-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* bump to node 16
+
+### Features
+
+* bump to node 16 ([d970b15](https://github.com/CrowdStrike/faltest/commit/d970b15646de66ae92b2a41d9c1e48d8e3af19c7))
+
 ### [8.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@8.0.3...@faltest/remote@8.0.4) (2023-04-13)
 
 
