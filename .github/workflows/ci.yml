@@ -49,7 +49,7 @@ jobs:
         os:
         - ubuntu-latest
         node:
-        - 14
+        - 16
 
     runs-on: ${{ matrix.os }}
 
@@ -78,7 +78,7 @@ jobs:
         - macos-latest
         - windows-latest
         node:
-        - 14
+        - 16
 
     runs-on: ${{ matrix.os }}
 
@@ -109,7 +109,7 @@ jobs:
         os:
         - ubuntu-latest
         node:
-        - 14
+        - 16
 
     runs-on: ${{ matrix.os }}
 

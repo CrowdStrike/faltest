@@ -18,7 +18,7 @@
     "url": "git+ssh://git@github.com/CrowdStrike/faltest.git"
   },
   "engines": {
-    "node": ">=14.15"
+    "node": ">=16.13"
   },
   "devDependencies": {
     "@crowdstrike/commitlint": "^6.0.0",
@@ -51,8 +51,8 @@
     "yargs-help-output": "^3.0.0"
   },
   "volta": {
-    "node": "14.21.3",
-    "npm": "6.14.18",
+    "node": "16.20.1",
+    "npm": "8.19.4",
     "yarn": "1.22.19"
   }
 }

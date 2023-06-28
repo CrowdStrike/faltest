@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/CrowdStrike/faltest/blob/main/packages/utils#readme",
   "engines": {
-    "node": ">=14.15"
+    "node": ">=16.13"
   },
   "dependencies": {
     "callsites": "^4.0.0",
