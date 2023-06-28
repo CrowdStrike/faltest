@@ -9,7 +9,7 @@
     verror-extra "^4.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "6.0.2"
+  version "6.0.4"
   dependencies:
     "@faltest/mocha" "^8.0.0"
     "@faltest/remote" "^9.0.0"
@@ -20,7 +20,7 @@
     yn "^4.0.0"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "9.0.2"
+  version "9.0.4"
   dependencies:
     "@faltest/remote" "^9.0.0"
     "@faltest/utils" "^7.0.0"
@@ -30,7 +30,7 @@
     "@faltest/browser" "^6.0.0"
 
 "@faltest/mocha@^8.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "8.0.2"
+  version "8.0.4"
   dependencies:
     "@faltest/utils" "^7.0.0"
     choma "^1.2.1"
@@ -39,7 +39,7 @@
     mocha-helpers "^7.1.0"
 
 "@faltest/remote@^9.0.0", "@faltest/remote@file:../../packages/remote":
-  version "9.0.9"
+  version "9.0.11"
   dependencies:
     "@faltest/utils" "^7.0.0"
     browser-webdriver-downloader "^1.5.1"
@@ -54,7 +54,7 @@
     yn "^4.0.0"
 
 "@faltest/utils@^7.0.0", "@faltest/utils@file:../../packages/utils":
-  version "7.0.2"
+  version "7.0.4"
   dependencies:
     callsites "^4.0.0"
     debug "^4.1.1"
