@@ -39,14 +39,14 @@ describe(function() {
   }
 
   async function waitForBrowserExit(browser) {
-    return await new Promise(resolve => {
+    return await new Promise((resolve, reject) => {
       (function restart() {
         browser.status().then(restart).catch(err => {
           if (err.code !== 'ECONNREFUSED') {
-            throw err;
+            reject(err);
+          } else {
+            resolve();
           }
-
-          resolve();
         });
       })();
     });
