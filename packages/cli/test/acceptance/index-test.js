@@ -10,6 +10,16 @@ const env = {
   FALTEST_PRINT_VERSION: false,
 };
 
+function parseJson(json) {
+  try {
+    return JSON.parse(json);
+  } catch (err) {
+    console.error(json);
+
+    throw err;
+  }
+}
+
 describe(function() {
   this.timeout(5e3);
 
@@ -20,7 +30,7 @@ describe(function() {
         env,
       });
 
-      let json = JSON.parse(stdout);
+      let json = parseJson(stdout);
 
       expect(json.stats.tests).to.equal(1);
       expect(json.stats.failures).to.equal(0);
@@ -54,7 +64,7 @@ describe(function() {
       },
     });
 
-    let json = JSON.parse(stdout);
+    let json = parseJson(stdout);
 
     expect(json.stats.tests).to.equal(1);
     expect(json.stats.failures).to.equal(0);
@@ -77,7 +87,7 @@ describe(function() {
       env,
     });
 
-    let json = JSON.parse(stdout);
+    let json = parseJson(stdout);
 
     expect(json.stats.tests).to.equal(1);
     expect(json.stats.failures).to.equal(0);
@@ -105,7 +115,7 @@ describe(function() {
       stdout = err.stdout;
     }
 
-    let json = JSON.parse(stdout);
+    let json = parseJson(stdout);
 
     expect(json.stats.tests).to.equal(0);
     expect(json.stats.failures).to.equal(1);
@@ -124,7 +134,7 @@ describe(function() {
         stdout.substr(0, stdout.length / 2),
         stdout.substr(stdout.length / 2),
       ]) {
-        let json = JSON.parse(_stdout);
+        let json = parseJson(_stdout);
 
         expect(json.stats.tests).to.equal(1);
         expect(json.stats.failures).to.equal(0);
@@ -156,7 +166,7 @@ describe(function() {
       env,
     });
 
-    let json = JSON.parse(stdout);
+    let json = parseJson(stdout);
 
     expect(json.stats.tests).to.equal(1);
     expect(json.stats.pending).to.equal(1);
