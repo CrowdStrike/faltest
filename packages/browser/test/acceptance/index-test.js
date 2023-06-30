@@ -76,23 +76,23 @@ describe(Browser, function() {
 
       expect(await element.isExisting()).to.be.false;
       await expect(element.waitForExist()).to.eventually.be.rejected;
-      await expect(element.waitForExist(undefined, true)).to.eventually.be.fulfilled;
+      await expect(element.waitForExist({ reverse: true })).to.eventually.be.fulfilled;
       await this.add();
       expect(await element.isExisting()).to.be.true;
       await expect(element.waitForExist()).to.eventually.be.fulfilled;
-      await expect(element.waitForExist(undefined, true)).to.eventually.be.rejected;
+      await expect(element.waitForExist({ reverse: true })).to.eventually.be.rejected;
       await this.add();
       expect(await element.isExisting()).to.be.true;
       await expect(element.waitForExist()).to.eventually.be.fulfilled;
-      await expect(element.waitForExist(undefined, true)).to.eventually.be.rejected;
+      await expect(element.waitForExist({ reverse: true })).to.eventually.be.rejected;
       await this.remove();
       expect(await element.isExisting()).to.be.true;
       await expect(element.waitForExist()).to.eventually.be.fulfilled;
-      await expect(element.waitForExist(undefined, true)).to.eventually.be.rejected;
+      await expect(element.waitForExist({ reverse: true })).to.eventually.be.rejected;
       await this.remove();
       expect(await element.isExisting()).to.be.false;
       await expect(element.waitForExist()).to.eventually.be.rejected;
-      await expect(element.waitForExist(undefined, true)).to.eventually.be.fulfilled;
+      await expect(element.waitForExist({ reverse: true })).to.eventually.be.fulfilled;
     });
   });
 

@@ -294,7 +294,7 @@ function waitForExist(methodNameForErrorMessageOverride) {
 
         if (elementOrElements && !Array.isArray(elementOrElements)) {
           let element = elementOrElements;
-          await element.waitForExist(timeout, reverse);
+          await element.waitForExist({ timeout, reverse });
           return;
         }
 
@@ -375,7 +375,7 @@ Browser.prototype.elementSendKeys = resolveElement(async function elementSendKey
 });
 
 Browser.prototype.waitForDisabled = resolveElement(async function waitForDisabled(element) {
-  await element.waitForEnabled(undefined, true);
+  await element.waitForEnabled({ reverse: true });
 });
 
 Browser.prototype.waitForVisible = resolveElement(async function waitForVisible(element) {
@@ -383,7 +383,7 @@ Browser.prototype.waitForVisible = resolveElement(async function waitForVisible(
 });
 
 Browser.prototype.waitForHidden = resolveElement(async function waitForHidden(element) {
-  await element.waitForDisplayed(undefined, true);
+  await element.waitForDisplayed({ reverse: true });
 });
 
 async function setPassword(element, ...args) {
