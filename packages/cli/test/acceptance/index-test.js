@@ -8,6 +8,9 @@ const execa = require('execa');
 const cwd = path.resolve(__dirname, '../..');
 const env = {
   FALTEST_PRINT_VERSION: false,
+
+  // This was needed because a bug in webdriverio v6's `debug` monkeypatching.
+  DEBUG: '',
 };
 
 function parseJson(json) {
