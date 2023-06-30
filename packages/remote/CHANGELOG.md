@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@9.0.12...@faltest/remote@10.0.0) (2023-06-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* update to webdriverio 6
+
+### Features
+
+* update to webdriverio 6 ([24122ed](https://github.com/CrowdStrike/faltest/commit/24122ed0e0cb2ebd5a2a43ecd8f011c92acf95a1))
+
+
+### Bug Fixes
+
+* update webdriver require defaults ([de92ad0](https://github.com/CrowdStrike/faltest/commit/de92ad0c18fd56c9132421d8aedb9f0e40c93412))
+
 ### [9.0.12](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@9.0.11...@faltest/remote@9.0.12) (2023-06-30)
 
 
