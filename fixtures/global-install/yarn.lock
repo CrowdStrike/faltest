@@ -41,9 +41,9 @@
     yn "^4.0.0"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "9.0.4"
+  version "9.0.5"
   dependencies:
-    "@faltest/remote" "^9.0.0"
+    "@faltest/remote" "^10.0.0"
     "@faltest/utils" "^7.0.0"
     events-async "^1.2.1"
     mocha-helpers "^7.1.0"
@@ -59,7 +59,7 @@
     glob "^8.0.0"
     mocha-helpers "^7.1.0"
 
-"@faltest/remote@^10.0.0", "@faltest/remote@^9.0.0", "@faltest/remote@file:../../packages/remote":
+"@faltest/remote@^10.0.0", "@faltest/remote@file:../../packages/remote":
   version "10.0.0"
   dependencies:
     "@faltest/utils" "^7.0.0"
