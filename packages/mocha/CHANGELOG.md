@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@8.0.6...@faltest/mocha@8.0.7) (2023-07-07)
+
+
+### Bug Fixes
+
+* use named export ([ddb2718](https://github.com/CrowdStrike/faltest/commit/ddb2718830c9e2ea82083424f87d78e532cf2938))
+* **deps:** update dependency glob to v10 ([9bd1784](https://github.com/CrowdStrike/faltest/commit/9bd1784d842516139cd3791cc664c62a7fd5dec7))
+
 ### [8.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@8.0.5...@faltest/mocha@8.0.6) (2023-07-07)
 
 
