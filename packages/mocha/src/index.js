@@ -1,7 +1,7 @@
 'use strict';
 
 const Mocha = require('mocha');
-const glob = require('glob');
+const { glob } = require('glob');
 const { buildGrep } = require('./tag');
 const failureArtifacts = require('./failure-artifacts');
 const debug = require('./debug');
