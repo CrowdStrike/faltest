@@ -259,7 +259,7 @@ describe(function() {
           failures: 1,
         }));
 
-        this.assertFilesExist('beforeEach without mocha-helpers !before each! hook for !failure');
+        this.assertFilesExist('beforeEach without mocha-helpers !before each! hook for !failure!');
       });
 
       it('handles errors in before', async function() {
@@ -272,7 +272,7 @@ describe(function() {
           failures: 1,
         }));
 
-        this.assertFilesExist('before with browser without mocha-helpers !before all! hook for !failure');
+        this.assertFilesExist('before with browser without mocha-helpers !before all! hook for !failure!');
       });
 
       it('doesn\'t make artifacts if no browser', async function() {
@@ -298,7 +298,7 @@ describe(function() {
           failures: 1,
         }));
 
-        this.assertFilesExist('afterEach without mocha-helpers !after each! hook for !failure');
+        this.assertFilesExist('afterEach without mocha-helpers !after each! hook for !failure!');
       });
 
       it('handles errors in after', async function() {
@@ -311,7 +311,7 @@ describe(function() {
           failures: 1,
         }));
 
-        this.assertFilesExist('after without mocha-helpers !after all! hook for !failure');
+        this.assertFilesExist('after without mocha-helpers !after all! hook for !failure!');
       });
 
       // eslint-disable-next-line mocha/no-skipped-tests
@@ -381,14 +381,14 @@ describe(function() {
         it('before', async function() {
           await this.runTests({
             filter: 'before with browser retries failure$',
-            title: 'before with browser retries !before all! hook for !failure',
+            title: 'before with browser retries !before all! hook for !failure!',
           });
         });
 
         it('beforeEach', async function() {
           await this.runTests({
             filter: 'beforeEach retries failure$',
-            title: 'beforeEach retries !before each! hook for !failure',
+            title: 'beforeEach retries !before each! hook for !failure!',
           });
         });
 
@@ -402,14 +402,14 @@ describe(function() {
         it('afterEach', async function() {
           await this.runTests({
             filter: 'afterEach retries failure$',
-            title: 'afterEach retries !after each! hook for !failure',
+            title: 'afterEach retries !after each! hook for !failure!',
           });
         });
 
         it('after', async function() {
           await this.runTests({
             filter: 'after retries failure$',
-            title: 'after retries !after all! hook for !failure',
+            title: 'after retries !after all! hook for !failure!',
           });
         });
       });
