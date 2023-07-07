@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@8.0.5...@faltest/mocha@8.0.6) (2023-07-07)
+
+
+### Bug Fixes
+
+* remove promisify ([cfc69eb](https://github.com/CrowdStrike/faltest/commit/cfc69ebf973344b7d0ea37a6b5b8c855eef7b983))
+* update glob v9 ([2fdc68e](https://github.com/CrowdStrike/faltest/commit/2fdc68e8e4ed5461e91886bab8b76832c02e89e8))
+
 ### [8.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@8.0.4...@faltest/mocha@8.0.5) (2023-07-07)
 
 
