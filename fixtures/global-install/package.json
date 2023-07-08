@@ -11,7 +11,13 @@
     "@faltest/cli": "file:../../packages/cli",
     "@faltest/lifecycle": "file:../../packages/lifecycle"
   },
-  "resolutions": {
+  "devDependencies": {
+    "@faltest/browser": "file:../../packages/browser",
+    "@faltest/mocha": "file:../../packages/mocha",
+    "@faltest/remote": "file:../../packages/remote",
+    "@faltest/utils": "file:../../packages/utils"
+  },
+  "overrides": {
     "@faltest/browser": "file:../../packages/browser",
     "@faltest/mocha": "file:../../packages/mocha",
     "@faltest/remote": "file:../../packages/remote",
