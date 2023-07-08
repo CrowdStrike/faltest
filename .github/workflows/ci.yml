@@ -131,8 +131,12 @@ jobs:
 
     - name: simulate global install
       run: |
-        yarn install --production
-        yarn link
+        # yarn@1 is resolving incorrectly
+        # Error [ERR_REQUIRE_ESM]: require() of ES Module /node_modules/string-width/index.js from /node_modules/cliui/build/index.cjs not supported.
+        # yarn install --production
+        # yarn link
+        npm ci
+        npm link
       working-directory: fixtures/global-install
 
     - run: my-cli --headless
