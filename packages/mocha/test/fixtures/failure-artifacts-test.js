@@ -77,6 +77,10 @@ describe('failure artifacts', function() {
       it('retries', function() {
         assert.ok(this.test.currentRetry() === 2);
       });
+
+      it('This is a really long test name This is a really long test name This is a really long test name', function() {
+        assert.ok(false);
+      });
     });
 
     for (let browser of [
