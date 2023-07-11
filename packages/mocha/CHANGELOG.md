@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@8.0.7...@faltest/mocha@8.1.0) (2023-07-11)
+
+
+### Features
+
+* increase failure artifacts filename length ([cd5d5fb](https://github.com/CrowdStrike/faltest/commit/cd5d5fb73ed063b968de0e060b1dbcd06b4bd205))
+
 ### [8.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@8.0.6...@faltest/mocha@8.0.7) (2023-07-07)
 
 
