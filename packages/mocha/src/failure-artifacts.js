@@ -25,7 +25,7 @@ async function buildTitle(test) {
   const { default: filenamify } = await import('filenamify');
 
   // Tests with / in the name are bad.
-  title = filenamify(title);
+  title = filenamify(title, { maxLength: 150 });
 
   return `${title}.${attempt}`;
 }
