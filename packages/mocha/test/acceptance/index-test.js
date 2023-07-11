@@ -413,6 +413,19 @@ describe(function() {
           });
         });
       });
+
+      it('handles long test names', async function() {
+        let stats = await this.runTests({
+          filter: 'it chrome This is a really long test name This is a really long test name This is a really long test name$',
+        });
+
+        expect(stats).matches(sinon.match({
+          tests: 1,
+          failures: 1,
+        }));
+
+        this.assertFilesExist('it chrome This is a really long test name This is a really long test name This is ');
+      });
     });
 
     describe('dry run', function() {
