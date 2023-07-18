@@ -39,7 +39,7 @@
     mocha-helpers "^7.1.0"
 
 "@faltest/remote@^11.0.0", "@faltest/remote@file:../../packages/remote":
-  version "11.0.2"
+  version "11.0.3"
   dependencies:
     "@faltest/utils" "^7.0.0"
     browser-webdriver-downloader "^1.5.1"
@@ -47,10 +47,10 @@
     events-async "^1.2.1"
     execa "^5.0.0"
     fkill "^8.0.0"
-    geckodriver "4.0.4"
+    geckodriver "4.0.5"
     get-port "^7.0.0"
     ps-list "^8.0.0"
-    webdriverio "7.32.0"
+    webdriverio "7.32.1"
     yn "^4.0.0"
 
 "@faltest/utils@^7.0.0", "@faltest/utils@file:../../packages/utils":
@@ -199,7 +199,7 @@
     loglevel-plugin-prefix "^0.8.4"
     strip-ansi "^6.0.0"
 
-"@wdio/logger@^8.6.6":
+"@wdio/logger@^8.11.0":
   version "8.11.0"
   resolved "https://registry.npmjs.org/@wdio/logger/-/logger-8.11.0.tgz#df28cb65d7b9e308a0cd1445a99adc8b5730174c"
   integrity sha512-IsuKSaYi7NKEdgA57h8muzlN/MVp1dQG+V4C//7g4m03YJUnNQLvDhJzLjdeNTfvZy61U7foQSyt+3ktNzZkXA==
@@ -376,6 +376,11 @@ axios@^1.4.0:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
+
+b4a@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.npmjs.org/b4a/-/b4a-1.6.4.tgz#ef1c1422cae5ce6535ec191baeed7567443f36c9"
+  integrity sha512-fpWrvyVHEKyeEvbKZTVOeZF3VSKKWtJxFIxX/jaVPf+cLbGUSitjb49pHLqPV2BUNNZ0LcoeEGfE/YCpyDYHIw==
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -819,10 +824,10 @@ devtools-protocol@0.0.981744:
   resolved "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.981744.tgz#9960da0370284577d46c28979a0b32651022bacf"
   integrity sha512-0cuGS8+jhR67Fy7qG3i3Pc7Aw494sb9yG9QgpG97SFVWwolgYjlhJg7n+UaHxOQT30d1TYu/EYe9k01ivLErIg==
 
-devtools-protocol@^0.0.1161029:
-  version "0.0.1161029"
-  resolved "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1161029.tgz#ec118810acf81100101f5fdabde042121c362940"
-  integrity sha512-kEUDtYEhgfepFC1T5a4F7XD6FzALn6bQa8Lkp7tM2vWXQG0LwXQ/MPS7BwmgW4bW3QGNci+G/mW4grFltFFtZA==
+devtools-protocol@^0.0.1168520:
+  version "0.0.1168520"
+  resolved "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1168520.tgz#a7a43f40f939a37f838f7b28681313abea9fc5c9"
+  integrity sha512-n0JasKPVL7ZNMQFFL07PzzJadvlkmUBe/uEOfzjf9CHn7JfwU4sxByRvsPgA03Fyqtbr7ry5/jc2kYBff9Wv6w==
 
 devtools@7.32.0:
   version "7.32.0"
@@ -965,6 +970,11 @@ fast-deep-equal@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
   integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
+
+fast-fifo@^1.1.0, fast-fifo@^1.2.0:
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/fast-fifo/-/fast-fifo-1.3.0.tgz#03e381bcbfb29932d7c3afde6e15e83e05ab4d8b"
+  integrity sha512-IgfweLvEpwyA4WgiQe9Nx6VV2QkML2NkvZnk1oKnIzXgXdWxuhF7zw4DvLTPZJn6PIUneiAXPF24QmoEqHTjyw==
 
 fd-slicer@~1.1.0:
   version "1.1.0"
@@ -1110,17 +1120,17 @@ fstream@^1.0.12:
     mkdirp ">=0.5 0"
     rimraf "2"
 
-geckodriver@4.0.4:
-  version "4.0.4"
-  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-4.0.4.tgz#0a7685e4a801e0ecc032053bb58b1013fa0a0f58"
-  integrity sha512-WoNn5wy576YKWOfUf7Hi4g5jWPKvMmN6zOt9KpDlCkr1mUbdqP056/eZKapyG5xfJQVDKC/sBx6ejH2xdt2BGg==
+geckodriver@4.0.5:
+  version "4.0.5"
+  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-4.0.5.tgz#269c91c3496e3ced6cec81f8d019f663009ad74e"
+  integrity sha512-y3pEjCOz61/ExmFwF5buJ/E36NhN7nZAsLxY9boJNZQMdhticWsKdJ4WmVaNWtEqSt7PNzJl+UFJPavUGf0EQg==
   dependencies:
-    "@wdio/logger" "^8.6.6"
+    "@wdio/logger" "^8.11.0"
     decamelize "^6.0.0"
     http-proxy-agent "^7.0.0"
-    https-proxy-agent "^7.0.0"
+    https-proxy-agent "^7.0.1"
     node-fetch "^3.3.1"
-    tar-fs "^2.1.1"
+    tar-fs "^3.0.4"
     unzipper "^0.10.14"
     which "^3.0.1"
 
@@ -1305,10 +1315,10 @@ https-proxy-agent@5.0.1, https-proxy-agent@^5.0.1:
     agent-base "6"
     debug "4"
 
-https-proxy-agent@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-7.0.0.tgz#75cb70d04811685667183b31ab158d006750418a"
-  integrity sha512-0euwPCRyAPSgGdzD1IVN9nJYHtBhJwb6XPfbpQcYbPCwrBidX6GzxmchnaF4sfF/jPb74Ojx5g4yTg3sixlyPw==
+https-proxy-agent@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-7.0.1.tgz#0277e28f13a07d45c663633841e20a40aaafe0ab"
+  integrity sha512-Eun8zV0kcYS1g19r78osiQLEFIRspRUDd9tIfBCTBPBeMieF/EsJNL8VI3xOIdYRDEkjQnqOYPsZ2DsWsVsFwQ==
   dependencies:
     agent-base "^7.0.2"
     debug "4"
@@ -2004,6 +2014,11 @@ query-selector-shadow-dom@^1.0.0:
   resolved "https://registry.npmjs.org/query-selector-shadow-dom/-/query-selector-shadow-dom-1.0.1.tgz#1c7b0058eff4881ac44f45d8f84ede32e9a2f349"
   integrity sha512-lT5yCqEBgfoMYpf3F2xQRK7zEr1rhIIZuceDK6+xRkJQ4NMbHTwXqk4NkwDwQMNqXgG9r9fyHnzwNVs6zV5KRw==
 
+queue-tick@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/queue-tick/-/queue-tick-1.0.1.tgz#f6f07ac82c1fd60f82e098b417a80e52f1f4c142"
+  integrity sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==
+
 quick-lru@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
@@ -2173,6 +2188,14 @@ signal-exit@^4.0.1:
   resolved "https://registry.npmjs.org/signal-exit/-/signal-exit-4.0.2.tgz#ff55bb1d9ff2114c13b400688fa544ac63c36967"
   integrity sha512-MY2/qGx4enyjprQnFaZsHib3Yadh3IXyV2C321GY0pjGfVBu4un0uDJkwgdxqO+Rdx8JMT8IfJIRwbYVz3Ob3Q==
 
+streamx@^2.15.0:
+  version "2.15.0"
+  resolved "https://registry.npmjs.org/streamx/-/streamx-2.15.0.tgz#f58c92e6f726b5390dcabd6dd9094d29a854d698"
+  integrity sha512-HcxY6ncGjjklGs1xsP1aR71INYcsXFJet5CU1CHqihQ2J5nOsbd4OjgjHO42w/4QNv9gZb3BueV+Vxok5pLEXg==
+  dependencies:
+    fast-fifo "^1.1.0"
+    queue-tick "^1.0.1"
+
 "string-width-cjs@npm:string-width@^4.2.0":
   version "4.2.3"
   resolved "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
@@ -2272,7 +2295,7 @@ symbol-observable@^1.1.0:
   resolved "https://registry.npmjs.org/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
 
-tar-fs@2.1.1, tar-fs@^2.1.1:
+tar-fs@2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/tar-fs/-/tar-fs-2.1.1.tgz#489a15ab85f1f0befabb370b7de4f9eb5cbe8784"
   integrity sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng==
@@ -2281,6 +2304,15 @@ tar-fs@2.1.1, tar-fs@^2.1.1:
     mkdirp-classic "^0.5.2"
     pump "^3.0.0"
     tar-stream "^2.1.4"
+
+tar-fs@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.npmjs.org/tar-fs/-/tar-fs-3.0.4.tgz#a21dc60a2d5d9f55e0089ccd78124f1d3771dbbf"
+  integrity sha512-5AFQU8b9qLfZCX9zp2duONhPmZv0hGYiBPJsyUdqMjzq/mqVpy/rEUSeHk1+YitmxugaptgBh5oDGU3VsAJq4w==
+  dependencies:
+    mkdirp-classic "^0.5.2"
+    pump "^3.0.0"
+    tar-stream "^3.1.5"
 
 tar-stream@^2.1.4, tar-stream@^2.2.0:
   version "2.2.0"
@@ -2292,6 +2324,15 @@ tar-stream@^2.1.4, tar-stream@^2.2.0:
     fs-constants "^1.0.0"
     inherits "^2.0.3"
     readable-stream "^3.1.1"
+
+tar-stream@^3.1.5:
+  version "3.1.6"
+  resolved "https://registry.npmjs.org/tar-stream/-/tar-stream-3.1.6.tgz#6520607b55a06f4a2e2e04db360ba7d338cc5bab"
+  integrity sha512-B/UyjYwPpMBv+PaFSWAmtYjwdrlEaZQEhMIBFNC5oEG8lpiW8XjcSdmEaClj28ArfKScKHs2nshz3k2le6crsg==
+  dependencies:
+    b4a "^1.6.4"
+    fast-fifo "^1.2.0"
+    streamx "^2.15.0"
 
 taskkill@^4.0.0:
   version "4.0.0"
@@ -2447,10 +2488,10 @@ webdriver@7.31.1:
     ky "0.30.0"
     lodash.merge "^4.6.1"
 
-webdriverio@7.32.0:
-  version "7.32.0"
-  resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-7.32.0.tgz#e40e9c1596c36ad0d7e06e50c5d5a9efa7782798"
-  integrity sha512-bW0JLNx+WbZO/6K52AfJwE9vh+2JAfdgov9JIt2ySrXkRdvFb7TO7dvEE44GP8GP2ppVfzOcr4XzXAxlGyX6ig==
+webdriverio@7.32.1:
+  version "7.32.1"
+  resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-7.32.1.tgz#1f4b19df174290e251d864a95c89bf00ca1c7066"
+  integrity sha512-9gty4J+/WyLQs1w85dQORhRxVEnh/8QbyoFH9TOxEQ2jBM+NzuxtqA9EgnoqbabRmfJDe7HPama3E7HTqPoY1g==
   dependencies:
     "@types/aria-query" "^5.0.0"
     "@types/node" "^18.0.0"
@@ -2465,7 +2506,7 @@ webdriverio@7.32.0:
     css-shorthand-properties "^1.1.1"
     css-value "^0.0.1"
     devtools "7.32.0"
-    devtools-protocol "^0.0.1161029"
+    devtools-protocol "^0.0.1168520"
     fs-extra "^11.1.1"
     grapheme-splitter "^1.0.2"
     lodash.clonedeep "^4.5.0"
