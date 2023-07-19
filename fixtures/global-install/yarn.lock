@@ -39,11 +39,11 @@
     mocha-helpers "^7.1.0"
 
 "@faltest/remote@^11.0.0", "@faltest/remote@file:../../packages/remote":
-  version "11.0.3"
+  version "11.0.4"
   dependencies:
     "@faltest/utils" "^7.0.0"
     browser-webdriver-downloader "^1.5.1"
-    chromedriver "114.0.2"
+    chromedriver "114.0.3"
     events-async "^1.2.1"
     execa "^5.0.0"
     fkill "^8.0.0"
@@ -595,14 +595,14 @@ chrome-launcher@^0.15.0:
     is-wsl "^2.2.0"
     lighthouse-logger "^1.0.0"
 
-chromedriver@114.0.2:
-  version "114.0.2"
-  resolved "https://registry.npmjs.org/chromedriver/-/chromedriver-114.0.2.tgz#1ddaa6738f2b60e6b832a39f791c8c54bf840837"
-  integrity sha512-v0qrXRBknbxqmtklG7RWOe3TJ/dLaHhtB0jVxE7BAdYERxUjEaNRyqBwoGgVfQDibHCB0swzvzsj158nnfPgZw==
+chromedriver@114.0.3:
+  version "114.0.3"
+  resolved "https://registry.npmjs.org/chromedriver/-/chromedriver-114.0.3.tgz#fc663f8556f08cf4d357db914c30e64847705975"
+  integrity sha512-Qy5kqsAUrCDwpovM5pIWFkb3X3IgJLoorigwFEDgC1boL094svny3N7yw06marJHAuyX4CE/hhd25RarIcKvKg==
   dependencies:
     "@testim/chrome-version" "^1.1.3"
     axios "^1.4.0"
-    compare-versions "^5.0.3"
+    compare-versions "^6.0.0"
     extract-zip "^2.0.1"
     https-proxy-agent "^5.0.1"
     proxy-from-env "^1.1.0"
@@ -667,10 +667,10 @@ commondir@^1.0.1:
   resolved "https://registry.npmjs.org/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
   integrity sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=
 
-compare-versions@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.npmjs.org/compare-versions/-/compare-versions-5.0.3.tgz#a9b34fea217472650ef4a2651d905f42c28ebfd7"
-  integrity sha512-4UZlZP8Z99MGEY+Ovg/uJxJuvoXuN4M6B3hKaiackiHrgzQFEe3diJi1mf1PNHbFujM7FvLrK2bpgIaImbtZ1A==
+compare-versions@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.npmjs.org/compare-versions/-/compare-versions-6.0.0.tgz#a3edb527e4487bfab9a8b62ffe70cebc9b87675b"
+  integrity sha512-s2MzYxfRsE9f/ow8hjn7ysa7pod1xhHdQMsgiJtKx6XSNf4x2N1KG4fjrkUmXcP/e9Y2ZX4zB6sHIso0Lm6evQ==
 
 compress-brotli@^1.3.8:
   version "1.3.8"
