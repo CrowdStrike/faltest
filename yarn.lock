@@ -188,10 +188,10 @@
   dependencies:
     chalk "^4.1.0"
 
-"@crowdstrike/commitlint@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@crowdstrike/commitlint/-/commitlint-6.0.0.tgz#c12e83c191698b639c642e10ba80978bdbb331b5"
-  integrity sha512-lxeMfqsYXHfY/Z9xFTgTpOhifuVt2sM7d5FiJyHCNRI/dvghsaDfE4pum0siftvORVJAPfWWB6dQ0AI0diUtMQ==
+"@crowdstrike/commitlint@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@crowdstrike/commitlint/-/commitlint-7.0.0.tgz#d0391b7a2a5c8c8019e296a2b353186f6ab40776"
+  integrity sha512-DzRd3ZNloiU1CGJH97LP9Pz0xk9+v5sS2Rh9bSL10n5MipWZJGgIKjwlUCgykTqYGvm4lY1PvrN3JAxsnRvAqQ==
   dependencies:
     "@commitlint/config-conventional" "^17.0.0"
     "@commitlint/format" "^17.0.0"
