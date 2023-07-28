@@ -7567,10 +7567,10 @@ validate-npm-package-name@^4.0.0:
   dependencies:
     builtins "^5.0.0"
 
-verror-extra@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/verror-extra/-/verror-extra-4.0.0.tgz#de2b71444ade1240462e8cac7f51d5420b4da012"
-  integrity sha512-wAVZrjlJGTZM3mmrcYK6sgX9AsH27yWKkbOZMLxEZ4L5JICu/YsImHJ97TB689zdHyZsg/mXAuEx0OE+QZ51nw==
+verror-extra@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/verror-extra/-/verror-extra-5.0.0.tgz#17201ecdaa4ddbdb9494952fb2222f7a1081fa7a"
+  integrity sha512-vy/Y+LU/iCo6N2Jqj9Gdpf/MZQN7nXFwPc1OsnucIRU8xpxrXEdKShsLID+MNc88N038xI8MdCszpyWUkGG3/A==
   dependencies:
     verror "^1.10.0"
 
