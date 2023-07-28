@@ -6295,16 +6295,16 @@ remark-preset-lint-consistent@^4.0.0:
     remark-lint-strong-marker "^2.0.0"
     remark-lint-table-cell-padding "^3.0.0"
 
-remark-preset-lint-crowdstrike@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/remark-preset-lint-crowdstrike/-/remark-preset-lint-crowdstrike-2.0.0.tgz#58908f32cf83c0f2e91929d979c6305bb58a3570"
-  integrity sha512-v0lQRiwJV9RGn/22G3hbbPxE7DqlTJP3VLW824+3iIgfWoCMyCOMasbBjKLhvDtRL65b2FB47hp1S1el/OGt4g==
+remark-preset-lint-crowdstrike@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/remark-preset-lint-crowdstrike/-/remark-preset-lint-crowdstrike-3.0.0.tgz#ae8af2210ada2948e8e5b25478536a823c04adc6"
+  integrity sha512-dLCFDuK3++vAS6mBzXwFbtKF39vP+tthMsD6OeKpdQDUIu8WtAHOubss4bQwJXWmVFbkPGgScM8EeEvZlTJTlg==
   dependencies:
     remark-lint-heading-whitespace "^1.0.0"
     remark-lint-no-url-trailing-slash "^3.0.1"
     remark-preset-lint-consistent "^4.0.0"
     remark-preset-lint-recommended "^5.0.0"
-    remark-validate-links "^10.0.0"
+    remark-validate-links "^10.0.2"
 
 remark-preset-lint-recommended@^5.0.0:
   version "5.0.0"
@@ -6337,10 +6337,10 @@ remark-stringify@^10.0.0:
     mdast-util-to-markdown "^1.0.0"
     unified "^10.0.0"
 
-remark-validate-links@^10.0.0:
-  version "10.0.2"
-  resolved "https://registry.npmjs.org/remark-validate-links/-/remark-validate-links-10.0.2.tgz#95e79194663cb5b0cb1ccfb86df1176a1759c65e"
-  integrity sha512-rcg/FFgowCbR7fC5aNhpJu8ltXuSGZZunwIwReXtdZ704XHsHR3Xsy4N8uso43ih5cY9maIydfn1FNLHW0016w==
+remark-validate-links@^10.0.2:
+  version "10.0.4"
+  resolved "https://registry.yarnpkg.com/remark-validate-links/-/remark-validate-links-10.0.4.tgz#a2711fa794f691c944faf8126767152dcfee0c47"
+  integrity sha512-oNGRcsoQkL35WoZKLMMBugDwvHfyu0JPA5vSYkEcvR6YBsFKBo4RedpecuokTK1wgD9l01rPxaQ9dPmRQYFhyg==
   dependencies:
     github-slugger "^1.0.0"
     hosted-git-info "^3.0.0"
@@ -6349,7 +6349,6 @@ remark-validate-links@^10.0.0:
     to-vfile "^6.0.0"
     trough "^1.0.0"
     unist-util-visit "^2.0.0"
-    xtend "^4.0.0"
 
 remark@^14.0.0:
   version "14.0.0"
@@ -7857,7 +7856,7 @@ ws@8.5.0:
   resolved "https://registry.npmjs.org/ws/-/ws-8.5.0.tgz#bfb4be96600757fe5382de12c670dab984a1ed4f"
   integrity sha512-BWX0SWVgLPzYwF8lTzEy1egjhS4S4OEAHfsO8o65WOVsrnSRGaSiUaa9e0ggGlkMTtBlmOpEXiie9RUcBO86qg==
 
-xtend@^4.0.0, xtend@~4.0.1:
+xtend@~4.0.1:
   version "4.0.2"
   resolved "https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
