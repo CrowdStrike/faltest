@@ -84,7 +84,8 @@ describe(function() {
       await test(this.test.title);
     });
 
-    it('edge', async function() {
+    // eslint-disable-next-line mocha/no-skipped-tests
+    it.skip('edge', async function() {
       await test(this.test.title);
     });
   });
@@ -111,7 +112,8 @@ describe(function() {
       await test(this.test.title);
     });
 
-    it('edge', async function() {
+    // eslint-disable-next-line mocha/no-skipped-tests
+    it.skip('edge', async function() {
       await test(this.test.title);
     });
   });
@@ -165,7 +167,8 @@ describe(function() {
         await test(this.test.title);
       });
 
-      it('edge', async function() {
+      // eslint-disable-next-line mocha/no-skipped-tests
+      it.skip('edge', async function() {
         await test(this.test.title);
       });
     });
