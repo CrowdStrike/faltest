@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@7.0.4...@faltest/page-objects@7.0.5) (2023-08-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency verror-extra to v5 ([1775daa](https://github.com/CrowdStrike/faltest/commit/1775daa4f5793d88f56402bc4194fb3d9e8dc5b0))
+
 ### [7.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@7.0.2...@faltest/page-objects@7.0.4) (2023-06-28)
 
 ### [7.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@7.0.0...@faltest/page-objects@7.0.2) (2023-06-28)

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@8.1.0...@faltest/mocha@8.1.1) (2023-08-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency mocha-helpers to v8 ([d887056](https://github.com/CrowdStrike/faltest/commit/d887056904ccbdd263b0dd1aae60cdaf6f71ed9a))
+
 ## [8.1.0](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@8.0.7...@faltest/mocha@8.1.0) (2023-07-11)
 
 
