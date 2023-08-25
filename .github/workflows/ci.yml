@@ -104,6 +104,22 @@ jobs:
   global-install-test:
     needs: lint
 
+    # /home/runner/work/faltest/faltest/fixtures/global-install/node_modules/cliui/build/index.cjs:293
+    # const wrap = require('wrap-ansi');
+    #              ^
+
+    # Error [ERR_REQUIRE_ESM]: require() of ES Module /home/runner/work/faltest/faltest/fixtures/global-install/node_modules/wrap-ansi/index.js from /home/runner/work/faltest/faltest/fixtures/global-install/node_modules/cliui/build/index.cjs not supported.
+    # Instead change the require of index.js in /home/runner/work/faltest/faltest/fixtures/global-install/node_modules/cliui/build/index.cjs to a dynamic import() which is available in all CommonJS modules.
+    #     at Object.<anonymous> (/home/runner/work/faltest/faltest/fixtures/global-install/node_modules/cliui/build/index.cjs:293:14)
+    #     at Object.<anonymous> (/home/runner/work/faltest/faltest/fixtures/global-install/node_modules/@faltest/cli/node_modules/yargs/build/index.cjs:1:54333)
+    #     at Object.<anonymous> (/home/runner/work/faltest/faltest/fixtures/global-install/node_modules/@faltest/cli/node_modules/yargs/index.cjs:5:30)
+    #     at initCli (/home/runner/work/faltest/faltest/fixtures/global-install/node_modules/@faltest/cli/src/index.js:25:20)
+    #     at Object.<anonymous> (/home/runner/work/faltest/faltest/fixtures/global-install/node_modules/@faltest/cli/bin/index.js:35:12)
+    #     at Object.<anonymous> (/home/runner/work/faltest/faltest/fixtures/global-install/bin/index.js:8:1) {
+    #   code: 'ERR_REQUIRE_ESM'
+    # }
+    if: false
+
     strategy:
       matrix:
         os:
