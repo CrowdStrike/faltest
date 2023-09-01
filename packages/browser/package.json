@@ -1,6 +1,6 @@
 {
   "name": "@faltest/browser",
-  "version": "6.0.2",
+  "version": "6.0.3",
   "description": "A new browser object for WebdriverIO",
   "main": "index.js",
   "files": [

@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.1.2](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@8.1.1...@faltest/mocha@8.1.2) (2023-09-01)
+
 ### [8.1.1](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@8.1.0...@faltest/mocha@8.1.1) (2023-08-25)
 
 
