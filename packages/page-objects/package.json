@@ -1,6 +1,6 @@
 {
   "name": "@faltest/page-objects",
-  "version": "7.0.6",
+  "version": "7.0.7",
   "description": "A page object system using @faltest/browser",
   "main": "src",
   "files": [
