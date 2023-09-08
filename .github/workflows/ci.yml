@@ -25,7 +25,7 @@ jobs:
       run: git branch ${{ github.base_ref }} origin/${{ github.base_ref }}
     - uses: actions/setup-node@v3
 
-    - run: yarn install --frozen-lockfile
+    - run: yarn install --frozen-lockfile --ignore-scripts
     - run: yarn lint:git
 
   lint:
@@ -37,7 +37,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v3
 
-    - run: yarn install --frozen-lockfile
+    - run: yarn install --frozen-lockfile --ignore-scripts
     - run: yarn lint:md
     - run: yarn lint:js
 
