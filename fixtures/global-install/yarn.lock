@@ -39,7 +39,7 @@
     mocha-helpers "^8.0.0"
 
 "@faltest/remote@^11.0.0", "@faltest/remote@file:../../packages/remote":
-  version "11.0.20"
+  version "11.0.21"
   dependencies:
     "@faltest/utils" "^7.0.0"
     browser-webdriver-downloader "^2.0.1"
@@ -47,7 +47,7 @@
     events-async "^1.2.1"
     execa "^5.0.0"
     fkill "^8.0.0"
-    geckodriver "4.2.0"
+    geckodriver "4.2.1"
     get-port "^7.0.0"
     ps-list "^8.0.0"
     webdriverio "7.32.4"
@@ -1120,10 +1120,10 @@ fstream@^1.0.12:
     mkdirp ">=0.5 0"
     rimraf "2"
 
-geckodriver@4.2.0:
-  version "4.2.0"
-  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-4.2.0.tgz#a385370011ae29fa8c68351b01d054a92b92d945"
-  integrity sha512-I2BlybeMFMzpxHRrh8X4VwP4ys74JHszyUgfezOrbTR7PEybFneDcuEjKIQxKV6vFPmsdwhwF1x8AshdQo56xA==
+geckodriver@4.2.1:
+  version "4.2.1"
+  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-4.2.1.tgz#03ad628241417737b962966aa8f8b13fa0f8bf75"
+  integrity sha512-4m/CRk0OI8MaANRuFIahvOxYTSjlNAO2p9JmE14zxueknq6cdtB5M9UGRQ8R9aMV0bLGNVHHDnDXmoXdOwJfWg==
   dependencies:
     "@wdio/logger" "^8.11.0"
     decamelize "^6.0.0"
@@ -1132,7 +1132,7 @@ geckodriver@4.2.0:
     node-fetch "^3.3.1"
     tar-fs "^3.0.4"
     unzipper "^0.10.14"
-    which "^3.0.1"
+    which "^4.0.0"
 
 get-caller-file@^2.0.5:
   version "2.0.5"
@@ -1425,6 +1425,11 @@ isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
+
+isexe@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.npmjs.org/isexe/-/isexe-3.1.1.tgz#4a407e2bd78ddfb14bea0c27c6f7072dde775f0d"
+  integrity sha512-LpB/54B+/2J5hqQ7imZHfdU31OlgQqx7ZicVlkm9kzg9/w8GKLEcFfJl/t7DCEDueOyBAD6zCCwTO6Fzs0NoEQ==
 
 jackspeak@^2.0.3:
   version "2.2.1"
@@ -2524,12 +2529,12 @@ which@^2.0.1, which@^2.0.2:
   dependencies:
     isexe "^2.0.0"
 
-which@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/which/-/which-3.0.1.tgz#89f1cd0c23f629a8105ffe69b8172791c87b4be1"
-  integrity sha512-XA1b62dzQzLfaEOSQFTCOd5KFf/1VSzZo7/7TUjnya6u0vGGKzU96UQBZTAThCb2j4/xjBAyii1OhRLJEivHvg==
+which@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/which/-/which-4.0.0.tgz#cd60b5e74503a3fbcfbf6cd6b4138a8bae644c1a"
+  integrity sha512-GlaYyEb07DPxYCKhKzplCWBJtvxZcZMrL+4UkrTSJHHPyZU4mYYTv3qaOe77H7EODLSSopAUFAc6W8U4yqvscg==
   dependencies:
-    isexe "^2.0.0"
+    isexe "^3.1.1"
 
 workerpool@6.2.1:
   version "6.2.1"
