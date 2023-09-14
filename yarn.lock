@@ -1155,10 +1155,10 @@ browser-stdout@1.3.1:
   resolved "https://registry.npmjs.org/browser-stdout/-/browser-stdout-1.3.1.tgz#baa559ee14ced73452229bad7326467c61fabd60"
   integrity sha512-qhAVI1+Av2X7qelOfAIYwXONood6XlZE/fXaBSmW/T5SzLAmCgzi+eiWE7fUvbHaeNBQH13UftjpXxsfLkMpgw==
 
-browser-webdriver-downloader@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/browser-webdriver-downloader/-/browser-webdriver-downloader-1.5.1.tgz#061f60bf399d8ceb9d5509f2262e2e25cb20e59b"
-  integrity sha512-/HXNfdMO8xRD3LlPr4I7I8I195hp66pRg9XmcbInkKYtiMHDud6qenkDVH4XYEwAt+0AoCVs/qj6myma/K/v5w==
+browser-webdriver-downloader@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/browser-webdriver-downloader/-/browser-webdriver-downloader-2.0.1.tgz#187ac8a19cc4204fd86d1ddd4326f554120a3b6f"
+  integrity sha512-mtERPw23OwXNIG3dcJpr4r+sbLsd4jT7smEOFCcKZ71g9+seIY5vndhADkZwwuYmZSXI/8TTUXpnNdCmbEYDaQ==
   dependencies:
     execa "^5.0.0"
     extract-zip "^2.0.1"

@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@faltest/utils": "^7.0.0",
-    "browser-webdriver-downloader": "^1.5.1",
+    "browser-webdriver-downloader": "^2.0.1",
     "chromedriver": "116.0.0",
     "events-async": "^1.2.1",
     "execa": "^5.0.0",
