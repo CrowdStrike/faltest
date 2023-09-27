@@ -85,7 +85,7 @@ describe(function() {
   });
 
   it('allows custom bin', async function() {
-    let { stdout } = await execa('node', ['test/fixtures/bin', '--reporter=json', ' test/fixtures/passing-test.js'], {
+    let { stdout } = await execa('node', ['test/fixtures/bin', '--reporter=json', 'test/fixtures/passing-test.js'], {
       cwd,
       env,
     });
