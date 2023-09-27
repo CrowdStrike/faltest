@@ -1,10 +1,7 @@
 'use strict';
 
 const path = require('path');
-const fs = require('fs');
-const { promisify } = require('util');
-const writeFile = promisify(fs.writeFile);
-const mkdir = promisify(fs.mkdir);
+const { writeFile, mkdir } = require('fs').promises;
 const debug = require('./debug');
 
 async function buildTitle(test) {

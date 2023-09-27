@@ -10,7 +10,7 @@ const {
 const Server = require('../../../../helpers/server');
 const { promisify } = require('util');
 const createTmpDir = promisify(require('tmp').dir);
-const writeFile = promisify(require('fs').writeFile);
+const { writeFile } = require('fs').promises;
 const path = require('path');
 
 describe(function() {
