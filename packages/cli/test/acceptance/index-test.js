@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const path = require('path');
-const execa = require('execa');
 
 const cwd = path.resolve(__dirname, '../..');
 const env = {
@@ -28,7 +27,9 @@ describe(function() {
 
   describe('glob', function() {
     it('works', async function() {
-      let { stdout } = await execa.node('bin', ['--reporter=json', 'test/fixtures/**/passing-test.js'], {
+      const { execaNode } = await import('execa');
+
+      let { stdout } = await execaNode('bin', ['--reporter=json', 'test/fixtures/**/passing-test.js'], {
         cwd,
         env,
       });
@@ -41,7 +42,9 @@ describe(function() {
     });
 
     it('all tests filtered out', async function() {
-      let promise = execa.node('bin', ['test/fixtures/**/*-no-matches'], {
+      const { execaNode } = await import('execa');
+
+      let promise = execaNode('bin', ['test/fixtures/**/*-no-matches'], {
         cwd,
       });
 
@@ -59,7 +62,9 @@ describe(function() {
   });
 
   it('works with config', async function() {
-    let { stdout } = await execa.node('bin', ['--reporter=json', 'test/fixtures/passing-test.js'], {
+    const { execaNode } = await import('execa');
+
+    let { stdout } = await execaNode('bin', ['--reporter=json', 'test/fixtures/passing-test.js'], {
       cwd,
       env: {
         ...env,
@@ -75,7 +80,9 @@ describe(function() {
   });
 
   it('prints version', async function() {
-    let { stdout } = await execa.node('bin', ['--help'], {
+    const { execaNode } = await import('execa');
+
+    let { stdout } = await execaNode('bin', ['--help'], {
       cwd,
     });
 
@@ -85,7 +92,9 @@ describe(function() {
   });
 
   it('allows custom bin', async function() {
-    let { stdout } = await execa.node('test/fixtures/bin', ['--reporter=json', 'test/fixtures/passing-test.js'], {
+    const { execaNode } = await import('execa');
+
+    let { stdout } = await execaNode('test/fixtures/bin', ['--reporter=json', 'test/fixtures/passing-test.js'], {
       cwd,
       env,
     });
@@ -98,7 +107,9 @@ describe(function() {
   });
 
   it('before error - no tests run', async function() {
-    let promise = execa.node('bin', ['--reporter=json', 'test/fixtures/before-error-test.js'], {
+    const { execaNode } = await import('execa');
+
+    let promise = execaNode('bin', ['--reporter=json', 'test/fixtures/before-error-test.js'], {
       cwd,
       env,
     });
@@ -128,7 +139,9 @@ describe(function() {
 
   describe('duplicate', function() {
     it('works', async function() {
-      let { stdout } = await execa.node('bin', ['--duplicate=1', '--reporter=json', 'test/fixtures/**/passing-test.js'], {
+      const { execaNode } = await import('execa');
+
+      let { stdout } = await execaNode('bin', ['--duplicate=1', '--reporter=json', 'test/fixtures/**/passing-test.js'], {
         cwd,
         env,
       });
@@ -146,7 +159,9 @@ describe(function() {
     });
 
     it('all tests filtered out', async function() {
-      let promise = execa.node('bin', ['--duplicate=1', 'test/fixtures/**/*-no-matches'], {
+      const { execaNode } = await import('execa');
+
+      let promise = execaNode('bin', ['--duplicate=1', 'test/fixtures/**/*-no-matches'], {
         cwd,
       });
 
@@ -164,7 +179,9 @@ describe(function() {
   });
 
   it('can dry run', async function() {
-    let { stdout } = await execa.node('bin', ['--reporter=json', 'test/fixtures/dry-run-test.js', '--dry-run'], {
+    const { execaNode } = await import('execa');
+
+    let { stdout } = await execaNode('bin', ['--reporter=json', 'test/fixtures/dry-run-test.js', '--dry-run'], {
       cwd,
       env,
     });

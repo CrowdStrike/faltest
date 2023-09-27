@@ -3,7 +3,6 @@
 const { describe, it } = require('../../../../helpers/mocha');
 const { expect } = require('../../../../helpers/chai');
 const path = require('path');
-const execa = require('execa');
 const { startWebDriver } = require('../../../remote/src');
 
 describe(function() {
@@ -19,7 +18,9 @@ describe(function() {
       webDriver.once('exit', resolve);
     });
 
-    await execa.node('bin/kill-orphans', [], {
+    const { execaNode } = await import('execa');
+
+    await execaNode('bin/kill-orphans', [], {
       cwd: path.resolve(__dirname, '../..'),
     });
 
