@@ -8,7 +8,7 @@ const { promisify } = require('util');
 const getTmpDir = promisify(require('tmp').dir);
 const path = require('path');
 const fs = require('fs');
-const writeFile = promisify(fs.writeFile);
+const { writeFile } = require('fs').promises;
 
 function mockAccess() {
   let originalAccess = fs.access;
