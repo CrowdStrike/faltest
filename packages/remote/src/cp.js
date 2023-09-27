@@ -1,7 +1,6 @@
 'use strict';
 
 const debug = require('./debug');
-const execa = require('execa');
 
 function defaults(file, options) {
   return {
@@ -15,7 +14,8 @@ function defaults(file, options) {
   };
 }
 
-function spawn(file, args, options) {
+// eslint-disable-next-line max-params
+function spawn(execa, file, args, options) {
   debug(file, args);
 
   let cp = execa(file, args, defaults(file, options));
