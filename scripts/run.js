@@ -5,7 +5,6 @@
  */
 'use strict';
 
-const execa = require('execa');
 const path = require('path');
 
 const [packagePrefix, scriptName, ...args] = process.argv.slice(2);
@@ -13,6 +12,8 @@ const [packagePrefix, scriptName, ...args] = process.argv.slice(2);
 const root = path.resolve(__dirname, '..');
 
 (async () => {
+  const { execa } = await import('execa');
+
   let cp = await execa('yarn', ['--silent', 'workspaces', 'info']);
 
   let json = JSON.parse(cp.stdout);
