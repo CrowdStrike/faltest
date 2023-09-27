@@ -19,7 +19,7 @@ describe(function() {
       webDriver.once('exit', resolve);
     });
 
-    await execa('node', ['bin/kill-orphans'], {
+    await execa.node('bin/kill-orphans', [], {
       cwd: path.resolve(__dirname, '../..'),
     });
 
