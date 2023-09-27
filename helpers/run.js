@@ -1,9 +1,9 @@
 'use strict';
 
-const execa = require('execa');
-
 async function run(command, options) {
-  let cp = execa.command(command, {
+  const { execaCommand } = await import('execa');
+
+  let cp = execaCommand(command, {
     preferLocal: true,
     ...options,
   });
