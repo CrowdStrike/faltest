@@ -168,9 +168,11 @@ async function _getNewPort(_port) {
 }
 
 async function spawnWebDriver(name, args) {
-  await module.exports.spawn(name, ['--version']);
+  const { execa } = await import('execa');
 
-  let webDriver = module.exports.spawn(name, args, {
+  await module.exports.spawn(execa, name, ['--version']);
+
+  let webDriver = module.exports.spawn(execa, name, args, {
     stdio: ['ignore', 'pipe', 'ignore'],
   });
 
