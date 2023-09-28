@@ -37,7 +37,7 @@
     "get-port": "^7.0.0",
     "ps-list": "^8.0.0",
     "webdriverio": "7.32.4",
-    "yn": "^4.0.0"
+    "yn": "^5.0.0"
   },
   "devDependencies": {
     "mocha": "^10.0.0",
