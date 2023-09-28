@@ -28,7 +28,7 @@ if (!faltestConfig) {
 }
 
 (async () => {
-  const yn = require('yn');
+  const { default: yn } = await import('yn');
 
   if (yn(process.env.FALTEST_PRINT_VERSION, { default: true })) {
     initCli.printVersion(faltestConfig.name, faltestConfig.version);

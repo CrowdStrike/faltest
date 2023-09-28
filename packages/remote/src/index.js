@@ -6,7 +6,6 @@ const { remote } = require('webdriverio');
 const debug = require('./debug');
 const log = require('./log');
 const EventEmitter = require('events-async');
-const yn = require('yn');
 const {
   defaults,
 } = require('@faltest/utils');
@@ -40,7 +39,9 @@ const browserCmdRegex = (() => {
   return new RegExp(`(${chrome}|${firefox}|${edge})`);
 })();
 
-function getDefaults() {
+async function getDefaults() {
+  const { default: yn } = await import('yn');
+
   // let browser = config.get('browser') || defaults.browser;
   // let headless = yn(config.get('headless'));
 
@@ -227,12 +228,14 @@ async function spawnWebDriver(name, args) {
 
 function startWebDriver(options = {}) {
   return log(async () => {
+    const { default: yn } = await import('yn');
+
     if (!yn(process.env.WEBDRIVER_DISABLE_CLEANUP)) {
       await module.exports.killOrphans();
     }
 
     let { overrides = {} } = options;
-    let _browser = overrides.browser || getDefaults().browser;
+    let _browser = overrides.browser || (await getDefaults()).browser;
 
     await module.exports._getNewPort(overrides.port);
 
@@ -270,6 +273,8 @@ function stopWebDriver(webDriver) {
       return;
     }
 
+    const { default: yn } = await import('yn');
+
     if (!yn(process.env.WEBDRIVER_DISABLE_CLEANUP)) {
       webDriver.removeListener('exit', killOrphans);
     }
@@ -288,13 +293,13 @@ async function getCapabilities({
     browser: _browser,
   } = {},
 }) {
-  _browser ??= getDefaults().browser;
+  _browser ??= (await getDefaults()).browser;
 
   let capabilities = {
     browserName: _browser,
   };
 
-  let headless = getDefaults().headless;
+  let headless = (await getDefaults()).headless;
 
   let browserCapabilities;
 
@@ -348,7 +353,7 @@ function startBrowser(options = {}) {
       // We should refrain from using the `baseUrl` option here
       // because subdomain can change as you navigate your app
       browser = await remote({
-        logLevel: overrides.logLevel || getDefaults().logLevel,
+        logLevel: overrides.logLevel || (await getDefaults()).logLevel,
         path: '/',
         port: parseInt(port),
         capabilities: await getCapabilities(options),
