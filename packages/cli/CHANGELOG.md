@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@6.0.6...@faltest/cli@6.0.7) (2023-09-28)
+
 ### [6.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@6.0.5...@faltest/cli@6.0.6) (2023-07-06)
 
 ### [6.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/cli@6.0.4...@faltest/cli@6.0.5) (2023-06-30)

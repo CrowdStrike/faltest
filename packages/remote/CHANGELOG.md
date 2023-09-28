@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [11.0.23](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@11.0.22...@faltest/remote@11.0.23) (2023-09-28)
+
+
+### Bug Fixes
+
+* update execa 8 ([cdd2b9f](https://github.com/CrowdStrike/faltest/commit/cdd2b9f50ce5454f17925a60f393df5347db3a4c))
+
 ### [11.0.22](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@11.0.21...@faltest/remote@11.0.22) (2023-09-14)
 
 ### [11.0.21](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@11.0.20...@faltest/remote@11.0.21) (2023-09-14)
