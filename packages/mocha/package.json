@@ -1,6 +1,6 @@
 {
   "name": "@faltest/mocha",
-  "version": "8.1.5",
+  "version": "9.0.0",
   "description": "A test runner for the @faltest/lifecycle project",
   "main": "src",
   "files": [
@@ -27,7 +27,7 @@
     "node": ">=18.12"
   },
   "dependencies": {
-    "@faltest/utils": "^7.0.0",
+    "@faltest/utils": "^8.0.0",
     "choma": "^1.2.1",
     "filenamify": "^6.0.0",
     "glob": "^10.0.0",

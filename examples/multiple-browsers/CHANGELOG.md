@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/kellyselden/faltest/compare/multiple-browsers@4.0.0...multiple-browsers@4.0.1) (2023-10-04)
+
 ## [4.0.0](https://github.com/kellyselden/faltest/compare/multiple-browsers@3.0.1...multiple-browsers@4.0.0) (2023-06-28)
 
 

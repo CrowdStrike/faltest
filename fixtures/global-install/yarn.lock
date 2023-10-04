@@ -2,46 +2,46 @@
 # yarn lockfile v1
 
 
-"@faltest/browser@^6.0.0", "@faltest/browser@file:../../packages/browser":
-  version "6.0.4"
+"@faltest/browser@^7.0.0", "@faltest/browser@file:../../packages/browser":
+  version "7.0.0"
   dependencies:
-    "@faltest/utils" "^7.0.0"
+    "@faltest/utils" "^8.0.0"
     verror-extra "^5.0.0"
 
 "@faltest/cli@file:../../packages/cli":
-  version "6.0.8"
+  version "7.0.0"
   dependencies:
-    "@faltest/mocha" "^8.0.0"
-    "@faltest/remote" "^11.0.0"
-    "@faltest/utils" "^7.0.0"
+    "@faltest/mocha" "^9.0.0"
+    "@faltest/remote" "^12.0.0"
+    "@faltest/utils" "^8.0.0"
     mocha "^10.0.0"
     threads "^1.6.1"
     yargs "^17.0.0"
     yn "^5.0.0"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "9.0.10"
+  version "10.0.0"
   dependencies:
-    "@faltest/remote" "^11.0.0"
-    "@faltest/utils" "^7.0.0"
+    "@faltest/remote" "^12.0.0"
+    "@faltest/utils" "^8.0.0"
     events-async "^1.2.1"
     mocha-helpers "^8.0.0"
   optionalDependencies:
-    "@faltest/browser" "^6.0.0"
+    "@faltest/browser" "^7.0.0"
 
-"@faltest/mocha@^8.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "8.1.5"
+"@faltest/mocha@^9.0.0", "@faltest/mocha@file:../../packages/mocha":
+  version "9.0.0"
   dependencies:
-    "@faltest/utils" "^7.0.0"
+    "@faltest/utils" "^8.0.0"
     choma "^1.2.1"
     filenamify "^6.0.0"
     glob "^10.0.0"
     mocha-helpers "^8.0.0"
 
-"@faltest/remote@^11.0.0", "@faltest/remote@file:../../packages/remote":
-  version "11.0.24"
+"@faltest/remote@^12.0.0", "@faltest/remote@file:../../packages/remote":
+  version "12.0.0"
   dependencies:
-    "@faltest/utils" "^7.0.0"
+    "@faltest/utils" "^8.0.0"
     browser-webdriver-downloader "^2.0.1"
     chromedriver "116.0.0"
     events-async "^1.2.1"
@@ -53,8 +53,8 @@
     webdriverio "7.32.4"
     yn "^5.0.0"
 
-"@faltest/utils@^7.0.0", "@faltest/utils@file:../../packages/utils":
-  version "7.0.5"
+"@faltest/utils@^8.0.0", "@faltest/utils@file:../../packages/utils":
+  version "8.0.0"
   dependencies:
     callsites "^4.0.0"
     debug "^4.1.1"
