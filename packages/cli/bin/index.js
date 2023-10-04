@@ -5,7 +5,6 @@ require('../src/utils/throw-up');
 
 const initCli = require('../src');
 const path = require('path');
-const yn = require('yn');
 
 let configDir = process.env.FALTEST_CONFIG_DIR || process.cwd();
 
@@ -28,19 +27,21 @@ if (!faltestConfig) {
   faltestConfig = {};
 }
 
-if (yn(process.env.FALTEST_PRINT_VERSION, { default: true })) {
-  initCli.printVersion(faltestConfig.name, faltestConfig.version);
-}
-
-let argv = initCli(faltestConfig.options);
-
-if (faltestConfig.processArgs) {
-  argv = faltestConfig.processArgs(argv);
-}
-
-let globs = faltestConfig.globs || argv._;
-
 (async () => {
+  const { default: yn } = await import('yn');
+
+  if (yn(process.env.FALTEST_PRINT_VERSION, { default: true })) {
+    initCli.printVersion(faltestConfig.name, faltestConfig.version);
+  }
+
+  let argv = initCli(faltestConfig.options);
+
+  if (faltestConfig.processArgs) {
+    argv = faltestConfig.processArgs(argv);
+  }
+
+  let globs = faltestConfig.globs || argv._;
+
   let statsArray = [];
 
   async function runTests(runTests) {
