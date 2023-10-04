@@ -6,7 +6,7 @@
     "start": "mocha"
   },
   "engines": {
-    "node": ">=16.13"
+    "node": ">=18.12"
   },
   "devDependencies": {
     "@faltest/lifecycle": "^9.0.0",
