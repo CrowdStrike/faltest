@@ -1,6 +1,6 @@
 {
   "name": "@faltest/remote",
-  "version": "11.0.23",
+  "version": "11.0.24",
   "description": "A wrapper for the WebdriverIO remote call",
   "main": "src",
   "files": [

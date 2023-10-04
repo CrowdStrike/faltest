@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [11.0.24](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@11.0.23...@faltest/remote@11.0.24) (2023-10-04)
+
+
+### Bug Fixes
+
+* use async import for yn ([d4208a5](https://github.com/CrowdStrike/faltest/commit/d4208a54824ab8240e7ed8a420754dd52b6779f9))
+* **deps:** update dependency yn to v5 ([69c6fcf](https://github.com/CrowdStrike/faltest/commit/69c6fcf9189404f5b5a19c632ce51b8ad87713b9))
+
 ### [11.0.23](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@11.0.22...@faltest/remote@11.0.23) (2023-09-28)
 
 
