@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/CrowdStrike/faltest/blob/main/packages/cli#readme",
   "engines": {
-    "node": ">=16.13"
+    "node": ">=18.12"
   },
   "dependencies": {
     "@faltest/mocha": "^8.0.0",
