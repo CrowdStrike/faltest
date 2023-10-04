@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/CrowdStrike/faltest/blob/main/packages/browser#readme",
   "engines": {
-    "node": ">=16.13"
+    "node": ">=18.12"
   },
   "dependencies": {
     "@faltest/utils": "^7.0.0",
