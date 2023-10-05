@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.1...@faltest/remote@12.0.2) (2023-10-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency browser-webdriver-downloader to v3 ([da9c8de](https://github.com/CrowdStrike/faltest/commit/da9c8de239a009d6d4603ddf7a679ab69783453b))
+
 ### [12.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.0...@faltest/remote@12.0.1) (2023-10-04)
 
 
