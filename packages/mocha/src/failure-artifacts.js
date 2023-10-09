@@ -60,7 +60,10 @@ async function failureArtifacts(error, outputDir) {
     await writeArtifact(`${title}.${logType}.txt`, logsText);
   }
 
-  await writeArtifact(`${title}.error.txt`, error.toString());
+  // https://stackoverflow.com/a/26199752
+  error = JSON.stringify(error, Object.getOwnPropertyNames(error), 2);
+
+  await writeArtifact(`${title}.error.txt`, error);
 }
 
 async function flush() {
