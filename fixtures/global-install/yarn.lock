@@ -30,7 +30,7 @@
     "@faltest/browser" "^7.0.0"
 
 "@faltest/mocha@^9.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "9.0.0"
+  version "9.0.1"
   dependencies:
     "@faltest/utils" "^8.0.0"
     choma "^1.2.1"
