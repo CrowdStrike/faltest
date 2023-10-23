@@ -23,7 +23,7 @@ jobs:
     # grab default branch to calculate branch point to know when to stop linting
     - if: ${{ github.base_ref }}
       run: git branch ${{ github.base_ref }} origin/${{ github.base_ref }}
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
 
     - run: yarn install --frozen-lockfile --ignore-scripts
     - run: yarn lint:git
@@ -35,7 +35,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
 
     - run: yarn install --frozen-lockfile --ignore-scripts
     - run: yarn lint:md
@@ -55,7 +55,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node }}
 
@@ -84,7 +84,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node }}
 
@@ -131,7 +131,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node }}
 
