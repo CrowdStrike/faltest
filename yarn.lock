@@ -4735,10 +4735,10 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-mocha-helpers@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/mocha-helpers/-/mocha-helpers-8.0.0.tgz#ac745ed5b1d994ef790af723dbe41463297d4337"
-  integrity sha512-YkCfhkAkKS+GM6LmDo+lZ7lnMjkA/nJnDGuBMnnwKc8hH7Cl1BV/3mfbxMI/G1GyODFD/iJIbhY7sv52bzhr8A==
+mocha-helpers@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/mocha-helpers/-/mocha-helpers-9.0.0.tgz#1b51aa5b6c386b754f77ffef777f0d410db2010f"
+  integrity sha512-iGpMU03QKt9wd2lep8eoVxPLs2nXpyw2PawEwJ25vNaccHsHVd0XeFuHnrw4vPjoa3C17DIULdWu6iK2EimthA==
   dependencies:
     callsites "^3.0.0"
     commondir "^1.0.1"
