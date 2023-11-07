@@ -30,7 +30,7 @@
     "@faltest/remote": "^12.0.0",
     "@faltest/utils": "^8.0.0",
     "events-async": "^1.2.1",
-    "mocha-helpers": "^8.0.0"
+    "mocha-helpers": "^9.0.0"
   },
   "optionalDependencies": {
     "@faltest/browser": "^7.0.0"
