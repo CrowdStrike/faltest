@@ -863,12 +863,12 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-aggregate-error@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-4.0.0.tgz#83dbdb53a0d500721281d22e19eee9bc352a89cd"
-  integrity sha512-8DGp7zUt1E9k0NE2q4jlXHk+V3ORErmwolEdRz9iV+LKJ40WhMHh92cxAvhqV2I+zEn/gotIoqoMs0NjF3xofg==
+aggregate-error@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-5.0.0.tgz#ffe15045d7521c51c9d618e3d7f37c13f29b3fd3"
+  integrity sha512-gOsf2YwSlleG6IjRYG2A7k0HmBMEo6qVNk9Bp/EaLgAJT5ngH6PXbqa4ItvnEwCm/velL5jAnQgsHsWnjhGmvw==
   dependencies:
-    clean-stack "^4.0.0"
+    clean-stack "^5.2.0"
     indent-string "^5.0.0"
 
 ajv@^6.10.0, ajv@^6.12.4:
@@ -1048,11 +1048,6 @@ arrify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
   integrity sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
-
-arrify@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/arrify/-/arrify-3.0.0.tgz#ccdefb8eaf2a1d2ab0da1ca2ce53118759fd46bc"
-  integrity sha512-tLkvA81vQG/XqE2mjDkGQHoOINtMHtysSnemrmoGe6PydDPMRbVugqyk4A6V/WDWEfm3l+0d8anA9r8cv/5Jaw==
 
 asap@^2.0.0:
   version "2.0.6"
@@ -1521,10 +1516,10 @@ clean-stack@^2.0.0:
   resolved "https://registry.npmjs.org/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
   integrity sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==
 
-clean-stack@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-4.1.0.tgz#5ce5a2fd19a12aecdce8570daefddb7ac94b6b4e"
-  integrity sha512-dxXQYI7mfQVcaF12s6sjNFoZ6ZPDQuBBLp3QJ5156k9EvUFClUoZ11fo8HnLQO241DDVntHEug8MOuFO5PSfRg==
+clean-stack@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-5.2.0.tgz#c7a0c91939c7caace30a3bf254e8a8ac276d1189"
+  integrity sha512-TyUIUJgdFnCISzG5zu3291TAsE77ddchd0bepon1VVQrKLGKFED4iXFEDQ24mIPdPBbyE16PK3F8MYE1CmcBEQ==
   dependencies:
     escape-string-regexp "5.0.0"
 
@@ -2559,7 +2554,7 @@ events-async@^1.2.1:
   resolved "https://registry.npmjs.org/events-async/-/events-async-1.2.1.tgz#5391199a5920bc2e97097b21aeade35990f71989"
   integrity sha512-bI2+3DF7SoORyw9xooadSyKHEFCZmkNx+fwe1mWCNUdSkkcsNQQeSvNw/ludXqWEI0zS3b93r07Uslnk304tXg==
 
-execa@^5.0.0, execa@^5.1.1:
+execa@^5.0.0:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/execa/-/execa-5.1.1.tgz#f80ad9cbf4298f7bd1d4c9555c21e93741c411dd"
   integrity sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg==
@@ -2573,6 +2568,21 @@ execa@^5.0.0, execa@^5.1.1:
     onetime "^5.1.2"
     signal-exit "^3.0.3"
     strip-final-newline "^2.0.0"
+
+execa@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-6.1.0.tgz#cea16dee211ff011246556388effa0818394fb20"
+  integrity sha512-QVWlX2e50heYJcCPG0iWtf8r0xjEYfz/OYLGDYH+IyjWezzPNxz63qNFOu0l4YftGWuizFVZHHs8PrLU5p2IDA==
+  dependencies:
+    cross-spawn "^7.0.3"
+    get-stream "^6.0.1"
+    human-signals "^3.0.1"
+    is-stream "^3.0.0"
+    merge-stream "^2.0.0"
+    npm-run-path "^5.1.0"
+    onetime "^6.0.0"
+    signal-exit "^3.0.7"
+    strip-final-newline "^3.0.0"
 
 execa@^7.0.0:
   version "7.1.1"
@@ -2589,7 +2599,7 @@ execa@^7.0.0:
     signal-exit "^3.0.7"
     strip-final-newline "^3.0.0"
 
-execa@^8.0.0:
+execa@^8.0.0, execa@^8.0.1:
   version "8.0.1"
   resolved "https://registry.npmjs.org/execa/-/execa-8.0.1.tgz#51f6a5943b580f963c3ca9c6321796db8cc39b8c"
   integrity sha512-VyhnebXciFV2DESc+p6B+y0LjSm0krU4OgJN44qFAhBY0TJ+1V61tYD2+wHusZ6F9n5K+vl8k0sTy7PEfV4qpg==
@@ -2790,17 +2800,17 @@ find-up@^4.0.0, find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-fkill@^8.0.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/fkill/-/fkill-8.1.0.tgz#4e7262dcfafb4ec49a3f3802e6e928830b994066"
-  integrity sha512-XrPKdURVYoXerpYx+zhhaXrO9vHVflnGD4JhwjOwg03vKwyOH6eZ+EY69aKDD+q1EbCzviVmD+9OG9rwQy+z/A==
+fkill@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/fkill/-/fkill-9.0.0.tgz#9ee08e55e3e67ac9f14e1bea66115cfe5bb5cc51"
+  integrity sha512-MdYSsbdCaIRjzo5edthZtWmEZVMfr1qrtYZUHIdO3swCE+CoZA8S5l0s4jDsYlTa9ZiXv0pTgpzE7s4N8NeUOA==
   dependencies:
-    aggregate-error "^4.0.0"
-    execa "^5.1.1"
-    pid-port "^0.2.0"
-    process-exists "^4.1.0"
-    ps-list "^7.2.0"
-    taskkill "^4.0.0"
+    aggregate-error "^5.0.0"
+    execa "^8.0.1"
+    pid-port "^1.0.0"
+    process-exists "^5.0.0"
+    ps-list "^8.1.1"
+    taskkill "^5.0.0"
 
 flat-cache@^3.0.4:
   version "3.0.4"
@@ -3374,6 +3384,11 @@ human-signals@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
+
+human-signals@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-3.0.1.tgz#c740920859dafa50e5a3222da9d3bf4bb0e5eef5"
+  integrity sha512-rQLskxnM/5OCldHo+wNXbpVgDn5A17CUoKX+7Sokwaknlq7CdSnphy0W39GU8dw59XiCXmFXDg4fRuckQRKewQ==
 
 human-signals@^4.3.0:
   version "4.3.1"
@@ -5472,12 +5487,12 @@ picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1:
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
   integrity sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
 
-pid-port@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/pid-port/-/pid-port-0.2.0.tgz#db45378e4dcdb8425f911b7c09d7b0187a399873"
-  integrity sha512-xVU9H1FCRSeGrD9Oim5bLg2U7B2BgW0qzK2oahpV5BIf9hwzqQaWyOkOVC0Kgbsc90A9x6525beawx+QK+JduQ==
+pid-port@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/pid-port/-/pid-port-1.0.0.tgz#b99a4d53dfeeae8b4e123d02c77e268de0413225"
+  integrity sha512-LSNBeKChRPA4Xlrs6+zV588G1hSrFvANtPV5rt/5MPfSPK3V9XPWxx1d29svsrOjngT9ifLisXWCLS7DvO9ZhQ==
   dependencies:
-    execa "^5.1.1"
+    execa "^8.0.1"
 
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
@@ -5536,12 +5551,12 @@ proc-log@^3.0.0:
   resolved "https://registry.yarnpkg.com/proc-log/-/proc-log-3.0.0.tgz#fb05ef83ccd64fd7b20bbe9c8c1070fc08338dd8"
   integrity sha512-++Vn7NS4Xf9NacaU9Xq3URUuqZETPsf8L4j5/ckhaRYsfPeRyzGw+iDjFhV/Jr3uNmTvvddEJFWh5R1gRgUH8A==
 
-process-exists@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/process-exists/-/process-exists-4.1.0.tgz#4132c516324c1da72d65896851cdbd8bbdf5b9d8"
-  integrity sha512-BBJoiorUKoP2AuM5q/yKwIfT1YWRHsaxjW+Ayu9erLhqKOfnXzzVVML0XTYoQZuI1YvcWKmc1dh06DEy4+KzfA==
+process-exists@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/process-exists/-/process-exists-5.0.0.tgz#0b6dcd3d19e85e1f72c633f56d38e498196e2855"
+  integrity sha512-6QPRh5fyHD8MaXr4GYML8K/YY0Sq5dKHGIOrAKS3cYpHQdmygFCcijIu1dVoNKAZ0TWAMoeh8KDK9dF8auBkJA==
   dependencies:
-    ps-list "^6.3.0"
+    ps-list "^8.0.0"
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
@@ -5588,17 +5603,7 @@ proxy-from-env@1.1.0, proxy-from-env@^1.1.0:
   resolved "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
   integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
-ps-list@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.npmjs.org/ps-list/-/ps-list-6.3.0.tgz#a2b775c2db7d547a28fbaa3a05e4c281771259be"
-  integrity sha512-qau0czUSB0fzSlBOQt0bo+I2v6R+xiQdj78e1BR/Qjfl5OHWJ/urXi8+ilw1eHe+5hSeDI1wrwVTgDp2wst4oA==
-
-ps-list@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.npmjs.org/ps-list/-/ps-list-7.2.0.tgz#3d110e1de8249a4b178c9b1cf2a215d1e4e42fc0"
-  integrity sha512-v4Bl6I3f2kJfr5o80ShABNHAokIgY+wFDTQfE+X3zWYgSGQOCBeYptLZUpoOALBqO5EawmDN/tjTldJesd0ujQ==
-
-ps-list@^8.0.0:
+ps-list@^8.0.0, ps-list@^8.1.1:
   version "8.1.1"
   resolved "https://registry.npmjs.org/ps-list/-/ps-list-8.1.1.tgz#9ff1952b26a9a07fcc05270407e60544237ae581"
   integrity sha512-OPS9kEJYVmiO48u/B9qneqhkMvgCxT+Tm28VCEJpheTpl8cJ0ffZRRNgS5mrQRTrX5yRTpaJ+hRDeefXYmmorQ==
@@ -6977,13 +6982,12 @@ tar@^6.1.11, tar@^6.1.2:
     mkdirp "^1.0.3"
     yallist "^4.0.0"
 
-taskkill@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/taskkill/-/taskkill-4.0.0.tgz#b018d227c9a757226f219ae41c1147c9a7fe6aa4"
-  integrity sha512-h+BGQ8ExIUZ81h4iHRvatZY5eeBBl2WZk31MmMdFG9LBTc5eCH5u/bzZ7phaPH3bsiB7WhM7YTkOyB2dyFQfXg==
+taskkill@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/taskkill/-/taskkill-5.0.0.tgz#57b449a3fa8a441f5e9a0336c55230894049bdba"
+  integrity sha512-+HRtZ40Vc+6YfCDWCeAsixwxJgMbPY4HHuTgzPYH3JXvqHWUlsCfy+ylXlAKhFNcuLp4xVeWeFBUhDk+7KYUvQ==
   dependencies:
-    arrify "^3.0.0"
-    execa "^5.1.1"
+    execa "^6.1.0"
 
 tcp-port-used@^1.0.1:
   version "1.0.2"
