@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [10.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@10.0.1...@faltest/lifecycle@10.0.2) (2023-11-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency mocha-helpers to v9 ([7a2d25f](https://github.com/CrowdStrike/faltest/commit/7a2d25f2d0291b7ae4be6d53acfb563c1e0c922e))
+
 ### [10.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@10.0.0...@faltest/lifecycle@10.0.1) (2023-11-07)
 
 ## [10.0.0](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@9.0.10...@faltest/lifecycle@10.0.0) (2023-10-04)

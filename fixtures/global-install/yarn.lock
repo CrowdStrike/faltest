@@ -20,23 +20,23 @@
     yn "^5.0.0"
 
 "@faltest/lifecycle@file:../../packages/lifecycle":
-  version "10.0.1"
+  version "10.0.2"
   dependencies:
     "@faltest/remote" "^12.0.0"
     "@faltest/utils" "^8.0.0"
     events-async "^1.2.1"
-    mocha-helpers "^8.0.0"
+    mocha-helpers "^9.0.0"
   optionalDependencies:
     "@faltest/browser" "^7.0.0"
 
 "@faltest/mocha@^9.0.0", "@faltest/mocha@file:../../packages/mocha":
-  version "9.0.2"
+  version "9.0.3"
   dependencies:
     "@faltest/utils" "^8.0.0"
     choma "^1.2.1"
     filenamify "^6.0.0"
     glob "^10.0.0"
-    mocha-helpers "^8.0.0"
+    mocha-helpers "^9.0.0"
 
 "@faltest/remote@^12.0.0", "@faltest/remote@file:../../packages/remote":
   version "12.0.6"
@@ -1770,10 +1770,10 @@ mkdirp-classic@^0.5.2:
   dependencies:
     minimist "^1.2.6"
 
-mocha-helpers@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/mocha-helpers/-/mocha-helpers-8.0.0.tgz#ac745ed5b1d994ef790af723dbe41463297d4337"
-  integrity sha512-YkCfhkAkKS+GM6LmDo+lZ7lnMjkA/nJnDGuBMnnwKc8hH7Cl1BV/3mfbxMI/G1GyODFD/iJIbhY7sv52bzhr8A==
+mocha-helpers@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/mocha-helpers/-/mocha-helpers-9.0.0.tgz#1b51aa5b6c386b754f77ffef777f0d410db2010f"
+  integrity sha512-iGpMU03QKt9wd2lep8eoVxPLs2nXpyw2PawEwJ25vNaccHsHVd0XeFuHnrw4vPjoa3C17DIULdWu6iK2EimthA==
   dependencies:
     callsites "^3.0.0"
     commondir "^1.0.1"
