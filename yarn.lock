@@ -2740,21 +2740,6 @@ execa@^6.1.0:
     signal-exit "^3.0.7"
     strip-final-newline "^3.0.0"
 
-execa@^7.0.0:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-7.1.1.tgz#3eb3c83d239488e7b409d48e8813b76bb55c9c43"
-  integrity sha512-wH0eMf/UXckdUYnO21+HDztteVv05rq2GXksxT4fCGeHkBhw1DROXh40wcjMcRqDOWE7iPJ4n3M7e2+YFP+76Q==
-  dependencies:
-    cross-spawn "^7.0.3"
-    get-stream "^6.0.1"
-    human-signals "^4.3.0"
-    is-stream "^3.0.0"
-    merge-stream "^2.0.0"
-    npm-run-path "^5.1.0"
-    onetime "^6.0.0"
-    signal-exit "^3.0.7"
-    strip-final-newline "^3.0.0"
-
 execa@^8.0.0, execa@^8.0.1:
   version "8.0.1"
   resolved "https://registry.npmjs.org/execa/-/execa-8.0.1.tgz#51f6a5943b580f963c3ca9c6321796db8cc39b8c"
@@ -3643,11 +3628,6 @@ human-signals@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-3.0.1.tgz#c740920859dafa50e5a3222da9d3bf4bb0e5eef5"
   integrity sha512-rQLskxnM/5OCldHo+wNXbpVgDn5A17CUoKX+7Sokwaknlq7CdSnphy0W39GU8dw59XiCXmFXDg4fRuckQRKewQ==
-
-human-signals@^4.3.0:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-4.3.1.tgz#ab7f811e851fca97ffbd2c1fe9a958964de321b2"
-  integrity sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==
 
 human-signals@^5.0.0:
   version "5.0.0"
@@ -8149,12 +8129,12 @@ yaml@^2.0.0:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.2.2.tgz#ec551ef37326e6d42872dad1970300f8eb83a073"
   integrity sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==
 
-yargs-help-output@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/yargs-help-output/-/yargs-help-output-4.0.0.tgz#488fa160eb2e6dcf019c5c275f21db9f96920e3f"
-  integrity sha512-BncSpHGN9OK92dlq8lIDXrcO1waUt+211XuBcy8k74CZRNnfClyHTwRQvl9spm4K8kBU3Jkimv2oI894fDey+w==
+yargs-help-output@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/yargs-help-output/-/yargs-help-output-5.0.1.tgz#afd6adf80128faec362d153712c7ba7c16624a6b"
+  integrity sha512-P2crvA6lQZgmL7JjFSWHUVMjWA8jhoODAVt/lN92KD27xut5Hsd4Bg4NY9gJ9QNLobzbJmUpviBnFvLOV81ppA==
   dependencies:
-    execa "^7.0.0"
+    execa "^8.0.0"
     yargs "^17.0.0"
 
 yargs-parser@13.1.2, yargs-parser@^13.1.2:
