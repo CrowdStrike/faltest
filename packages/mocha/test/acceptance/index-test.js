@@ -331,8 +331,7 @@ describe(function() {
         this.assertFilesExist('it firefox failure');
       });
 
-      // eslint-disable-next-line mocha/no-skipped-tests
-      it.skip('works in edge', async function() {
+      it('works in edge', async function() {
         let stats = await this.runTests({
           filter: 'it edge ',
         });
