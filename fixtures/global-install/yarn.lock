@@ -39,7 +39,7 @@
     mocha-helpers "^9.0.0"
 
 "@faltest/remote@^12.0.0", "@faltest/remote@file:../../packages/remote":
-  version "12.0.10"
+  version "12.0.11"
   dependencies:
     "@faltest/utils" "^8.0.0"
     browser-webdriver-downloader "^3.0.0"
@@ -50,7 +50,7 @@
     geckodriver "4.3.0"
     get-port "^7.0.0"
     ps-list "^8.0.0"
-    webdriverio "7.33.0"
+    webdriverio "7.34.0"
     yn "^5.0.0"
 
 "@faltest/utils@^8.0.0", "@faltest/utils@file:../../packages/utils":
@@ -856,10 +856,10 @@ devtools-protocol@0.0.981744:
   resolved "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.981744.tgz#9960da0370284577d46c28979a0b32651022bacf"
   integrity sha512-0cuGS8+jhR67Fy7qG3i3Pc7Aw494sb9yG9QgpG97SFVWwolgYjlhJg7n+UaHxOQT30d1TYu/EYe9k01ivLErIg==
 
-devtools-protocol@^0.0.1203626:
-  version "0.0.1203626"
-  resolved "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1203626.tgz#4366a4c81a7e0d4fd6924e9182c67f1e5941e820"
-  integrity sha512-nEzHZteIUZfGCZtTiS1fRpC8UZmsfD1SiyPvaUNvS13dvKf666OAm8YTi0+Ca3n1nLEyu49Cy4+dPWpaHFJk9g==
+devtools-protocol@^0.0.1237913:
+  version "0.0.1237913"
+  resolved "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1237913.tgz#ac0208ff0cbe9c53646753576b5c1d788e3caa38"
+  integrity sha512-Pxtmz2ZIqBkpU82HaIdsvCQBG94yTC4xajrEsWx9p38QKEfBCJktSazsHkrjf9j3dVVNPhg5LR21F6KWeXpjiQ==
 
 devtools@7.33.0:
   version "7.33.0"
@@ -2572,10 +2572,10 @@ webdriver@7.33.0:
     ky "0.30.0"
     lodash.merge "^4.6.1"
 
-webdriverio@7.33.0:
-  version "7.33.0"
-  resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-7.33.0.tgz#2453fcb34b558b9e5cf153089e98ab1f1030ac2e"
-  integrity sha512-9MRPYkOEdsvsBpDJRSMAR+dLID6I65vKjpzNTTFJSjRLSHF6MByOH3mV2trlpIyV+TIp87GysYUVf3Cmufg9eg==
+webdriverio@7.34.0:
+  version "7.34.0"
+  resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-7.34.0.tgz#b0f0b4fca32aa6f05387fd2c5aa5f78fd3b5d2fe"
+  integrity sha512-zlbWlA7izh/OwtrdCWJNDw16YWaOx2uRhBFrpk2zaSEn5HOWw7jHzLtvQFJ4qy2i2yguRPOcDudkRA5YOAeTnQ==
   dependencies:
     "@types/aria-query" "^5.0.0"
     "@types/node" "^18.0.0"
@@ -2590,7 +2590,7 @@ webdriverio@7.33.0:
     css-shorthand-properties "^1.1.1"
     css-value "^0.0.1"
     devtools "7.33.0"
-    devtools-protocol "^0.0.1203626"
+    devtools-protocol "^0.0.1237913"
     fs-extra "^11.1.1"
     grapheme-splitter "^1.0.2"
     lodash.clonedeep "^4.5.0"
