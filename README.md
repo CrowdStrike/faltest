@@ -38,7 +38,7 @@ Options:
   --retries                       When all else fails, try again!   [default: 0]
   --target                        Run against a different UI server/URL
                               [string] [choices: "default"] [default: "default"]
-  --env                           Run against a different data source
+  --env, --environment            Run against a different data source
                               [string] [choices: "default"] [default: "default"]
   --share-webdriver               Keep the WebDriver process open between test
                                   runs                 [boolean] [default: true]
