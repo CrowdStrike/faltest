@@ -61,6 +61,7 @@ function initCli({
         default: envs.default,
         description: 'Run against a different data source',
         choices: envs.list,
+        alias: 'environment',
       },
       'share-webdriver': {
         type: 'boolean',
