@@ -2329,15 +2329,15 @@ devtools-protocol@0.0.981744:
   resolved "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.981744.tgz#9960da0370284577d46c28979a0b32651022bacf"
   integrity sha512-0cuGS8+jhR67Fy7qG3i3Pc7Aw494sb9yG9QgpG97SFVWwolgYjlhJg7n+UaHxOQT30d1TYu/EYe9k01ivLErIg==
 
-devtools-protocol@^0.0.1237913:
-  version "0.0.1237913"
-  resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.1237913.tgz#ac0208ff0cbe9c53646753576b5c1d788e3caa38"
-  integrity sha512-Pxtmz2ZIqBkpU82HaIdsvCQBG94yTC4xajrEsWx9p38QKEfBCJktSazsHkrjf9j3dVVNPhg5LR21F6KWeXpjiQ==
+devtools-protocol@^0.0.1258865:
+  version "0.0.1258865"
+  resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.1258865.tgz#6be1356f551e08c57a4eedd69cfc24a595e2c085"
+  integrity sha512-bNa8CwBNfe77CMJ7maORqOxfS1LKi20wtUnBMKAWb+swPMTpQpc/cIVqP/rugeuGfX7YhKmr6kOIJ62312pNaQ==
 
-devtools@7.33.0:
-  version "7.33.0"
-  resolved "https://registry.yarnpkg.com/devtools/-/devtools-7.33.0.tgz#6b4f3c8281a8631943e706099c326468888133d6"
-  integrity sha512-9sxWcdZLOUtgvw4kotL8HqvIFkO/yuHUecgqCYXnqIzwdWSoxWCeKAyZhOJNMeFtzjEnHGvIrUIquEuifk2STg==
+devtools@7.35.0:
+  version "7.35.0"
+  resolved "https://registry.yarnpkg.com/devtools/-/devtools-7.35.0.tgz#2b37408e88cee13ff658aeef015f87be7fc691f9"
+  integrity sha512-7HMZMcJSCK/PaBCWVs4n4ZhtBNdUQj10iPwXvj/JDkqPreEXN/XW9GJAoMuLPFmCEKfxe+LrIbgs8ocGJ6rp/A==
   dependencies:
     "@types/node" "^18.0.0"
     "@types/ua-parser-js" "^0.7.33"
@@ -8329,10 +8329,10 @@ webdriver@7.33.0:
     ky "0.30.0"
     lodash.merge "^4.6.1"
 
-webdriverio@7.34.0:
-  version "7.34.0"
-  resolved "https://registry.yarnpkg.com/webdriverio/-/webdriverio-7.34.0.tgz#b0f0b4fca32aa6f05387fd2c5aa5f78fd3b5d2fe"
-  integrity sha512-zlbWlA7izh/OwtrdCWJNDw16YWaOx2uRhBFrpk2zaSEn5HOWw7jHzLtvQFJ4qy2i2yguRPOcDudkRA5YOAeTnQ==
+webdriverio@7.35.0:
+  version "7.35.0"
+  resolved "https://registry.yarnpkg.com/webdriverio/-/webdriverio-7.35.0.tgz#f9c93cf468e025d3b6e47fc75f079eb24afa2ea0"
+  integrity sha512-bXiINpNRg45J6NnfnvV2h7Y1Ck5lvsagsOCvnytwzAoDX4WeYMDJtWVHnyXTJplIzcdZ+/PHlYe+NTQQDUP+Fw==
   dependencies:
     "@types/aria-query" "^5.0.0"
     "@types/node" "^18.0.0"
@@ -8346,8 +8346,8 @@ webdriverio@7.34.0:
     aria-query "^5.2.1"
     css-shorthand-properties "^1.1.1"
     css-value "^0.0.1"
-    devtools "7.33.0"
-    devtools-protocol "^0.0.1237913"
+    devtools "7.35.0"
+    devtools-protocol "^0.0.1258865"
     fs-extra "^11.1.1"
     grapheme-splitter "^1.0.2"
     lodash.clonedeep "^4.5.0"
