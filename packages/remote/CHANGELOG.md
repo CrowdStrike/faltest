@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.0.21](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.20...@faltest/remote@12.0.21) (2024-02-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chromedriver to v122.0.2 ([45c2f8c](https://github.com/CrowdStrike/faltest/commit/45c2f8cd933d432fe1841e2166759671f5d289db))
+
 ### [12.0.20](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.19...@faltest/remote@12.0.20) (2024-02-22)
 
 
