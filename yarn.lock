@@ -2387,10 +2387,10 @@ devtools-protocol@0.0.981744:
   resolved "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.981744.tgz#9960da0370284577d46c28979a0b32651022bacf"
   integrity sha512-0cuGS8+jhR67Fy7qG3i3Pc7Aw494sb9yG9QgpG97SFVWwolgYjlhJg7n+UaHxOQT30d1TYu/EYe9k01ivLErIg==
 
-devtools-protocol@^0.0.1258865:
-  version "0.0.1258865"
-  resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.1258865.tgz#6be1356f551e08c57a4eedd69cfc24a595e2c085"
-  integrity sha512-bNa8CwBNfe77CMJ7maORqOxfS1LKi20wtUnBMKAWb+swPMTpQpc/cIVqP/rugeuGfX7YhKmr6kOIJ62312pNaQ==
+devtools-protocol@^0.0.1260888:
+  version "0.0.1260888"
+  resolved "https://registry.yarnpkg.com/devtools-protocol/-/devtools-protocol-0.0.1260888.tgz#ef749c1de1363b6dcec1da8c99cbb23aacecc4af"
+  integrity sha512-9rTIZ4ZjWwalCPiaY+kPiALLfOKgAz5CTi/Zb1L+qSZ8PH3zVo1T8JcgXIIqg1iM3pZ6hF+n9xO5r2jZ/SF+jg==
 
 devtools@7.35.0:
   version "7.35.0"
@@ -8523,10 +8523,10 @@ webdriver@7.33.0:
     ky "0.30.0"
     lodash.merge "^4.6.1"
 
-webdriverio@7.35.0:
-  version "7.35.0"
-  resolved "https://registry.yarnpkg.com/webdriverio/-/webdriverio-7.35.0.tgz#f9c93cf468e025d3b6e47fc75f079eb24afa2ea0"
-  integrity sha512-bXiINpNRg45J6NnfnvV2h7Y1Ck5lvsagsOCvnytwzAoDX4WeYMDJtWVHnyXTJplIzcdZ+/PHlYe+NTQQDUP+Fw==
+webdriverio@7.36.0:
+  version "7.36.0"
+  resolved "https://registry.yarnpkg.com/webdriverio/-/webdriverio-7.36.0.tgz#581ba73df4cb5252531939d5f58d2ebd005cc5b9"
+  integrity sha512-OTYmKBF7eFKBX39ojUIEzw7AlE1ZRJiFoMTtEQaPMuPzZCP2jUBq6Ey38nuZrYXLkXn3/le9a14pNnKSM0n56w==
   dependencies:
     "@types/aria-query" "^5.0.0"
     "@types/node" "^18.0.0"
@@ -8541,7 +8541,7 @@ webdriverio@7.35.0:
     css-shorthand-properties "^1.1.1"
     css-value "^0.0.1"
     devtools "7.35.0"
-    devtools-protocol "^0.0.1258865"
+    devtools-protocol "^0.0.1260888"
     fs-extra "^11.1.1"
     grapheme-splitter "^1.0.2"
     lodash.clonedeep "^4.5.0"
