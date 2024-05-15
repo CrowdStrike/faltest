@@ -21,7 +21,7 @@
     "node": ">=18.12"
   },
   "devDependencies": {
-    "@crowdstrike/commitlint": "^7.0.0",
+    "@crowdstrike/commitlint": "^8.0.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "chai-fs": "^2.0.0",
