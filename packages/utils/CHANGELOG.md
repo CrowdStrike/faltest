@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.3](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@8.0.2...@faltest/utils@8.0.3) (2024-05-20)
+
 ### [8.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@8.0.1...@faltest/utils@8.0.2) (2024-03-04)
 
 ### [8.0.1](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@8.0.0...@faltest/utils@8.0.1) (2023-11-07)

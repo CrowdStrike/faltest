@@ -1,6 +1,6 @@
 {
   "name": "@faltest/chai",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "A Chai plugin for @faltest/page-objects",
   "main": "index.js",
   "files": [
