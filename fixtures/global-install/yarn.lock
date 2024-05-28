@@ -39,11 +39,11 @@
     mocha-helpers "^9.0.0"
 
 "@faltest/remote@^12.0.0", "@faltest/remote@file:../../packages/remote":
-  version "12.0.36"
+  version "12.0.37"
   dependencies:
     "@faltest/utils" "^8.0.0"
     browser-webdriver-downloader "^3.0.0"
-    chromedriver "125.0.1"
+    chromedriver "125.0.2"
     events-async "^1.2.1"
     execa "^8.0.0"
     fkill "^9.0.0"
@@ -646,10 +646,10 @@ chrome-launcher@^0.15.0:
     is-wsl "^2.2.0"
     lighthouse-logger "^1.0.0"
 
-chromedriver@125.0.1:
-  version "125.0.1"
-  resolved "https://registry.npmjs.org/chromedriver/-/chromedriver-125.0.1.tgz#29e26e2b8b91c0e9313a5b2b0056fbfb9156677a"
-  integrity sha512-8cNZTAZV1posaWzVbC0S9MG+Cf3Dq1oGRnr3pSxuKwhO9Jnjjd4/N71VmkUJq7pqk2IedRStbmlkUM/ACn22XA==
+chromedriver@125.0.2:
+  version "125.0.2"
+  resolved "https://registry.npmjs.org/chromedriver/-/chromedriver-125.0.2.tgz#e8d399a8f45aa0958dd0a3662d9175d25520ec18"
+  integrity sha512-H2mIy3r//bIGVouQQrp2UzS93cjGCV2f+I6qNimAOyIiWkaKCiLEuDMQnuC21rewo/UuyOA8CDqa4a7RIT/8EQ==
   dependencies:
     "@testim/chrome-version" "^1.1.4"
     axios "^1.6.7"
