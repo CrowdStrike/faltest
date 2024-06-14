@@ -12,15 +12,15 @@ describe('role', function() {
     });
   });
 
-  roles('#role2', function() {
+  roles('#role2 #role3', function() {
     it('works', function() {
-      assert.strictEqual(this.role, 'role2');
+      assert.ok(this.role.match(/role[2|3]/));
     });
   });
 
-  roles('#role3', function() {
+  roles('#role4', '#role5', '#role6', function() {
     it('works', function() {
-      assert.strictEqual(this.role, 'role3');
+      assert.ok(this.role.match(/role[4|5|6]/));
     });
   });
 });
