@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@crowdstrike/commitlint": "^7.0.0",
-    "chai": "^4.2.0",
+    "chai": "^5.0.0",
     "chai-as-promised": "^7.1.1",
     "chai-fs": "^2.0.0",
     "chai-string": "^1.5.0",
