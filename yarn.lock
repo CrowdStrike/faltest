@@ -3302,10 +3302,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.npmjs.org/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-geckodriver@4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/geckodriver/-/geckodriver-4.4.1.tgz#b39b26a17f9166038702743f5722b6d83e0483f6"
-  integrity sha512-nnAdIrwLkMcDu4BitWXF23pEMeZZ0Cj7HaWWFdSpeedBP9z6ft150JYiGO2mwzw6UiR823Znk1JeIf07RyzloA==
+geckodriver@4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/geckodriver/-/geckodriver-4.4.2.tgz#b5b72b3e5deb905947151f214b96f52505c2dd3a"
+  integrity sha512-/JFJ7DJPJUvDhLjzQk+DwjlkAmiShddfRHhZ/xVL9FWbza5Bi3UMGmmerEKqD69JbRs7R81ZW31co686mdYZyA==
   dependencies:
     "@wdio/logger" "^8.28.0"
     "@zip.js/zip.js" "^2.7.44"
