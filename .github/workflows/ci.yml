@@ -9,7 +9,6 @@ on:
 env:
   DEBUG: "@faltest*,faltest-helpers"
   DETECT_CHROMEDRIVER_VERSION: true
-  DETECT_EDGEDRIVER_VERSION: true
 
 jobs:
   lint-git:
@@ -64,6 +63,8 @@ jobs:
     # - uses: browser-actions/setup-edge@latest
 
     - run: yarn install --frozen-lockfile
+      env:
+        EDGEDRIVER_VERSION: 128.0.2739.56
     - run: yarn test
       env:
         WEBDRIVER_HEADLESS: true
@@ -87,6 +88,13 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node }}
+
+    - if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: echo "EDGEDRIVER_VERSION=128.0.2739.56" >> $GITHUB_ENV
+    - if: ${{ matrix.os == 'macos-latest' }}
+      run: echo "EDGEDRIVER_VERSION=128.0.2739.61" >> $GITHUB_ENV
+    - if: ${{ matrix.os == 'windows-latest' }}
+      run: echo "EDGEDRIVER_VERSION=128.0.2739.54" >> $GITHUB_ENV
 
     - run: yarn install --frozen-lockfile
     - if: runner.os == 'Linux'
