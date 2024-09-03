@@ -35,7 +35,7 @@ describe('sample', function() {
     });
 
     it('works #smoke', async function() {
-      await expect(this.memberSection).displayed.to.eventually.be.ok;
+      await expect(this.memberSection).displayed.to.eventually.be.not.ok;
     });
 
     it({
