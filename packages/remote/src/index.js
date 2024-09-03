@@ -193,13 +193,13 @@ async function spawnWebDriver(name, args) {
 
   await driverSwitch(name, {
     async chrome() {
-      await waitForText('ChromeDriver was started successfully.');
+      await waitForText('ChromeDriver was started successfully');
     },
     async firefox() {
       await waitForText('Listening on 127.0.0.1');
     },
     async edge() {
-      await waitForText('Microsoft Edge WebDriver was started successfully.');
+      await waitForText('Microsoft Edge WebDriver was started successfully');
     },
   });
 
