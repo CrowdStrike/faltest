@@ -21,7 +21,14 @@ jobs:
         ref: ${{ github.event.pull_request.head.sha }}
     # grab default branch to calculate branch point to know when to stop linting
     - if: ${{ github.base_ref }}
-      run: git branch ${{ github.base_ref }} origin/${{ github.base_ref }}
+      run: |
+        ref="${{ github.base_ref }}"
+        if git check-ref-format --branch "$ref"; then
+          git branch "$ref" "origin/$ref"
+        else
+          echo "Invalid base_ref: '$ref'"
+          exit 1
+        fi
     - uses: actions/setup-node@v4
 
     - run: yarn install --frozen-lockfile --ignore-scripts
