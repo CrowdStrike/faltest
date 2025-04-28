@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [12.0.51](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.50...@faltest/remote@12.0.51) (2025-04-28)
+
+
+### Bug Fixes
+
+* update msedgedriver boot message ([caad93f](https://github.com/CrowdStrike/faltest/commit/caad93fb78a744d9eb7d94ae8e8bc6935377ff2f))
+
 ## [12.0.50](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.49...@faltest/remote@12.0.50) (2024-09-03)
 
 
