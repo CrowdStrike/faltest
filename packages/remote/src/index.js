@@ -199,7 +199,7 @@ async function spawnWebDriver(name, args) {
       await waitForText('Listening on 127.0.0.1');
     },
     async edge() {
-      await waitForText('Microsoft Edge WebDriver was started successfully');
+      await waitForText('msedgedriver was started successfully');
     },
   });
 
