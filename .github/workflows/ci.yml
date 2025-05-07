@@ -9,6 +9,7 @@ on:
 env:
   DEBUG: "@faltest*,faltest-helpers"
   DETECT_CHROMEDRIVER_VERSION: true
+  DETECT_EDGEDRIVER_VERSION: true
 
 jobs:
   lint-git:
@@ -70,8 +71,6 @@ jobs:
     # - uses: browser-actions/setup-edge@latest
 
     - run: yarn install --frozen-lockfile
-      env:
-        EDGEDRIVER_VERSION: 128.0.2739.56
     - run: yarn test
       env:
         WEBDRIVER_HEADLESS: true
@@ -97,8 +96,6 @@ jobs:
         node-version: ${{ matrix.node }}
 
     - run: yarn install --frozen-lockfile
-      env:
-        EDGEDRIVER_VERSION: ${{ matrix.os == 'ubuntu-latest' && '128.0.2739.56' || matrix.os == 'macos-latest' && '128.0.2739.61' || '128.0.2739.54' }}
     - if: runner.os == 'Linux'
       # https://github.com/juliangruber/browser-run/issues/147#issue-495226343
       run: Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
