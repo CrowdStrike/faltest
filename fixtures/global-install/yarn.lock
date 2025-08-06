@@ -39,7 +39,7 @@
     mocha-helpers "^9.0.0"
 
 "@faltest/remote@^12.0.0", "@faltest/remote@file:../../packages/remote":
-  version "12.0.53"
+  version "12.0.54"
   dependencies:
     "@faltest/utils" "^8.0.0"
     browser-webdriver-downloader "^3.0.4"
@@ -47,7 +47,7 @@
     events-async "^1.2.1"
     execa "^8.0.0"
     fkill "^9.0.0"
-    geckodriver "4.4.4"
+    geckodriver "4.5.1"
     get-port "^7.0.0"
     ps-list "^8.0.0"
     webdriverio "7.36.0"
@@ -1241,10 +1241,10 @@ fsevents@~2.3.2:
   resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
   integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
-geckodriver@4.4.4:
-  version "4.4.4"
-  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-4.4.4.tgz#0aad02533e8cf127573f4d86f1cc5450c913f095"
-  integrity sha512-0zaw19tcmWeluqx7+Y559JGBtidu1D0Lb8ElYKiNEQu8r3sCfrLUf5V10xypl8u29ZLbgRV7WflxCJVTCkCMFA==
+geckodriver@4.5.1:
+  version "4.5.1"
+  resolved "https://registry.npmjs.org/geckodriver/-/geckodriver-4.5.1.tgz#624fc01815c1aa498dd3f717f7bd4c6cca0c57b8"
+  integrity sha512-lGCRqPMuzbRNDWJOQcUqhNqPvNsIFu6yzXF8J/6K3WCYFd2r5ckbeF7h1cxsnjA7YLSEiWzERCt6/gjZ3tW0ug==
   dependencies:
     "@wdio/logger" "^9.0.0"
     "@zip.js/zip.js" "^2.7.48"
