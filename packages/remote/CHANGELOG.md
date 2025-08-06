@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [12.0.55](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.54...@faltest/remote@12.0.55) (2025-08-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency webdriverio to v7.40.0 ([c35d386](https://github.com/CrowdStrike/faltest/commit/c35d3865fb385675eddf523848099e75408795e4))
+
 ## [12.0.54](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.53...@faltest/remote@12.0.54) (2025-08-06)
 
 
