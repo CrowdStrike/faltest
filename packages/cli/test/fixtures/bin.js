@@ -2,4 +2,10 @@
 
 process.env.FALTEST_CONFIG_DIR = __dirname;
 
-require('../../../../node_modules/.bin/faltest');
+let bin = 'faltest';
+
+if (process.platform === 'win32') {
+  bin += '.cmd';
+}
+
+require(`../../../../node_modules/.bin/${bin}`);
