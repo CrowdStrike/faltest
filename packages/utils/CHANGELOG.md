@@ -1,6 +1,8 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [8.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@8.0.3...@faltest/utils@8.0.4) (2025-08-06)
 
 ### [8.0.3](https://github.com/CrowdStrike/faltest/compare/@faltest/utils@8.0.2...@faltest/utils@8.0.3) (2024-05-20)
 

@@ -1,6 +1,8 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [9.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@9.0.5...@faltest/mocha@9.0.6) (2025-08-06)
 
 ### [9.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/mocha@9.0.4...@faltest/mocha@9.0.5) (2024-05-20)
 

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [12.0.53](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.52...@faltest/remote@12.0.53) (2025-08-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependency chromedriver to v128.0.3 ([8c74419](https://github.com/CrowdStrike/faltest/commit/8c74419cd0f5c00cdf3a4f6940976ce1395e3390))
+
 ## [12.0.52](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.51...@faltest/remote@12.0.52) (2025-08-06)
 
 
