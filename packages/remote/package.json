@@ -33,7 +33,7 @@
     "events-async": "^1.2.1",
     "execa": "^8.0.0",
     "fkill": "^9.0.0",
-    "geckodriver": "4.4.4",
+    "geckodriver": "4.5.1",
     "get-port": "^7.0.0",
     "ps-list": "^8.0.0",
     "webdriverio": "7.36.0",
