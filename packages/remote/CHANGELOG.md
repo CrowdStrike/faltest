@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [12.0.52](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.51...@faltest/remote@12.0.52) (2025-08-06)
+
+
+### Bug Fixes
+
+* update `browser-webdriver-downloader` to `3.0.4` ([4c724c3](https://github.com/CrowdStrike/faltest/commit/4c724c3d2e12fcb4d36db838cb357051dae3815c))
+
 ## [12.0.51](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.50...@faltest/remote@12.0.51) (2025-04-28)
 
 
