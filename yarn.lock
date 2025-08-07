@@ -7245,7 +7245,7 @@ remark@^15.0.0:
     remark-stringify "^11.0.0"
     unified "^11.0.0"
 
-renovate-config-standard@^2.0.0:
+renovate-config-standard@2.1.1:
   version "2.1.1"
   resolved "https://registry.npmjs.org/renovate-config-standard/-/renovate-config-standard-2.1.1.tgz#e1448e77403c9a7e215e3dcb8f98471ac30c3e07"
   integrity sha512-x3H2tccWCwVzGOCbo9w6UtAJ7Sjon3YrB0Mze1U7ttNmp+DWzDj569ySjLKos1wfQTy5URBpZX3IOJyGfFBJBA==
