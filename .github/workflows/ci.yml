@@ -134,5 +134,7 @@ jobs:
         yarn install --production
         yarn link
       working-directory: fixtures/global-install
+      env:
+        SKIP_EDGEDRIVER_DOWNLOAD: true
 
     - run: my-cli --headless
