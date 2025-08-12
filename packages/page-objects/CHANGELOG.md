@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [8.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@8.0.6...@faltest/page-objects@8.0.7) (2025-08-12)
+
 ## [8.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@8.0.5...@faltest/page-objects@8.0.6) (2025-08-12)
 
 ## [8.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/page-objects@8.0.4...@faltest/page-objects@8.0.5) (2025-08-06)

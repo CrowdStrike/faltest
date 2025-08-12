@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.0.7](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@10.0.6...@faltest/lifecycle@10.0.7) (2025-08-12)
+
 ## [10.0.6](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@10.0.5...@faltest/lifecycle@10.0.6) (2025-08-12)
 
 ## [10.0.5](https://github.com/CrowdStrike/faltest/compare/@faltest/lifecycle@10.0.4...@faltest/lifecycle@10.0.5) (2025-08-06)

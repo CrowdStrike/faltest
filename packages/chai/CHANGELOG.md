@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [7.0.4](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@7.0.3...@faltest/chai@7.0.4) (2025-08-12)
+
 ## [7.0.3](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@7.0.2...@faltest/chai@7.0.3) (2025-08-12)
 
 ### [7.0.2](https://github.com/CrowdStrike/faltest/compare/@faltest/chai@7.0.1...@faltest/chai@7.0.2) (2024-05-20)
