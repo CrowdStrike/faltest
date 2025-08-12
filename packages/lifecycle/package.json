@@ -1,6 +1,6 @@
 {
   "name": "@faltest/lifecycle",
-  "version": "10.0.5",
+  "version": "10.0.6",
   "description": "A Mocha environment for the @faltest/remote project",
   "main": "src",
   "files": [
