@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [12.0.61](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.60...@faltest/remote@12.0.61) (2025-08-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency geckodriver to v5 ([48f0416](https://github.com/CrowdStrike/faltest/commit/48f0416e8094602cdcd06daec321bf6377669b46))
+
 ## [12.0.60](https://github.com/CrowdStrike/faltest/compare/@faltest/remote@12.0.59...@faltest/remote@12.0.60) (2025-08-12)
 
 
