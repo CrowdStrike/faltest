@@ -17,7 +17,7 @@ jobs:
         node-version: 18
         registry-url: 'https://registry.npmjs.org'
 
-    - run: npm ci
+    - run: yarn install --frozen-lockfile --ignore-scripts
     - run: |
         git config user.email "$(git show -s --format=%ae)"
         git config user.name "$(git show -s --format=%an)"
