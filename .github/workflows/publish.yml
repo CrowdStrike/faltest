@@ -1,0 +1,26 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        fetch-depth: 0
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        registry-url: 'https://registry.npmjs.org'
+
+    - run: npm ci
+    - run: |
+        git config user.email "$(git show -s --format=%ae)"
+        git config user.name "$(git show -s --format=%an)"
+    - run: npm run release
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
