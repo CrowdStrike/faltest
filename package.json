@@ -30,7 +30,7 @@
     "cross-env": "^7.0.0",
     "eslint": "^8.0.0",
     "eslint-config-crowdstrike": "10.1.0",
-    "eslint-config-crowdstrike-node": "3.0.1",
+    "eslint-config-crowdstrike-node": "4.0.2",
     "eslint-plugin-faltest": "^6.0.0",
     "eslint-plugin-json-files": "^4.0.0",
     "eslint-plugin-mocha": "^10.0.0",
