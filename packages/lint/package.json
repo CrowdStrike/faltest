@@ -34,7 +34,7 @@
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.0.0"
+    "eslint": "^9.0.0"
   },
   "volta": {
     "extends": "../../package.json"
