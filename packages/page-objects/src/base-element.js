@@ -41,6 +41,16 @@ class BaseElement extends BasePageObject {
 
   async waitForInsert() {
     await handleError.call(this, async () => {
+      if (typeof this._selector === 'function') {
+        try {
+          return await this._browser.waitUntil(async () => await this.isExisting());
+        } catch (e) {
+          // if the waitUntil condition fails fall through to the original non-scoped
+          // call so we continue to throw custom human readable faltest errors about the
+          // element selector that is missing
+        }
+      }
+
       await this._browser.waitForInsert(this._selector);
     }, async elementError => {
       // If it's an expected error, that means a parent doesn't exist,
@@ -56,6 +66,16 @@ class BaseElement extends BasePageObject {
 
   async waitForDestroy() {
     await handleError.call(this, async () => {
+      if (typeof this._selector === 'function') {
+        try {
+          return await this._browser.waitUntil(async () => !(await this.isExisting()));
+        } catch (e) {
+          // if the waitUntil condition fails fall through to the original non-scoped
+          // call so we continue to throw custom human readable faltest errors about the
+          // element selector that was not destroyed
+        }
+      }
+
       await this._browser.waitForDestroy(this._selector, ...arguments);
     }, () => {
       // If it's an expected error, that means a parent doesn't exist,
