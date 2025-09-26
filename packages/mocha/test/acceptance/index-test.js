@@ -101,7 +101,7 @@ describe(function() {
       it('works', async function() {
         let stats = await this.runTests();
 
-        expect(stats.passes).to.equal(3);
+        expect(stats.passes).to.equal(6);
       });
 
       it('works with a role', async function() {
@@ -117,7 +117,7 @@ describe(function() {
           tag: ['!role1'],
         });
 
-        expect(stats.passes).to.equal(2);
+        expect(stats.passes).to.equal(5);
       });
     });
 
